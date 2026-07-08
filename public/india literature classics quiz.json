@@ -1,0 +1,707 @@
+{
+  "category": "Indian Literature and Classics",
+  "description": "100 questions on Indian literature and classics, designed for senior citizens to test and improve mental agility.",
+  "total_questions": 100,
+  "questions": [
+    {
+      "id": 1,
+      "question": "Who wrote the epic poem 'Ramayana'?",
+      "options": ["Vyasa", "Valmiki", "Kalidasa", "Tulsidas"],
+      "correct_answer": "Valmiki",
+      "difficulty": "easy"
+    },
+    {
+      "id": 2,
+      "question": "Who is the author of the Mahabharata?",
+      "options": ["Valmiki", "Kalidasa", "Vyasa", "Chanakya"],
+      "correct_answer": "Vyasa",
+      "difficulty": "easy"
+    },
+    {
+      "id": 3,
+      "question": "Rabindranath Tagore won the Nobel Prize in Literature for which collection of poems?",
+      "options": ["Manasi", "Gitanjali", "Sonar Tari", "Katha"],
+      "correct_answer": "Gitanjali",
+      "difficulty": "easy"
+    },
+    {
+      "id": 4,
+      "question": "Which famous play was written by Kalidasa involving the love story of King Dushyanta and Shakuntala?",
+      "options": ["Meghaduta", "Kumarasambhava", "Abhijnanasakuntalam", "Raghuvamsa"],
+      "correct_answer": "Abhijnanasakuntalam",
+      "difficulty": "medium"
+    },
+    {
+      "id": 5,
+      "question": "Tulsidas wrote the famous 'Ramcharitmanas' in which language?",
+      "options": ["Sanskrit", "Hindi", "Awadhi", "Braj Bhasha"],
+      "correct_answer": "Awadhi",
+      "difficulty": "medium"
+    },
+    {
+      "id": 6,
+      "question": "Who wrote the novel 'Godan'?",
+      "options": ["Premchand", "Harivansh Rai Bachchan", "Jaishankar Prasad", "Suryakant Tripathi Nirala"],
+      "correct_answer": "Premchand",
+      "difficulty": "easy"
+    },
+    {
+      "id": 7,
+      "question": "Which Indian author wrote 'The God of Small Things'?",
+      "options": ["Salman Rushdie", "Vikram Seth", "Arundhati Roy", "Anita Desai"],
+      "correct_answer": "Arundhati Roy",
+      "difficulty": "easy"
+    },
+    {
+      "id": 8,
+      "question": "In the Mahabharata, who was the charioteer of Arjuna during the Kurukshetra war?",
+      "options": ["Bhishma", "Dronacharya", "Krishna", "Karna"],
+      "correct_answer": "Krishna",
+      "difficulty": "easy"
+    },
+    {
+      "id": 9,
+      "question": "Which book by Rabindranath Tagore was later made into the Indian national anthem?",
+      "options": ["Gitanjali", "Jana Gana Mana", "Vande Mataram", "Amar Sonar Bangla"],
+      "correct_answer": "Jana Gana Mana",
+      "difficulty": "easy"
+    },
+    {
+      "id": 10,
+      "question": "Who wrote 'Arthashastra', the ancient Indian treatise on statecraft and economics?",
+      "options": ["Chanakya", "Ashoka", "Kalidasa", "Bana"],
+      "correct_answer": "Chanakya",
+      "difficulty": "easy"
+    },
+    {
+      "id": 11,
+      "question": "Which Kalidasa poem describes a cloud as a messenger carrying a lovelorn yaksha's message to his beloved?",
+      "options": ["Kumarasambhava", "Meghaduta", "Raghuvamsa", "Ritusamhara"],
+      "correct_answer": "Meghaduta",
+      "difficulty": "medium"
+    },
+    {
+      "id": 12,
+      "question": "Who wrote the Hindi poem 'Madhushala'?",
+      "options": ["Suryakant Tripathi Nirala", "Harivansh Rai Bachchan", "Sumitranandan Pant", "Mahadevi Varma"],
+      "correct_answer": "Harivansh Rai Bachchan",
+      "difficulty": "medium"
+    },
+    {
+      "id": 13,
+      "question": "'Malgudi Days' is a famous collection of stories written by which Indian author?",
+      "options": ["R. K. Narayan", "Mulk Raj Anand", "Raja Rao", "Vikram Seth"],
+      "correct_answer": "R. K. Narayan",
+      "difficulty": "easy"
+    },
+    {
+      "id": 14,
+      "question": "Which Sanskrit drama by Bhasa is based on the Mahabharata and features Karna as a central character?",
+      "options": ["Swapnavasavadatta", "Karnabhara", "Pratima Nataka", "Urubhanga"],
+      "correct_answer": "Karnabhara",
+      "difficulty": "hard"
+    },
+    {
+      "id": 15,
+      "question": "Who is known as the 'Shakespeare of India'?",
+      "options": ["Valmiki", "Kalidasa", "Tulsidas", "Bharavi"],
+      "correct_answer": "Kalidasa",
+      "difficulty": "easy"
+    },
+    {
+      "id": 16,
+      "question": "Bankim Chandra Chattopadhyay wrote 'Vande Mataram' in which novel?",
+      "options": ["Durgeshnandini", "Anandamath", "Devi Chaudhurani", "Rajani"],
+      "correct_answer": "Anandamath",
+      "difficulty": "medium"
+    },
+    {
+      "id": 17,
+      "question": "Who wrote the Punjabi epic 'Heer Ranjha'?",
+      "options": ["Waris Shah", "Bulleh Shah", "Shah Hussain", "Baba Farid"],
+      "correct_answer": "Waris Shah",
+      "difficulty": "medium"
+    },
+    {
+      "id": 18,
+      "question": "Which author created the character Swami in the book 'Swami and Friends'?",
+      "options": ["R. K. Narayan", "Ruskin Bond", "Mulk Raj Anand", "Raja Rao"],
+      "correct_answer": "R. K. Narayan",
+      "difficulty": "easy"
+    },
+    {
+      "id": 19,
+      "question": "The Panchatantra, a collection of ancient Indian fables, was originally written in which language?",
+      "options": ["Pali", "Prakrit", "Sanskrit", "Tamil"],
+      "correct_answer": "Sanskrit",
+      "difficulty": "medium"
+    },
+    {
+      "id": 20,
+      "question": "Which famous Tamil classic is also known as the 'Bible of Tamil Land'?",
+      "options": ["Silappatikaram", "Thirukkural", "Manimekalai", "Purananuru"],
+      "correct_answer": "Thirukkural",
+      "difficulty": "medium"
+    },
+    {
+      "id": 21,
+      "question": "Who authored the Thirukkural?",
+      "options": ["Kambar", "Ilango Adigal", "Thiruvalluvar", "Avvaiyar"],
+      "correct_answer": "Thiruvalluvar",
+      "difficulty": "easy"
+    },
+    {
+      "id": 22,
+      "question": "Which Indian author wrote 'A Suitable Boy'?",
+      "options": ["Salman Rushdie", "Vikram Seth", "Amitav Ghosh", "Arundhati Roy"],
+      "correct_answer": "Vikram Seth",
+      "difficulty": "easy"
+    },
+    {
+      "id": 23,
+      "question": "Who wrote 'Midnight's Children', which won the Booker Prize?",
+      "options": ["Salman Rushdie", "Vikram Seth", "V. S. Naipaul", "Kiran Desai"],
+      "correct_answer": "Salman Rushdie",
+      "difficulty": "easy"
+    },
+    {
+      "id": 24,
+      "question": "In the Ramayana, what is the name of Rama's father?",
+      "options": ["Dasharatha", "Janaka", "Bharata", "Kaikeya"],
+      "correct_answer": "Dasharatha",
+      "difficulty": "easy"
+    },
+    {
+      "id": 25,
+      "question": "Who is credited with writing the Sanskrit grammar text 'Ashtadhyayi'?",
+      "options": ["Patanjali", "Panini", "Bhartrhari", "Yaska"],
+      "correct_answer": "Panini",
+      "difficulty": "medium"
+    },
+    {
+      "id": 26,
+      "question": "Which saint-poet of Maharashtra is famous for his 'abhangas' dedicated to Lord Vitthal?",
+      "options": ["Tukaram", "Dnyaneshwar", "Eknath", "Namdev"],
+      "correct_answer": "Tukaram",
+      "difficulty": "medium"
+    },
+    {
+      "id": 27,
+      "question": "Which Urdu poet wrote 'Shikwa' and 'Jawab-e-Shikwa'?",
+      "options": ["Mirza Ghalib", "Faiz Ahmed Faiz", "Allama Iqbal", "Mir Taqi Mir"],
+      "correct_answer": "Allama Iqbal",
+      "difficulty": "medium"
+    },
+    {
+      "id": 28,
+      "question": "Mirza Ghalib wrote his famous ghazals primarily in which two languages?",
+      "options": ["Hindi and Persian", "Urdu and Persian", "Urdu and Arabic", "Hindi and Urdu"],
+      "correct_answer": "Urdu and Persian",
+      "difficulty": "medium"
+    },
+    {
+      "id": 29,
+      "question": "Who wrote the Malayalam novel 'Chemmeen'?",
+      "options": ["O.V. Vijayan", "Thakazhi Sivasankara Pillai", "M. T. Vasudevan Nair", "G. Sankara Kurup"],
+      "correct_answer": "Thakazhi Sivasankara Pillai",
+      "difficulty": "hard"
+    },
+    {
+      "id": 30,
+      "question": "Which ancient Indian text contains the story of Savitri and Satyavan?",
+      "options": ["Ramayana", "Mahabharata", "Bhagavata Purana", "Vishnu Purana"],
+      "correct_answer": "Mahabharata",
+      "difficulty": "medium"
+    },
+    {
+      "id": 31,
+      "question": "Kabir Das, the famous saint-poet, was a disciple of which guru?",
+      "options": ["Ramananda", "Shankaracharya", "Ramanuja", "Namdev"],
+      "correct_answer": "Ramananda",
+      "difficulty": "medium"
+    },
+    {
+      "id": 32,
+      "question": "Which Rabindranath Tagore story was adapted into the famous film 'Charulata' by Satyajit Ray?",
+      "options": ["Nastanirh", "Ghare Baire", "Chokher Bali", "Streer Patra"],
+      "correct_answer": "Nastanirh",
+      "difficulty": "hard"
+    },
+    {
+      "id": 33,
+      "question": "Who is the author of the Hindi novel 'Nirmala'?",
+      "options": ["Jaishankar Prasad", "Premchand", "Hazari Prasad Dwivedi", "Acharya Chatursen"],
+      "correct_answer": "Premchand",
+      "difficulty": "medium"
+    },
+    {
+      "id": 34,
+      "question": "The Silappatikaram, one of the five great Tamil epics, was written by whom?",
+      "options": ["Thiruvalluvar", "Ilango Adigal", "Kambar", "Avvaiyar"],
+      "correct_answer": "Ilango Adigal",
+      "difficulty": "medium"
+    },
+    {
+      "id": 35,
+      "question": "Which Indian author wrote the novel 'Train to Pakistan'?",
+      "options": ["Manto", "Ismat Chughtai", "Khushwant Singh", "Bhisham Sahni"],
+      "correct_answer": "Khushwant Singh",
+      "difficulty": "easy"
+    },
+    {
+      "id": 36,
+      "question": "Who wrote the Kannada classic 'Pampa Bharata'?",
+      "options": ["Ranna", "Pampa", "Ponna", "Janna"],
+      "correct_answer": "Pampa",
+      "difficulty": "hard"
+    },
+    {
+      "id": 37,
+      "question": "The Bhagavad Gita is a part of which larger epic?",
+      "options": ["Ramayana", "Mahabharata", "Bhagavata Purana", "Vishnu Purana"],
+      "correct_answer": "Mahabharata",
+      "difficulty": "easy"
+    },
+    {
+      "id": 38,
+      "question": "Which poet wrote 'Kamayani', considered one of the greatest Hindi epics?",
+      "options": ["Sumitranandan Pant", "Mahadevi Varma", "Jaishankar Prasad", "Suryakant Tripathi Nirala"],
+      "correct_answer": "Jaishankar Prasad",
+      "difficulty": "medium"
+    },
+    {
+      "id": 39,
+      "question": "In the Ramayana, who built the bridge 'Rama Setu' to Lanka?",
+      "options": ["Hanuman", "Sugriva", "The Vanara army", "Vibhishana"],
+      "correct_answer": "The Vanara army",
+      "difficulty": "medium"
+    },
+    {
+      "id": 40,
+      "question": "Who wrote the Odia poem 'Panchasakha'?",
+      "options": ["Sarala Das", "Upendra Bhanja", "Balaram Das", "Jagannath Das"],
+      "correct_answer": "Balaram Das",
+      "difficulty": "hard"
+    },
+    {
+      "id": 41,
+      "question": "Which famous Gujarati poet is known for his 'Narsinh Mehta na Prabhatiya' devotional songs?",
+      "options": ["Dalpatram", "Narsinh Mehta", "Premanand", "Akho"],
+      "correct_answer": "Narsinh Mehta",
+      "difficulty": "medium"
+    },
+    {
+      "id": 42,
+      "question": "Who wrote the Assamese epic 'Ramcharit' and is called 'Mahapurusha' in Assam?",
+      "options": ["Sankardev", "Madhavdev", "Bhattadeva", "Ananta Kandali"],
+      "correct_answer": "Sankardev",
+      "difficulty": "hard"
+    },
+    {
+      "id": 43,
+      "question": "Who is Sita's father in the Ramayana?",
+      "options": ["Dasharatha", "Janaka", "Ravana", "Kaikeya"],
+      "correct_answer": "Janaka",
+      "difficulty": "easy"
+    },
+    {
+      "id": 44,
+      "question": "Which poet wrote 'Sufi' love poetry in Sindhi, known as 'Shah Jo Risalo'?",
+      "options": ["Shah Abdul Latif Bhittai", "Sachal Sarmast", "Bulleh Shah", "Waris Shah"],
+      "correct_answer": "Shah Abdul Latif Bhittai",
+      "difficulty": "hard"
+    },
+    {
+      "id": 45,
+      "question": "Which Indian author wrote 'Kim', a novel set in colonial India?",
+      "options": ["E. M. Forster", "Rudyard Kipling", "George Orwell", "Somerset Maugham"],
+      "correct_answer": "Rudyard Kipling",
+      "difficulty": "medium"
+    },
+    {
+      "id": 46,
+      "question": "Who wrote 'Kabuliwala', a famous Bengali short story?",
+      "options": ["Bankim Chandra Chattopadhyay", "Sarat Chandra Chattopadhyay", "Rabindranath Tagore", "Bibhutibhushan Bandyopadhyay"],
+      "correct_answer": "Rabindranath Tagore",
+      "difficulty": "easy"
+    },
+    {
+      "id": 47,
+      "question": "The novel 'Devdas' was written by which Bengali author?",
+      "options": ["Rabindranath Tagore", "Sarat Chandra Chattopadhyay", "Bankim Chandra Chattopadhyay", "Manik Bandyopadhyay"],
+      "correct_answer": "Sarat Chandra Chattopadhyay",
+      "difficulty": "easy"
+    },
+    {
+      "id": 48,
+      "question": "In the Mahabharata, what is the name of Arjuna's bow?",
+      "options": ["Gandiva", "Sharanga", "Pinaka", "Kaumodaki"],
+      "correct_answer": "Gandiva",
+      "difficulty": "medium"
+    },
+    {
+      "id": 49,
+      "question": "Who wrote the famous Urdu short story 'Toba Tek Singh'?",
+      "options": ["Ismat Chughtai", "Krishan Chander", "Saadat Hasan Manto", "Rajinder Singh Bedi"],
+      "correct_answer": "Saadat Hasan Manto",
+      "difficulty": "medium"
+    },
+    {
+      "id": 50,
+      "question": "Which Indian author wrote the novel 'Untouchable'?",
+      "options": ["Raja Rao", "Mulk Raj Anand", "R. K. Narayan", "G. V. Desani"],
+      "correct_answer": "Mulk Raj Anand",
+      "difficulty": "medium"
+    },
+    {
+      "id": 51,
+      "question": "The Panchatantra stories were compiled to teach wisdom to whom, according to tradition?",
+      "options": ["Soldiers of a king", "The dull princes of a king", "Young monks", "Merchants"],
+      "correct_answer": "The dull princes of a king",
+      "difficulty": "medium"
+    },
+    {
+      "id": 52,
+      "question": "Who wrote the Marathi play 'Natsamrat'?",
+      "options": ["P. L. Deshpande", "V. V. Shirwadkar (Kusumagraj)", "Vijay Tendulkar", "G. B. Savarkar"],
+      "correct_answer": "V. V. Shirwadkar (Kusumagraj)",
+      "difficulty": "hard"
+    },
+    {
+      "id": 53,
+      "question": "Which classical Sanskrit text by Vatsyayana deals with love and relationships?",
+      "options": ["Arthashastra", "Manusmriti", "Kama Sutra", "Natyashastra"],
+      "correct_answer": "Kama Sutra",
+      "difficulty": "easy"
+    },
+    {
+      "id": 54,
+      "question": "Rabindranath Tagore founded which university in West Bengal?",
+      "options": ["Jadavpur University", "Visva-Bharati University", "Presidency University", "Calcutta University"],
+      "correct_answer": "Visva-Bharati University",
+      "difficulty": "easy"
+    },
+    {
+      "id": 55,
+      "question": "Who is the central character of the Tamil epic 'Silappatikaram'?",
+      "options": ["Kannagi", "Kovalan", "Madhavi", "Manimekalai"],
+      "correct_answer": "Kannagi",
+      "difficulty": "medium"
+    },
+    {
+      "id": 56,
+      "question": "In the Ramayana, who was Rama's loyal brother who accompanied him to the forest?",
+      "options": ["Bharata", "Shatrughna", "Lakshmana", "All three brothers"],
+      "correct_answer": "Lakshmana",
+      "difficulty": "easy"
+    },
+    {
+      "id": 57,
+      "question": "Who wrote 'Anandamath', which contains the song 'Vande Mataram'?",
+      "options": ["Rabindranath Tagore", "Bankim Chandra Chattopadhyay", "Michael Madhusudan Dutta", "Dinabandhu Mitra"],
+      "correct_answer": "Bankim Chandra Chattopadhyay",
+      "difficulty": "easy"
+    },
+    {
+      "id": 58,
+      "question": "Which Hindi poet is known as 'Chhayavad' movement leader and wrote 'Pallav'?",
+      "options": ["Jaishankar Prasad", "Sumitranandan Pant", "Suryakant Tripathi Nirala", "Mahadevi Varma"],
+      "correct_answer": "Sumitranandan Pant",
+      "difficulty": "hard"
+    },
+    {
+      "id": 59,
+      "question": "Who wrote the famous novel 'Parineeta' in Bengali?",
+      "options": ["Rabindranath Tagore", "Sarat Chandra Chattopadhyay", "Bankim Chandra Chattopadhyay", "Bibhutibhushan Bandyopadhyay"],
+      "correct_answer": "Sarat Chandra Chattopadhyay",
+      "difficulty": "medium"
+    },
+    {
+      "id": 60,
+      "question": "Natyashastra, the ancient Indian treatise on performing arts, was written by whom?",
+      "options": ["Vatsyayana", "Bharata Muni", "Panini", "Chanakya"],
+      "correct_answer": "Bharata Muni",
+      "difficulty": "medium"
+    },
+    {
+      "id": 61,
+      "question": "Who authored the famous novel 'Pather Panchali' which was adapted by Satyajit Ray into a film?",
+      "options": ["Manik Bandyopadhyay", "Sarat Chandra Chattopadhyay", "Bibhutibhushan Bandyopadhyay", "Tarashankar Bandyopadhyay"],
+      "correct_answer": "Bibhutibhushan Bandyopadhyay",
+      "difficulty": "medium"
+    },
+    {
+      "id": 62,
+      "question": "Which poet is called the 'father of modern Hindi poetry'?",
+      "options": ["Kabir Das", "Tulsidas", "Bharatendu Harishchandra", "Maithili Sharan Gupt"],
+      "correct_answer": "Bharatendu Harishchandra",
+      "difficulty": "medium"
+    },
+    {
+      "id": 63,
+      "question": "How many chapters (parvas) does the Mahabharata have?",
+      "options": ["12", "14", "18", "20"],
+      "correct_answer": "18",
+      "difficulty": "medium"
+    },
+    {
+      "id": 64,
+      "question": "In the Ramayana, what is the name of the golden deer that lures Rama away?",
+      "options": ["Maricha (in disguise)", "Kabandha", "Viradha", "Tataka"],
+      "correct_answer": "Maricha (in disguise)",
+      "difficulty": "medium"
+    },
+    {
+      "id": 65,
+      "question": "Which Kashmiri poet and saint is known for her mystical poetry called 'vaakhs'?",
+      "options": ["Habba Khatoon", "Lal Ded (Lalleshwari)", "Arnimal", "Rupa Bhawani"],
+      "correct_answer": "Lal Ded (Lalleshwari)",
+      "difficulty": "medium"
+    },
+    {
+      "id": 66,
+      "question": "Who is known as the first poet of the Hindi language?",
+      "options": ["Kabir Das", "Amir Khusro", "Vidyapati", "Chand Bardai"],
+      "correct_answer": "Chand Bardai",
+      "difficulty": "hard"
+    },
+    {
+      "id": 67,
+      "question": "Which of these novels was written by Anita Desai?",
+      "options": ["The God of Small Things", "Clear Light of Day", "A Fine Balance", "The Inheritance of Loss"],
+      "correct_answer": "Clear Light of Day",
+      "difficulty": "medium"
+    },
+    {
+      "id": 68,
+      "question": "Who wrote the Telugu epic 'Andhra Mahabharatamu'?",
+      "options": ["Nannaya", "Tikkana", "Errana", "All three of them"],
+      "correct_answer": "All three of them",
+      "difficulty": "hard"
+    },
+    {
+      "id": 69,
+      "question": "In which city does R. K. Narayan's fictional town of Malgudi take place?",
+      "options": ["It is an imaginary town in South India", "Mysore", "Chennai", "Bengaluru"],
+      "correct_answer": "It is an imaginary town in South India",
+      "difficulty": "medium"
+    },
+    {
+      "id": 70,
+      "question": "Which famous Bhakti poet is known for the 'Dohas', couplets still quoted in India today?",
+      "options": ["Tulsidas", "Mirabai", "Kabir Das", "Surdas"],
+      "correct_answer": "Kabir Das",
+      "difficulty": "easy"
+    },
+    {
+      "id": 71,
+      "question": "Who wrote the Bengali novel 'Chokher Bali' (A Grain of Sand)?",
+      "options": ["Sarat Chandra Chattopadhyay", "Rabindranath Tagore", "Bankim Chandra Chattopadhyay", "Manik Bandyopadhyay"],
+      "correct_answer": "Rabindranath Tagore",
+      "difficulty": "medium"
+    },
+    {
+      "id": 72,
+      "question": "Mirabai was a devotee of which Hindu god?",
+      "options": ["Shiva", "Rama", "Krishna", "Vishnu"],
+      "correct_answer": "Krishna",
+      "difficulty": "easy"
+    },
+    {
+      "id": 73,
+      "question": "Who wrote 'Kanthapura', a novel about Gandhi's independence movement?",
+      "options": ["Mulk Raj Anand", "Raja Rao", "R. K. Narayan", "G. V. Desani"],
+      "correct_answer": "Raja Rao",
+      "difficulty": "medium"
+    },
+    {
+      "id": 74,
+      "question": "Which saint-poet of Karnataka wrote the 'Vachanas' in Kannada?",
+      "options": ["Akka Mahadevi", "Basavanna", "Allama Prabhu", "All of the above"],
+      "correct_answer": "All of the above",
+      "difficulty": "medium"
+    },
+    {
+      "id": 75,
+      "question": "Premchand's novel 'Godan' means what in English?",
+      "options": ["The Gift of Land", "The Gift of a Cow", "The Gift of Gold", "The Gift of Life"],
+      "correct_answer": "The Gift of a Cow",
+      "difficulty": "medium"
+    },
+    {
+      "id": 76,
+      "question": "Which classical Indian poet wrote the epic 'Kiratarjuniya'?",
+      "options": ["Kalidasa", "Bharavi", "Magha", "Bhavabhuti"],
+      "correct_answer": "Bharavi",
+      "difficulty": "hard"
+    },
+    {
+      "id": 77,
+      "question": "In the Mahabharata, what is the name of the game of dice that leads to the Pandavas losing everything?",
+      "options": ["Chaupar", "Dyuta", "Pachisi", "Chaturanga"],
+      "correct_answer": "Dyuta",
+      "difficulty": "medium"
+    },
+    {
+      "id": 78,
+      "question": "Which Hindi poet wrote 'Rashmirathi', an epic poem on Karna?",
+      "options": ["Jaishankar Prasad", "Harivansh Rai Bachchan", "Ramdhari Singh Dinkar", "Sumitranandan Pant"],
+      "correct_answer": "Ramdhari Singh Dinkar",
+      "difficulty": "medium"
+    },
+    {
+      "id": 79,
+      "question": "The book 'Discovery of India' was written by which Indian leader?",
+      "options": ["Mahatma Gandhi", "B. R. Ambedkar", "Jawaharlal Nehru", "Subhas Chandra Bose"],
+      "correct_answer": "Jawaharlal Nehru",
+      "difficulty": "easy"
+    },
+    {
+      "id": 80,
+      "question": "Who wrote 'My Experiments with Truth', the autobiography of Mahatma Gandhi?",
+      "options": ["Jawaharlal Nehru", "Mahatma Gandhi himself", "Rajendra Prasad", "Sardar Vallabhbhai Patel"],
+      "correct_answer": "Mahatma Gandhi himself",
+      "difficulty": "easy"
+    },
+    {
+      "id": 81,
+      "question": "Which Indian language's literature is called 'Sangam Literature'?",
+      "options": ["Sanskrit", "Kannada", "Tamil", "Telugu"],
+      "correct_answer": "Tamil",
+      "difficulty": "medium"
+    },
+    {
+      "id": 82,
+      "question": "Which poet is known as 'Rashtrakavi' (National Poet) and wrote 'Bharata-Bharati'?",
+      "options": ["Sumitranandan Pant", "Jaishankar Prasad", "Maithili Sharan Gupt", "Ramdhari Singh Dinkar"],
+      "correct_answer": "Maithili Sharan Gupt",
+      "difficulty": "medium"
+    },
+    {
+      "id": 83,
+      "question": "Which Urdu poet said 'Hum Dekhenge' — a famous poem of resistance?",
+      "options": ["Mirza Ghalib", "Faiz Ahmed Faiz", "Allama Iqbal", "Sahir Ludhianvi"],
+      "correct_answer": "Faiz Ahmed Faiz",
+      "difficulty": "medium"
+    },
+    {
+      "id": 84,
+      "question": "Who wrote 'Amar Jiban', considered the first autobiography written by an Indian woman?",
+      "options": ["Rassundari Devi", "Anandibai Joshi", "Pandita Ramabai", "Savitribai Phule"],
+      "correct_answer": "Rassundari Devi",
+      "difficulty": "hard"
+    },
+    {
+      "id": 85,
+      "question": "Which famous novel by Sarat Chandra was banned by the British for its portrayal of the Quit India movement?",
+      "options": ["Devdas", "Parineeta", "Pather Dabi", "Charitraheen"],
+      "correct_answer": "Pather Dabi",
+      "difficulty": "hard"
+    },
+    {
+      "id": 86,
+      "question": "How many kandas (sections) does Valmiki's Ramayana have?",
+      "options": ["4", "6", "7", "9"],
+      "correct_answer": "7",
+      "difficulty": "medium"
+    },
+    {
+      "id": 87,
+      "question": "Which Indian author wrote 'The White Tiger', which won the Booker Prize in 2008?",
+      "options": ["Vikram Seth", "Aravind Adiga", "Amitav Ghosh", "Kiran Desai"],
+      "correct_answer": "Aravind Adiga",
+      "difficulty": "easy"
+    },
+    {
+      "id": 88,
+      "question": "In the Mahabharata, who is the eldest of the five Pandava brothers?",
+      "options": ["Arjuna", "Bhima", "Yudhishthira", "Nakula"],
+      "correct_answer": "Yudhishthira",
+      "difficulty": "easy"
+    },
+    {
+      "id": 89,
+      "question": "Who is Dronacharya in the Mahabharata?",
+      "options": ["A warrior-king", "The teacher of the Kauravas and Pandavas", "The charioteer of Karna", "The father of Duryodhana"],
+      "correct_answer": "The teacher of the Kauravas and Pandavas",
+      "difficulty": "easy"
+    },
+    {
+      "id": 90,
+      "question": "Which poet is known for the phrase 'Satyameva Jayate' found in the Mundaka Upanishad?",
+      "options": ["It is from ancient Vedic scriptures", "Kalidasa", "Tulsidas", "Chanakya"],
+      "correct_answer": "It is from ancient Vedic scriptures",
+      "difficulty": "medium"
+    },
+    {
+      "id": 91,
+      "question": "Who wrote the Marathi novel 'Shyamchi Aai' (Shyam's Mother)?",
+      "options": ["Narayan Surve", "Sane Guruji", "P. L. Deshpande", "V. S. Khandekar"],
+      "correct_answer": "Sane Guruji",
+      "difficulty": "medium"
+    },
+    {
+      "id": 92,
+      "question": "Which ancient Sanskrit text is the source of the famous story of Shakuntala?",
+      "options": ["Ramayana", "Mahabharata", "Bhagavata Purana", "Harivamsa"],
+      "correct_answer": "Mahabharata",
+      "difficulty": "medium"
+    },
+    {
+      "id": 93,
+      "question": "Who wrote the Telugu poem 'Manucharitra', the story of Manu?",
+      "options": ["Allasani Peddana", "Nannaya", "Tikkana", "Ashtadiggajalu"],
+      "correct_answer": "Allasani Peddana",
+      "difficulty": "hard"
+    },
+    {
+      "id": 94,
+      "question": "Which Jain scholar wrote 'Adipurana' in Kannada?",
+      "options": ["Ranna", "Ponna", "Adikavi Pampa", "Jinasena"],
+      "correct_answer": "Adikavi Pampa",
+      "difficulty": "hard"
+    },
+    {
+      "id": 95,
+      "question": "Which famous travelogue was written by Ibn Battuta about his visit to India?",
+      "options": ["Kitab al-Masalik", "Rihla", "Ain-i-Akbari", "Baburnama"],
+      "correct_answer": "Rihla",
+      "difficulty": "medium"
+    },
+    {
+      "id": 96,
+      "question": "In the Bhagavad Gita, how many chapters are there?",
+      "options": ["14", "16", "18", "21"],
+      "correct_answer": "18",
+      "difficulty": "medium"
+    },
+    {
+      "id": 97,
+      "question": "Who wrote the Hindi epic poem 'Priya Pravasa', considered the first Mahakavya in modern Hindi?",
+      "options": ["Hariaudh", "Maithili Sharan Gupt", "Jaishankar Prasad", "Suryakant Tripathi Nirala"],
+      "correct_answer": "Hariaudh",
+      "difficulty": "hard"
+    },
+    {
+      "id": 98,
+      "question": "Which Manipuri poet is known for adapting the Ramayana into the Manipuri language?",
+      "options": ["Hijam Anganghal", "Surchand", "Kabiraj Luwang", "Khwairakpam Chaoba Singh"],
+      "correct_answer": "Kabiraj Luwang",
+      "difficulty": "hard"
+    },
+    {
+      "id": 99,
+      "question": "In Tagore's 'Gitanjali', what is the central theme?",
+      "options": ["Political independence", "Devotion and the soul's longing for the divine", "Nature and environment", "Social reform"],
+      "correct_answer": "Devotion and the soul's longing for the divine",
+      "difficulty": "easy"
+    },
+    {
+      "id": 100,
+      "question": "Who is considered the first woman poet in the Hindi literary tradition, famous for devotional songs to Lord Krishna?",
+      "options": ["Mahadevi Varma", "Mirabai", "Andal", "Akka Mahadevi"],
+      "correct_answer": "Mirabai",
+      "difficulty": "easy"
+    }
+  ]
+}

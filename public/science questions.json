@@ -1,0 +1,707 @@
+{
+  "category": "Science",
+  "description": "Science questions designed to assess and improve mental agility in senior citizens",
+  "total_questions": 100,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the closest planet to the Sun?",
+      "options": ["Venus", "Mercury", "Mars", "Earth"],
+      "correct_answer": "Mercury",
+      "difficulty": "easy"
+    },
+    {
+      "id": 2,
+      "question": "What gas do plants absorb from the air to make food?",
+      "options": ["Oxygen", "Nitrogen", "Carbon Dioxide", "Hydrogen"],
+      "correct_answer": "Carbon Dioxide",
+      "difficulty": "easy"
+    },
+    {
+      "id": 3,
+      "question": "What is the boiling point of water at sea level in Celsius?",
+      "options": ["90°C", "95°C", "100°C", "110°C"],
+      "correct_answer": "100°C",
+      "difficulty": "easy"
+    },
+    {
+      "id": 4,
+      "question": "Which planet is known as the Red Planet?",
+      "options": ["Jupiter", "Saturn", "Venus", "Mars"],
+      "correct_answer": "Mars",
+      "difficulty": "easy"
+    },
+    {
+      "id": 5,
+      "question": "What is the powerhouse of the cell?",
+      "options": ["Nucleus", "Mitochondria", "Ribosome", "Vacuole"],
+      "correct_answer": "Mitochondria",
+      "difficulty": "easy"
+    },
+    {
+      "id": 6,
+      "question": "How many bones are in the adult human body?",
+      "options": ["186", "206", "216", "226"],
+      "correct_answer": "206",
+      "difficulty": "easy"
+    },
+    {
+      "id": 7,
+      "question": "What force keeps us on the ground?",
+      "options": ["Magnetism", "Friction", "Gravity", "Inertia"],
+      "correct_answer": "Gravity",
+      "difficulty": "easy"
+    },
+    {
+      "id": 8,
+      "question": "What is the largest organ in the human body?",
+      "options": ["Heart", "Liver", "Lung", "Skin"],
+      "correct_answer": "Skin",
+      "difficulty": "easy"
+    },
+    {
+      "id": 9,
+      "question": "What is the chemical symbol for water?",
+      "options": ["WA", "H2O", "HO2", "W2O"],
+      "correct_answer": "H2O",
+      "difficulty": "easy"
+    },
+    {
+      "id": 10,
+      "question": "Which of these is a mammal?",
+      "options": ["Salmon", "Eagle", "Dolphin", "Frog"],
+      "correct_answer": "Dolphin",
+      "difficulty": "easy"
+    },
+    {
+      "id": 11,
+      "question": "What is the center of our solar system?",
+      "options": ["The Moon", "The Earth", "The Sun", "Jupiter"],
+      "correct_answer": "The Sun",
+      "difficulty": "easy"
+    },
+    {
+      "id": 12,
+      "question": "What part of the plant conducts photosynthesis?",
+      "options": ["Root", "Stem", "Leaf", "Flower"],
+      "correct_answer": "Leaf",
+      "difficulty": "easy"
+    },
+    {
+      "id": 13,
+      "question": "What is the freezing point of water in Celsius?",
+      "options": ["-10°C", "0°C", "5°C", "10°C"],
+      "correct_answer": "0°C",
+      "difficulty": "easy"
+    },
+    {
+      "id": 14,
+      "question": "What gas do humans breathe in to survive?",
+      "options": ["Carbon Dioxide", "Nitrogen", "Oxygen", "Hydrogen"],
+      "correct_answer": "Oxygen",
+      "difficulty": "easy"
+    },
+    {
+      "id": 15,
+      "question": "Which of the following is a source of renewable energy?",
+      "options": ["Coal", "Natural Gas", "Solar Power", "Oil"],
+      "correct_answer": "Solar Power",
+      "difficulty": "easy"
+    },
+    {
+      "id": 16,
+      "question": "What organ pumps blood through the human body?",
+      "options": ["Brain", "Liver", "Kidney", "Heart"],
+      "correct_answer": "Heart",
+      "difficulty": "easy"
+    },
+    {
+      "id": 17,
+      "question": "Which of these animals is cold-blooded?",
+      "options": ["Dog", "Cat", "Snake", "Rabbit"],
+      "correct_answer": "Snake",
+      "difficulty": "easy"
+    },
+    {
+      "id": 18,
+      "question": "What is the natural satellite of the Earth?",
+      "options": ["Mars", "The Moon", "Venus", "Pluto"],
+      "correct_answer": "The Moon",
+      "difficulty": "easy"
+    },
+    {
+      "id": 19,
+      "question": "How many chambers does the human heart have?",
+      "options": ["2", "3", "4", "5"],
+      "correct_answer": "4",
+      "difficulty": "easy"
+    },
+    {
+      "id": 20,
+      "question": "What is the most abundant gas in Earth's atmosphere?",
+      "options": ["Oxygen", "Carbon Dioxide", "Nitrogen", "Argon"],
+      "correct_answer": "Nitrogen",
+      "difficulty": "easy"
+    },
+    {
+      "id": 21,
+      "question": "What type of blood cells help fight infection in the body?",
+      "options": ["Red blood cells", "Platelets", "White blood cells", "Plasma cells"],
+      "correct_answer": "White blood cells",
+      "difficulty": "medium"
+    },
+    {
+      "id": 22,
+      "question": "Which planet has the most moons in our solar system?",
+      "options": ["Jupiter", "Saturn", "Uranus", "Neptune"],
+      "correct_answer": "Saturn",
+      "difficulty": "medium"
+    },
+    {
+      "id": 23,
+      "question": "What is the speed of light approximately equal to?",
+      "options": ["100,000 km/s", "200,000 km/s", "300,000 km/s", "400,000 km/s"],
+      "correct_answer": "300,000 km/s",
+      "difficulty": "medium"
+    },
+    {
+      "id": 24,
+      "question": "Which vitamin is produced when human skin is exposed to sunlight?",
+      "options": ["Vitamin A", "Vitamin B", "Vitamin C", "Vitamin D"],
+      "correct_answer": "Vitamin D",
+      "difficulty": "medium"
+    },
+    {
+      "id": 25,
+      "question": "What is the chemical symbol for gold?",
+      "options": ["Go", "Gd", "Au", "Ag"],
+      "correct_answer": "Au",
+      "difficulty": "medium"
+    },
+    {
+      "id": 26,
+      "question": "What is the process by which water turns into vapor called?",
+      "options": ["Condensation", "Evaporation", "Precipitation", "Sublimation"],
+      "correct_answer": "Evaporation",
+      "difficulty": "medium"
+    },
+    {
+      "id": 27,
+      "question": "Which part of the brain is responsible for balance and coordination?",
+      "options": ["Cerebrum", "Medulla", "Cerebellum", "Hypothalamus"],
+      "correct_answer": "Cerebellum",
+      "difficulty": "medium"
+    },
+    {
+      "id": 28,
+      "question": "What is the hardest natural substance on Earth?",
+      "options": ["Gold", "Iron", "Diamond", "Quartz"],
+      "correct_answer": "Diamond",
+      "difficulty": "medium"
+    },
+    {
+      "id": 29,
+      "question": "What is the unit of electrical resistance?",
+      "options": ["Volt", "Ampere", "Watt", "Ohm"],
+      "correct_answer": "Ohm",
+      "difficulty": "medium"
+    },
+    {
+      "id": 30,
+      "question": "Which organ in the human body produces insulin?",
+      "options": ["Liver", "Kidney", "Pancreas", "Stomach"],
+      "correct_answer": "Pancreas",
+      "difficulty": "medium"
+    },
+    {
+      "id": 31,
+      "question": "What is the process by which plants make their own food called?",
+      "options": ["Respiration", "Photosynthesis", "Digestion", "Fermentation"],
+      "correct_answer": "Photosynthesis",
+      "difficulty": "medium"
+    },
+    {
+      "id": 32,
+      "question": "What type of energy is stored in food?",
+      "options": ["Kinetic energy", "Nuclear energy", "Chemical energy", "Thermal energy"],
+      "correct_answer": "Chemical energy",
+      "difficulty": "medium"
+    },
+    {
+      "id": 33,
+      "question": "Which blood type is known as the universal donor?",
+      "options": ["A+", "B+", "AB+", "O-"],
+      "correct_answer": "O-",
+      "difficulty": "medium"
+    },
+    {
+      "id": 34,
+      "question": "What is the name of the layer of gas that protects Earth from the Sun's ultraviolet rays?",
+      "options": ["Stratosphere", "Ozone Layer", "Troposphere", "Ionosphere"],
+      "correct_answer": "Ozone Layer",
+      "difficulty": "medium"
+    },
+    {
+      "id": 35,
+      "question": "How many teeth does a healthy adult human have, including wisdom teeth?",
+      "options": ["28", "30", "32", "34"],
+      "correct_answer": "32",
+      "difficulty": "medium"
+    },
+    {
+      "id": 36,
+      "question": "What is the main function of red blood cells?",
+      "options": ["Fight infection", "Carry oxygen", "Produce hormones", "Digest food"],
+      "correct_answer": "Carry oxygen",
+      "difficulty": "medium"
+    },
+    {
+      "id": 37,
+      "question": "Which planet is famous for its large ring system?",
+      "options": ["Jupiter", "Uranus", "Saturn", "Neptune"],
+      "correct_answer": "Saturn",
+      "difficulty": "medium"
+    },
+    {
+      "id": 38,
+      "question": "What is the chemical symbol for iron?",
+      "options": ["Ir", "In", "Fe", "Io"],
+      "correct_answer": "Fe",
+      "difficulty": "medium"
+    },
+    {
+      "id": 39,
+      "question": "Which of these is NOT a state of matter?",
+      "options": ["Solid", "Liquid", "Gas", "Energy"],
+      "correct_answer": "Energy",
+      "difficulty": "medium"
+    },
+    {
+      "id": 40,
+      "question": "How long does it take for light from the Sun to reach Earth?",
+      "options": ["About 2 minutes", "About 8 minutes", "About 20 minutes", "About 1 hour"],
+      "correct_answer": "About 8 minutes",
+      "difficulty": "medium"
+    },
+    {
+      "id": 41,
+      "question": "What is the smallest unit of an element that retains the element's properties?",
+      "options": ["Molecule", "Atom", "Proton", "Electron"],
+      "correct_answer": "Atom",
+      "difficulty": "medium"
+    },
+    {
+      "id": 42,
+      "question": "Which gland in the human body regulates metabolism?",
+      "options": ["Pituitary gland", "Adrenal gland", "Thyroid gland", "Pineal gland"],
+      "correct_answer": "Thyroid gland",
+      "difficulty": "medium"
+    },
+    {
+      "id": 43,
+      "question": "What is the name of the pigment that gives plants their green color?",
+      "options": ["Melanin", "Carotene", "Chlorophyll", "Hemoglobin"],
+      "correct_answer": "Chlorophyll",
+      "difficulty": "medium"
+    },
+    {
+      "id": 44,
+      "question": "What do we call animals that eat only plants?",
+      "options": ["Carnivores", "Omnivores", "Herbivores", "Insectivores"],
+      "correct_answer": "Herbivores",
+      "difficulty": "medium"
+    },
+    {
+      "id": 45,
+      "question": "Which of the following is a noble gas?",
+      "options": ["Hydrogen", "Oxygen", "Helium", "Nitrogen"],
+      "correct_answer": "Helium",
+      "difficulty": "medium"
+    },
+    {
+      "id": 46,
+      "question": "What is the name of the force that opposes motion between two surfaces?",
+      "options": ["Gravity", "Inertia", "Friction", "Tension"],
+      "correct_answer": "Friction",
+      "difficulty": "medium"
+    },
+    {
+      "id": 47,
+      "question": "How many chromosomes does a normal human cell contain?",
+      "options": ["23", "44", "46", "48"],
+      "correct_answer": "46",
+      "difficulty": "medium"
+    },
+    {
+      "id": 48,
+      "question": "What is the term for the path a planet follows around the Sun?",
+      "options": ["Rotation", "Revolution", "Orbit", "Trajectory"],
+      "correct_answer": "Orbit",
+      "difficulty": "medium"
+    },
+    {
+      "id": 49,
+      "question": "Which organ filters waste from the blood to produce urine?",
+      "options": ["Liver", "Kidney", "Spleen", "Bladder"],
+      "correct_answer": "Kidney",
+      "difficulty": "medium"
+    },
+    {
+      "id": 50,
+      "question": "What is the name of the phenomenon where light bends as it passes from one medium to another?",
+      "options": ["Reflection", "Refraction", "Diffraction", "Absorption"],
+      "correct_answer": "Refraction",
+      "difficulty": "medium"
+    },
+    {
+      "id": 51,
+      "question": "What is the term for a substance that speeds up a chemical reaction without being consumed?",
+      "options": ["Inhibitor", "Solvent", "Catalyst", "Reagent"],
+      "correct_answer": "Catalyst",
+      "difficulty": "medium"
+    },
+    {
+      "id": 52,
+      "question": "What is the name of the protein that carries oxygen in red blood cells?",
+      "options": ["Collagen", "Hemoglobin", "Keratin", "Insulin"],
+      "correct_answer": "Hemoglobin",
+      "difficulty": "medium"
+    },
+    {
+      "id": 53,
+      "question": "What is the study of the stars and the universe called?",
+      "options": ["Astrology", "Geology", "Astronomy", "Meteorology"],
+      "correct_answer": "Astronomy",
+      "difficulty": "medium"
+    },
+    {
+      "id": 54,
+      "question": "What do you call animals that are active at night?",
+      "options": ["Diurnal", "Nocturnal", "Crepuscular", "Arboreal"],
+      "correct_answer": "Nocturnal",
+      "difficulty": "medium"
+    },
+    {
+      "id": 55,
+      "question": "What is the chemical formula for table salt?",
+      "options": ["KCl", "CaCl2", "NaCl", "MgCl2"],
+      "correct_answer": "NaCl",
+      "difficulty": "medium"
+    },
+    {
+      "id": 56,
+      "question": "What is the term for the bending of light around corners or obstacles?",
+      "options": ["Reflection", "Refraction", "Diffraction", "Dispersion"],
+      "correct_answer": "Diffraction",
+      "difficulty": "hard"
+    },
+    {
+      "id": 57,
+      "question": "Which part of the neuron receives signals from other neurons?",
+      "options": ["Axon", "Myelin sheath", "Dendrite", "Synapse"],
+      "correct_answer": "Dendrite",
+      "difficulty": "hard"
+    },
+    {
+      "id": 58,
+      "question": "What is the name of the process by which cells divide to produce genetically identical daughter cells?",
+      "options": ["Meiosis", "Mitosis", "Fission", "Budding"],
+      "correct_answer": "Mitosis",
+      "difficulty": "hard"
+    },
+    {
+      "id": 59,
+      "question": "Which element has the atomic number 1?",
+      "options": ["Helium", "Oxygen", "Hydrogen", "Carbon"],
+      "correct_answer": "Hydrogen",
+      "difficulty": "hard"
+    },
+    {
+      "id": 60,
+      "question": "What is the name of the outermost layer of the Earth?",
+      "options": ["Mantle", "Core", "Crust", "Lithosphere"],
+      "correct_answer": "Crust",
+      "difficulty": "hard"
+    },
+    {
+      "id": 61,
+      "question": "What is the name of the scientist who developed the theory of general relativity?",
+      "options": ["Isaac Newton", "Niels Bohr", "Albert Einstein", "Galileo Galilei"],
+      "correct_answer": "Albert Einstein",
+      "difficulty": "hard"
+    },
+    {
+      "id": 62,
+      "question": "What is the term for the gradual increase in Earth's average temperature due to greenhouse gases?",
+      "options": ["Ozone depletion", "Acid rain", "Global warming", "Deforestation"],
+      "correct_answer": "Global warming",
+      "difficulty": "hard"
+    },
+    {
+      "id": 63,
+      "question": "What is the name of the molecule that carries genetic information in living organisms?",
+      "options": ["RNA", "ATP", "DNA", "Protein"],
+      "correct_answer": "DNA",
+      "difficulty": "hard"
+    },
+    {
+      "id": 64,
+      "question": "What is the SI unit of force?",
+      "options": ["Joule", "Watt", "Newton", "Pascal"],
+      "correct_answer": "Newton",
+      "difficulty": "hard"
+    },
+    {
+      "id": 65,
+      "question": "What type of radiation has the highest frequency?",
+      "options": ["Radio waves", "Visible light", "X-rays", "Gamma rays"],
+      "correct_answer": "Gamma rays",
+      "difficulty": "hard"
+    },
+    {
+      "id": 66,
+      "question": "Which part of the human eye controls the amount of light entering?",
+      "options": ["Retina", "Cornea", "Iris", "Lens"],
+      "correct_answer": "Iris",
+      "difficulty": "hard"
+    },
+    {
+      "id": 67,
+      "question": "What is the name of the process by which solid water turns directly into vapor without becoming liquid?",
+      "options": ["Evaporation", "Condensation", "Sublimation", "Melting"],
+      "correct_answer": "Sublimation",
+      "difficulty": "hard"
+    },
+    {
+      "id": 68,
+      "question": "What is the approximate percentage of the human body that is water?",
+      "options": ["40%", "50%", "60%", "70%"],
+      "correct_answer": "60%",
+      "difficulty": "hard"
+    },
+    {
+      "id": 69,
+      "question": "What is the name of the bone located in the upper arm?",
+      "options": ["Femur", "Tibia", "Humerus", "Radius"],
+      "correct_answer": "Humerus",
+      "difficulty": "hard"
+    },
+    {
+      "id": 70,
+      "question": "Which planet rotates on its side, with an axial tilt of about 98 degrees?",
+      "options": ["Saturn", "Neptune", "Uranus", "Jupiter"],
+      "correct_answer": "Uranus",
+      "difficulty": "hard"
+    },
+    {
+      "id": 71,
+      "question": "What is the name of the process that converts glucose into energy in the absence of oxygen?",
+      "options": ["Aerobic respiration", "Photosynthesis", "Anaerobic respiration", "Transpiration"],
+      "correct_answer": "Anaerobic respiration",
+      "difficulty": "hard"
+    },
+    {
+      "id": 72,
+      "question": "What is the main component of the Sun?",
+      "options": ["Helium", "Hydrogen", "Oxygen", "Carbon"],
+      "correct_answer": "Hydrogen",
+      "difficulty": "hard"
+    },
+    {
+      "id": 73,
+      "question": "What is the name of the region just outside a black hole from which nothing can escape?",
+      "options": ["Event horizon", "Singularity", "Photon sphere", "Accretion disk"],
+      "correct_answer": "Event horizon",
+      "difficulty": "hard"
+    },
+    {
+      "id": 74,
+      "question": "Which vitamin is essential for blood clotting?",
+      "options": ["Vitamin A", "Vitamin C", "Vitamin D", "Vitamin K"],
+      "correct_answer": "Vitamin K",
+      "difficulty": "hard"
+    },
+    {
+      "id": 75,
+      "question": "What is the name of the hormone produced by the adrenal glands in response to stress?",
+      "options": ["Insulin", "Estrogen", "Adrenaline", "Melatonin"],
+      "correct_answer": "Adrenaline",
+      "difficulty": "hard"
+    },
+    {
+      "id": 76,
+      "question": "What is the term for the minimum energy needed to start a chemical reaction?",
+      "options": ["Kinetic energy", "Potential energy", "Activation energy", "Bond energy"],
+      "correct_answer": "Activation energy",
+      "difficulty": "hard"
+    },
+    {
+      "id": 77,
+      "question": "What is the name of the scale used to measure the acidity or alkalinity of a solution?",
+      "options": ["Richter scale", "pH scale", "Celsius scale", "Kelvin scale"],
+      "correct_answer": "pH scale",
+      "difficulty": "hard"
+    },
+    {
+      "id": 78,
+      "question": "Which part of the plant is responsible for transporting water from the roots to the leaves?",
+      "options": ["Phloem", "Cortex", "Xylem", "Epidermis"],
+      "correct_answer": "Xylem",
+      "difficulty": "hard"
+    },
+    {
+      "id": 79,
+      "question": "What is the name of the force that holds the nucleus of an atom together?",
+      "options": ["Electromagnetic force", "Strong nuclear force", "Gravitational force", "Weak nuclear force"],
+      "correct_answer": "Strong nuclear force",
+      "difficulty": "hard"
+    },
+    {
+      "id": 80,
+      "question": "What is the name of the theory that explains how continents move over time?",
+      "options": ["Big Bang Theory", "Theory of Evolution", "Plate Tectonics", "String Theory"],
+      "correct_answer": "Plate Tectonics",
+      "difficulty": "hard"
+    },
+    {
+      "id": 81,
+      "question": "What is the name of the galaxy that contains our solar system?",
+      "options": ["Andromeda", "Triangulum", "Milky Way", "Whirlpool"],
+      "correct_answer": "Milky Way",
+      "difficulty": "easy"
+    },
+    {
+      "id": 82,
+      "question": "What is the study of living organisms called?",
+      "options": ["Chemistry", "Physics", "Biology", "Geology"],
+      "correct_answer": "Biology",
+      "difficulty": "easy"
+    },
+    {
+      "id": 83,
+      "question": "Which of these is a conductor of electricity?",
+      "options": ["Wood", "Rubber", "Copper", "Plastic"],
+      "correct_answer": "Copper",
+      "difficulty": "easy"
+    },
+    {
+      "id": 84,
+      "question": "What type of simple machine is a see-saw?",
+      "options": ["Pulley", "Wedge", "Lever", "Screw"],
+      "correct_answer": "Lever",
+      "difficulty": "easy"
+    },
+    {
+      "id": 85,
+      "question": "What is the name of the process by which a caterpillar becomes a butterfly?",
+      "options": ["Hibernation", "Migration", "Metamorphosis", "Germination"],
+      "correct_answer": "Metamorphosis",
+      "difficulty": "easy"
+    },
+    {
+      "id": 86,
+      "question": "What are the three primary colors of light?",
+      "options": ["Red, Yellow, Blue", "Red, Green, Blue", "Cyan, Magenta, Yellow", "Orange, Green, Violet"],
+      "correct_answer": "Red, Green, Blue",
+      "difficulty": "medium"
+    },
+    {
+      "id": 87,
+      "question": "What is the term for animals that can live both on land and in water?",
+      "options": ["Reptiles", "Mammals", "Amphibians", "Crustaceans"],
+      "correct_answer": "Amphibians",
+      "difficulty": "easy"
+    },
+    {
+      "id": 88,
+      "question": "What is the study of weather called?",
+      "options": ["Seismology", "Meteorology", "Ecology", "Hydrology"],
+      "correct_answer": "Meteorology",
+      "difficulty": "medium"
+    },
+    {
+      "id": 89,
+      "question": "Which planet is the largest in our solar system?",
+      "options": ["Saturn", "Uranus", "Neptune", "Jupiter"],
+      "correct_answer": "Jupiter",
+      "difficulty": "easy"
+    },
+    {
+      "id": 90,
+      "question": "What is the name of the instrument used to measure temperature?",
+      "options": ["Barometer", "Thermometer", "Hygrometer", "Anemometer"],
+      "correct_answer": "Thermometer",
+      "difficulty": "easy"
+    },
+    {
+      "id": 91,
+      "question": "What is the name of the bone that protects the brain?",
+      "options": ["Ribcage", "Vertebra", "Skull", "Sternum"],
+      "correct_answer": "Skull",
+      "difficulty": "easy"
+    },
+    {
+      "id": 92,
+      "question": "What is the name of the process by which water moves through a plant and evaporates from its leaves?",
+      "options": ["Photosynthesis", "Transpiration", "Osmosis", "Respiration"],
+      "correct_answer": "Transpiration",
+      "difficulty": "medium"
+    },
+    {
+      "id": 93,
+      "question": "Which organ in the human body is responsible for producing bile?",
+      "options": ["Pancreas", "Stomach", "Kidney", "Liver"],
+      "correct_answer": "Liver",
+      "difficulty": "medium"
+    },
+    {
+      "id": 94,
+      "question": "What is the name of the instrument used to observe distant objects in space?",
+      "options": ["Microscope", "Periscope", "Telescope", "Kaleidoscope"],
+      "correct_answer": "Telescope",
+      "difficulty": "easy"
+    },
+    {
+      "id": 95,
+      "question": "What do we call a material that does not allow electricity to pass through it?",
+      "options": ["Conductor", "Semiconductor", "Insulator", "Resistor"],
+      "correct_answer": "Insulator",
+      "difficulty": "medium"
+    },
+    {
+      "id": 96,
+      "question": "What is the name of the scale used to measure the magnitude of earthquakes?",
+      "options": ["Beaufort scale", "Richter scale", "Kelvin scale", "Mohs scale"],
+      "correct_answer": "Richter scale",
+      "difficulty": "medium"
+    },
+    {
+      "id": 97,
+      "question": "What causes the seasons on Earth to change?",
+      "options": ["Earth's distance from the Sun", "Earth's axial tilt", "Moon's gravitational pull", "Solar flares"],
+      "correct_answer": "Earth's axial tilt",
+      "difficulty": "medium"
+    },
+    {
+      "id": 98,
+      "question": "What is the name of the cell structure that contains the cell's genetic information?",
+      "options": ["Ribosome", "Golgi apparatus", "Nucleus", "Endoplasmic reticulum"],
+      "correct_answer": "Nucleus",
+      "difficulty": "medium"
+    },
+    {
+      "id": 99,
+      "question": "What type of rock is formed from cooled molten lava?",
+      "options": ["Sedimentary", "Metamorphic", "Igneous", "Limestone"],
+      "correct_answer": "Igneous",
+      "difficulty": "medium"
+    },
+    {
+      "id": 100,
+      "question": "What is the name of the scientist who proposed the theory of evolution by natural selection?",
+      "options": ["Gregor Mendel", "Louis Pasteur", "Charles Darwin", "Marie Curie"],
+      "correct_answer": "Charles Darwin",
+      "difficulty": "medium"
+    }
+  ]
+}

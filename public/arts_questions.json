@@ -1,0 +1,707 @@
+{
+  "category": "Arts",
+  "description": "Arts questions for senior citizens mental agility assessment",
+  "total_questions": 100,
+  "questions": [
+    {
+      "id": 1,
+      "question": "Who painted the Mona Lisa?",
+      "options": ["Michelangelo", "Leonardo da Vinci", "Raphael", "Rembrandt"],
+      "correct_answer": "Leonardo da Vinci",
+      "difficulty": "easy"
+    },
+    {
+      "id": 2,
+      "question": "Which famous artist cut off part of his own ear?",
+      "options": ["Pablo Picasso", "Claude Monet", "Vincent van Gogh", "Salvador Dali"],
+      "correct_answer": "Vincent van Gogh",
+      "difficulty": "easy"
+    },
+    {
+      "id": 3,
+      "question": "What is the name of the ceiling painting by Michelangelo in the Vatican?",
+      "options": ["The Last Supper", "Sistine Chapel ceiling", "The School of Athens", "The Creation of Adam only"],
+      "correct_answer": "Sistine Chapel ceiling",
+      "difficulty": "easy"
+    },
+    {
+      "id": 4,
+      "question": "Which art movement is Pablo Picasso most associated with?",
+      "options": ["Impressionism", "Surrealism", "Cubism", "Realism"],
+      "correct_answer": "Cubism",
+      "difficulty": "medium"
+    },
+    {
+      "id": 5,
+      "question": "The painting 'Starry Night' was created by which artist?",
+      "options": ["Paul Gauguin", "Vincent van Gogh", "Georges Seurat", "Edvard Munch"],
+      "correct_answer": "Vincent van Gogh",
+      "difficulty": "easy"
+    },
+    {
+      "id": 6,
+      "question": "Which country is the artist Rembrandt from?",
+      "options": ["Germany", "France", "Netherlands", "Spain"],
+      "correct_answer": "Netherlands",
+      "difficulty": "medium"
+    },
+    {
+      "id": 7,
+      "question": "What type of art involves shaping clay into objects?",
+      "options": ["Sculpture", "Pottery", "Weaving", "Mosaic"],
+      "correct_answer": "Pottery",
+      "difficulty": "easy"
+    },
+    {
+      "id": 8,
+      "question": "Which famous sculpture shows a man sitting and thinking with his chin resting on his hand?",
+      "options": ["David", "The Thinker", "Venus de Milo", "Pieta"],
+      "correct_answer": "The Thinker",
+      "difficulty": "easy"
+    },
+    {
+      "id": 9,
+      "question": "Who sculpted 'The Thinker'?",
+      "options": ["Michelangelo", "Auguste Rodin", "Donatello", "Bernini"],
+      "correct_answer": "Auguste Rodin",
+      "difficulty": "medium"
+    },
+    {
+      "id": 10,
+      "question": "Which art style uses small dots of color to create an image?",
+      "options": ["Impressionism", "Pointillism", "Fauvism", "Cubism"],
+      "correct_answer": "Pointillism",
+      "difficulty": "medium"
+    },
+    {
+      "id": 11,
+      "question": "The famous painting 'The Last Supper' depicts which event from the Bible?",
+      "options": ["The Baptism of Jesus", "The Resurrection", "Jesus dining with his apostles", "The Sermon on the Mount"],
+      "correct_answer": "Jesus dining with his apostles",
+      "difficulty": "easy"
+    },
+    {
+      "id": 12,
+      "question": "Which artist is famous for painting water lilies?",
+      "options": ["Edgar Degas", "Paul Cezanne", "Claude Monet", "Pierre-Auguste Renoir"],
+      "correct_answer": "Claude Monet",
+      "difficulty": "easy"
+    },
+    {
+      "id": 13,
+      "question": "What is the art of making pictures by arranging small colored pieces of stone or glass called?",
+      "options": ["Collage", "Fresco", "Mosaic", "Tapestry"],
+      "correct_answer": "Mosaic",
+      "difficulty": "easy"
+    },
+    {
+      "id": 14,
+      "question": "Which famous museum in Paris houses the Mona Lisa?",
+      "options": ["Musee d'Orsay", "Centre Pompidou", "The Louvre", "Palais Royal"],
+      "correct_answer": "The Louvre",
+      "difficulty": "easy"
+    },
+    {
+      "id": 15,
+      "question": "What does the term 'fresco' mean in art?",
+      "options": ["Painting on dry plaster", "Painting on wet plaster", "Painting on canvas", "Painting on wood"],
+      "correct_answer": "Painting on wet plaster",
+      "difficulty": "medium"
+    },
+    {
+      "id": 16,
+      "question": "Which famous Indian artist is known as the 'Picasso of India'?",
+      "options": ["Raja Ravi Varma", "M.F. Husain", "Jamini Roy", "Amrita Sher-Gil"],
+      "correct_answer": "M.F. Husain",
+      "difficulty": "medium"
+    },
+    {
+      "id": 17,
+      "question": "The 'Venus de Milo' sculpture is famous for which feature?",
+      "options": ["Its golden color", "Its missing arms", "Its large size", "Its moving parts"],
+      "correct_answer": "Its missing arms",
+      "difficulty": "easy"
+    },
+    {
+      "id": 18,
+      "question": "Which art form involves cutting and pasting pictures or materials to create a new image?",
+      "options": ["Etching", "Lithography", "Collage", "Engraving"],
+      "correct_answer": "Collage",
+      "difficulty": "easy"
+    },
+    {
+      "id": 19,
+      "question": "What primary colors are mixed to create the color green?",
+      "options": ["Red and Blue", "Yellow and Blue", "Red and Yellow", "Blue and White"],
+      "correct_answer": "Yellow and Blue",
+      "difficulty": "easy"
+    },
+    {
+      "id": 20,
+      "question": "Which Indian art form involves drawing intricate patterns on the floor during festivals?",
+      "options": ["Warli", "Rangoli", "Madhubani", "Tanjore painting"],
+      "correct_answer": "Rangoli",
+      "difficulty": "easy"
+    },
+    {
+      "id": 21,
+      "question": "Salvador Dali is most associated with which art movement?",
+      "options": ["Impressionism", "Surrealism", "Abstract Expressionism", "Pop Art"],
+      "correct_answer": "Surrealism",
+      "difficulty": "medium"
+    },
+    {
+      "id": 22,
+      "question": "What is the technique of applying thick paint to a canvas called?",
+      "options": ["Watercolor", "Impasto", "Tempera", "Gouache"],
+      "correct_answer": "Impasto",
+      "difficulty": "hard"
+    },
+    {
+      "id": 23,
+      "question": "Which famous Indian painter is known for his paintings of horses and was associated with the Progressive Artists' Group?",
+      "options": ["M.F. Husain", "S.H. Raza", "F.N. Souza", "Tyeb Mehta"],
+      "correct_answer": "M.F. Husain",
+      "difficulty": "medium"
+    },
+    {
+      "id": 24,
+      "question": "What color do you get when you mix red and white?",
+      "options": ["Orange", "Pink", "Purple", "Maroon"],
+      "correct_answer": "Pink",
+      "difficulty": "easy"
+    },
+    {
+      "id": 25,
+      "question": "Which art movement focused on painting everyday objects from popular culture, such as soup cans?",
+      "options": ["Minimalism", "Pop Art", "Abstract Art", "Futurism"],
+      "correct_answer": "Pop Art",
+      "difficulty": "medium"
+    },
+    {
+      "id": 26,
+      "question": "Andy Warhol is most famous for his paintings of which everyday item?",
+      "options": ["Bread loaves", "Campbell's Soup Cans", "Milk bottles", "Fruit bowls"],
+      "correct_answer": "Campbell's Soup Cans",
+      "difficulty": "medium"
+    },
+    {
+      "id": 27,
+      "question": "What type of paint is mixed with water and becomes permanent when dry?",
+      "options": ["Oil paint", "Acrylic paint", "Watercolor", "Gouache"],
+      "correct_answer": "Acrylic paint",
+      "difficulty": "easy"
+    },
+    {
+      "id": 28,
+      "question": "Which famous Indian art form originated in the Mithila region and features colorful geometric patterns?",
+      "options": ["Warli art", "Madhubani painting", "Pattachitra", "Kalamkari"],
+      "correct_answer": "Madhubani painting",
+      "difficulty": "medium"
+    },
+    {
+      "id": 29,
+      "question": "The Ajanta Caves in India are famous for which type of art?",
+      "options": ["Pottery", "Sculpture only", "Cave paintings and sculptures", "Textile art"],
+      "correct_answer": "Cave paintings and sculptures",
+      "difficulty": "easy"
+    },
+    {
+      "id": 30,
+      "question": "Which artist painted 'The Scream'?",
+      "options": ["Gustav Klimt", "Edvard Munch", "Ernst Ludwig Kirchner", "Emil Nolde"],
+      "correct_answer": "Edvard Munch",
+      "difficulty": "medium"
+    },
+    {
+      "id": 31,
+      "question": "What is a 'still life' painting?",
+      "options": ["A portrait of a person sitting very still", "A painting of inanimate objects like fruits and flowers", "A landscape painting", "A painting of animals"],
+      "correct_answer": "A painting of inanimate objects like fruits and flowers",
+      "difficulty": "easy"
+    },
+    {
+      "id": 32,
+      "question": "Which color is traditionally opposite to red on the color wheel?",
+      "options": ["Purple", "Green", "Orange", "Blue"],
+      "correct_answer": "Green",
+      "difficulty": "medium"
+    },
+    {
+      "id": 33,
+      "question": "What art form involves creating images by applying colored wax to fabric and then dyeing it?",
+      "options": ["Batik", "Tie-dye", "Block printing", "Silk screening"],
+      "correct_answer": "Batik",
+      "difficulty": "medium"
+    },
+    {
+      "id": 34,
+      "question": "Who painted 'Girl with a Pearl Earring'?",
+      "options": ["Rembrandt", "Jan Vermeer", "Frans Hals", "Peter Paul Rubens"],
+      "correct_answer": "Jan Vermeer",
+      "difficulty": "medium"
+    },
+    {
+      "id": 35,
+      "question": "What is the name of the technique where artists use light and shadow to create depth in a painting?",
+      "options": ["Pointillism", "Chiaroscuro", "Sfumato", "Impasto"],
+      "correct_answer": "Chiaroscuro",
+      "difficulty": "hard"
+    },
+    {
+      "id": 36,
+      "question": "Which of these is a warm color?",
+      "options": ["Blue", "Green", "Purple", "Orange"],
+      "correct_answer": "Orange",
+      "difficulty": "easy"
+    },
+    {
+      "id": 37,
+      "question": "The famous sculpture 'David' was created by which artist?",
+      "options": ["Donatello", "Michelangelo", "Bernini", "Rodin"],
+      "correct_answer": "Michelangelo",
+      "difficulty": "easy"
+    },
+    {
+      "id": 38,
+      "question": "Which Indian state is famous for the Warli tribal art form?",
+      "options": ["Rajasthan", "Maharashtra", "Kerala", "Odisha"],
+      "correct_answer": "Maharashtra",
+      "difficulty": "medium"
+    },
+    {
+      "id": 39,
+      "question": "What is the art of beautiful handwriting called?",
+      "options": ["Typography", "Calligraphy", "Cursive", "Penmanship"],
+      "correct_answer": "Calligraphy",
+      "difficulty": "easy"
+    },
+    {
+      "id": 40,
+      "question": "Which famous artist is known for his drip painting technique?",
+      "options": ["Mark Rothko", "Jackson Pollock", "Willem de Kooning", "Franz Kline"],
+      "correct_answer": "Jackson Pollock",
+      "difficulty": "medium"
+    },
+    {
+      "id": 41,
+      "question": "What is the Japanese art of paper folding called?",
+      "options": ["Ikebana", "Origami", "Bonsai", "Manga"],
+      "correct_answer": "Origami",
+      "difficulty": "easy"
+    },
+    {
+      "id": 42,
+      "question": "Which art movement emerged in France in the late 19th century and focused on capturing light and movement?",
+      "options": ["Romanticism", "Impressionism", "Baroque", "Neoclassicism"],
+      "correct_answer": "Impressionism",
+      "difficulty": "medium"
+    },
+    {
+      "id": 43,
+      "question": "What type of art involves weaving threads to create fabric or pictures?",
+      "options": ["Mosaic", "Tapestry", "Collage", "Etching"],
+      "correct_answer": "Tapestry",
+      "difficulty": "easy"
+    },
+    {
+      "id": 44,
+      "question": "The famous Ellora Caves in India feature art from which religions?",
+      "options": ["Only Hinduism", "Hinduism, Buddhism, and Jainism", "Only Buddhism", "Islam and Hinduism"],
+      "correct_answer": "Hinduism, Buddhism, and Jainism",
+      "difficulty": "medium"
+    },
+    {
+      "id": 45,
+      "question": "What is the Spanish word for 'painter' which is also used as an art title?",
+      "options": ["Artista", "Pintor", "Maestro", "Creator"],
+      "correct_answer": "Pintor",
+      "difficulty": "hard"
+    },
+    {
+      "id": 46,
+      "question": "Which famous painting shows a woman with a mysterious smile?",
+      "options": ["Girl with a Pearl Earring", "Mona Lisa", "The Birth of Venus", "Lady with an Ermine"],
+      "correct_answer": "Mona Lisa",
+      "difficulty": "easy"
+    },
+    {
+      "id": 47,
+      "question": "What is the background setting of a painting or photograph called?",
+      "options": ["Subject", "Foreground", "Backdrop", "Scenery"],
+      "correct_answer": "Backdrop",
+      "difficulty": "easy"
+    },
+    {
+      "id": 48,
+      "question": "Which artist is famous for painting ballet dancers?",
+      "options": ["Pierre-Auguste Renoir", "Claude Monet", "Edgar Degas", "Camille Pissarro"],
+      "correct_answer": "Edgar Degas",
+      "difficulty": "medium"
+    },
+    {
+      "id": 49,
+      "question": "What is the art of creating three-dimensional works from stone, metal, or wood called?",
+      "options": ["Engraving", "Sculpture", "Relief work", "Casting"],
+      "correct_answer": "Sculpture",
+      "difficulty": "easy"
+    },
+    {
+      "id": 50,
+      "question": "Which Indian art form from Odisha features paintings on cloth depicting stories from Hindu mythology?",
+      "options": ["Madhubani", "Pattachitra", "Kalighat", "Tanjore"],
+      "correct_answer": "Pattachitra",
+      "difficulty": "medium"
+    },
+    {
+      "id": 51,
+      "question": "What is the name for a drawing that exaggerates features of a person for comic effect?",
+      "options": ["Portrait", "Caricature", "Sketch", "Doodle"],
+      "correct_answer": "Caricature",
+      "difficulty": "easy"
+    },
+    {
+      "id": 52,
+      "question": "Which famous Dutch artist painted 'Sunflowers'?",
+      "options": ["Rembrandt", "Vermeer", "Vincent van Gogh", "Jan Steen"],
+      "correct_answer": "Vincent van Gogh",
+      "difficulty": "easy"
+    },
+    {
+      "id": 53,
+      "question": "What does the term 'abstract art' mean?",
+      "options": ["Art that looks exactly like real life", "Art that does not depict realistic scenes or objects", "Art made from natural materials", "Art made by machines"],
+      "correct_answer": "Art that does not depict realistic scenes or objects",
+      "difficulty": "easy"
+    },
+    {
+      "id": 54,
+      "question": "Which painting technique uses pigments mixed with egg yolk?",
+      "options": ["Fresco", "Tempera", "Watercolor", "Oil painting"],
+      "correct_answer": "Tempera",
+      "difficulty": "hard"
+    },
+    {
+      "id": 55,
+      "question": "The Taj Mahal in India is an example of which type of art and architecture?",
+      "options": ["Hindu architecture", "Mughal architecture", "Buddhist architecture", "British colonial architecture"],
+      "correct_answer": "Mughal architecture",
+      "difficulty": "easy"
+    },
+    {
+      "id": 56,
+      "question": "Which primary colors can be mixed to create orange?",
+      "options": ["Red and Blue", "Red and Yellow", "Yellow and Green", "Blue and Yellow"],
+      "correct_answer": "Red and Yellow",
+      "difficulty": "easy"
+    },
+    {
+      "id": 57,
+      "question": "What is the art of creating pictures using small pieces of colored glass or stone called?",
+      "options": ["Tapestry", "Mosaic", "Batik", "Fresco"],
+      "correct_answer": "Mosaic",
+      "difficulty": "easy"
+    },
+    {
+      "id": 58,
+      "question": "Which famous artist is known for his melting clocks painting 'The Persistence of Memory'?",
+      "options": ["Rene Magritte", "Max Ernst", "Salvador Dali", "Joan Miro"],
+      "correct_answer": "Salvador Dali",
+      "difficulty": "medium"
+    },
+    {
+      "id": 59,
+      "question": "The art of making decorative objects or pictures by inlaying different colored woods is called?",
+      "options": ["Marquetry", "Lacquerwork", "Gilding", "Veneering"],
+      "correct_answer": "Marquetry",
+      "difficulty": "hard"
+    },
+    {
+      "id": 60,
+      "question": "Which Indian classical dance form originated in Tamil Nadu?",
+      "options": ["Kathak", "Odissi", "Bharatanatyam", "Kuchipudi"],
+      "correct_answer": "Bharatanatyam",
+      "difficulty": "easy"
+    },
+    {
+      "id": 61,
+      "question": "What name is given to a painting or drawing of a person's face?",
+      "options": ["Landscape", "Still life", "Portrait", "Mural"],
+      "correct_answer": "Portrait",
+      "difficulty": "easy"
+    },
+    {
+      "id": 62,
+      "question": "What is a large painting done on a wall or ceiling called?",
+      "options": ["Mural", "Canvas", "Panel", "Print"],
+      "correct_answer": "Mural",
+      "difficulty": "easy"
+    },
+    {
+      "id": 63,
+      "question": "Which art movement rejected traditional techniques and embraced raw, emotional expression?",
+      "options": ["Neoclassicism", "Expressionism", "Minimalism", "Art Nouveau"],
+      "correct_answer": "Expressionism",
+      "difficulty": "medium"
+    },
+    {
+      "id": 64,
+      "question": "Who painted 'The Birth of Venus'?",
+      "options": ["Raphael", "Titian", "Sandro Botticelli", "Leonardo da Vinci"],
+      "correct_answer": "Sandro Botticelli",
+      "difficulty": "medium"
+    },
+    {
+      "id": 65,
+      "question": "In Indian classical art, what term refers to the ancient system of artistic rules and guidelines?",
+      "options": ["Natya Shastra", "Shilpa Shastra", "Vaastu Shastra", "Artha Shastra"],
+      "correct_answer": "Shilpa Shastra",
+      "difficulty": "hard"
+    },
+    {
+      "id": 66,
+      "question": "What is the art of creating images by carving into a surface and then printing from it called?",
+      "options": ["Lithography", "Engraving", "Screen printing", "Woodblock printing"],
+      "correct_answer": "Engraving",
+      "difficulty": "medium"
+    },
+    {
+      "id": 67,
+      "question": "Which famous artist painted 'Guernica', a protest against war?",
+      "options": ["Joan Miro", "Salvador Dali", "Pablo Picasso", "Henri Matisse"],
+      "correct_answer": "Pablo Picasso",
+      "difficulty": "medium"
+    },
+    {
+      "id": 68,
+      "question": "What is a self-portrait?",
+      "options": ["A portrait painted by someone else", "A portrait an artist paints of themselves", "A portrait of a famous person", "A portrait painted from memory"],
+      "correct_answer": "A portrait an artist paints of themselves",
+      "difficulty": "easy"
+    },
+    {
+      "id": 69,
+      "question": "Which tool is commonly used by sculptors to shape clay?",
+      "options": ["Palette knife", "Sculpting tool or wire loop", "Paintbrush", "Printing press"],
+      "correct_answer": "Sculpting tool or wire loop",
+      "difficulty": "easy"
+    },
+    {
+      "id": 70,
+      "question": "The Konark Sun Temple in Odisha is a famous example of which type of Indian art?",
+      "options": ["Mughal art", "Rajput art", "Kalinga architecture", "Dravidian architecture"],
+      "correct_answer": "Kalinga architecture",
+      "difficulty": "hard"
+    },
+    {
+      "id": 71,
+      "question": "Which famous female Mexican artist is known for her self-portraits and vibrant use of color?",
+      "options": ["Georgia O'Keeffe", "Frida Kahlo", "Mary Cassatt", "Berthe Morisot"],
+      "correct_answer": "Frida Kahlo",
+      "difficulty": "medium"
+    },
+    {
+      "id": 72,
+      "question": "What is the term for the arrangement of elements in a work of art?",
+      "options": ["Perspective", "Composition", "Texture", "Tone"],
+      "correct_answer": "Composition",
+      "difficulty": "medium"
+    },
+    {
+      "id": 73,
+      "question": "Which famous Indian painter is known for her work 'Three Girls' and was among the first modern Indian artists?",
+      "options": ["Anjolie Ela Menon", "Amrita Sher-Gil", "Arpita Singh", "Nalini Malani"],
+      "correct_answer": "Amrita Sher-Gil",
+      "difficulty": "medium"
+    },
+    {
+      "id": 74,
+      "question": "What is the traditional Japanese art of flower arranging called?",
+      "options": ["Bonsai", "Ikebana", "Haiku", "Kabuki"],
+      "correct_answer": "Ikebana",
+      "difficulty": "medium"
+    },
+    {
+      "id": 75,
+      "question": "What are the three secondary colors in painting?",
+      "options": ["Red, yellow, blue", "Orange, green, purple", "Pink, teal, maroon", "Brown, gray, black"],
+      "correct_answer": "Orange, green, purple",
+      "difficulty": "medium"
+    },
+    {
+      "id": 76,
+      "question": "Which famous building in Athens, Greece, is considered a masterpiece of ancient Greek architecture?",
+      "options": ["The Colosseum", "The Pantheon", "The Parthenon", "The Acropolis gate"],
+      "correct_answer": "The Parthenon",
+      "difficulty": "medium"
+    },
+    {
+      "id": 77,
+      "question": "What is the process of creating an image by pressing ink from a carved surface onto paper called?",
+      "options": ["Etching", "Printmaking", "Lithography", "Silk screening"],
+      "correct_answer": "Printmaking",
+      "difficulty": "easy"
+    },
+    {
+      "id": 78,
+      "question": "In art, what does 'perspective' help create?",
+      "options": ["Brighter colors", "An illusion of depth and distance", "Sharper outlines", "Smoother texture"],
+      "correct_answer": "An illusion of depth and distance",
+      "difficulty": "easy"
+    },
+    {
+      "id": 79,
+      "question": "Raja Ravi Varma was a famous painter from which Indian state?",
+      "options": ["Tamil Nadu", "Kerala", "Karnataka", "Andhra Pradesh"],
+      "correct_answer": "Kerala",
+      "difficulty": "medium"
+    },
+    {
+      "id": 80,
+      "question": "What is the flat surface on which an artist mixes colors called?",
+      "options": ["Canvas", "Palette", "Easel", "Frame"],
+      "correct_answer": "Palette",
+      "difficulty": "easy"
+    },
+    {
+      "id": 81,
+      "question": "Which Renaissance artist was also a scientist, musician, and architect?",
+      "options": ["Raphael", "Michelangelo", "Leonardo da Vinci", "Titian"],
+      "correct_answer": "Leonardo da Vinci",
+      "difficulty": "easy"
+    },
+    {
+      "id": 82,
+      "question": "The art style 'Tanjore painting' originated in which Indian state?",
+      "options": ["Kerala", "Andhra Pradesh", "Tamil Nadu", "Karnataka"],
+      "correct_answer": "Tamil Nadu",
+      "difficulty": "medium"
+    },
+    {
+      "id": 83,
+      "question": "What term describes an artist's distinct way of creating art?",
+      "options": ["Technique", "Style", "Medium", "Genre"],
+      "correct_answer": "Style",
+      "difficulty": "easy"
+    },
+    {
+      "id": 84,
+      "question": "Which Greek goddess is the famous sculpture 'Venus de Milo' believed to represent?",
+      "options": ["Athena", "Hera", "Aphrodite", "Artemis"],
+      "correct_answer": "Aphrodite",
+      "difficulty": "medium"
+    },
+    {
+      "id": 85,
+      "question": "In which century did the Renaissance art period begin in Italy?",
+      "options": ["12th century", "14th century", "16th century", "18th century"],
+      "correct_answer": "14th century",
+      "difficulty": "medium"
+    },
+    {
+      "id": 86,
+      "question": "What is the art of decorating pottery called?",
+      "options": ["Ceramics", "Glassblowing", "Enameling", "Lacquerwork"],
+      "correct_answer": "Ceramics",
+      "difficulty": "easy"
+    },
+    {
+      "id": 87,
+      "question": "Which famous art museum is located in New York City?",
+      "options": ["The Tate Modern", "The Uffizi Gallery", "The Metropolitan Museum of Art", "The Prado"],
+      "correct_answer": "The Metropolitan Museum of Art",
+      "difficulty": "medium"
+    },
+    {
+      "id": 88,
+      "question": "What is a sketch made quickly to capture a scene or idea called?",
+      "options": ["Draft", "Blueprint", "Study", "Doodle"],
+      "correct_answer": "Study",
+      "difficulty": "medium"
+    },
+    {
+      "id": 89,
+      "question": "Which Indian art form uses natural dyes on fabric to create colorful patterns, originating in Andhra Pradesh?",
+      "options": ["Ikat", "Kalamkari", "Phulkari", "Bandhani"],
+      "correct_answer": "Kalamkari",
+      "difficulty": "medium"
+    },
+    {
+      "id": 90,
+      "question": "Henri Matisse is known for founding which art movement that used wild, bright colors?",
+      "options": ["Dadaism", "Fauvism", "Futurism", "Constructivism"],
+      "correct_answer": "Fauvism",
+      "difficulty": "hard"
+    },
+    {
+      "id": 91,
+      "question": "What is a painting of the natural outdoor environment, such as mountains or rivers, called?",
+      "options": ["Portrait", "Still life", "Landscape", "Genre painting"],
+      "correct_answer": "Landscape",
+      "difficulty": "easy"
+    },
+    {
+      "id": 92,
+      "question": "Which material is typically used to make a traditional oil painting canvas?",
+      "options": ["Paper", "Linen or cotton fabric", "Silk", "Cardboard"],
+      "correct_answer": "Linen or cotton fabric",
+      "difficulty": "medium"
+    },
+    {
+      "id": 93,
+      "question": "What does 'chiaroscuro' mean in painting?",
+      "options": ["The use of bright colors", "The contrast of light and dark", "A painting technique from China", "Painting with fingers"],
+      "correct_answer": "The contrast of light and dark",
+      "difficulty": "medium"
+    },
+    {
+      "id": 94,
+      "question": "The famous Mughal miniature paintings were usually made on which surface?",
+      "options": ["Canvas", "Stone", "Paper or ivory", "Wood"],
+      "correct_answer": "Paper or ivory",
+      "difficulty": "medium"
+    },
+    {
+      "id": 95,
+      "question": "Which color is produced when all the primary colors of light are mixed together?",
+      "options": ["Black", "Brown", "White", "Gray"],
+      "correct_answer": "White",
+      "difficulty": "medium"
+    },
+    {
+      "id": 96,
+      "question": "What is the name for a stand used to hold a canvas while painting?",
+      "options": ["Palette", "Easel", "Frame", "Tripod"],
+      "correct_answer": "Easel",
+      "difficulty": "easy"
+    },
+    {
+      "id": 97,
+      "question": "Which Indian art form from Rajasthan is known for its miniature paintings depicting royal life and nature?",
+      "options": ["Pahari painting", "Rajput miniature painting", "Deccan painting", "Company painting"],
+      "correct_answer": "Rajput miniature painting",
+      "difficulty": "medium"
+    },
+    {
+      "id": 98,
+      "question": "What is the technique of creating art by applying thin layers of transparent color over each other called?",
+      "options": ["Impasto", "Glazing", "Scumbling", "Wet-on-wet"],
+      "correct_answer": "Glazing",
+      "difficulty": "hard"
+    },
+    {
+      "id": 99,
+      "question": "Which famous painting by Raphael shows philosophers from ancient Greece gathered together?",
+      "options": ["The Transfiguration", "The School of Athens", "The Marriage of the Virgin", "Sistine Madonna"],
+      "correct_answer": "The School of Athens",
+      "difficulty": "medium"
+    },
+    {
+      "id": 100,
+      "question": "What is the term used to describe an artwork that represents an idea or concept rather than a physical object?",
+      "options": ["Realistic art", "Abstract art", "Conceptual art", "Surreal art"],
+      "correct_answer": "Conceptual art",
+      "difficulty": "medium"
+    }
+  ]
+}

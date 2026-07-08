@@ -1,0 +1,713 @@
+{
+  "category": "Cinema, Music & Retro Nostalgia",
+  "subcategory": "Indian (Bollywood & Regional)",
+  "description": "Questions based on Indian cinema, classic Bollywood films, legendary musicians, iconic songs, and cultural memories from the golden era of Indian entertainment.",
+  "total_questions": 100,
+  "difficulty_distribution": {
+    "easy": 35,
+    "medium": 40,
+    "hard": 25
+  },
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which Hindi film featured the legendary song 'Awaara Hoon'?",
+      "options": ["Shree 420", "Awaara", "Boot Polish", "Barsaat"],
+      "correct_answer": "Awaara",
+      "difficulty": "easy"
+    },
+    {
+      "id": 2,
+      "question": "Who was known as the 'Nightingale of India'?",
+      "options": ["Asha Bhosle", "Lata Mangeshkar", "Geeta Dutt", "Suman Kalyanpur"],
+      "correct_answer": "Lata Mangeshkar",
+      "difficulty": "easy"
+    },
+    {
+      "id": 3,
+      "question": "In which film did Amitabh Bachchan play the role of 'Vijay Deenanath Chauhan'?",
+      "options": ["Deewar", "Trishul", "Agneepath", "Shakti"],
+      "correct_answer": "Agneepath",
+      "difficulty": "easy"
+    },
+    {
+      "id": 4,
+      "question": "Which actor was called the 'Tragedy King' of Bollywood?",
+      "options": ["Raj Kapoor", "Guru Dutt", "Dilip Kumar", "Balraj Sahni"],
+      "correct_answer": "Dilip Kumar",
+      "difficulty": "easy"
+    },
+    {
+      "id": 5,
+      "question": "Which film had the famous song 'Pyar Hua Ikrar Hua' featuring Raj Kapoor and Nargis?",
+      "options": ["Awaara", "Barsaat", "Shree 420", "Chori Chori"],
+      "correct_answer": "Shree 420",
+      "difficulty": "easy"
+    },
+    {
+      "id": 6,
+      "question": "Who composed the music for the film 'Guide' (1965)?",
+      "options": ["Naushad", "S.D. Burman", "Madan Mohan", "O.P. Nayyar"],
+      "correct_answer": "S.D. Burman",
+      "difficulty": "medium"
+    },
+    {
+      "id": 7,
+      "question": "The song 'Ek Pyar Ka Nagma Hai' is from which classic Hindi film?",
+      "options": ["Bobby", "Shor", "Aradhana", "Kati Patang"],
+      "correct_answer": "Shor",
+      "difficulty": "medium"
+    },
+    {
+      "id": 8,
+      "question": "Which actor played the role of Gabbar Singh in the 1975 film 'Sholay'?",
+      "options": ["Amjad Khan", "Danny Denzongpa", "Pran", "Ajit"],
+      "correct_answer": "Amjad Khan",
+      "difficulty": "easy"
+    },
+    {
+      "id": 9,
+      "question": "Who sang the famous song 'Mere Mehboob Qayamat Hogi' from the film 'Mr. X in Bombay'?",
+      "options": ["Rafi", "Kishore Kumar", "Mukesh", "Manna Dey"],
+      "correct_answer": "Kishore Kumar",
+      "difficulty": "medium"
+    },
+    {
+      "id": 10,
+      "question": "The iconic film 'Mughal-E-Azam' (1960) was directed by whom?",
+      "options": ["Bimal Roy", "K. Asif", "Mehboob Khan", "Vijay Bhatt"],
+      "correct_answer": "K. Asif",
+      "difficulty": "medium"
+    },
+    {
+      "id": 11,
+      "question": "Which legendary singer was known as 'Rafi Sahab'?",
+      "options": ["Talat Mahmood", "Mukesh", "Mohammed Rafi", "Hemant Kumar"],
+      "correct_answer": "Mohammed Rafi",
+      "difficulty": "easy"
+    },
+    {
+      "id": 12,
+      "question": "In the film 'Pakeezah' (1972), who played the lead role of Sahibjaan?",
+      "options": ["Waheeda Rehman", "Meena Kumari", "Nargis", "Suraiya"],
+      "correct_answer": "Meena Kumari",
+      "difficulty": "easy"
+    },
+    {
+      "id": 13,
+      "question": "Which Hindi film had the song 'Chaudhvin Ka Chand Ho'?",
+      "options": ["Chaudhvin Ka Chand", "Barsaat Ki Raat", "Shola Aur Shabnam", "Mere Mehboob"],
+      "correct_answer": "Chaudhvin Ka Chand",
+      "difficulty": "easy"
+    },
+    {
+      "id": 14,
+      "question": "Who was the music director of the film 'Aradhana' (1969)?",
+      "options": ["R.D. Burman", "S.D. Burman", "Laxmikant-Pyarelal", "Kalyanji-Anandji"],
+      "correct_answer": "S.D. Burman",
+      "difficulty": "medium"
+    },
+    {
+      "id": 15,
+      "question": "Which actress starred in both 'Do Bigha Zameen' (1953) and 'Devdas' (1955)?",
+      "options": ["Nargis", "Suchitra Sen", "Meena Kumari", "Waheeda Rehman"],
+      "correct_answer": "Suchitra Sen",
+      "difficulty": "hard"
+    },
+    {
+      "id": 16,
+      "question": "The film 'Mother India' (1957) was directed by whom?",
+      "options": ["Bimal Roy", "Mehboob Khan", "Raj Kapoor", "Guru Dutt"],
+      "correct_answer": "Mehboob Khan",
+      "difficulty": "medium"
+    },
+    {
+      "id": 17,
+      "question": "Which singer was known as the 'Voice of Youth' and sang for Dev Anand in many films?",
+      "options": ["Mukesh", "Mohammed Rafi", "Kishore Kumar", "Hemant Kumar"],
+      "correct_answer": "Kishore Kumar",
+      "difficulty": "easy"
+    },
+    {
+      "id": 18,
+      "question": "What was the name of Raj Kapoor's production company?",
+      "options": ["Filmistan Studios", "R.K. Films", "Natraj Studios", "Bombay Talkies"],
+      "correct_answer": "R.K. Films",
+      "difficulty": "easy"
+    },
+    {
+      "id": 19,
+      "question": "The song 'Waqt Ne Kiya Kya Haseen Sitam' is from which film?",
+      "options": ["Kagaz Ke Phool", "Pyaasa", "Kaagaz Ke Phool", "Sahib Bibi Aur Ghulam"],
+      "correct_answer": "Kagaz Ke Phool",
+      "difficulty": "hard"
+    },
+    {
+      "id": 20,
+      "question": "Who played the role of 'Basanti' in the 1975 blockbuster 'Sholay'?",
+      "options": ["Hema Malini", "Jaya Bhaduri", "Dimple Kapadia", "Zeenat Aman"],
+      "correct_answer": "Hema Malini",
+      "difficulty": "easy"
+    },
+    {
+      "id": 21,
+      "question": "Which music composer duo was famous for films like 'Dost', 'Jugnu', and 'Coolie'?",
+      "options": ["Shankar-Jaikishan", "Kalyanji-Anandji", "Laxmikant-Pyarelal", "Jatin-Lalit"],
+      "correct_answer": "Laxmikant-Pyarelal",
+      "difficulty": "medium"
+    },
+    {
+      "id": 22,
+      "question": "Which 1975 film made Amitabh Bachchan a superstar with the dialogue 'Mere paas maa hai'?",
+      "options": ["Sholay", "Deewar", "Zanjeer", "Trishul"],
+      "correct_answer": "Deewar",
+      "difficulty": "easy"
+    },
+    {
+      "id": 23,
+      "question": "The classic song 'Lag Jaa Gale' was sung by whom?",
+      "options": ["Asha Bhosle", "Geeta Dutt", "Lata Mangeshkar", "Suman Kalyanpur"],
+      "correct_answer": "Lata Mangeshkar",
+      "difficulty": "easy"
+    },
+    {
+      "id": 24,
+      "question": "Which film featured both Guru Dutt and Waheeda Rehman in lead roles for the first time?",
+      "options": ["Pyaasa", "Kagaz Ke Phool", "CID", "Sahib Bibi Aur Ghulam"],
+      "correct_answer": "CID",
+      "difficulty": "hard"
+    },
+    {
+      "id": 25,
+      "question": "In which year was the first Indian sound film 'Alam Ara' released?",
+      "options": ["1929", "1931", "1935", "1927"],
+      "correct_answer": "1931",
+      "difficulty": "medium"
+    },
+    {
+      "id": 26,
+      "question": "Who sang the song 'Ajeeb Dastan Hai Ye' from the film 'Dil Apna Aur Preet Parai' (1960)?",
+      "options": ["Asha Bhosle", "Geeta Dutt", "Lata Mangeshkar", "Suman Kalyanpur"],
+      "correct_answer": "Lata Mangeshkar",
+      "difficulty": "medium"
+    },
+    {
+      "id": 27,
+      "question": "The film 'Anarkali' (1953) was based on the love story between Prince Salim and which woman?",
+      "options": ["Mumtaz", "Anarkali", "Nur Jahan", "Zebunnisa"],
+      "correct_answer": "Anarkali",
+      "difficulty": "easy"
+    },
+    {
+      "id": 28,
+      "question": "Which actor was popularly called 'Evergreen Hero' of Bollywood?",
+      "options": ["Dharmendra", "Dev Anand", "Rajendra Kumar", "Jeetendra"],
+      "correct_answer": "Dev Anand",
+      "difficulty": "easy"
+    },
+    {
+      "id": 29,
+      "question": "Which Bollywood film had the famous train robbery sequence set to the song 'Yeh Desh Hai Veer Jawano Ka'?",
+      "options": ["Naya Daur", "Upkar", "Waqt", "Seeta Aur Geeta"],
+      "correct_answer": "Naya Daur",
+      "difficulty": "hard"
+    },
+    {
+      "id": 30,
+      "question": "Who composed the music for the classic film 'Mughal-E-Azam' (1960)?",
+      "options": ["Naushad", "S.D. Burman", "Vasant Desai", "C. Ramchandra"],
+      "correct_answer": "Naushad",
+      "difficulty": "medium"
+    },
+    {
+      "id": 31,
+      "question": "Which actress was known as the 'Dream Girl' of Bollywood?",
+      "options": ["Zeenat Aman", "Rekha", "Hema Malini", "Parveen Babi"],
+      "correct_answer": "Hema Malini",
+      "difficulty": "easy"
+    },
+    {
+      "id": 32,
+      "question": "The song 'Gata Rahe Mera Dil' from the film 'Guide' was sung by whom?",
+      "options": ["Mohammed Rafi and Asha Bhosle", "Kishore Kumar and Lata Mangeshkar", "Mukesh and Lata Mangeshkar", "Hemant Kumar and Geeta Dutt"],
+      "correct_answer": "Kishore Kumar and Lata Mangeshkar",
+      "difficulty": "medium"
+    },
+    {
+      "id": 33,
+      "question": "In which decade did the 'Golden Era' of Bollywood music generally fall?",
+      "options": ["1930s and 1940s", "1940s and 1950s", "1950s and 1960s", "1960s and 1970s"],
+      "correct_answer": "1950s and 1960s",
+      "difficulty": "easy"
+    },
+    {
+      "id": 34,
+      "question": "Who directed the 1957 film 'Pyaasa' starring Guru Dutt?",
+      "options": ["Bimal Roy", "Guru Dutt himself", "Mehboob Khan", "K. Asif"],
+      "correct_answer": "Guru Dutt himself",
+      "difficulty": "medium"
+    },
+    {
+      "id": 35,
+      "question": "Which actress starred in 'Teesri Manzil' (1966) opposite Shammi Kapoor?",
+      "options": ["Asha Parekh", "Sadhana", "Waheeda Rehman", "Sharmila Tagore"],
+      "correct_answer": "Asha Parekh",
+      "difficulty": "medium"
+    },
+    {
+      "id": 36,
+      "question": "The film 'Jewel Thief' (1967) starred which hero known for his stylish roles?",
+      "options": ["Shammi Kapoor", "Dev Anand", "Rajendra Kumar", "Sunil Dutt"],
+      "correct_answer": "Dev Anand",
+      "difficulty": "easy"
+    },
+    {
+      "id": 37,
+      "question": "Which female singer sang the most songs in Bollywood history, according to the Guinness Book of Records?",
+      "options": ["Lata Mangeshkar", "Asha Bhosle", "Geeta Dutt", "Suman Kalyanpur"],
+      "correct_answer": "Lata Mangeshkar",
+      "difficulty": "easy"
+    },
+    {
+      "id": 38,
+      "question": "Which Hindi film was based on the life of freedom fighter Bhagat Singh and starred Manoj Kumar?",
+      "options": ["Kranti", "Shaheed", "Upkar", "Purab Aur Paschim"],
+      "correct_answer": "Shaheed",
+      "difficulty": "medium"
+    },
+    {
+      "id": 39,
+      "question": "Who was called 'Shehenshhaah' of Bollywood?",
+      "options": ["Dilip Kumar", "Amitabh Bachchan", "Raj Kapoor", "Dev Anand"],
+      "correct_answer": "Amitabh Bachchan",
+      "difficulty": "easy"
+    },
+    {
+      "id": 40,
+      "question": "The song 'Mera Joota Hai Japani' is from which film?",
+      "options": ["Awaara", "Barsaat", "Shree 420", "Jis Desh Mein Ganga Behti Hai"],
+      "correct_answer": "Shree 420",
+      "difficulty": "easy"
+    },
+    {
+      "id": 41,
+      "question": "Which Tamil actor was known as 'Makkal Thilagam' (People's Gem)?",
+      "options": ["MGR", "Sivaji Ganesan", "Gemini Ganesan", "Nagesh"],
+      "correct_answer": "MGR",
+      "difficulty": "medium"
+    },
+    {
+      "id": 42,
+      "question": "The classic Telugu film 'Patala Bhairavi' (1951) starred which actor in the lead role?",
+      "options": ["NT Rama Rao", "Akkineni Nageswara Rao", "S.V. Ranga Rao", "Relangi"],
+      "correct_answer": "NT Rama Rao",
+      "difficulty": "medium"
+    },
+    {
+      "id": 43,
+      "question": "Who was the famous music director known for composing music for Tamil film 'Thiruvilaiyadal' (1965)?",
+      "options": ["K.V. Mahadevan", "M.S. Viswanathan", "Ilaiyaraaja", "T.G. Lingappa"],
+      "correct_answer": "K.V. Mahadevan",
+      "difficulty": "hard"
+    },
+    {
+      "id": 44,
+      "question": "Which Malayalam film from 1965 is considered a landmark in Kerala cinema?",
+      "options": ["Chemmeen", "Nirmalyam", "Swayamvaram", "Thulabharam"],
+      "correct_answer": "Chemmeen",
+      "difficulty": "medium"
+    },
+    {
+      "id": 45,
+      "question": "The legendary playback singer Geeta Dutt was married to which famous film director?",
+      "options": ["Bimal Roy", "Guru Dutt", "K. Asif", "Raj Kapoor"],
+      "correct_answer": "Guru Dutt",
+      "difficulty": "medium"
+    },
+    {
+      "id": 46,
+      "question": "Which film had the iconic song 'Kahin Door Jab Din Dhal Jaye' sung by Mukesh?",
+      "options": ["Anand", "Mili", "Namak Haram", "Rajnigandha"],
+      "correct_answer": "Anand",
+      "difficulty": "medium"
+    },
+    {
+      "id": 47,
+      "question": "The actress Madhubala was famous for her role in which 1960 classic about the Mughal era?",
+      "options": ["Anarkali", "Mughal-E-Azam", "Taj Mahal", "Jahan Ara"],
+      "correct_answer": "Mughal-E-Azam",
+      "difficulty": "easy"
+    },
+    {
+      "id": 48,
+      "question": "Which composer was known for blending Indian classical music with film songs and worked with Lata Mangeshkar extensively?",
+      "options": ["Madan Mohan", "Naushad", "Shankar-Jaikishan", "S.D. Burman"],
+      "correct_answer": "Madan Mohan",
+      "difficulty": "hard"
+    },
+    {
+      "id": 49,
+      "question": "Which film won the first ever Filmfare Best Film Award in 1954?",
+      "options": ["Baiju Bawra", "Do Bigha Zameen", "Awaara", "Devdas"],
+      "correct_answer": "Do Bigha Zameen",
+      "difficulty": "hard"
+    },
+    {
+      "id": 50,
+      "question": "The song 'Tere Bina Zindagi Se Koi' is from which 1970s Hindi film?",
+      "options": ["Aandhi", "Silsila", "Masoom", "Arjun"],
+      "correct_answer": "Aandhi",
+      "difficulty": "medium"
+    },
+    {
+      "id": 51,
+      "question": "Which actor played the famous role of 'Ramu Kaka' in the film 'Deewar' (1975)?",
+      "options": ["Satyen Kappu", "A.K. Hangal", "Iftekhar", "Manmohan Krishna"],
+      "correct_answer": "Satyen Kappu",
+      "difficulty": "hard"
+    },
+    {
+      "id": 52,
+      "question": "The iconic song 'O Mere Dil Ke Chain' was sung by which singer?",
+      "options": ["Mohammed Rafi", "Mukesh", "Kishore Kumar", "Manna Dey"],
+      "correct_answer": "Kishore Kumar",
+      "difficulty": "medium"
+    },
+    {
+      "id": 53,
+      "question": "Which actress was popularly known as the 'Vamp' of classic Bollywood?",
+      "options": ["Bindu", "Farida Jalal", "Nirupa Roy", "Lalita Pawar"],
+      "correct_answer": "Bindu",
+      "difficulty": "medium"
+    },
+    {
+      "id": 54,
+      "question": "Shankar-Jaikishan composed music for many Raj Kapoor films. Which was their most celebrated collaboration?",
+      "options": ["Barsaat", "Awaara", "Shree 420", "Sangam"],
+      "correct_answer": "Awaara",
+      "difficulty": "medium"
+    },
+    {
+      "id": 55,
+      "question": "Which Hindi film featured the famous song 'Roop Tera Mastana' sung by Kishore Kumar?",
+      "options": ["Kati Patang", "Aradhana", "Do Raaste", "Mere Jeevan Saathi"],
+      "correct_answer": "Aradhana",
+      "difficulty": "medium"
+    },
+    {
+      "id": 56,
+      "question": "Who played the role of 'Jai' (the quiet one) in 'Sholay' (1975)?",
+      "options": ["Amitabh Bachchan", "Dharmendra", "Sanjeev Kumar", "Shatrughan Sinha"],
+      "correct_answer": "Amitabh Bachchan",
+      "difficulty": "easy"
+    },
+    {
+      "id": 57,
+      "question": "The classic song 'Tum Hi Meri Mandir' was picturized on which actress?",
+      "options": ["Mala Sinha", "Nanda", "Sadhana", "Rajshree"],
+      "correct_answer": "Mala Sinha",
+      "difficulty": "hard"
+    },
+    {
+      "id": 58,
+      "question": "Which Bollywood film of 1960s had the famous qawwali 'Parda Hai Parda'?",
+      "options": ["Amar Akbar Anthony", "Namak Halaal", "Coolie", "Muqaddar Ka Sikandar"],
+      "correct_answer": "Amar Akbar Anthony",
+      "difficulty": "easy"
+    },
+    {
+      "id": 59,
+      "question": "Who sang the Bengali song 'Amar Sonar Bangla' which became Bangladesh's national anthem?",
+      "options": ["Hemant Kumar", "Rabindranath Tagore", "Debabrata Biswas", "Sandhya Mukherjee"],
+      "correct_answer": "Rabindranath Tagore",
+      "difficulty": "medium"
+    },
+    {
+      "id": 60,
+      "question": "Which Telugu actor was called 'Natasamrat' (Emperor of Acting)?",
+      "options": ["NT Rama Rao", "Akkineni Nageswara Rao", "S.V. Ranga Rao", "Nagabhushanam"],
+      "correct_answer": "Akkineni Nageswara Rao",
+      "difficulty": "medium"
+    },
+    {
+      "id": 61,
+      "question": "The film 'Bobby' (1973) launched which actress as a major star?",
+      "options": ["Zeenat Aman", "Parveen Babi", "Dimple Kapadia", "Neetu Singh"],
+      "correct_answer": "Dimple Kapadia",
+      "difficulty": "easy"
+    },
+    {
+      "id": 62,
+      "question": "Which music director is famous for the songs in the 1975 Tamil classic 'Apoorva Raagangal'?",
+      "options": ["M.S. Viswanathan", "Ilaiyaraaja", "K.V. Mahadevan", "T.V. Rajan"],
+      "correct_answer": "Ilaiyaraaja",
+      "difficulty": "hard"
+    },
+    {
+      "id": 63,
+      "question": "The famous song 'Yeh Raat Yeh Chandni Phir Kahan' was sung by whom?",
+      "options": ["Mukesh", "Talat Mahmood", "Mohammed Rafi", "Hemant Kumar"],
+      "correct_answer": "Hemant Kumar",
+      "difficulty": "hard"
+    },
+    {
+      "id": 64,
+      "question": "Which actress played the lead in 'Devdas' (1955) opposite Dilip Kumar?",
+      "options": ["Meena Kumari", "Suchitra Sen", "Nargis", "Nimmi"],
+      "correct_answer": "Suchitra Sen",
+      "difficulty": "medium"
+    },
+    {
+      "id": 65,
+      "question": "Who directed the classic film 'Do Bigha Zameen' (1953)?",
+      "options": ["Mehboob Khan", "Raj Kapoor", "Bimal Roy", "Hrishikesh Mukherjee"],
+      "correct_answer": "Bimal Roy",
+      "difficulty": "medium"
+    },
+    {
+      "id": 66,
+      "question": "The legendary song 'Tere Mere Sapne Ab Ek Rang Hain' is from which film?",
+      "options": ["Guide", "Jewel Thief", "Teen Devian", "Tere Ghar Ke Saamne"],
+      "correct_answer": "Guide",
+      "difficulty": "medium"
+    },
+    {
+      "id": 67,
+      "question": "Which actress was called 'Memsaab' and was famous for her role in 'Sahib Bibi Aur Ghulam' (1962)?",
+      "options": ["Waheeda Rehman", "Meena Kumari", "Nargis", "Suchitra Sen"],
+      "correct_answer": "Meena Kumari",
+      "difficulty": "easy"
+    },
+    {
+      "id": 68,
+      "question": "The comedy duo famous in Hindi films of the 1950s and 60s was Johnny Walker and who?",
+      "options": ["Mehmood", "Deven Verma", "Rajendra Nath", "Agha"],
+      "correct_answer": "Mehmood",
+      "difficulty": "medium"
+    },
+    {
+      "id": 69,
+      "question": "Which film featured the famous song 'Yeh Dil Na Hota Bechara' sung by Kishore Kumar?",
+      "options": ["Jewel Thief", "Pyar Ka Mausam", "Ghar", "Safar"],
+      "correct_answer": "Jewel Thief",
+      "difficulty": "hard"
+    },
+    {
+      "id": 70,
+      "question": "Which famous producer-director was known for making socially-relevant films like 'Mother India' and 'Andaz'?",
+      "options": ["Raj Kapoor", "Mehboob Khan", "Guru Dutt", "Bimal Roy"],
+      "correct_answer": "Mehboob Khan",
+      "difficulty": "medium"
+    },
+    {
+      "id": 71,
+      "question": "The song 'Mere Desh Ki Dharti' is from which patriotic film?",
+      "options": ["Upkar", "Kranti", "Purab Aur Paschim", "Shaheed"],
+      "correct_answer": "Upkar",
+      "difficulty": "easy"
+    },
+    {
+      "id": 72,
+      "question": "Who played the villain Shakaal in the 1980 film 'Shaan'?",
+      "options": ["Pran", "Kulbhushan Kharbanda", "Amjad Khan", "Danny Denzongpa"],
+      "correct_answer": "Kulbhushan Kharbanda",
+      "difficulty": "medium"
+    },
+    {
+      "id": 73,
+      "question": "The classic Marathi song 'Jai Jai Maharashtra Majha' was composed by whom?",
+      "options": ["Ram Kadam", "Vasant Prabhu", "Hridaynath Mangeshkar", "Sudhir Phadke"],
+      "correct_answer": "Ram Kadam",
+      "difficulty": "hard"
+    },
+    {
+      "id": 74,
+      "question": "Which famous actress was known for performing classical Bharatanatyam in Tamil and Hindi films?",
+      "options": ["Hema Malini", "Padmini", "Waheeda Rehman", "Vyjayanthimala"],
+      "correct_answer": "Padmini",
+      "difficulty": "hard"
+    },
+    {
+      "id": 75,
+      "question": "In 'Mughal-E-Azam', who sang the famous song 'Pyar Kiya To Darna Kya' for actress Madhubala?",
+      "options": ["Geeta Dutt", "Asha Bhosle", "Lata Mangeshkar", "Shamshad Begum"],
+      "correct_answer": "Lata Mangeshkar",
+      "difficulty": "medium"
+    },
+    {
+      "id": 76,
+      "question": "Which actor was famous for playing the role of 'angry young man' in 1970s Bollywood?",
+      "options": ["Dharmendra", "Vinod Khanna", "Shatrughan Sinha", "Amitabh Bachchan"],
+      "correct_answer": "Amitabh Bachchan",
+      "difficulty": "easy"
+    },
+    {
+      "id": 77,
+      "question": "The film 'Madhumati' (1958) with Dilip Kumar had its music composed by whom?",
+      "options": ["Naushad", "Salil Chowdhury", "S.D. Burman", "Shankar-Jaikishan"],
+      "correct_answer": "Salil Chowdhury",
+      "difficulty": "hard"
+    },
+    {
+      "id": 78,
+      "question": "Who sang 'Baharon Phool Barsao' in the film 'Suraj' (1966)?",
+      "options": ["Mukesh", "Mohammed Rafi", "Kishore Kumar", "Manna Dey"],
+      "correct_answer": "Mohammed Rafi",
+      "difficulty": "medium"
+    },
+    {
+      "id": 79,
+      "question": "The Tamil actor who was also the Chief Minister of Tamil Nadu for many years was:",
+      "options": ["Sivaji Ganesan", "M. Karunanidhi", "M.G. Ramachandran", "Rajinikanth"],
+      "correct_answer": "M.G. Ramachandran",
+      "difficulty": "easy"
+    },
+    {
+      "id": 80,
+      "question": "Which veteran actor was known as 'Dadamoni' in Bollywood?",
+      "options": ["Balraj Sahni", "Ashok Kumar", "Prithviraj Kapoor", "Sohrab Modi"],
+      "correct_answer": "Ashok Kumar",
+      "difficulty": "medium"
+    },
+    {
+      "id": 81,
+      "question": "The iconic villain 'Pran' was born in which city?",
+      "options": ["Mumbai", "Lahore", "Delhi", "Amritsar"],
+      "correct_answer": "Lahore",
+      "difficulty": "hard"
+    },
+    {
+      "id": 82,
+      "question": "The song 'Khilte Hain Gul Yahan' is from which 1970s film?",
+      "options": ["Sharmilee", "Kati Patang", "Aradhana", "Safar"],
+      "correct_answer": "Sharmilee",
+      "difficulty": "hard"
+    },
+    {
+      "id": 83,
+      "question": "Which famous female singer from the 1940s-50s was known as the 'Queen of Melody' and also acted in films?",
+      "options": ["Lata Mangeshkar", "Suraiya", "Noor Jehan", "Shamshad Begum"],
+      "correct_answer": "Suraiya",
+      "difficulty": "medium"
+    },
+    {
+      "id": 84,
+      "question": "The 1964 film 'Sangam' starred Raj Kapoor, Rajendra Kumar, and which actress?",
+      "options": ["Nargis", "Waheeda Rehman", "Vyjayanthimala", "Sadhana"],
+      "correct_answer": "Vyjayanthimala",
+      "difficulty": "medium"
+    },
+    {
+      "id": 85,
+      "question": "Which Hindi film director was known as the 'Showman of Bollywood'?",
+      "options": ["Raj Kapoor", "Yash Chopra", "Manmohan Desai", "Subhash Ghai"],
+      "correct_answer": "Raj Kapoor",
+      "difficulty": "easy"
+    },
+    {
+      "id": 86,
+      "question": "The classic song 'Na Tum Hamen Jaano' is from which film starring Dev Anand?",
+      "options": ["Baat Ek Raat Ki", "Jab Pyar Kisise Hota Hai", "Hum Dono", "Kala Bazar"],
+      "correct_answer": "Baat Ek Raat Ki",
+      "difficulty": "hard"
+    },
+    {
+      "id": 87,
+      "question": "Which legendary singer was known for ghazals and thumris, and was awarded the Bharat Ratna?",
+      "options": ["Bade Ghulam Ali Khan", "Bismillah Khan", "Pandit Bhimsen Joshi", "M.S. Subbulakshmi"],
+      "correct_answer": "M.S. Subbulakshmi",
+      "difficulty": "medium"
+    },
+    {
+      "id": 88,
+      "question": "In the film 'Amar Akbar Anthony' (1977), which character did Amitabh Bachchan play?",
+      "options": ["Amar", "Akbar", "Anthony", "Robert"],
+      "correct_answer": "Anthony",
+      "difficulty": "easy"
+    },
+    {
+      "id": 89,
+      "question": "The Marathi actress Hansa Wadkar was famous for which 1958 Marathi film considered a classic?",
+      "options": ["Sangte Aika", "Sansaar", "Pedgaonche Shahane", "Ek Gaav Bara Bhangdi"],
+      "correct_answer": "Sangte Aika",
+      "difficulty": "hard"
+    },
+    {
+      "id": 90,
+      "question": "The famous duo 'Rafi-Asha' combined on many film songs. Which song from 'Teesri Manzil' became especially popular?",
+      "options": ["O Haseena Zulfon Wali", "Aaja Aaja", "Deewana Mujhsa Nahin", "O Mere Sona Re"],
+      "correct_answer": "O Haseena Zulfon Wali",
+      "difficulty": "medium"
+    },
+    {
+      "id": 91,
+      "question": "Which film is often called the 'first Indian talkie' released in 1931?",
+      "options": ["Devdas", "Alam Ara", "Indra Sabha", "Ayodhya Ka Raja"],
+      "correct_answer": "Alam Ara",
+      "difficulty": "medium"
+    },
+    {
+      "id": 92,
+      "question": "The actor Sanjeev Kumar was known by his real name. What was it?",
+      "options": ["Haribhai Jariwala", "Sanjeev Bhatnagar", "Vilas Kulkarni", "Ranjit"],
+      "correct_answer": "Haribhai Jariwala",
+      "difficulty": "hard"
+    },
+    {
+      "id": 93,
+      "question": "Which Bengali actor and filmmaker was the first Asian to receive an honorary Academy Award (Oscar)?",
+      "options": ["Ritwik Ghatak", "Mrinal Sen", "Tapan Sinha", "Satyajit Ray"],
+      "correct_answer": "Satyajit Ray",
+      "difficulty": "easy"
+    },
+    {
+      "id": 94,
+      "question": "Pandit Ravi Shankar was world-famous for playing which classical Indian instrument?",
+      "options": ["Tabla", "Sitar", "Sarod", "Flute"],
+      "correct_answer": "Sitar",
+      "difficulty": "easy"
+    },
+    {
+      "id": 95,
+      "question": "The Hindi film 'Anand' (1971) starred Rajesh Khanna in the lead. Who played his doctor friend?",
+      "options": ["Vinod Khanna", "Amitabh Bachchan", "Shashi Kapoor", "Dharmendra"],
+      "correct_answer": "Amitabh Bachchan",
+      "difficulty": "medium"
+    },
+    {
+      "id": 96,
+      "question": "Which singer was famously called 'The Voice' and specialised in sad, melodious songs during the 1950s-60s?",
+      "options": ["Manna Dey", "Hemant Kumar", "Talat Mahmood", "Mukesh"],
+      "correct_answer": "Talat Mahmood",
+      "difficulty": "medium"
+    },
+    {
+      "id": 97,
+      "question": "Rajesh Khanna was known as the first superstar of Bollywood. Which 1969 film launched his superstardom?",
+      "options": ["Safar", "Aradhana", "Do Raaste", "Ittefaq"],
+      "correct_answer": "Aradhana",
+      "difficulty": "medium"
+    },
+    {
+      "id": 98,
+      "question": "The legendary Doordarshan serial 'Hum Log' aired in the 1980s was India's first:",
+      "options": ["Historical drama", "Daily soap opera", "Comedy serial", "Crime thriller"],
+      "correct_answer": "Daily soap opera",
+      "difficulty": "medium"
+    },
+    {
+      "id": 99,
+      "question": "Which actor was known as 'Bharat Kumar' for his patriotic roles in Bollywood films?",
+      "options": ["Manoj Kumar", "Dharmendra", "Mithun Chakraborty", "Vinod Khanna"],
+      "correct_answer": "Manoj Kumar",
+      "difficulty": "easy"
+    },
+    {
+      "id": 100,
+      "question": "The popular 1984 Doordarshan serial 'Ramayan' was directed by:",
+      "options": ["B.R. Chopra", "Ramanand Sagar", "Rajiv Nema", "Shyam Benegal"],
+      "correct_answer": "Ramanand Sagar",
+      "difficulty": "easy"
+    }
+  ]
+}

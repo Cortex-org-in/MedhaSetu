@@ -1,0 +1,707 @@
+{
+  "category": "Indian History and Geography",
+  "description": "100 questions on Indian history and geography designed to assess and improve mental agility in senior citizens.",
+  "total_questions": 100,
+  "questions": [
+    {
+      "id": 1,
+      "question": "Who was the first Prime Minister of independent India?",
+      "options": ["Sardar Vallabhbhai Patel", "Jawaharlal Nehru", "Rajendra Prasad", "Subhas Chandra Bose"],
+      "correct_answer": "Jawaharlal Nehru",
+      "difficulty": "easy"
+    },
+    {
+      "id": 2,
+      "question": "On which date did India gain independence from British rule?",
+      "options": ["15th August 1947", "26th January 1950", "2nd October 1948", "15th August 1950"],
+      "correct_answer": "15th August 1947",
+      "difficulty": "easy"
+    },
+    {
+      "id": 3,
+      "question": "Which river is known as the 'Ganga of the South'?",
+      "options": ["Krishna", "Kaveri", "Godavari", "Tungabhadra"],
+      "correct_answer": "Godavari",
+      "difficulty": "medium"
+    },
+    {
+      "id": 4,
+      "question": "What is the capital city of Rajasthan?",
+      "options": ["Jodhpur", "Udaipur", "Jaipur", "Ajmer"],
+      "correct_answer": "Jaipur",
+      "difficulty": "easy"
+    },
+    {
+      "id": 5,
+      "question": "The Taj Mahal was built by which Mughal emperor?",
+      "options": ["Akbar", "Aurangzeb", "Jahangir", "Shah Jahan"],
+      "correct_answer": "Shah Jahan",
+      "difficulty": "easy"
+    },
+    {
+      "id": 6,
+      "question": "Which mountain range separates India from China and Tibet?",
+      "options": ["Vindhya Range", "Aravalli Range", "Himalayas", "Western Ghats"],
+      "correct_answer": "Himalayas",
+      "difficulty": "easy"
+    },
+    {
+      "id": 7,
+      "question": "Who is known as the 'Father of the Nation' in India?",
+      "options": ["Jawaharlal Nehru", "Bhagat Singh", "Mahatma Gandhi", "B. R. Ambedkar"],
+      "correct_answer": "Mahatma Gandhi",
+      "difficulty": "easy"
+    },
+    {
+      "id": 8,
+      "question": "Which state in India has the longest coastline?",
+      "options": ["Maharashtra", "Tamil Nadu", "Andhra Pradesh", "Gujarat"],
+      "correct_answer": "Gujarat",
+      "difficulty": "medium"
+    },
+    {
+      "id": 9,
+      "question": "The Quit India Movement was launched by Mahatma Gandhi in which year?",
+      "options": ["1930", "1942", "1935", "1947"],
+      "correct_answer": "1942",
+      "difficulty": "medium"
+    },
+    {
+      "id": 10,
+      "question": "Which is the largest state in India by area?",
+      "options": ["Maharashtra", "Madhya Pradesh", "Uttar Pradesh", "Rajasthan"],
+      "correct_answer": "Rajasthan",
+      "difficulty": "easy"
+    },
+    {
+      "id": 11,
+      "question": "Who was the first President of independent India?",
+      "options": ["Jawaharlal Nehru", "Sardar Patel", "Rajendra Prasad", "Sarvepalli Radhakrishnan"],
+      "correct_answer": "Rajendra Prasad",
+      "difficulty": "easy"
+    },
+    {
+      "id": 12,
+      "question": "The famous 'Dandi March' by Mahatma Gandhi was a protest against which British policy?",
+      "options": ["Land Tax", "Salt Tax", "Cotton Tax", "Textile Import"],
+      "correct_answer": "Salt Tax",
+      "difficulty": "easy"
+    },
+    {
+      "id": 13,
+      "question": "Which river is the longest river in India?",
+      "options": ["Yamuna", "Godavari", "Brahmaputra", "Ganga"],
+      "correct_answer": "Ganga",
+      "difficulty": "easy"
+    },
+    {
+      "id": 14,
+      "question": "The city of Kolkata was formerly known by what name?",
+      "options": ["Madras", "Bombay", "Calcutta", "Dacca"],
+      "correct_answer": "Calcutta",
+      "difficulty": "easy"
+    },
+    {
+      "id": 15,
+      "question": "Which Indian king fought the Battle of Plassey against the British in 1757?",
+      "options": ["Tipu Sultan", "Siraj ud-Daulah", "Haider Ali", "Mir Jafar"],
+      "correct_answer": "Siraj ud-Daulah",
+      "difficulty": "medium"
+    },
+    {
+      "id": 16,
+      "question": "What is the name of the southernmost tip of mainland India?",
+      "options": ["Cape Comorin", "Rameswaram", "Trivandrum", "Point Calimere"],
+      "correct_answer": "Cape Comorin",
+      "difficulty": "medium"
+    },
+    {
+      "id": 17,
+      "question": "Which Mughal emperor is known for building the Red Fort in Delhi?",
+      "options": ["Humayun", "Akbar", "Shah Jahan", "Babur"],
+      "correct_answer": "Shah Jahan",
+      "difficulty": "medium"
+    },
+    {
+      "id": 18,
+      "question": "The Indian National Congress was founded in which year?",
+      "options": ["1857", "1885", "1905", "1920"],
+      "correct_answer": "1885",
+      "difficulty": "medium"
+    },
+    {
+      "id": 19,
+      "question": "Which state is known as the 'Land of Five Rivers'?",
+      "options": ["Haryana", "Himachal Pradesh", "Punjab", "Uttarakhand"],
+      "correct_answer": "Punjab",
+      "difficulty": "easy"
+    },
+    {
+      "id": 20,
+      "question": "Who wrote the Indian national anthem 'Jana Gana Mana'?",
+      "options": ["Bankim Chandra Chattopadhyay", "Rabindranath Tagore", "Sarojini Naidu", "Subramania Bharati"],
+      "correct_answer": "Rabindranath Tagore",
+      "difficulty": "easy"
+    },
+    {
+      "id": 21,
+      "question": "Which desert is located in the western part of India?",
+      "options": ["Deccan", "Thar", "Rann of Kutch", "Spiti"],
+      "correct_answer": "Thar",
+      "difficulty": "easy"
+    },
+    {
+      "id": 22,
+      "question": "The ancient city of Mohenjo-Daro was part of which civilization?",
+      "options": ["Vedic Civilization", "Maurya Empire", "Indus Valley Civilization", "Gupta Empire"],
+      "correct_answer": "Indus Valley Civilization",
+      "difficulty": "easy"
+    },
+    {
+      "id": 23,
+      "question": "Which Indian state shares its border with Nepal, Bhutan, and China?",
+      "options": ["Assam", "Bihar", "Sikkim", "Meghalaya"],
+      "correct_answer": "Sikkim",
+      "difficulty": "medium"
+    },
+    {
+      "id": 24,
+      "question": "Who was the founder of the Maurya Empire?",
+      "options": ["Ashoka", "Chandragupta Maurya", "Bindusara", "Bimbisara"],
+      "correct_answer": "Chandragupta Maurya",
+      "difficulty": "medium"
+    },
+    {
+      "id": 25,
+      "question": "Which is the smallest state in India by area?",
+      "options": ["Tripura", "Nagaland", "Goa", "Sikkim"],
+      "correct_answer": "Goa",
+      "difficulty": "easy"
+    },
+    {
+      "id": 26,
+      "question": "The Jallianwala Bagh massacre took place in which city?",
+      "options": ["Delhi", "Amritsar", "Lahore", "Lucknow"],
+      "correct_answer": "Amritsar",
+      "difficulty": "easy"
+    },
+    {
+      "id": 27,
+      "question": "Which ocean lies to the south of India?",
+      "options": ["Pacific Ocean", "Atlantic Ocean", "Indian Ocean", "Arctic Ocean"],
+      "correct_answer": "Indian Ocean",
+      "difficulty": "easy"
+    },
+    {
+      "id": 28,
+      "question": "The famous Ajanta Caves are located in which state?",
+      "options": ["Rajasthan", "Gujarat", "Maharashtra", "Madhya Pradesh"],
+      "correct_answer": "Maharashtra",
+      "difficulty": "medium"
+    },
+    {
+      "id": 29,
+      "question": "Which emperor spread Buddhism across Asia after the Kalinga War?",
+      "options": ["Chandragupta", "Harsha", "Ashoka", "Kanishka"],
+      "correct_answer": "Ashoka",
+      "difficulty": "easy"
+    },
+    {
+      "id": 30,
+      "question": "What is the capital of the state of Kerala?",
+      "options": ["Kochi", "Kozhikode", "Thiruvananthapuram", "Thrissur"],
+      "correct_answer": "Thiruvananthapuram",
+      "difficulty": "easy"
+    },
+    {
+      "id": 31,
+      "question": "The Bhakra Nangal Dam is built on which river?",
+      "options": ["Ravi", "Beas", "Satluj", "Chenab"],
+      "correct_answer": "Satluj",
+      "difficulty": "medium"
+    },
+    {
+      "id": 32,
+      "question": "Who was the first woman Prime Minister of India?",
+      "options": ["Sarojini Naidu", "Vijaya Lakshmi Pandit", "Indira Gandhi", "Sucheta Kripalani"],
+      "correct_answer": "Indira Gandhi",
+      "difficulty": "easy"
+    },
+    {
+      "id": 33,
+      "question": "The city of Agra is situated on the banks of which river?",
+      "options": ["Ganga", "Chambal", "Yamuna", "Betwa"],
+      "correct_answer": "Yamuna",
+      "difficulty": "easy"
+    },
+    {
+      "id": 34,
+      "question": "In which year was the partition of Bengal carried out by Lord Curzon?",
+      "options": ["1905", "1911", "1899", "1919"],
+      "correct_answer": "1905",
+      "difficulty": "medium"
+    },
+    {
+      "id": 35,
+      "question": "Which state is the largest producer of tea in India?",
+      "options": ["West Bengal", "Kerala", "Assam", "Tamil Nadu"],
+      "correct_answer": "Assam",
+      "difficulty": "medium"
+    },
+    {
+      "id": 36,
+      "question": "Who founded the city of Fatehpur Sikri?",
+      "options": ["Humayun", "Babur", "Akbar", "Jahangir"],
+      "correct_answer": "Akbar",
+      "difficulty": "medium"
+    },
+    {
+      "id": 37,
+      "question": "The Gir Forest National Park, the only home of Asiatic lions, is located in which state?",
+      "options": ["Rajasthan", "Madhya Pradesh", "Gujarat", "Maharashtra"],
+      "correct_answer": "Gujarat",
+      "difficulty": "medium"
+    },
+    {
+      "id": 38,
+      "question": "Which freedom fighter was known as 'Netaji'?",
+      "options": ["Bhagat Singh", "Bal Gangadhar Tilak", "Subhas Chandra Bose", "Lala Lajpat Rai"],
+      "correct_answer": "Subhas Chandra Bose",
+      "difficulty": "easy"
+    },
+    {
+      "id": 39,
+      "question": "The Western Ghats run along the western coast of India covering which states?",
+      "options": ["Gujarat to Tamil Nadu", "Maharashtra to Tamil Nadu", "Gujarat to Kerala", "Maharashtra to Kerala"],
+      "correct_answer": "Gujarat to Kerala",
+      "difficulty": "medium"
+    },
+    {
+      "id": 40,
+      "question": "Who wrote the famous book 'Discovery of India'?",
+      "options": ["Mahatma Gandhi", "Jawaharlal Nehru", "Rabindranath Tagore", "Bal Gangadhar Tilak"],
+      "correct_answer": "Jawaharlal Nehru",
+      "difficulty": "medium"
+    },
+    {
+      "id": 41,
+      "question": "Which Indian city is called the 'Silicon Valley of India'?",
+      "options": ["Hyderabad", "Chennai", "Bengaluru", "Pune"],
+      "correct_answer": "Bengaluru",
+      "difficulty": "easy"
+    },
+    {
+      "id": 42,
+      "question": "The Chilika Lake, famous for migratory birds, is located in which state?",
+      "options": ["West Bengal", "Andhra Pradesh", "Odisha", "Tamil Nadu"],
+      "correct_answer": "Odisha",
+      "difficulty": "medium"
+    },
+    {
+      "id": 43,
+      "question": "Who was the Viceroy of India during the Quit India Movement of 1942?",
+      "options": ["Lord Mountbatten", "Lord Wavell", "Lord Linlithgow", "Lord Irwin"],
+      "correct_answer": "Lord Linlithgow",
+      "difficulty": "hard"
+    },
+    {
+      "id": 44,
+      "question": "The Konkan Railway connects Mumbai to which city?",
+      "options": ["Goa", "Mangaluru", "Thiruvananthapuram", "Kochi"],
+      "correct_answer": "Mangaluru",
+      "difficulty": "medium"
+    },
+    {
+      "id": 45,
+      "question": "Which Sikh Guru founded the city of Amritsar?",
+      "options": ["Guru Nanak Dev", "Guru Arjan Dev", "Guru Ram Das", "Guru Gobind Singh"],
+      "correct_answer": "Guru Ram Das",
+      "difficulty": "medium"
+    },
+    {
+      "id": 46,
+      "question": "The Deccan Plateau covers a large part of which region of India?",
+      "options": ["Northern India", "Eastern India", "Southern India", "Western India"],
+      "correct_answer": "Southern India",
+      "difficulty": "easy"
+    },
+    {
+      "id": 47,
+      "question": "Who was the last Mughal emperor of India?",
+      "options": ["Aurangzeb", "Muhammad Shah", "Bahadur Shah Zafar", "Shah Alam II"],
+      "correct_answer": "Bahadur Shah Zafar",
+      "difficulty": "medium"
+    },
+    {
+      "id": 48,
+      "question": "Which is the highest peak in India?",
+      "options": ["Nanda Devi", "K2", "Kangchenjunga", "Kamet"],
+      "correct_answer": "Kangchenjunga",
+      "difficulty": "medium"
+    },
+    {
+      "id": 49,
+      "question": "The historic city of Hampi was the capital of which empire?",
+      "options": ["Chola Empire", "Vijayanagara Empire", "Hoysala Empire", "Bahmani Sultanate"],
+      "correct_answer": "Vijayanagara Empire",
+      "difficulty": "medium"
+    },
+    {
+      "id": 50,
+      "question": "Which Indian state has the highest population according to recent census data?",
+      "options": ["Maharashtra", "Bihar", "West Bengal", "Uttar Pradesh"],
+      "correct_answer": "Uttar Pradesh",
+      "difficulty": "easy"
+    },
+    {
+      "id": 51,
+      "question": "Mahatma Gandhi was born in which city?",
+      "options": ["Ahmedabad", "Porbandar", "Surat", "Rajkot"],
+      "correct_answer": "Porbandar",
+      "difficulty": "easy"
+    },
+    {
+      "id": 52,
+      "question": "Which river flows through the city of Delhi?",
+      "options": ["Ganga", "Chambal", "Yamuna", "Sutlej"],
+      "correct_answer": "Yamuna",
+      "difficulty": "easy"
+    },
+    {
+      "id": 53,
+      "question": "The famous Sun Temple of Konark is located in which state?",
+      "options": ["Tamil Nadu", "Andhra Pradesh", "Odisha", "West Bengal"],
+      "correct_answer": "Odisha",
+      "difficulty": "medium"
+    },
+    {
+      "id": 54,
+      "question": "The first war of Indian Independence (Sepoy Mutiny) took place in which year?",
+      "options": ["1847", "1857", "1867", "1877"],
+      "correct_answer": "1857",
+      "difficulty": "easy"
+    },
+    {
+      "id": 55,
+      "question": "Which sea lies to the west of India?",
+      "options": ["Bay of Bengal", "Arabian Sea", "Laccadive Sea", "Andaman Sea"],
+      "correct_answer": "Arabian Sea",
+      "difficulty": "easy"
+    },
+    {
+      "id": 56,
+      "question": "The ancient university of Nalanda was located in which present-day Indian state?",
+      "options": ["Uttar Pradesh", "Madhya Pradesh", "Bihar", "Jharkhand"],
+      "correct_answer": "Bihar",
+      "difficulty": "medium"
+    },
+    {
+      "id": 57,
+      "question": "Which freedom fighter gave the famous slogan 'Jai Hind'?",
+      "options": ["Bhagat Singh", "Jawaharlal Nehru", "Subhas Chandra Bose", "Bal Gangadhar Tilak"],
+      "correct_answer": "Subhas Chandra Bose",
+      "difficulty": "easy"
+    },
+    {
+      "id": 58,
+      "question": "The Tropic of Cancer passes through how many Indian states?",
+      "options": ["6", "7", "8", "9"],
+      "correct_answer": "8",
+      "difficulty": "hard"
+    },
+    {
+      "id": 59,
+      "question": "Which state is known as the 'Spice Garden of India'?",
+      "options": ["Goa", "Kerala", "Karnataka", "Tamil Nadu"],
+      "correct_answer": "Kerala",
+      "difficulty": "easy"
+    },
+    {
+      "id": 60,
+      "question": "Who founded the Arya Samaj in 1875?",
+      "options": ["Ram Mohan Roy", "Swami Vivekananda", "Dayananda Saraswati", "Bal Gangadhar Tilak"],
+      "correct_answer": "Dayananda Saraswati",
+      "difficulty": "medium"
+    },
+    {
+      "id": 61,
+      "question": "The famous Meenakshi Amman Temple is located in which city?",
+      "options": ["Chennai", "Madurai", "Thanjavur", "Tirupati"],
+      "correct_answer": "Madurai",
+      "difficulty": "medium"
+    },
+    {
+      "id": 62,
+      "question": "Which Indian state is the largest producer of cotton?",
+      "options": ["Rajasthan", "Punjab", "Maharashtra", "Gujarat"],
+      "correct_answer": "Gujarat",
+      "difficulty": "medium"
+    },
+    {
+      "id": 63,
+      "question": "Who was popularly known as the 'Iron Man of India'?",
+      "options": ["Bhagat Singh", "Sardar Vallabhbhai Patel", "Lal Bahadur Shastri", "Jawaharlal Nehru"],
+      "correct_answer": "Sardar Vallabhbhai Patel",
+      "difficulty": "easy"
+    },
+    {
+      "id": 64,
+      "question": "The Bay of Bengal lies to which side of India?",
+      "options": ["West", "North", "South", "East"],
+      "correct_answer": "East",
+      "difficulty": "easy"
+    },
+    {
+      "id": 65,
+      "question": "The famous Dilwara Temples are located near which city in Rajasthan?",
+      "options": ["Jodhpur", "Udaipur", "Mount Abu", "Ajmer"],
+      "correct_answer": "Mount Abu",
+      "difficulty": "medium"
+    },
+    {
+      "id": 66,
+      "question": "Who was the founder of the Brahmo Samaj?",
+      "options": ["Swami Vivekananda", "Dayananda Saraswati", "Ram Mohan Roy", "Ramakrishna Paramahamsa"],
+      "correct_answer": "Ram Mohan Roy",
+      "difficulty": "medium"
+    },
+    {
+      "id": 67,
+      "question": "Which Indian city is known as the 'Pink City'?",
+      "options": ["Jodhpur", "Udaipur", "Jaipur", "Jaisalmer"],
+      "correct_answer": "Jaipur",
+      "difficulty": "easy"
+    },
+    {
+      "id": 68,
+      "question": "The Palk Strait separates India from which neighbouring country?",
+      "options": ["Bangladesh", "Maldives", "Sri Lanka", "Myanmar"],
+      "correct_answer": "Sri Lanka",
+      "difficulty": "easy"
+    },
+    {
+      "id": 69,
+      "question": "In which year did the Constitution of India come into effect?",
+      "options": ["1947", "1948", "1949", "1950"],
+      "correct_answer": "1950",
+      "difficulty": "easy"
+    },
+    {
+      "id": 70,
+      "question": "The famous Kaziranga National Park, known for one-horned rhinoceros, is in which state?",
+      "options": ["West Bengal", "Meghalaya", "Assam", "Arunachal Pradesh"],
+      "correct_answer": "Assam",
+      "difficulty": "medium"
+    },
+    {
+      "id": 71,
+      "question": "Which battle in 1526 established Mughal rule in India?",
+      "options": ["Battle of Panipat", "Battle of Plassey", "Battle of Tarain", "Battle of Haldighati"],
+      "correct_answer": "Battle of Panipat",
+      "difficulty": "medium"
+    },
+    {
+      "id": 72,
+      "question": "The Brahmaputra river originates in which country before entering India?",
+      "options": ["Nepal", "Bhutan", "China", "Myanmar"],
+      "correct_answer": "China",
+      "difficulty": "medium"
+    },
+    {
+      "id": 73,
+      "question": "Which city is known as the 'Gateway of India'?",
+      "options": ["Kolkata", "Mumbai", "Chennai", "Delhi"],
+      "correct_answer": "Mumbai",
+      "difficulty": "easy"
+    },
+    {
+      "id": 74,
+      "question": "Chhatrapati Shivaji Maharaj founded which empire in the 17th century?",
+      "options": ["Vijayanagara Empire", "Mughal Empire", "Maratha Empire", "Nizam's Kingdom"],
+      "correct_answer": "Maratha Empire",
+      "difficulty": "easy"
+    },
+    {
+      "id": 75,
+      "question": "India shares its longest international border with which country?",
+      "options": ["Pakistan", "Nepal", "China", "Bangladesh"],
+      "correct_answer": "Bangladesh",
+      "difficulty": "medium"
+    },
+    {
+      "id": 76,
+      "question": "The Golden Temple in Amritsar is the holiest shrine of which religion?",
+      "options": ["Hinduism", "Jainism", "Buddhism", "Sikhism"],
+      "correct_answer": "Sikhism",
+      "difficulty": "easy"
+    },
+    {
+      "id": 77,
+      "question": "Which river is associated with the city of Varanasi?",
+      "options": ["Yamuna", "Saraswati", "Ganga", "Gomti"],
+      "correct_answer": "Ganga",
+      "difficulty": "easy"
+    },
+    {
+      "id": 78,
+      "question": "The ancient port city of Lothal, part of the Indus Valley Civilization, is in which state?",
+      "options": ["Rajasthan", "Haryana", "Punjab", "Gujarat"],
+      "correct_answer": "Gujarat",
+      "difficulty": "hard"
+    },
+    {
+      "id": 79,
+      "question": "Who gave the slogan 'Swaraj is my birthright and I shall have it'?",
+      "options": ["Mahatma Gandhi", "Jawaharlal Nehru", "Bal Gangadhar Tilak", "Lala Lajpat Rai"],
+      "correct_answer": "Bal Gangadhar Tilak",
+      "difficulty": "medium"
+    },
+    {
+      "id": 80,
+      "question": "Which is the only river in India that flows from east to west and meets the Arabian Sea?",
+      "options": ["Tapti", "Krishna", "Mahanadi", "Cauvery"],
+      "correct_answer": "Tapti",
+      "difficulty": "hard"
+    },
+    {
+      "id": 81,
+      "question": "The famous Char Dham pilgrimage sites are located in which state?",
+      "options": ["Himachal Pradesh", "Uttarakhand", "Jammu and Kashmir", "Sikkim"],
+      "correct_answer": "Uttarakhand",
+      "difficulty": "medium"
+    },
+    {
+      "id": 82,
+      "question": "Who was the first woman to become the Governor of an Indian state?",
+      "options": ["Vijaya Lakshmi Pandit", "Sarojini Naidu", "Sucheta Kripalani", "Annie Besant"],
+      "correct_answer": "Sarojini Naidu",
+      "difficulty": "medium"
+    },
+    {
+      "id": 83,
+      "question": "The Sundarbans mangrove forest is shared between India and which other country?",
+      "options": ["Nepal", "Myanmar", "Sri Lanka", "Bangladesh"],
+      "correct_answer": "Bangladesh",
+      "difficulty": "medium"
+    },
+    {
+      "id": 84,
+      "question": "Which Chola king is famous for building the Brihadeeswarar Temple in Thanjavur?",
+      "options": ["Rajendra Chola", "Rajaraja Chola I", "Kulottunga Chola", "Parantaka Chola"],
+      "correct_answer": "Rajaraja Chola I",
+      "difficulty": "hard"
+    },
+    {
+      "id": 85,
+      "question": "The non-cooperation movement launched by Gandhi began in which year?",
+      "options": ["1915", "1920", "1930", "1935"],
+      "correct_answer": "1920",
+      "difficulty": "medium"
+    },
+    {
+      "id": 86,
+      "question": "Which state is known as the 'Roof of India'?",
+      "options": ["Jammu and Kashmir", "Himachal Pradesh", "Uttarakhand", "Ladakh"],
+      "correct_answer": "Ladakh",
+      "difficulty": "medium"
+    },
+    {
+      "id": 87,
+      "question": "The Elephanta Caves near Mumbai are dedicated to which Hindu god?",
+      "options": ["Vishnu", "Brahma", "Shiva", "Ganesha"],
+      "correct_answer": "Shiva",
+      "difficulty": "medium"
+    },
+    {
+      "id": 88,
+      "question": "The Indian National Army (INA or Azad Hind Fauj) was founded by whom?",
+      "options": ["Subhas Chandra Bose", "Mohan Singh", "Bhagat Singh", "Rash Behari Bose"],
+      "correct_answer": "Mohan Singh",
+      "difficulty": "hard"
+    },
+    {
+      "id": 89,
+      "question": "Which state of India is called the 'Land of the Rising Sun'?",
+      "options": ["Meghalaya", "Manipur", "Nagaland", "Arunachal Pradesh"],
+      "correct_answer": "Arunachal Pradesh",
+      "difficulty": "medium"
+    },
+    {
+      "id": 90,
+      "question": "In which city is the famous Victoria Memorial located?",
+      "options": ["Mumbai", "Delhi", "Kolkata", "Chennai"],
+      "correct_answer": "Kolkata",
+      "difficulty": "easy"
+    },
+    {
+      "id": 91,
+      "question": "Which Indian ruler defeated Alexander the Great's general at the Battle of the Hydaspes?",
+      "options": ["Ashoka", "Chandragupta Maurya", "Porus", "Dhanananda"],
+      "correct_answer": "Porus",
+      "difficulty": "medium"
+    },
+    {
+      "id": 92,
+      "question": "The Lakshadweep islands are located in which sea?",
+      "options": ["Bay of Bengal", "Arabian Sea", "Indian Ocean", "Andaman Sea"],
+      "correct_answer": "Arabian Sea",
+      "difficulty": "medium"
+    },
+    {
+      "id": 93,
+      "question": "Which Indian city is famously called the 'City of Nawabs'?",
+      "options": ["Hyderabad", "Delhi", "Lucknow", "Agra"],
+      "correct_answer": "Lucknow",
+      "difficulty": "easy"
+    },
+    {
+      "id": 94,
+      "question": "The famous rock-cut Ellora Caves contain temples of which three religions?",
+      "options": ["Hindu, Buddhist, Jain", "Hindu, Sikh, Buddhist", "Jain, Sikh, Muslim", "Hindu, Buddhist, Muslim"],
+      "correct_answer": "Hindu, Buddhist, Jain",
+      "difficulty": "medium"
+    },
+    {
+      "id": 95,
+      "question": "Who designed the layout of New Delhi, the capital of India?",
+      "options": ["Edwin Lutyens", "Herbert Baker", "Robert Grant Irving", "Frederic Stevens"],
+      "correct_answer": "Edwin Lutyens",
+      "difficulty": "medium"
+    },
+    {
+      "id": 96,
+      "question": "The Radcliffe Line forms the boundary between India and which country?",
+      "options": ["Nepal", "Bangladesh and Pakistan", "China", "Myanmar"],
+      "correct_answer": "Bangladesh and Pakistan",
+      "difficulty": "medium"
+    },
+    {
+      "id": 97,
+      "question": "Which Indian leader is associated with the phrase 'Do or Die'?",
+      "options": ["Jawaharlal Nehru", "Subhas Chandra Bose", "Mahatma Gandhi", "Bhagat Singh"],
+      "correct_answer": "Mahatma Gandhi",
+      "difficulty": "easy"
+    },
+    {
+      "id": 98,
+      "question": "The Pushkar Fair, one of the world's largest camel fairs, is held in which state?",
+      "options": ["Gujarat", "Haryana", "Rajasthan", "Madhya Pradesh"],
+      "correct_answer": "Rajasthan",
+      "difficulty": "easy"
+    },
+    {
+      "id": 99,
+      "question": "Which Indian city was the first capital of British India before it was shifted to Delhi?",
+      "options": ["Mumbai", "Madras", "Calcutta", "Surat"],
+      "correct_answer": "Calcutta",
+      "difficulty": "medium"
+    },
+    {
+      "id": 100,
+      "question": "The Narmada river flows into which body of water?",
+      "options": ["Bay of Bengal", "Arabian Sea", "Indian Ocean", "Gulf of Mannar"],
+      "correct_answer": "Arabian Sea",
+      "difficulty": "medium"
+    }
+  ]
+}

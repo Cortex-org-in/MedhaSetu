@@ -1,0 +1,707 @@
+{
+  "category": "Maths",
+  "description": "Mathematics questions designed to assess and improve mental agility in senior citizens. Questions cover arithmetic, number patterns, basic geometry, and everyday math scenarios.",
+  "total_questions": 100,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is 15 + 27?",
+      "options": ["40", "42", "44", "38"],
+      "correct_answer": "42",
+      "difficulty": "easy"
+    },
+    {
+      "id": 2,
+      "question": "What is 9 x 7?",
+      "options": ["54", "56", "63", "72"],
+      "correct_answer": "63",
+      "difficulty": "easy"
+    },
+    {
+      "id": 3,
+      "question": "What is 100 - 37?",
+      "options": ["63", "67", "73", "57"],
+      "correct_answer": "63",
+      "difficulty": "easy"
+    },
+    {
+      "id": 4,
+      "question": "What is 48 divided by 6?",
+      "options": ["6", "7", "8", "9"],
+      "correct_answer": "8",
+      "difficulty": "easy"
+    },
+    {
+      "id": 5,
+      "question": "If you have 5 apples and someone gives you 8 more, how many do you have?",
+      "options": ["11", "12", "13", "14"],
+      "correct_answer": "13",
+      "difficulty": "easy"
+    },
+    {
+      "id": 6,
+      "question": "What is half of 64?",
+      "options": ["28", "30", "32", "34"],
+      "correct_answer": "32",
+      "difficulty": "easy"
+    },
+    {
+      "id": 7,
+      "question": "What is 12 x 5?",
+      "options": ["50", "55", "60", "65"],
+      "correct_answer": "60",
+      "difficulty": "easy"
+    },
+    {
+      "id": 8,
+      "question": "What is 200 + 350?",
+      "options": ["450", "500", "550", "600"],
+      "correct_answer": "550",
+      "difficulty": "easy"
+    },
+    {
+      "id": 9,
+      "question": "If a dozen eggs costs 60 rupees, how much does one egg cost?",
+      "options": ["4 rupees", "5 rupees", "6 rupees", "7 rupees"],
+      "correct_answer": "5 rupees",
+      "difficulty": "easy"
+    },
+    {
+      "id": 10,
+      "question": "What is the next number in the sequence: 2, 4, 6, 8, ?",
+      "options": ["9", "10", "11", "12"],
+      "correct_answer": "10",
+      "difficulty": "easy"
+    },
+    {
+      "id": 11,
+      "question": "What is 75 + 25?",
+      "options": ["90", "95", "100", "105"],
+      "correct_answer": "100",
+      "difficulty": "easy"
+    },
+    {
+      "id": 12,
+      "question": "What is 81 divided by 9?",
+      "options": ["7", "8", "9", "10"],
+      "correct_answer": "9",
+      "difficulty": "easy"
+    },
+    {
+      "id": 13,
+      "question": "How many minutes are in 2 hours?",
+      "options": ["100", "110", "120", "130"],
+      "correct_answer": "120",
+      "difficulty": "easy"
+    },
+    {
+      "id": 14,
+      "question": "What is 3 x 3 x 3?",
+      "options": ["9", "18", "27", "36"],
+      "correct_answer": "27",
+      "difficulty": "easy"
+    },
+    {
+      "id": 15,
+      "question": "What is 50% of 80?",
+      "options": ["30", "35", "40", "45"],
+      "correct_answer": "40",
+      "difficulty": "easy"
+    },
+    {
+      "id": 16,
+      "question": "A clock shows 3:00. What time will it be in 90 minutes?",
+      "options": ["4:00", "4:15", "4:30", "4:45"],
+      "correct_answer": "4:30",
+      "difficulty": "easy"
+    },
+    {
+      "id": 17,
+      "question": "What is 144 divided by 12?",
+      "options": ["10", "11", "12", "13"],
+      "correct_answer": "12",
+      "difficulty": "easy"
+    },
+    {
+      "id": 18,
+      "question": "What comes next in the sequence: 5, 10, 15, 20, ?",
+      "options": ["22", "24", "25", "30"],
+      "correct_answer": "25",
+      "difficulty": "easy"
+    },
+    {
+      "id": 19,
+      "question": "If you spend 45 rupees from 100 rupees, how much is left?",
+      "options": ["45", "55", "65", "75"],
+      "correct_answer": "55",
+      "difficulty": "easy"
+    },
+    {
+      "id": 20,
+      "question": "What is 7 + 8 + 5?",
+      "options": ["18", "19", "20", "21"],
+      "correct_answer": "20",
+      "difficulty": "easy"
+    },
+    {
+      "id": 21,
+      "question": "What is 13 x 4?",
+      "options": ["48", "50", "52", "54"],
+      "correct_answer": "52",
+      "difficulty": "medium"
+    },
+    {
+      "id": 22,
+      "question": "A train travels 60 km per hour. How far will it travel in 3 hours?",
+      "options": ["150 km", "160 km", "170 km", "180 km"],
+      "correct_answer": "180 km",
+      "difficulty": "medium"
+    },
+    {
+      "id": 23,
+      "question": "What is 25% of 200?",
+      "options": ["40", "45", "50", "55"],
+      "correct_answer": "50",
+      "difficulty": "medium"
+    },
+    {
+      "id": 24,
+      "question": "What is the next number: 1, 1, 2, 3, 5, 8, ?",
+      "options": ["10", "11", "12", "13"],
+      "correct_answer": "13",
+      "difficulty": "medium"
+    },
+    {
+      "id": 25,
+      "question": "If a shirt costs 450 rupees and there is a 10% discount, what is the final price?",
+      "options": ["395 rupees", "400 rupees", "405 rupees", "410 rupees"],
+      "correct_answer": "405 rupees",
+      "difficulty": "medium"
+    },
+    {
+      "id": 26,
+      "question": "What is the perimeter of a square with side 9 cm?",
+      "options": ["27 cm", "32 cm", "36 cm", "40 cm"],
+      "correct_answer": "36 cm",
+      "difficulty": "medium"
+    },
+    {
+      "id": 27,
+      "question": "What is 17 x 6?",
+      "options": ["96", "98", "100", "102"],
+      "correct_answer": "102",
+      "difficulty": "medium"
+    },
+    {
+      "id": 28,
+      "question": "If you divide 150 equally among 6 people, how much does each person get?",
+      "options": ["20", "22", "25", "30"],
+      "correct_answer": "25",
+      "difficulty": "medium"
+    },
+    {
+      "id": 29,
+      "question": "What is the area of a rectangle that is 8 cm long and 5 cm wide?",
+      "options": ["35 sq cm", "38 sq cm", "40 sq cm", "45 sq cm"],
+      "correct_answer": "40 sq cm",
+      "difficulty": "medium"
+    },
+    {
+      "id": 30,
+      "question": "What is 350 + 475?",
+      "options": ["805", "815", "825", "835"],
+      "correct_answer": "825",
+      "difficulty": "medium"
+    },
+    {
+      "id": 31,
+      "question": "How many seconds are in 5 minutes?",
+      "options": ["250", "270", "300", "350"],
+      "correct_answer": "300",
+      "difficulty": "medium"
+    },
+    {
+      "id": 32,
+      "question": "What is 19 x 9?",
+      "options": ["161", "163", "171", "181"],
+      "correct_answer": "171",
+      "difficulty": "medium"
+    },
+    {
+      "id": 33,
+      "question": "A bag of rice weighs 5 kg. You buy 4 bags. What is the total weight?",
+      "options": ["15 kg", "18 kg", "20 kg", "25 kg"],
+      "correct_answer": "20 kg",
+      "difficulty": "medium"
+    },
+    {
+      "id": 34,
+      "question": "What is the next number in: 100, 91, 82, 73, ?",
+      "options": ["62", "63", "64", "65"],
+      "correct_answer": "64",
+      "difficulty": "medium"
+    },
+    {
+      "id": 35,
+      "question": "What is 3/4 of 120?",
+      "options": ["80", "85", "90", "95"],
+      "correct_answer": "90",
+      "difficulty": "medium"
+    },
+    {
+      "id": 36,
+      "question": "If today is Wednesday, what day will it be after 10 days?",
+      "options": ["Friday", "Saturday", "Sunday", "Monday"],
+      "correct_answer": "Saturday",
+      "difficulty": "medium"
+    },
+    {
+      "id": 37,
+      "question": "What is 625 - 248?",
+      "options": ["367", "371", "377", "381"],
+      "correct_answer": "377",
+      "difficulty": "medium"
+    },
+    {
+      "id": 38,
+      "question": "A recipe needs 250 ml of milk. If you want to make double the recipe, how much milk do you need?",
+      "options": ["400 ml", "450 ml", "500 ml", "550 ml"],
+      "correct_answer": "500 ml",
+      "difficulty": "medium"
+    },
+    {
+      "id": 39,
+      "question": "What is 72 divided by 8, then multiplied by 3?",
+      "options": ["24", "27", "30", "33"],
+      "correct_answer": "27",
+      "difficulty": "medium"
+    },
+    {
+      "id": 40,
+      "question": "What percentage is 30 out of 150?",
+      "options": ["15%", "20%", "25%", "30%"],
+      "correct_answer": "20%",
+      "difficulty": "medium"
+    },
+    {
+      "id": 41,
+      "question": "A shop sells oranges at 12 for 60 rupees. What is the cost of 5 oranges?",
+      "options": ["20 rupees", "25 rupees", "28 rupees", "30 rupees"],
+      "correct_answer": "25 rupees",
+      "difficulty": "medium"
+    },
+    {
+      "id": 42,
+      "question": "What is 14 squared (14 x 14)?",
+      "options": ["168", "184", "196", "204"],
+      "correct_answer": "196",
+      "difficulty": "medium"
+    },
+    {
+      "id": 43,
+      "question": "What is 1000 - 367?",
+      "options": ["623", "627", "633", "643"],
+      "correct_answer": "633",
+      "difficulty": "medium"
+    },
+    {
+      "id": 44,
+      "question": "If a wall clock gains 5 minutes every hour, how many extra minutes will it show after 6 hours?",
+      "options": ["25 minutes", "28 minutes", "30 minutes", "35 minutes"],
+      "correct_answer": "30 minutes",
+      "difficulty": "medium"
+    },
+    {
+      "id": 45,
+      "question": "What is the average of 40, 50, and 60?",
+      "options": ["45", "48", "50", "55"],
+      "correct_answer": "50",
+      "difficulty": "medium"
+    },
+    {
+      "id": 46,
+      "question": "What is 18 x 15?",
+      "options": ["250", "260", "270", "280"],
+      "correct_answer": "270",
+      "difficulty": "medium"
+    },
+    {
+      "id": 47,
+      "question": "If you save 150 rupees every week, how much will you save in 8 weeks?",
+      "options": ["1000 rupees", "1100 rupees", "1200 rupees", "1300 rupees"],
+      "correct_answer": "1200 rupees",
+      "difficulty": "medium"
+    },
+    {
+      "id": 48,
+      "question": "What is 5% of 500?",
+      "options": ["20", "22", "25", "30"],
+      "correct_answer": "25",
+      "difficulty": "medium"
+    },
+    {
+      "id": 49,
+      "question": "A number is multiplied by 7 and the result is 91. What is the number?",
+      "options": ["11", "12", "13", "14"],
+      "correct_answer": "13",
+      "difficulty": "medium"
+    },
+    {
+      "id": 50,
+      "question": "What is the sum of all even numbers from 2 to 10?",
+      "options": ["25", "28", "30", "32"],
+      "correct_answer": "30",
+      "difficulty": "medium"
+    },
+    {
+      "id": 51,
+      "question": "What is 234 x 3?",
+      "options": ["692", "700", "702", "712"],
+      "correct_answer": "702",
+      "difficulty": "medium"
+    },
+    {
+      "id": 52,
+      "question": "The temperature in the morning is 18°C and rises by 7°C during the day. What is the afternoon temperature?",
+      "options": ["23°C", "24°C", "25°C", "26°C"],
+      "correct_answer": "25°C",
+      "difficulty": "medium"
+    },
+    {
+      "id": 53,
+      "question": "What is 2/5 of 250?",
+      "options": ["90", "95", "100", "110"],
+      "correct_answer": "100",
+      "difficulty": "medium"
+    },
+    {
+      "id": 54,
+      "question": "If a box holds 24 chocolates, how many boxes do you need for 120 chocolates?",
+      "options": ["4", "5", "6", "7"],
+      "correct_answer": "5",
+      "difficulty": "medium"
+    },
+    {
+      "id": 55,
+      "question": "What is the next term: 3, 6, 12, 24, ?",
+      "options": ["36", "42", "48", "54"],
+      "correct_answer": "48",
+      "difficulty": "medium"
+    },
+    {
+      "id": 56,
+      "question": "A farmer has 480 mangoes. He packs them into bags of 16. How many bags does he fill?",
+      "options": ["28", "30", "32", "34"],
+      "correct_answer": "30",
+      "difficulty": "medium"
+    },
+    {
+      "id": 57,
+      "question": "What is 750 divided by 25?",
+      "options": ["26", "28", "30", "32"],
+      "correct_answer": "30",
+      "difficulty": "medium"
+    },
+    {
+      "id": 58,
+      "question": "What is the average of 15, 25, 35, and 45?",
+      "options": ["28", "29", "30", "31"],
+      "correct_answer": "30",
+      "difficulty": "medium"
+    },
+    {
+      "id": 59,
+      "question": "If a bus fare is 12 rupees one way, how much will you spend on 5 round trips?",
+      "options": ["100 rupees", "110 rupees", "120 rupees", "130 rupees"],
+      "correct_answer": "120 rupees",
+      "difficulty": "medium"
+    },
+    {
+      "id": 60,
+      "question": "What is the missing number: 8, 16, ?, 64, 128",
+      "options": ["24", "28", "32", "36"],
+      "correct_answer": "32",
+      "difficulty": "medium"
+    },
+    {
+      "id": 61,
+      "question": "If the simple interest on 2000 rupees at 5% per year for 2 years is calculated, what is the interest earned?",
+      "options": ["150 rupees", "175 rupees", "200 rupees", "225 rupees"],
+      "correct_answer": "200 rupees",
+      "difficulty": "hard"
+    },
+    {
+      "id": 62,
+      "question": "What is the least common multiple (LCM) of 6 and 8?",
+      "options": ["18", "20", "24", "30"],
+      "correct_answer": "24",
+      "difficulty": "hard"
+    },
+    {
+      "id": 63,
+      "question": "A tank is 2/3 full. After adding 30 litres, it is 5/6 full. What is the total capacity of the tank?",
+      "options": ["150 litres", "160 litres", "170 litres", "180 litres"],
+      "correct_answer": "180 litres",
+      "difficulty": "hard"
+    },
+    {
+      "id": 64,
+      "question": "What is 15% of 640?",
+      "options": ["88", "92", "96", "100"],
+      "correct_answer": "96",
+      "difficulty": "hard"
+    },
+    {
+      "id": 65,
+      "question": "If a car covers 240 km in 4 hours, how long will it take to cover 360 km at the same speed?",
+      "options": ["5 hours", "6 hours", "7 hours", "8 hours"],
+      "correct_answer": "6 hours",
+      "difficulty": "hard"
+    },
+    {
+      "id": 66,
+      "question": "What is the highest common factor (HCF) of 36 and 48?",
+      "options": ["9", "10", "12", "14"],
+      "correct_answer": "12",
+      "difficulty": "hard"
+    },
+    {
+      "id": 67,
+      "question": "Ravi is 3 times as old as his son. If the son is 12 years old, how old will Ravi be after 5 years?",
+      "options": ["39", "40", "41", "42"],
+      "correct_answer": "41",
+      "difficulty": "hard"
+    },
+    {
+      "id": 68,
+      "question": "What is the value of 12 squared minus 8 squared?",
+      "options": ["74", "78", "80", "84"],
+      "correct_answer": "80",
+      "difficulty": "hard"
+    },
+    {
+      "id": 69,
+      "question": "A sum of money doubles itself in 10 years at simple interest. What is the rate of interest per year?",
+      "options": ["8%", "9%", "10%", "12%"],
+      "correct_answer": "10%",
+      "difficulty": "hard"
+    },
+    {
+      "id": 70,
+      "question": "The product of two numbers is 192 and their sum is 28. What are the two numbers?",
+      "options": ["12 and 16", "14 and 14", "10 and 18", "8 and 20"],
+      "correct_answer": "12 and 16",
+      "difficulty": "hard"
+    },
+    {
+      "id": 71,
+      "question": "What is 125 x 48 divided by 15?",
+      "options": ["380", "390", "400", "410"],
+      "correct_answer": "400",
+      "difficulty": "hard"
+    },
+    {
+      "id": 72,
+      "question": "A grocer buys apples at 5 for 20 rupees and sells at 4 for 20 rupees. What is his profit percentage?",
+      "options": ["20%", "22%", "25%", "30%"],
+      "correct_answer": "25%",
+      "difficulty": "hard"
+    },
+    {
+      "id": 73,
+      "question": "What is the next number in the sequence: 2, 5, 11, 23, 47, ?",
+      "options": ["85", "90", "95", "96"],
+      "correct_answer": "95",
+      "difficulty": "hard"
+    },
+    {
+      "id": 74,
+      "question": "A cistern can be filled by pipe A in 4 hours and by pipe B in 6 hours. How long will it take if both pipes work together?",
+      "options": ["2 hours", "2 hours 24 minutes", "2 hours 30 minutes", "3 hours"],
+      "correct_answer": "2 hours 24 minutes",
+      "difficulty": "hard"
+    },
+    {
+      "id": 75,
+      "question": "What is the sum of all odd numbers between 10 and 20?",
+      "options": ["70", "72", "75", "78"],
+      "correct_answer": "75",
+      "difficulty": "hard"
+    },
+    {
+      "id": 76,
+      "question": "If 8 workers complete a job in 12 days, how many days will 6 workers take to complete the same job?",
+      "options": ["14 days", "15 days", "16 days", "18 days"],
+      "correct_answer": "16 days",
+      "difficulty": "hard"
+    },
+    {
+      "id": 77,
+      "question": "A number is increased by 20% and then decreased by 20%. What is the net percentage change?",
+      "options": ["-2%", "-4%", "0%", "+2%"],
+      "correct_answer": "-4%",
+      "difficulty": "hard"
+    },
+    {
+      "id": 78,
+      "question": "What is the cube root of 216?",
+      "options": ["4", "5", "6", "7"],
+      "correct_answer": "6",
+      "difficulty": "hard"
+    },
+    {
+      "id": 79,
+      "question": "A shopkeeper marks an item 40% above cost price and gives a 20% discount. What is the profit percentage?",
+      "options": ["10%", "12%", "14%", "16%"],
+      "correct_answer": "12%",
+      "difficulty": "hard"
+    },
+    {
+      "id": 80,
+      "question": "What is the remainder when 100 is divided by 7?",
+      "options": ["1", "2", "3", "4"],
+      "correct_answer": "2",
+      "difficulty": "hard"
+    },
+    {
+      "id": 81,
+      "question": "Two numbers are in the ratio 3:5. If their sum is 96, what is the larger number?",
+      "options": ["54", "58", "60", "64"],
+      "correct_answer": "60",
+      "difficulty": "hard"
+    },
+    {
+      "id": 82,
+      "question": "How many prime numbers are there between 1 and 20?",
+      "options": ["6", "7", "8", "9"],
+      "correct_answer": "8",
+      "difficulty": "hard"
+    },
+    {
+      "id": 83,
+      "question": "What is 33.33% of 900?",
+      "options": ["275", "290", "300", "310"],
+      "correct_answer": "300",
+      "difficulty": "hard"
+    },
+    {
+      "id": 84,
+      "question": "A train 180 metres long passes a pole in 9 seconds. What is the speed of the train in km/h?",
+      "options": ["60 km/h", "68 km/h", "72 km/h", "80 km/h"],
+      "correct_answer": "72 km/h",
+      "difficulty": "hard"
+    },
+    {
+      "id": 85,
+      "question": "What is the angle of a clock at 3:30?",
+      "options": ["60 degrees", "75 degrees", "80 degrees", "90 degrees"],
+      "correct_answer": "75 degrees",
+      "difficulty": "hard"
+    },
+    {
+      "id": 86,
+      "question": "If the perimeter of a rectangle is 60 cm and the length is 20 cm, what is the width?",
+      "options": ["8 cm", "10 cm", "12 cm", "15 cm"],
+      "correct_answer": "10 cm",
+      "difficulty": "hard"
+    },
+    {
+      "id": 87,
+      "question": "A and B together can complete a work in 8 days. A alone can complete it in 12 days. How many days will B alone take?",
+      "options": ["20 days", "22 days", "24 days", "26 days"],
+      "correct_answer": "24 days",
+      "difficulty": "hard"
+    },
+    {
+      "id": 88,
+      "question": "What is the value of 5! (5 factorial)?",
+      "options": ["60", "100", "120", "150"],
+      "correct_answer": "120",
+      "difficulty": "hard"
+    },
+    {
+      "id": 89,
+      "question": "Three friends split a bill of 2400 rupees. One pays twice as much as another, and the third pays 400 rupees. What does the highest payer pay?",
+      "options": ["1000 rupees", "1200 rupees", "1333 rupees", "1400 rupees"],
+      "correct_answer": "1333 rupees",
+      "difficulty": "hard"
+    },
+    {
+      "id": 90,
+      "question": "What is the square root of 1764?",
+      "options": ["40", "41", "42", "43"],
+      "correct_answer": "42",
+      "difficulty": "hard"
+    },
+    {
+      "id": 91,
+      "question": "If the ratio of boys to girls in a class is 3:2, and there are 30 students in total, how many boys are there?",
+      "options": ["15", "16", "18", "20"],
+      "correct_answer": "18",
+      "difficulty": "hard"
+    },
+    {
+      "id": 92,
+      "question": "What is 18% of 1500?",
+      "options": ["250", "260", "270", "280"],
+      "correct_answer": "270",
+      "difficulty": "hard"
+    },
+    {
+      "id": 93,
+      "question": "A man walks 4 km north, then 3 km east. How far is he from his starting point?",
+      "options": ["4 km", "5 km", "6 km", "7 km"],
+      "correct_answer": "5 km",
+      "difficulty": "hard"
+    },
+    {
+      "id": 94,
+      "question": "What is the next number: 1, 4, 9, 16, 25, ?",
+      "options": ["30", "34", "36", "40"],
+      "correct_answer": "36",
+      "difficulty": "hard"
+    },
+    {
+      "id": 95,
+      "question": "At what time between 3 and 4 o'clock do the hands of a clock coincide?",
+      "options": ["3:15", "3:16 and 22 seconds", "3:20", "3:16 and 48 seconds"],
+      "correct_answer": "3:16 and 22 seconds",
+      "difficulty": "hard"
+    },
+    {
+      "id": 96,
+      "question": "If 12 pens cost 180 rupees, what is the cost of 30 pens?",
+      "options": ["420 rupees", "430 rupees", "440 rupees", "450 rupees"],
+      "correct_answer": "450 rupees",
+      "difficulty": "hard"
+    },
+    {
+      "id": 97,
+      "question": "The difference between a two-digit number and the number formed by reversing its digits is 36. If the sum of the digits is 10, what is the original number?",
+      "options": ["64", "73", "82", "91"],
+      "correct_answer": "73",
+      "difficulty": "hard"
+    },
+    {
+      "id": 98,
+      "question": "What is the area of a circle with diameter 14 cm? (Use pi = 22/7)",
+      "options": ["144 sq cm", "148 sq cm", "152 sq cm", "154 sq cm"],
+      "correct_answer": "154 sq cm",
+      "difficulty": "hard"
+    },
+    {
+      "id": 99,
+      "question": "A mixture of 60 litres contains milk and water in the ratio 2:1. How much water must be added to make the ratio 1:1?",
+      "options": ["15 litres", "18 litres", "20 litres", "25 litres"],
+      "correct_answer": "20 litres",
+      "difficulty": "hard"
+    },
+    {
+      "id": 100,
+      "question": "What is the value of 2 to the power of 10?",
+      "options": ["512", "1000", "1024", "2048"],
+      "correct_answer": "1024",
+      "difficulty": "hard"
+    }
+  ]
+}

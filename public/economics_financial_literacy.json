@@ -1,0 +1,707 @@
+{
+  "category": "Economics and Financial Literacy",
+  "description": "A curated set of 100 questions designed to assess and improve the financial knowledge and mental agility of senior citizens. Topics cover everyday money management, savings, investments, banking, taxes, and basic economic concepts.",
+  "total_questions": 100,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the term for the interest calculated on both the original amount and the interest already earned?",
+      "options": ["Simple interest", "Compound interest", "Fixed interest", "Flat interest"],
+      "correct_answer": "Compound interest",
+      "difficulty": "easy"
+    },
+    {
+      "id": 2,
+      "question": "If you deposit money in a savings account, the bank pays you money for keeping your funds there. What is this payment called?",
+      "options": ["Tax", "Interest", "Premium", "Dividend"],
+      "correct_answer": "Interest",
+      "difficulty": "easy"
+    },
+    {
+      "id": 3,
+      "question": "What does ATM stand for?",
+      "options": ["Automated Teller Machine", "Automatic Transfer Mode", "Annual Transaction Method", "Authorized Transaction Module"],
+      "correct_answer": "Automated Teller Machine",
+      "difficulty": "easy"
+    },
+    {
+      "id": 4,
+      "question": "Which of the following is generally considered the safest place to keep your savings?",
+      "options": ["Under the mattress", "In a bank account", "With a friend", "In a piggy bank"],
+      "correct_answer": "In a bank account",
+      "difficulty": "easy"
+    },
+    {
+      "id": 5,
+      "question": "What is a budget?",
+      "options": ["A type of bank loan", "A plan for how to spend and save money", "A government tax form", "A type of investment fund"],
+      "correct_answer": "A plan for how to spend and save money",
+      "difficulty": "easy"
+    },
+    {
+      "id": 6,
+      "question": "When prices of goods and services rise over time, this is called:",
+      "options": ["Deflation", "Recession", "Inflation", "Depression"],
+      "correct_answer": "Inflation",
+      "difficulty": "easy"
+    },
+    {
+      "id": 7,
+      "question": "What is a pension?",
+      "options": ["A type of home loan", "Regular income paid to a person after retirement", "A savings account for children", "A type of insurance policy"],
+      "correct_answer": "Regular income paid to a person after retirement",
+      "difficulty": "easy"
+    },
+    {
+      "id": 8,
+      "question": "Which document shows all the transactions in your bank account over a period of time?",
+      "options": ["Cheque book", "Bank statement", "Passbook summary", "Loan agreement"],
+      "correct_answer": "Bank statement",
+      "difficulty": "easy"
+    },
+    {
+      "id": 9,
+      "question": "What does the word 'premium' mean in an insurance policy?",
+      "options": ["The amount you receive when you make a claim", "The regular amount you pay to keep the insurance active", "The total value of assets insured", "The penalty for not renewing the policy"],
+      "correct_answer": "The regular amount you pay to keep the insurance active",
+      "difficulty": "easy"
+    },
+    {
+      "id": 10,
+      "question": "If you borrow money from a bank and must return it with extra charges, those extra charges are called:",
+      "options": ["Rent", "Fees", "Interest", "Tax"],
+      "correct_answer": "Interest",
+      "difficulty": "easy"
+    },
+    {
+      "id": 11,
+      "question": "What is a fixed deposit (FD)?",
+      "options": ["Money kept in a bank for a set period at a fixed rate of interest", "A monthly grocery budget", "A type of home loan", "An account you can withdraw from at any time"],
+      "correct_answer": "Money kept in a bank for a set period at a fixed rate of interest",
+      "difficulty": "easy"
+    },
+    {
+      "id": 12,
+      "question": "Which of the following is an example of a monthly fixed expense for most people?",
+      "options": ["Movie tickets", "Restaurant bills", "Electricity bill", "Birthday gifts"],
+      "correct_answer": "Electricity bill",
+      "difficulty": "easy"
+    },
+    {
+      "id": 13,
+      "question": "What is the main purpose of life insurance?",
+      "options": ["To earn high returns on investment", "To provide financial support to family after the policyholder's death", "To get discounts at hospitals", "To save money on taxes only"],
+      "correct_answer": "To provide financial support to family after the policyholder's death",
+      "difficulty": "easy"
+    },
+    {
+      "id": 14,
+      "question": "Which of the following is NOT a type of bank account?",
+      "options": ["Savings account", "Current account", "Fixed deposit account", "Trade licence account"],
+      "correct_answer": "Trade licence account",
+      "difficulty": "easy"
+    },
+    {
+      "id": 15,
+      "question": "What does 'income' mean?",
+      "options": ["Money you spend on shopping", "Money you earn from work, business, or investments", "Money you borrow from others", "Money kept in a locker"],
+      "correct_answer": "Money you earn from work, business, or investments",
+      "difficulty": "easy"
+    },
+    {
+      "id": 16,
+      "question": "What is the Reserve Bank of India (RBI)?",
+      "options": ["The largest private bank in India", "The central bank of India that manages the country's money supply", "A government savings scheme for senior citizens", "A foreign exchange company"],
+      "correct_answer": "The central bank of India that manages the country's money supply",
+      "difficulty": "medium"
+    },
+    {
+      "id": 17,
+      "question": "What does the term 'nominee' mean in a bank or insurance context?",
+      "options": ["A person who opens the account", "A person designated to receive benefits in case of the account holder's death", "A person who manages your investments", "A bank officer who approves your loan"],
+      "correct_answer": "A person designated to receive benefits in case of the account holder's death",
+      "difficulty": "easy"
+    },
+    {
+      "id": 18,
+      "question": "If inflation is high, what happens to the purchasing power of your money?",
+      "options": ["It increases", "It stays the same", "It decreases", "It doubles"],
+      "correct_answer": "It decreases",
+      "difficulty": "medium"
+    },
+    {
+      "id": 19,
+      "question": "Which of the following is a government-backed small savings scheme popular among senior citizens in India?",
+      "options": ["Senior Citizens Savings Scheme (SCSS)", "National Stock Exchange Fund", "Mutual Fund Investment Plan", "Foreign Currency Bond"],
+      "correct_answer": "Senior Citizens Savings Scheme (SCSS)",
+      "difficulty": "medium"
+    },
+    {
+      "id": 20,
+      "question": "What is a mutual fund?",
+      "options": ["A fund where only one person invests money", "A pool of money collected from many investors and invested in stocks, bonds, or other assets", "A government grant for small businesses", "A type of home loan product"],
+      "correct_answer": "A pool of money collected from many investors and invested in stocks, bonds, or other assets",
+      "difficulty": "medium"
+    },
+    {
+      "id": 21,
+      "question": "What does KYC stand for in banking?",
+      "options": ["Know Your Capital", "Keep Your Cash", "Know Your Customer", "Key Yearly Credentials"],
+      "correct_answer": "Know Your Customer",
+      "difficulty": "easy"
+    },
+    {
+      "id": 22,
+      "question": "Which of the following best describes a 'cheque'?",
+      "options": ["A card used at ATMs", "A written instruction to the bank to pay a specific amount to someone", "A government bond certificate", "A type of savings plan"],
+      "correct_answer": "A written instruction to the bank to pay a specific amount to someone",
+      "difficulty": "easy"
+    },
+    {
+      "id": 23,
+      "question": "What is a nominee's role different from a legal heir?",
+      "options": ["A nominee automatically inherits all assets legally", "A nominee receives assets first but may need to pass them to legal heirs as per the law", "A nominee is chosen by the court", "A nominee and legal heir are the same thing"],
+      "correct_answer": "A nominee receives assets first but may need to pass them to legal heirs as per the law",
+      "difficulty": "hard"
+    },
+    {
+      "id": 24,
+      "question": "What is the main risk of keeping all your savings in cash at home?",
+      "options": ["The cash earns too much interest", "The cash can be lost, stolen, or damaged and does not earn any interest", "The bank charges fees for cash storage", "The government can seize it easily"],
+      "correct_answer": "The cash can be lost, stolen, or damaged and does not earn any interest",
+      "difficulty": "easy"
+    },
+    {
+      "id": 25,
+      "question": "Which of the following is an example of a liability?",
+      "options": ["Money in your savings account", "Your house that you own outright", "A home loan you owe to the bank", "Gold jewellery"],
+      "correct_answer": "A home loan you owe to the bank",
+      "difficulty": "medium"
+    },
+    {
+      "id": 26,
+      "question": "What does GDP stand for?",
+      "options": ["General Deposit Plan", "Gross Domestic Product", "Government Development Programme", "Global Distribution Policy"],
+      "correct_answer": "Gross Domestic Product",
+      "difficulty": "medium"
+    },
+    {
+      "id": 27,
+      "question": "When the economy is in a recession, what typically happens?",
+      "options": ["Businesses grow and more jobs are created", "Economic activity slows, businesses may close, and unemployment rises", "Prices of goods fall rapidly", "The government prints less money"],
+      "correct_answer": "Economic activity slows, businesses may close, and unemployment rises",
+      "difficulty": "medium"
+    },
+    {
+      "id": 28,
+      "question": "What is a debit card?",
+      "options": ["A card that lets you borrow money from the bank", "A card linked to your bank account that lets you spend money you already have", "A card used only for online shopping", "A card that earns interest every month"],
+      "correct_answer": "A card linked to your bank account that lets you spend money you already have",
+      "difficulty": "easy"
+    },
+    {
+      "id": 29,
+      "question": "What is a credit card?",
+      "options": ["A card that stores your savings", "A card that lets you borrow money up to a limit and pay it back later", "A card used to transfer money between banks", "A card issued only by the government"],
+      "correct_answer": "A card that lets you borrow money up to a limit and pay it back later",
+      "difficulty": "easy"
+    },
+    {
+      "id": 30,
+      "question": "What happens if you do not pay your credit card bill in full by the due date?",
+      "options": ["The bank gives you extra credit", "You are charged interest on the unpaid amount", "The card gets cancelled immediately", "Nothing happens for the first year"],
+      "correct_answer": "You are charged interest on the unpaid amount",
+      "difficulty": "medium"
+    },
+    {
+      "id": 31,
+      "question": "What is the Employees' Provident Fund (EPF) in India?",
+      "options": ["A scheme where employees and employers contribute monthly to build a retirement corpus", "A government loan scheme for government employees", "A monthly pension given to all citizens", "A fixed deposit scheme for employees"],
+      "correct_answer": "A scheme where employees and employers contribute monthly to build a retirement corpus",
+      "difficulty": "medium"
+    },
+    {
+      "id": 32,
+      "question": "Which of the following is considered a 'liquid' asset?",
+      "options": ["Real estate property", "Gold ornaments locked in a bank locker", "Money in a savings bank account", "A fixed deposit with a 5-year lock-in"],
+      "correct_answer": "Money in a savings bank account",
+      "difficulty": "medium"
+    },
+    {
+      "id": 33,
+      "question": "What does 'diversification' mean in investing?",
+      "options": ["Putting all your money in one investment for higher returns", "Spreading your investments across different types to reduce risk", "Investing only in foreign markets", "Withdrawing money frequently"],
+      "correct_answer": "Spreading your investments across different types to reduce risk",
+      "difficulty": "medium"
+    },
+    {
+      "id": 34,
+      "question": "Which of the following investment options is generally considered the lowest risk?",
+      "options": ["Stocks", "Cryptocurrency", "Government bonds or fixed deposits", "Real estate"],
+      "correct_answer": "Government bonds or fixed deposits",
+      "difficulty": "medium"
+    },
+    {
+      "id": 35,
+      "question": "What is a 'will' in financial and legal terms?",
+      "options": ["A loan document signed with the bank", "A legal document that states how a person's assets should be distributed after their death", "An insurance policy for the elderly", "A monthly savings plan"],
+      "correct_answer": "A legal document that states how a person's assets should be distributed after their death",
+      "difficulty": "easy"
+    },
+    {
+      "id": 36,
+      "question": "What is the meaning of 'net worth'?",
+      "options": ["The total amount of money you earn per year", "The value of everything you own minus everything you owe", "The amount of money in your bank account", "The total of all your monthly expenses"],
+      "correct_answer": "The value of everything you own minus everything you owe",
+      "difficulty": "medium"
+    },
+    {
+      "id": 37,
+      "question": "What does IFSC code stand for in Indian banking?",
+      "options": ["Indian Financial System Code", "Internal Fund Security Code", "Integrated Finance Settlement Code", "International Finance Standard Code"],
+      "correct_answer": "Indian Financial System Code",
+      "difficulty": "medium"
+    },
+    {
+      "id": 38,
+      "question": "What is the primary purpose of health insurance?",
+      "options": ["To invest and grow your money", "To cover medical expenses in case of illness or hospitalization", "To get tax refunds", "To save money for retirement"],
+      "correct_answer": "To cover medical expenses in case of illness or hospitalization",
+      "difficulty": "easy"
+    },
+    {
+      "id": 39,
+      "question": "What does the term 'maturity' mean in the context of a fixed deposit?",
+      "options": ["The date on which the FD reaches its end period and the money plus interest is returned", "The minimum amount needed to open an FD", "The interest rate offered by the bank", "The penalty for early withdrawal"],
+      "correct_answer": "The date on which the FD reaches its end period and the money plus interest is returned",
+      "difficulty": "medium"
+    },
+    {
+      "id": 40,
+      "question": "If you receive a phone call asking for your bank OTP or PIN, what should you do?",
+      "options": ["Share it if the caller claims to be from your bank", "Share it only with family members", "Never share it with anyone, as legitimate banks never ask for it", "Write it down and check with the bank later"],
+      "correct_answer": "Never share it with anyone, as legitimate banks never ask for it",
+      "difficulty": "easy"
+    },
+    {
+      "id": 41,
+      "question": "What is 'tax'?",
+      "options": ["A fee paid to a private company for services", "A mandatory payment collected by the government from citizens and businesses", "Interest earned on savings", "A penalty for late loan repayment"],
+      "correct_answer": "A mandatory payment collected by the government from citizens and businesses",
+      "difficulty": "easy"
+    },
+    {
+      "id": 42,
+      "question": "Which Indian government scheme provides guaranteed income to senior citizens above 60 years through LIC?",
+      "options": ["Pradhan Mantri Jan Dhan Yojana", "Pradhan Mantri Vaya Vandana Yojana (PMVVY)", "Atal Pension Yojana", "Sukanya Samriddhi Yojana"],
+      "correct_answer": "Pradhan Mantri Vaya Vandana Yojana (PMVVY)",
+      "difficulty": "hard"
+    },
+    {
+      "id": 43,
+      "question": "What is the meaning of 'expenditure'?",
+      "options": ["Money received as income", "Money spent on goods and services", "Money saved in a bank", "Money borrowed from a friend"],
+      "correct_answer": "Money spent on goods and services",
+      "difficulty": "easy"
+    },
+    {
+      "id": 44,
+      "question": "If a product is priced at Rs. 500 and there is a 10% discount, how much will you pay?",
+      "options": ["Rs. 400", "Rs. 450", "Rs. 490", "Rs. 510"],
+      "correct_answer": "Rs. 450",
+      "difficulty": "easy"
+    },
+    {
+      "id": 45,
+      "question": "What is a 'loan EMI'?",
+      "options": ["The total loan amount", "The interest charged per year on the loan", "A fixed monthly payment made to repay a loan", "The penalty for not repaying a loan"],
+      "correct_answer": "A fixed monthly payment made to repay a loan",
+      "difficulty": "easy"
+    },
+    {
+      "id": 46,
+      "question": "What does 'nominee' mean when filling a bank account form?",
+      "options": ["The bank manager in charge of your account", "A person who will receive your bank funds if you pass away", "A co-applicant for your loan", "A person who can withdraw cash on your behalf at any time"],
+      "correct_answer": "A person who will receive your bank funds if you pass away",
+      "difficulty": "easy"
+    },
+    {
+      "id": 47,
+      "question": "What is 'supply and demand' in economics?",
+      "options": ["A government regulation on how much can be produced", "The relationship between how much of a product is available and how much people want it, which affects prices", "A method to calculate company profits", "A type of bank lending system"],
+      "correct_answer": "The relationship between how much of a product is available and how much people want it, which affects prices",
+      "difficulty": "medium"
+    },
+    {
+      "id": 48,
+      "question": "When demand for a product goes up but supply stays the same, what usually happens to the price?",
+      "options": ["Price decreases", "Price stays the same", "Price increases", "Price becomes zero"],
+      "correct_answer": "Price increases",
+      "difficulty": "medium"
+    },
+    {
+      "id": 49,
+      "question": "Which of the following is the best way to protect yourself from financial fraud online?",
+      "options": ["Share your password with a trusted family member", "Use the same password for all accounts", "Use strong, unique passwords and avoid sharing personal information online", "Open all links sent in emails or messages"],
+      "correct_answer": "Use strong, unique passwords and avoid sharing personal information online",
+      "difficulty": "easy"
+    },
+    {
+      "id": 50,
+      "question": "What is the meaning of 'principal' in the context of a loan or fixed deposit?",
+      "options": ["The interest amount earned or charged", "The original sum of money deposited or borrowed", "The bank employee who manages the account", "The penalty amount for early withdrawal"],
+      "correct_answer": "The original sum of money deposited or borrowed",
+      "difficulty": "medium"
+    },
+    {
+      "id": 51,
+      "question": "What is a savings account primarily used for?",
+      "options": ["Storing money safely while earning some interest", "Taking large loans from the bank", "Buying stocks and shares", "Paying direct taxes to the government"],
+      "correct_answer": "Storing money safely while earning some interest",
+      "difficulty": "easy"
+    },
+    {
+      "id": 52,
+      "question": "What does it mean when someone says they are 'living within their means'?",
+      "options": ["They are spending more than they earn", "They earn very little money", "They spend only what they can afford based on their income", "They take loans to fund daily expenses"],
+      "correct_answer": "They spend only what they can afford based on their income",
+      "difficulty": "easy"
+    },
+    {
+      "id": 53,
+      "question": "What is 'stock' or a 'share' in a company?",
+      "options": ["Money deposited in a savings account", "A portion of ownership in a company", "A government bond", "A type of insurance plan"],
+      "correct_answer": "A portion of ownership in a company",
+      "difficulty": "medium"
+    },
+    {
+      "id": 54,
+      "question": "Why is it important to review your bank statement regularly?",
+      "options": ["To impress your bank manager", "To check for any errors or unauthorized transactions", "To calculate your income tax", "It is not necessary to review it"],
+      "correct_answer": "To check for any errors or unauthorized transactions",
+      "difficulty": "easy"
+    },
+    {
+      "id": 55,
+      "question": "What is a 'joint account' in banking?",
+      "options": ["An account opened in the name of a minor child", "A bank account shared by two or more people", "An account that earns higher interest than normal", "An account opened by a company"],
+      "correct_answer": "A bank account shared by two or more people",
+      "difficulty": "easy"
+    },
+    {
+      "id": 56,
+      "question": "What is 'tax-free income'?",
+      "options": ["Income on which you do not have to pay any tax to the government", "Income earned only from farming", "Income received as a bonus from the employer", "Income from foreign countries"],
+      "correct_answer": "Income on which you do not have to pay any tax to the government",
+      "difficulty": "medium"
+    },
+    {
+      "id": 57,
+      "question": "In India, senior citizens (above 60 years) receive a higher interest rate on:",
+      "options": ["Home loans", "Fixed deposits in banks", "Gold ETFs", "Stock market investments"],
+      "correct_answer": "Fixed deposits in banks",
+      "difficulty": "medium"
+    },
+    {
+      "id": 58,
+      "question": "What is 'UPI' used for?",
+      "options": ["Applying for government schemes", "Transferring money digitally between bank accounts using a mobile phone", "Paying insurance premiums at LIC offices", "Checking your Aadhaar details"],
+      "correct_answer": "Transferring money digitally between bank accounts using a mobile phone",
+      "difficulty": "easy"
+    },
+    {
+      "id": 59,
+      "question": "What is the National Pension System (NPS) in India?",
+      "options": ["A scheme that gives free food to pensioners", "A voluntary long-term retirement savings scheme regulated by the government", "A loan facility for retired employees", "A health insurance scheme for government workers"],
+      "correct_answer": "A voluntary long-term retirement savings scheme regulated by the government",
+      "difficulty": "medium"
+    },
+    {
+      "id": 60,
+      "question": "If you deposit Rs. 10,000 in a savings account at 4% annual interest for one year, how much interest will you earn (simple interest)?",
+      "options": ["Rs. 200", "Rs. 400", "Rs. 100", "Rs. 1000"],
+      "correct_answer": "Rs. 400",
+      "difficulty": "medium"
+    },
+    {
+      "id": 61,
+      "question": "What is the full form of NEFT in Indian banking?",
+      "options": ["National Electronic Funds Transfer", "National Efficient Finance Transaction", "New Electronic Fund Technology", "National Equity Fund Transfer"],
+      "correct_answer": "National Electronic Funds Transfer",
+      "difficulty": "medium"
+    },
+    {
+      "id": 62,
+      "question": "Which of the following is a sign of a financial scam or fraud?",
+      "options": ["A bank sending you a monthly statement", "Someone promising very high returns with zero risk", "A financial advisor explaining risks before investing", "Your bank updating you about new interest rates"],
+      "correct_answer": "Someone promising very high returns with zero risk",
+      "difficulty": "easy"
+    },
+    {
+      "id": 63,
+      "question": "What is the Atal Pension Yojana (APY) scheme?",
+      "options": ["A scheme providing pension to senior citizens above 80 years", "A pension scheme for unorganized sector workers to receive a guaranteed pension after 60", "A housing loan scheme for retired government employees", "A monthly allowance given to war veterans"],
+      "correct_answer": "A pension scheme for unorganized sector workers to receive a guaranteed pension after 60",
+      "difficulty": "hard"
+    },
+    {
+      "id": 64,
+      "question": "What is meant by 'insolvency'?",
+      "options": ["Having more money than you need", "Being unable to pay one's debts", "Earning income from multiple sources", "Saving a large amount every month"],
+      "correct_answer": "Being unable to pay one's debts",
+      "difficulty": "medium"
+    },
+    {
+      "id": 65,
+      "question": "If you want to send a large amount of money (above Rs. 2 lakh) immediately to another bank account, which transfer method is best?",
+      "options": ["NEFT", "Cheque", "RTGS", "Cash deposit"],
+      "correct_answer": "RTGS",
+      "difficulty": "hard"
+    },
+    {
+      "id": 66,
+      "question": "What is a 'recurring deposit' (RD) account?",
+      "options": ["An account where you deposit a lump sum once and receive interest", "An account where you deposit a fixed amount every month for a set period", "An account where you can withdraw money any number of times", "A special account for government employees only"],
+      "correct_answer": "An account where you deposit a fixed amount every month for a set period",
+      "difficulty": "medium"
+    },
+    {
+      "id": 67,
+      "question": "What does 'interest rate' mean?",
+      "options": ["The number of years a loan lasts", "The percentage charged on a loan or paid on a deposit", "The total amount of a loan", "The bank branch where you opened your account"],
+      "correct_answer": "The percentage charged on a loan or paid on a deposit",
+      "difficulty": "easy"
+    },
+    {
+      "id": 68,
+      "question": "Why is it important to have an emergency fund?",
+      "options": ["To invest in the stock market", "To cover unexpected expenses like medical emergencies without going into debt", "To buy luxury items on sale", "To avoid paying taxes"],
+      "correct_answer": "To cover unexpected expenses like medical emergencies without going into debt",
+      "difficulty": "easy"
+    },
+    {
+      "id": 69,
+      "question": "What is a 'dividend' in the context of stocks?",
+      "options": ["A penalty paid to the stock exchange", "A portion of a company's profits paid to shareholders", "The price at which you buy a stock", "The fee paid to a stockbroker"],
+      "correct_answer": "A portion of a company's profits paid to shareholders",
+      "difficulty": "medium"
+    },
+    {
+      "id": 70,
+      "question": "Which government document in India is widely used as proof of identity and address for financial purposes?",
+      "options": ["Ration card", "Aadhaar card", "Library card", "Voter ID only"],
+      "correct_answer": "Aadhaar card",
+      "difficulty": "easy"
+    },
+    {
+      "id": 71,
+      "question": "What is 'term insurance'?",
+      "options": ["Insurance that covers only short-term illnesses", "A pure life insurance policy that pays a sum to the family only if the insured person dies during the policy term", "An insurance policy that gives monthly income for 10 years", "A policy that covers only accidents"],
+      "correct_answer": "A pure life insurance policy that pays a sum to the family only if the insured person dies during the policy term",
+      "difficulty": "medium"
+    },
+    {
+      "id": 72,
+      "question": "What happens to the value of a fixed deposit if you withdraw it before its maturity date?",
+      "options": ["You receive the full amount plus extra bonus", "You may receive less interest or pay a penalty", "The bank doubles the interest for the completed period", "Nothing, you receive the same amount"],
+      "correct_answer": "You may receive less interest or pay a penalty",
+      "difficulty": "medium"
+    },
+    {
+      "id": 73,
+      "question": "What is 'power of attorney' (POA) in financial terms?",
+      "options": ["A document that appoints a lawyer to fight your case in court", "A legal document that authorizes another person to manage your financial affairs on your behalf", "A government licence to open a business", "A certificate issued by the income tax department"],
+      "correct_answer": "A legal document that authorizes another person to manage your financial affairs on your behalf",
+      "difficulty": "medium"
+    },
+    {
+      "id": 74,
+      "question": "What is meant by the 'cost of living'?",
+      "options": ["The amount of money earned in a year", "The total amount of money needed to cover basic expenses like food, housing, and healthcare", "The interest rate on home loans", "The annual bonus given by employers"],
+      "correct_answer": "The total amount of money needed to cover basic expenses like food, housing, and healthcare",
+      "difficulty": "easy"
+    },
+    {
+      "id": 75,
+      "question": "If the inflation rate is 6% per year and your savings account gives 4% interest, what is happening to the real value of your savings?",
+      "options": ["It is growing", "It is staying the same", "It is decreasing in real terms", "It is doubling"],
+      "correct_answer": "It is decreasing in real terms",
+      "difficulty": "hard"
+    },
+    {
+      "id": 76,
+      "question": "What is 'PMJDY' – Pradhan Mantri Jan Dhan Yojana?",
+      "options": ["A scheme for building houses for the poor", "A financial inclusion scheme to provide bank accounts to all citizens, especially the poor", "A pension scheme for senior citizens", "A crop insurance scheme for farmers"],
+      "correct_answer": "A financial inclusion scheme to provide bank accounts to all citizens, especially the poor",
+      "difficulty": "medium"
+    },
+    {
+      "id": 77,
+      "question": "What is the purpose of a 'CIBIL score' or credit score in India?",
+      "options": ["To determine how much you can invest in stocks", "To represent your creditworthiness and history of repaying loans, which banks use to decide loan approvals", "To calculate your income tax", "To prove your identity at the bank"],
+      "correct_answer": "To represent your creditworthiness and history of repaying loans, which banks use to decide loan approvals",
+      "difficulty": "medium"
+    },
+    {
+      "id": 78,
+      "question": "If you pay your loan EMIs on time every month, what happens to your CIBIL credit score?",
+      "options": ["It decreases", "It stays the same always", "It generally improves over time", "It is not affected by loan repayments"],
+      "correct_answer": "It generally improves over time",
+      "difficulty": "medium"
+    },
+    {
+      "id": 79,
+      "question": "What is 'public provident fund' (PPF)?",
+      "options": ["A fund collected from the public for road construction", "A long-term government-backed savings scheme offering tax benefits and fixed returns", "A type of bank loan for buying public property", "An insurance scheme by the government"],
+      "correct_answer": "A long-term government-backed savings scheme offering tax benefits and fixed returns",
+      "difficulty": "medium"
+    },
+    {
+      "id": 80,
+      "question": "Which of the following statements about gold investment is true?",
+      "options": ["Gold prices never fall", "Gold can act as a store of value and is considered a safe investment over the long term", "Gold gives guaranteed returns every month", "Gold investment is only allowed through banks"],
+      "correct_answer": "Gold can act as a store of value and is considered a safe investment over the long term",
+      "difficulty": "medium"
+    },
+    {
+      "id": 81,
+      "question": "What is an 'annuity' in financial terms?",
+      "options": ["A one-time bonus payment from an employer", "A series of regular payments received over a period of time, often used in retirement plans", "A type of short-term loan", "A penalty paid on delayed tax filing"],
+      "correct_answer": "A series of regular payments received over a period of time, often used in retirement plans",
+      "difficulty": "medium"
+    },
+    {
+      "id": 82,
+      "question": "What is the meaning of 'collateral' in a loan?",
+      "options": ["The interest charged on a loan", "An asset pledged as security to the lender in case the borrower cannot repay the loan", "The total loan amount approved", "The monthly repayment amount"],
+      "correct_answer": "An asset pledged as security to the lender in case the borrower cannot repay the loan",
+      "difficulty": "medium"
+    },
+    {
+      "id": 83,
+      "question": "What does 'inflation-proof' investment mean?",
+      "options": ["An investment that earns returns higher than or equal to the inflation rate, preserving buying power", "An investment that is approved by the government", "An investment that cannot be withdrawn before maturity", "An investment that earns no interest"],
+      "correct_answer": "An investment that earns returns higher than or equal to the inflation rate, preserving buying power",
+      "difficulty": "hard"
+    },
+    {
+      "id": 84,
+      "question": "What is 'estate planning'?",
+      "options": ["Planning to buy a property or real estate", "The process of deciding how your assets and wealth will be managed and distributed after your death", "Filing annual income tax returns", "Planning monthly household expenses"],
+      "correct_answer": "The process of deciding how your assets and wealth will be managed and distributed after your death",
+      "difficulty": "medium"
+    },
+    {
+      "id": 85,
+      "question": "What is the difference between a debit card and a credit card?",
+      "options": ["There is no difference; they work the same way", "A debit card uses your own money in your account, while a credit card lets you borrow money up to a limit", "A debit card is for online shopping only", "A credit card earns interest on your money"],
+      "correct_answer": "A debit card uses your own money in your account, while a credit card lets you borrow money up to a limit",
+      "difficulty": "easy"
+    },
+    {
+      "id": 86,
+      "question": "If a company's profit increases significantly, what often happens to its share price?",
+      "options": ["The share price usually falls", "The share price usually rises", "The share price stays unchanged", "The company shuts down"],
+      "correct_answer": "The share price usually rises",
+      "difficulty": "medium"
+    },
+    {
+      "id": 87,
+      "question": "What is 'money laundering'?",
+      "options": ["A process of cleaning coins at the bank", "The illegal practice of making money obtained from crime appear to come from legal sources", "A method of transferring money overseas", "A way to avoid paying income tax legally"],
+      "correct_answer": "The illegal practice of making money obtained from crime appear to come from legal sources",
+      "difficulty": "medium"
+    },
+    {
+      "id": 88,
+      "question": "What is an 'asset'?",
+      "options": ["Something you owe money on", "Something of value that you own, such as property, gold, or money in the bank", "A monthly expense", "A type of government tax"],
+      "correct_answer": "Something of value that you own, such as property, gold, or money in the bank",
+      "difficulty": "easy"
+    },
+    {
+      "id": 89,
+      "question": "Which of the following is an example of passive income?",
+      "options": ["Salary from a job", "Selling vegetables in a market", "Rent received from a property you own", "Payment for driving an auto-rickshaw"],
+      "correct_answer": "Rent received from a property you own",
+      "difficulty": "medium"
+    },
+    {
+      "id": 90,
+      "question": "What is a 'balance sheet' for a household?",
+      "options": ["A sheet used to balance weights in a kitchen", "A summary of what a household owns (assets) and what it owes (liabilities)", "A government form for filing income taxes", "A record of electricity usage"],
+      "correct_answer": "A summary of what a household owns (assets) and what it owes (liabilities)",
+      "difficulty": "medium"
+    },
+    {
+      "id": 91,
+      "question": "If a senior citizen is tricked into giving money to a stranger with a false promise of high returns, what type of crime is this?",
+      "options": ["Tax evasion", "Financial fraud or scam", "Money laundering", "Insider trading"],
+      "correct_answer": "Financial fraud or scam",
+      "difficulty": "easy"
+    },
+    {
+      "id": 92,
+      "question": "What is the benefit of a joint bank account for a senior citizen?",
+      "options": ["It earns double the interest", "It allows a trusted family member to manage transactions if the senior citizen is unable to do so", "It has no minimum balance requirement", "It is only available to married couples"],
+      "correct_answer": "It allows a trusted family member to manage transactions if the senior citizen is unable to do so",
+      "difficulty": "medium"
+    },
+    {
+      "id": 93,
+      "question": "What is 'depreciation' in simple terms?",
+      "options": ["An increase in the value of an asset over time", "A decrease in the value of an asset over time due to use or age", "A tax benefit on purchased items", "A type of loan repayment"],
+      "correct_answer": "A decrease in the value of an asset over time due to use or age",
+      "difficulty": "medium"
+    },
+    {
+      "id": 94,
+      "question": "When the government reduces the interest rate in the economy, what is one likely effect?",
+      "options": ["People save more money in banks", "Borrowing becomes cheaper, encouraging people and businesses to take loans and spend more", "Prices of goods fall immediately", "The stock market always crashes"],
+      "correct_answer": "Borrowing becomes cheaper, encouraging people and businesses to take loans and spend more",
+      "difficulty": "hard"
+    },
+    {
+      "id": 95,
+      "question": "What does 'PAN card' stand for in India and why is it important?",
+      "options": ["Personal Account Number – required for all banking", "Permanent Account Number – a unique ID used for income tax and large financial transactions", "Public Access Number – used to access government portals", "Primary Authorization Number – needed for all loans"],
+      "correct_answer": "Permanent Account Number – a unique ID used for income tax and large financial transactions",
+      "difficulty": "medium"
+    },
+    {
+      "id": 96,
+      "question": "If you take out a loan at 12% annual interest and your investment earns 8% per year, what is the wisest course of action?",
+      "options": ["Continue both since the investment is profitable", "It is generally wiser to pay off the loan first as the interest cost exceeds investment returns", "Take out a bigger loan to invest more", "Close both the loan and the investment account"],
+      "correct_answer": "It is generally wiser to pay off the loan first as the interest cost exceeds investment returns",
+      "difficulty": "hard"
+    },
+    {
+      "id": 97,
+      "question": "What is the 'rule of 72' in personal finance?",
+      "options": ["A rule that says you must save 72% of your income", "A simple way to estimate how many years it takes to double your money by dividing 72 by the annual interest rate", "A tax rule that applies after 72 years of age", "A rule that says loans must be repaid in 72 months"],
+      "correct_answer": "A simple way to estimate how many years it takes to double your money by dividing 72 by the annual interest rate",
+      "difficulty": "hard"
+    },
+    {
+      "id": 98,
+      "question": "At an interest rate of 8% per year, approximately how many years will it take to double your money using the rule of 72?",
+      "options": ["6 years", "9 years", "12 years", "18 years"],
+      "correct_answer": "9 years",
+      "difficulty": "hard"
+    },
+    {
+      "id": 99,
+      "question": "What is the main advantage of a government savings scheme over a private investment?",
+      "options": ["Government schemes always give higher returns", "Government schemes are generally considered safer as they are backed by the government", "Government schemes have no lock-in period", "Government schemes are tax-free always"],
+      "correct_answer": "Government schemes are generally considered safer as they are backed by the government",
+      "difficulty": "medium"
+    },
+    {
+      "id": 100,
+      "question": "Which of the following is the most responsible approach to managing money in retirement?",
+      "options": ["Invest all money in high-risk stocks for maximum gains", "Spend all savings quickly while health is good", "Balance between safe investments, regular income sources, and maintaining an emergency fund", "Rely only on family members for all financial needs"],
+      "correct_answer": "Balance between safe investments, regular income sources, and maintaining an emergency fund",
+      "difficulty": "medium"
+    }
+  ]
+}

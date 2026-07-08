@@ -1,0 +1,712 @@
+{
+  "category": "General Knowledge",
+  "description": "100 General Knowledge questions designed to assess and improve mental agility in senior citizens. Questions are text-only, clear, and appropriately leveled.",
+  "total_questions": 100,
+  "difficulty_distribution": {
+    "easy": 40,
+    "medium": 35,
+    "hard": 25
+  },
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the capital city of France?",
+      "options": ["Berlin", "Madrid", "Paris", "Rome"],
+      "correct_answer": "Paris",
+      "difficulty": "easy"
+    },
+    {
+      "id": 2,
+      "question": "How many days are there in a leap year?",
+      "options": ["364", "365", "366", "367"],
+      "correct_answer": "366",
+      "difficulty": "easy"
+    },
+    {
+      "id": 3,
+      "question": "Which planet is known as the Red Planet?",
+      "options": ["Venus", "Jupiter", "Saturn", "Mars"],
+      "correct_answer": "Mars",
+      "difficulty": "easy"
+    },
+    {
+      "id": 4,
+      "question": "How many sides does a triangle have?",
+      "options": ["2", "3", "4", "5"],
+      "correct_answer": "3",
+      "difficulty": "easy"
+    },
+    {
+      "id": 5,
+      "question": "What is the largest ocean on Earth?",
+      "options": ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean"],
+      "correct_answer": "Pacific Ocean",
+      "difficulty": "easy"
+    },
+    {
+      "id": 6,
+      "question": "In which season do trees typically lose their leaves?",
+      "options": ["Spring", "Summer", "Autumn", "Winter"],
+      "correct_answer": "Autumn",
+      "difficulty": "easy"
+    },
+    {
+      "id": 7,
+      "question": "What color do you get when you mix red and white?",
+      "options": ["Orange", "Purple", "Pink", "Yellow"],
+      "correct_answer": "Pink",
+      "difficulty": "easy"
+    },
+    {
+      "id": 8,
+      "question": "How many months are in a year?",
+      "options": ["10", "11", "12", "13"],
+      "correct_answer": "12",
+      "difficulty": "easy"
+    },
+    {
+      "id": 9,
+      "question": "Which animal is known as the 'King of the Jungle'?",
+      "options": ["Tiger", "Elephant", "Lion", "Leopard"],
+      "correct_answer": "Lion",
+      "difficulty": "easy"
+    },
+    {
+      "id": 10,
+      "question": "What is the boiling point of water in Celsius?",
+      "options": ["90°C", "95°C", "100°C", "110°C"],
+      "correct_answer": "100°C",
+      "difficulty": "easy"
+    },
+    {
+      "id": 11,
+      "question": "Which is the longest river in the world?",
+      "options": ["Amazon", "Yangtze", "Mississippi", "Nile"],
+      "correct_answer": "Nile",
+      "difficulty": "easy"
+    },
+    {
+      "id": 12,
+      "question": "How many hours are in a day?",
+      "options": ["12", "20", "24", "36"],
+      "correct_answer": "24",
+      "difficulty": "easy"
+    },
+    {
+      "id": 13,
+      "question": "What is the opposite of 'hot'?",
+      "options": ["Warm", "Mild", "Cold", "Dry"],
+      "correct_answer": "Cold",
+      "difficulty": "easy"
+    },
+    {
+      "id": 14,
+      "question": "Which bird is a symbol of peace?",
+      "options": ["Eagle", "Dove", "Sparrow", "Crow"],
+      "correct_answer": "Dove",
+      "difficulty": "easy"
+    },
+    {
+      "id": 15,
+      "question": "How many zeros are in one thousand?",
+      "options": ["2", "3", "4", "5"],
+      "correct_answer": "3",
+      "difficulty": "easy"
+    },
+    {
+      "id": 16,
+      "question": "Which fruit is known to keep the doctor away, according to the old saying?",
+      "options": ["Banana", "Orange", "Apple", "Mango"],
+      "correct_answer": "Apple",
+      "difficulty": "easy"
+    },
+    {
+      "id": 17,
+      "question": "What is 15 + 27?",
+      "options": ["40", "42", "43", "45"],
+      "correct_answer": "42",
+      "difficulty": "easy"
+    },
+    {
+      "id": 18,
+      "question": "Which sense is associated with the nose?",
+      "options": ["Sight", "Hearing", "Touch", "Smell"],
+      "correct_answer": "Smell",
+      "difficulty": "easy"
+    },
+    {
+      "id": 19,
+      "question": "What is the color of the sky on a clear day?",
+      "options": ["Green", "Blue", "Yellow", "White"],
+      "correct_answer": "Blue",
+      "difficulty": "easy"
+    },
+    {
+      "id": 20,
+      "question": "How many continents are on Earth?",
+      "options": ["5", "6", "7", "8"],
+      "correct_answer": "7",
+      "difficulty": "easy"
+    },
+    {
+      "id": 21,
+      "question": "What do bees produce that we use as a sweetener?",
+      "options": ["Syrup", "Nectar", "Honey", "Wax"],
+      "correct_answer": "Honey",
+      "difficulty": "easy"
+    },
+    {
+      "id": 22,
+      "question": "Which day of the week comes after Wednesday?",
+      "options": ["Monday", "Tuesday", "Thursday", "Friday"],
+      "correct_answer": "Thursday",
+      "difficulty": "easy"
+    },
+    {
+      "id": 23,
+      "question": "What is the capital of India?",
+      "options": ["Mumbai", "Kolkata", "Chennai", "New Delhi"],
+      "correct_answer": "New Delhi",
+      "difficulty": "easy"
+    },
+    {
+      "id": 24,
+      "question": "Which gas do plants absorb from the air to make food?",
+      "options": ["Oxygen", "Nitrogen", "Carbon Dioxide", "Hydrogen"],
+      "correct_answer": "Carbon Dioxide",
+      "difficulty": "easy"
+    },
+    {
+      "id": 25,
+      "question": "How many eggs are in a dozen?",
+      "options": ["10", "11", "12", "13"],
+      "correct_answer": "12",
+      "difficulty": "easy"
+    },
+    {
+      "id": 26,
+      "question": "Which metal is used to make coins and is shiny silver in color?",
+      "options": ["Gold", "Copper", "Silver", "Iron"],
+      "correct_answer": "Silver",
+      "difficulty": "easy"
+    },
+    {
+      "id": 27,
+      "question": "What is the name of the tallest mountain in the world?",
+      "options": ["K2", "Mount Kilimanjaro", "Mount Everest", "Mont Blanc"],
+      "correct_answer": "Mount Everest",
+      "difficulty": "easy"
+    },
+    {
+      "id": 28,
+      "question": "How many wheels does a bicycle have?",
+      "options": ["1", "2", "3", "4"],
+      "correct_answer": "2",
+      "difficulty": "easy"
+    },
+    {
+      "id": 29,
+      "question": "What is the primary language spoken in Brazil?",
+      "options": ["Spanish", "English", "French", "Portuguese"],
+      "correct_answer": "Portuguese",
+      "difficulty": "easy"
+    },
+    {
+      "id": 30,
+      "question": "Which organ pumps blood around the body?",
+      "options": ["Liver", "Kidney", "Lungs", "Heart"],
+      "correct_answer": "Heart",
+      "difficulty": "easy"
+    },
+    {
+      "id": 31,
+      "question": "What is 9 multiplied by 7?",
+      "options": ["54", "61", "63", "72"],
+      "correct_answer": "63",
+      "difficulty": "easy"
+    },
+    {
+      "id": 32,
+      "question": "Which of these is a dairy product?",
+      "options": ["Olive Oil", "Bread", "Cheese", "Jam"],
+      "correct_answer": "Cheese",
+      "difficulty": "easy"
+    },
+    {
+      "id": 33,
+      "question": "What is the name of the fairy tale character who had very long hair and was locked in a tower?",
+      "options": ["Cinderella", "Rapunzel", "Snow White", "Sleeping Beauty"],
+      "correct_answer": "Rapunzel",
+      "difficulty": "easy"
+    },
+    {
+      "id": 34,
+      "question": "In which direction does the sun rise?",
+      "options": ["North", "South", "East", "West"],
+      "correct_answer": "East",
+      "difficulty": "easy"
+    },
+    {
+      "id": 35,
+      "question": "Which of these animals is a reptile?",
+      "options": ["Frog", "Dolphin", "Crocodile", "Bat"],
+      "correct_answer": "Crocodile",
+      "difficulty": "easy"
+    },
+    {
+      "id": 36,
+      "question": "What do you call a baby dog?",
+      "options": ["Kitten", "Cub", "Puppy", "Foal"],
+      "correct_answer": "Puppy",
+      "difficulty": "easy"
+    },
+    {
+      "id": 37,
+      "question": "How many players are on a standard football (soccer) team?",
+      "options": ["9", "10", "11", "12"],
+      "correct_answer": "11",
+      "difficulty": "easy"
+    },
+    {
+      "id": 38,
+      "question": "Which of these is a primary color?",
+      "options": ["Green", "Orange", "Purple", "Blue"],
+      "correct_answer": "Blue",
+      "difficulty": "easy"
+    },
+    {
+      "id": 39,
+      "question": "What is the freezing point of water in Celsius?",
+      "options": ["-10°C", "-5°C", "0°C", "5°C"],
+      "correct_answer": "0°C",
+      "difficulty": "easy"
+    },
+    {
+      "id": 40,
+      "question": "Which country is famous for the Eiffel Tower?",
+      "options": ["Italy", "Spain", "Germany", "France"],
+      "correct_answer": "France",
+      "difficulty": "easy"
+    },
+    {
+      "id": 41,
+      "question": "Which planet is closest to the Sun?",
+      "options": ["Venus", "Earth", "Mercury", "Mars"],
+      "correct_answer": "Mercury",
+      "difficulty": "medium"
+    },
+    {
+      "id": 42,
+      "question": "What is the chemical symbol for gold?",
+      "options": ["Go", "Gd", "Au", "Ag"],
+      "correct_answer": "Au",
+      "difficulty": "medium"
+    },
+    {
+      "id": 43,
+      "question": "Who wrote the famous play 'Romeo and Juliet'?",
+      "options": ["Charles Dickens", "William Shakespeare", "Jane Austen", "Mark Twain"],
+      "correct_answer": "William Shakespeare",
+      "difficulty": "medium"
+    },
+    {
+      "id": 44,
+      "question": "How many bones are in the adult human body?",
+      "options": ["196", "206", "216", "226"],
+      "correct_answer": "206",
+      "difficulty": "medium"
+    },
+    {
+      "id": 45,
+      "question": "What is the capital city of Australia?",
+      "options": ["Sydney", "Melbourne", "Brisbane", "Canberra"],
+      "correct_answer": "Canberra",
+      "difficulty": "medium"
+    },
+    {
+      "id": 46,
+      "question": "In which year did World War II end?",
+      "options": ["1943", "1944", "1945", "1946"],
+      "correct_answer": "1945",
+      "difficulty": "medium"
+    },
+    {
+      "id": 47,
+      "question": "What is the square root of 144?",
+      "options": ["10", "11", "12", "13"],
+      "correct_answer": "12",
+      "difficulty": "medium"
+    },
+    {
+      "id": 48,
+      "question": "Which country gifted the Statue of Liberty to the United States?",
+      "options": ["England", "Italy", "France", "Spain"],
+      "correct_answer": "France",
+      "difficulty": "medium"
+    },
+    {
+      "id": 49,
+      "question": "What is the name of the longest bone in the human body?",
+      "options": ["Tibia", "Femur", "Humerus", "Radius"],
+      "correct_answer": "Femur",
+      "difficulty": "medium"
+    },
+    {
+      "id": 50,
+      "question": "Which ocean is found between Africa and Australia?",
+      "options": ["Atlantic", "Pacific", "Arctic", "Indian"],
+      "correct_answer": "Indian",
+      "difficulty": "medium"
+    },
+    {
+      "id": 51,
+      "question": "How many stripes are on the American flag?",
+      "options": ["11", "12", "13", "14"],
+      "correct_answer": "13",
+      "difficulty": "medium"
+    },
+    {
+      "id": 52,
+      "question": "Which scientist is known for the theory of relativity?",
+      "options": ["Isaac Newton", "Galileo Galilei", "Albert Einstein", "Nikola Tesla"],
+      "correct_answer": "Albert Einstein",
+      "difficulty": "medium"
+    },
+    {
+      "id": 53,
+      "question": "What is the currency used in Japan?",
+      "options": ["Won", "Yuan", "Yen", "Baht"],
+      "correct_answer": "Yen",
+      "difficulty": "medium"
+    },
+    {
+      "id": 54,
+      "question": "Which is the smallest continent by land area?",
+      "options": ["Europe", "Antarctica", "Australia", "South America"],
+      "correct_answer": "Australia",
+      "difficulty": "medium"
+    },
+    {
+      "id": 55,
+      "question": "What is the name of the gas that makes fizzy drinks bubbly?",
+      "options": ["Oxygen", "Nitrogen", "Carbon Dioxide", "Helium"],
+      "correct_answer": "Carbon Dioxide",
+      "difficulty": "medium"
+    },
+    {
+      "id": 56,
+      "question": "In which country would you find the ancient ruins of Machu Picchu?",
+      "options": ["Brazil", "Chile", "Mexico", "Peru"],
+      "correct_answer": "Peru",
+      "difficulty": "medium"
+    },
+    {
+      "id": 57,
+      "question": "What does 'SOS' stand for in emergency signaling?",
+      "options": ["Send Our Ship", "Save Our Souls", "Signal Of Safety", "Stop Our Sinking"],
+      "correct_answer": "Save Our Souls",
+      "difficulty": "medium"
+    },
+    {
+      "id": 58,
+      "question": "Which organ in the human body produces insulin?",
+      "options": ["Liver", "Kidney", "Pancreas", "Stomach"],
+      "correct_answer": "Pancreas",
+      "difficulty": "medium"
+    },
+    {
+      "id": 59,
+      "question": "How many sides does a hexagon have?",
+      "options": ["5", "6", "7", "8"],
+      "correct_answer": "6",
+      "difficulty": "medium"
+    },
+    {
+      "id": 60,
+      "question": "Which famous ship sank after hitting an iceberg in 1912?",
+      "options": ["Lusitania", "Britannic", "Titanic", "Olympic"],
+      "correct_answer": "Titanic",
+      "difficulty": "medium"
+    },
+    {
+      "id": 61,
+      "question": "What is the capital city of Japan?",
+      "options": ["Osaka", "Kyoto", "Hiroshima", "Tokyo"],
+      "correct_answer": "Tokyo",
+      "difficulty": "medium"
+    },
+    {
+      "id": 62,
+      "question": "Which vitamin does the human body produce when exposed to sunlight?",
+      "options": ["Vitamin A", "Vitamin B", "Vitamin C", "Vitamin D"],
+      "correct_answer": "Vitamin D",
+      "difficulty": "medium"
+    },
+    {
+      "id": 63,
+      "question": "How many years are in a decade?",
+      "options": ["5", "10", "20", "100"],
+      "correct_answer": "10",
+      "difficulty": "medium"
+    },
+    {
+      "id": 64,
+      "question": "Which great wall is one of the largest man-made structures in history?",
+      "options": ["Great Wall of India", "Great Wall of Rome", "Great Wall of China", "Great Wall of Egypt"],
+      "correct_answer": "Great Wall of China",
+      "difficulty": "medium"
+    },
+    {
+      "id": 65,
+      "question": "What is 25% of 200?",
+      "options": ["25", "40", "50", "75"],
+      "correct_answer": "50",
+      "difficulty": "medium"
+    },
+    {
+      "id": 66,
+      "question": "Which of these is NOT a type of cloud?",
+      "options": ["Cumulus", "Nimbus", "Stratus", "Radius"],
+      "correct_answer": "Radius",
+      "difficulty": "medium"
+    },
+    {
+      "id": 67,
+      "question": "In which city is the Colosseum located?",
+      "options": ["Athens", "Paris", "Rome", "Madrid"],
+      "correct_answer": "Rome",
+      "difficulty": "medium"
+    },
+    {
+      "id": 68,
+      "question": "What is the name of the process by which plants make their own food using sunlight?",
+      "options": ["Respiration", "Photosynthesis", "Germination", "Pollination"],
+      "correct_answer": "Photosynthesis",
+      "difficulty": "medium"
+    },
+    {
+      "id": 69,
+      "question": "Which famous scientist discovered gravity after observing a falling apple?",
+      "options": ["Albert Einstein", "Galileo Galilei", "Isaac Newton", "Charles Darwin"],
+      "correct_answer": "Isaac Newton",
+      "difficulty": "medium"
+    },
+    {
+      "id": 70,
+      "question": "What is the main ingredient in traditional bread?",
+      "options": ["Rice", "Corn", "Wheat flour", "Potato starch"],
+      "correct_answer": "Wheat flour",
+      "difficulty": "medium"
+    },
+    {
+      "id": 71,
+      "question": "How many years are there in a century?",
+      "options": ["10", "50", "100", "1000"],
+      "correct_answer": "100",
+      "difficulty": "medium"
+    },
+    {
+      "id": 72,
+      "question": "Which country is the largest by land area in the world?",
+      "options": ["China", "United States", "Canada", "Russia"],
+      "correct_answer": "Russia",
+      "difficulty": "medium"
+    },
+    {
+      "id": 73,
+      "question": "What is the name of the part of the eye that controls the amount of light entering?",
+      "options": ["Cornea", "Retina", "Iris", "Lens"],
+      "correct_answer": "Iris",
+      "difficulty": "medium"
+    },
+    {
+      "id": 74,
+      "question": "Which famous structure in India was built as a symbol of love by Emperor Shah Jahan?",
+      "options": ["Qutub Minar", "Red Fort", "Taj Mahal", "Hawa Mahal"],
+      "correct_answer": "Taj Mahal",
+      "difficulty": "medium"
+    },
+    {
+      "id": 75,
+      "question": "What is the name of the imaginary line that divides the Earth into Northern and Southern hemispheres?",
+      "options": ["Prime Meridian", "Tropic of Cancer", "Equator", "Arctic Circle"],
+      "correct_answer": "Equator",
+      "difficulty": "medium"
+    },
+    {
+      "id": 76,
+      "question": "In what year did man first land on the Moon?",
+      "options": ["1965", "1967", "1969", "1971"],
+      "correct_answer": "1969",
+      "difficulty": "hard"
+    },
+    {
+      "id": 77,
+      "question": "Which element has the atomic number 1 on the periodic table?",
+      "options": ["Helium", "Hydrogen", "Lithium", "Oxygen"],
+      "correct_answer": "Hydrogen",
+      "difficulty": "hard"
+    },
+    {
+      "id": 78,
+      "question": "How many chambers does the human heart have?",
+      "options": ["2", "3", "4", "5"],
+      "correct_answer": "4",
+      "difficulty": "hard"
+    },
+    {
+      "id": 79,
+      "question": "Who was the first Prime Minister of independent India?",
+      "options": ["Mahatma Gandhi", "Sardar Patel", "Jawaharlal Nehru", "B. R. Ambedkar"],
+      "correct_answer": "Jawaharlal Nehru",
+      "difficulty": "hard"
+    },
+    {
+      "id": 80,
+      "question": "What is the approximate speed of light in kilometers per second?",
+      "options": ["100,000 km/s", "200,000 km/s", "300,000 km/s", "400,000 km/s"],
+      "correct_answer": "300,000 km/s",
+      "difficulty": "hard"
+    },
+    {
+      "id": 81,
+      "question": "Which ancient wonder of the world is still standing today?",
+      "options": ["Colossus of Rhodes", "Lighthouse of Alexandria", "Great Pyramid of Giza", "Hanging Gardens of Babylon"],
+      "correct_answer": "Great Pyramid of Giza",
+      "difficulty": "hard"
+    },
+    {
+      "id": 82,
+      "question": "What is the name of the largest planet in our solar system?",
+      "options": ["Saturn", "Uranus", "Neptune", "Jupiter"],
+      "correct_answer": "Jupiter",
+      "difficulty": "hard"
+    },
+    {
+      "id": 83,
+      "question": "In which year did India gain independence from British rule?",
+      "options": ["1945", "1947", "1950", "1952"],
+      "correct_answer": "1947",
+      "difficulty": "hard"
+    },
+    {
+      "id": 84,
+      "question": "What is the name of the process by which a caterpillar transforms into a butterfly?",
+      "options": ["Hibernation", "Metamorphosis", "Evolution", "Germination"],
+      "correct_answer": "Metamorphosis",
+      "difficulty": "hard"
+    },
+    {
+      "id": 85,
+      "question": "Who invented the telephone?",
+      "options": ["Thomas Edison", "Nikola Tesla", "Alexander Graham Bell", "Guglielmo Marconi"],
+      "correct_answer": "Alexander Graham Bell",
+      "difficulty": "hard"
+    },
+    {
+      "id": 86,
+      "question": "Which blood type is known as the universal donor?",
+      "options": ["A positive", "B negative", "O negative", "AB positive"],
+      "correct_answer": "O negative",
+      "difficulty": "hard"
+    },
+    {
+      "id": 87,
+      "question": "What is the name of the colored part of the eye that surrounds the pupil?",
+      "options": ["Cornea", "Sclera", "Iris", "Retina"],
+      "correct_answer": "Iris",
+      "difficulty": "hard"
+    },
+    {
+      "id": 88,
+      "question": "Which country has the most natural lakes in the world?",
+      "options": ["Russia", "United States", "Canada", "Finland"],
+      "correct_answer": "Canada",
+      "difficulty": "hard"
+    },
+    {
+      "id": 89,
+      "question": "How many time zones does Russia span across?",
+      "options": ["9", "10", "11", "12"],
+      "correct_answer": "11",
+      "difficulty": "hard"
+    },
+    {
+      "id": 90,
+      "question": "What is the name of the outermost layer of the Earth?",
+      "options": ["Mantle", "Core", "Crust", "Lithosphere"],
+      "correct_answer": "Crust",
+      "difficulty": "hard"
+    },
+    {
+      "id": 91,
+      "question": "Which famous artist painted the Mona Lisa?",
+      "options": ["Michelangelo", "Raphael", "Leonardo da Vinci", "Sandro Botticelli"],
+      "correct_answer": "Leonardo da Vinci",
+      "difficulty": "hard"
+    },
+    {
+      "id": 92,
+      "question": "What does DNA stand for?",
+      "options": ["Deoxyribonucleic Acid", "Dynamic Nuclear Acid", "Digital Nucleic Array", "Dioxyribose Nucleic Agent"],
+      "correct_answer": "Deoxyribonucleic Acid",
+      "difficulty": "hard"
+    },
+    {
+      "id": 93,
+      "question": "Which of these countries does NOT share a border with India?",
+      "options": ["Nepal", "Bhutan", "Myanmar", "Thailand"],
+      "correct_answer": "Thailand",
+      "difficulty": "hard"
+    },
+    {
+      "id": 94,
+      "question": "What is the chemical formula for common table salt?",
+      "options": ["KCl", "NaCl", "CaCl2", "MgCl2"],
+      "correct_answer": "NaCl",
+      "difficulty": "hard"
+    },
+    {
+      "id": 95,
+      "question": "In which century did the Renaissance period begin?",
+      "options": ["12th century", "13th century", "14th century", "15th century"],
+      "correct_answer": "14th century",
+      "difficulty": "hard"
+    },
+    {
+      "id": 96,
+      "question": "Which organ in the human body is responsible for filtering blood and producing urine?",
+      "options": ["Liver", "Spleen", "Kidney", "Gallbladder"],
+      "correct_answer": "Kidney",
+      "difficulty": "hard"
+    },
+    {
+      "id": 97,
+      "question": "What is the name of the first artificial satellite launched into space?",
+      "options": ["Apollo 1", "Vostok 1", "Explorer 1", "Sputnik 1"],
+      "correct_answer": "Sputnik 1",
+      "difficulty": "hard"
+    },
+    {
+      "id": 98,
+      "question": "Which country is home to the Amazon Rainforest, the world's largest tropical rainforest?",
+      "options": ["Colombia", "Venezuela", "Brazil", "Peru"],
+      "correct_answer": "Brazil",
+      "difficulty": "hard"
+    },
+    {
+      "id": 99,
+      "question": "What is the name of the branch of science that studies the classification of living organisms?",
+      "options": ["Ecology", "Taxonomy", "Genetics", "Physiology"],
+      "correct_answer": "Taxonomy",
+      "difficulty": "hard"
+    },
+    {
+      "id": 100,
+      "question": "Which famous nurse is known as the founder of modern nursing and worked during the Crimean War?",
+      "options": ["Marie Curie", "Clara Barton", "Florence Nightingale", "Edith Cavell"],
+      "correct_answer": "Florence Nightingale",
+      "difficulty": "hard"
+    }
+  ]
+}

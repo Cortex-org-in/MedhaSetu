@@ -1,0 +1,712 @@
+{
+  "category": "Word Power & Language Puzzles",
+  "description": "Word and language questions designed to assess and improve vocabulary, comprehension, verbal reasoning, and linguistic memory in senior citizens. Questions cover synonyms, antonyms, analogies, proverbs, idioms, word meanings, and simple word puzzles.",
+  "total_questions": 100,
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which word means the same as 'Happy'?",
+      "options": ["Sad", "Joyful", "Angry", "Tired"],
+      "correct_answer": "Joyful",
+      "difficulty": "easy"
+    },
+    {
+      "id": 2,
+      "question": "Which word is the opposite of 'Hot'?",
+      "options": ["Warm", "Cold", "Bright", "Dry"],
+      "correct_answer": "Cold",
+      "difficulty": "easy"
+    },
+    {
+      "id": 3,
+      "question": "Which word means the same as 'Big'?",
+      "options": ["Tiny", "Narrow", "Large", "Short"],
+      "correct_answer": "Large",
+      "difficulty": "easy"
+    },
+    {
+      "id": 4,
+      "question": "What is the opposite of 'Day'?",
+      "options": ["Evening", "Dusk", "Night", "Noon"],
+      "correct_answer": "Night",
+      "difficulty": "easy"
+    },
+    {
+      "id": 5,
+      "question": "Which word means the same as 'Brave'?",
+      "options": ["Fearful", "Courageous", "Gentle", "Lazy"],
+      "correct_answer": "Courageous",
+      "difficulty": "easy"
+    },
+    {
+      "id": 6,
+      "question": "Which of these is a fruit?",
+      "options": ["Carrot", "Spinach", "Mango", "Onion"],
+      "correct_answer": "Mango",
+      "difficulty": "easy"
+    },
+    {
+      "id": 7,
+      "question": "Which word is the opposite of 'Old'?",
+      "options": ["Ancient", "New", "Wise", "Long"],
+      "correct_answer": "New",
+      "difficulty": "easy"
+    },
+    {
+      "id": 8,
+      "question": "What does the word 'Enormous' mean?",
+      "options": ["Very small", "Very fast", "Very large", "Very quiet"],
+      "correct_answer": "Very large",
+      "difficulty": "easy"
+    },
+    {
+      "id": 9,
+      "question": "Which word means the same as 'Begin'?",
+      "options": ["End", "Pause", "Start", "Stop"],
+      "correct_answer": "Start",
+      "difficulty": "easy"
+    },
+    {
+      "id": 10,
+      "question": "Which word is a type of weather?",
+      "options": ["Brick", "Rain", "Chair", "Pencil"],
+      "correct_answer": "Rain",
+      "difficulty": "easy"
+    },
+    {
+      "id": 11,
+      "question": "Which word means the same as 'Fast'?",
+      "options": ["Slow", "Quick", "Dull", "Heavy"],
+      "correct_answer": "Quick",
+      "difficulty": "easy"
+    },
+    {
+      "id": 12,
+      "question": "What is the opposite of 'Noisy'?",
+      "options": ["Loud", "Bright", "Quiet", "Rough"],
+      "correct_answer": "Quiet",
+      "difficulty": "easy"
+    },
+    {
+      "id": 13,
+      "question": "Which word is a colour?",
+      "options": ["Table", "Crimson", "Window", "Pencil"],
+      "correct_answer": "Crimson",
+      "difficulty": "easy"
+    },
+    {
+      "id": 14,
+      "question": "Complete the word: _ _ A T (a floating vessel)",
+      "options": ["COAT", "BOAT", "GOAT", "MOAT"],
+      "correct_answer": "BOAT",
+      "difficulty": "easy"
+    },
+    {
+      "id": 15,
+      "question": "Which word means the same as 'Ill'?",
+      "options": ["Healthy", "Sick", "Strong", "Active"],
+      "correct_answer": "Sick",
+      "difficulty": "easy"
+    },
+    {
+      "id": 16,
+      "question": "What does 'Ancient' mean?",
+      "options": ["Very new", "Very old", "Very fast", "Very small"],
+      "correct_answer": "Very old",
+      "difficulty": "easy"
+    },
+    {
+      "id": 17,
+      "question": "Which word is the opposite of 'Full'?",
+      "options": ["Half", "Empty", "Filled", "Heavy"],
+      "correct_answer": "Empty",
+      "difficulty": "easy"
+    },
+    {
+      "id": 18,
+      "question": "Which of these is an animal?",
+      "options": ["Rose", "Sparrow", "Table", "River"],
+      "correct_answer": "Sparrow",
+      "difficulty": "easy"
+    },
+    {
+      "id": 19,
+      "question": "What is a word that means 'to look at something for a long time'?",
+      "options": ["Glance", "Blink", "Stare", "Wink"],
+      "correct_answer": "Stare",
+      "difficulty": "easy"
+    },
+    {
+      "id": 20,
+      "question": "Which word means the same as 'Simple'?",
+      "options": ["Complex", "Easy", "Difficult", "Strange"],
+      "correct_answer": "Easy",
+      "difficulty": "easy"
+    },
+    {
+      "id": 21,
+      "question": "What does the proverb 'All that glitters is not gold' mean?",
+      "options": ["Gold is very valuable", "Appearances can be misleading", "Always look for treasure", "Shiny things are beautiful"],
+      "correct_answer": "Appearances can be misleading",
+      "difficulty": "medium"
+    },
+    {
+      "id": 22,
+      "question": "Which word means the same as 'Transparent'?",
+      "options": ["Opaque", "Clear", "Coloured", "Thick"],
+      "correct_answer": "Clear",
+      "difficulty": "medium"
+    },
+    {
+      "id": 23,
+      "question": "What is the opposite of 'Generous'?",
+      "options": ["Kind", "Gentle", "Miserly", "Humble"],
+      "correct_answer": "Miserly",
+      "difficulty": "medium"
+    },
+    {
+      "id": 24,
+      "question": "Doctor is to Hospital as Teacher is to ?",
+      "options": ["Book", "School", "Lesson", "Student"],
+      "correct_answer": "School",
+      "difficulty": "medium"
+    },
+    {
+      "id": 25,
+      "question": "What does the idiom 'Break the ice' mean?",
+      "options": ["Smash something frozen", "Start a conversation in an awkward situation", "Cause trouble", "Win a competition"],
+      "correct_answer": "Start a conversation in an awkward situation",
+      "difficulty": "medium"
+    },
+    {
+      "id": 26,
+      "question": "Which word means the same as 'Cheerful'?",
+      "options": ["Gloomy", "Weary", "Lively", "Bitter"],
+      "correct_answer": "Lively",
+      "difficulty": "medium"
+    },
+    {
+      "id": 27,
+      "question": "What is a synonym for 'Abundant'?",
+      "options": ["Scarce", "Plentiful", "Rare", "Hidden"],
+      "correct_answer": "Plentiful",
+      "difficulty": "medium"
+    },
+    {
+      "id": 28,
+      "question": "Rearrange these letters to form a word meaning 'a place to swim': LOOPW",
+      "options": ["POLO", "WOOL", "POOL", "LOOP"],
+      "correct_answer": "POOL",
+      "difficulty": "medium"
+    },
+    {
+      "id": 29,
+      "question": "What does 'Eloquent' mean?",
+      "options": ["Able to speak clearly and expressively", "Extremely rich", "Very stubborn", "Easily frightened"],
+      "correct_answer": "Able to speak clearly and expressively",
+      "difficulty": "medium"
+    },
+    {
+      "id": 30,
+      "question": "Which word is the odd one out: Robin, Eagle, Cobra, Sparrow?",
+      "options": ["Robin", "Eagle", "Cobra", "Sparrow"],
+      "correct_answer": "Cobra",
+      "difficulty": "medium"
+    },
+    {
+      "id": 31,
+      "question": "Pen is to Writer as Brush is to ?",
+      "options": ["Canvas", "Paint", "Painter", "Colour"],
+      "correct_answer": "Painter",
+      "difficulty": "medium"
+    },
+    {
+      "id": 32,
+      "question": "What is the opposite of 'Optimistic'?",
+      "options": ["Cheerful", "Hopeful", "Pessimistic", "Confident"],
+      "correct_answer": "Pessimistic",
+      "difficulty": "medium"
+    },
+    {
+      "id": 33,
+      "question": "What does the proverb 'A stitch in time saves nine' mean?",
+      "options": ["Sewing is important", "Fixing a problem early prevents it from getting bigger", "Nine is a lucky number", "Time flies quickly"],
+      "correct_answer": "Fixing a problem early prevents it from getting bigger",
+      "difficulty": "medium"
+    },
+    {
+      "id": 34,
+      "question": "What word means 'to make a sound like a cat'?",
+      "options": ["Bark", "Purr", "Hiss", "Chirp"],
+      "correct_answer": "Purr",
+      "difficulty": "medium"
+    },
+    {
+      "id": 35,
+      "question": "Which word is a synonym for 'Curious'?",
+      "options": ["Disinterested", "Inquisitive", "Careless", "Bored"],
+      "correct_answer": "Inquisitive",
+      "difficulty": "medium"
+    },
+    {
+      "id": 36,
+      "question": "What does the idiom 'Hit the nail on the head' mean?",
+      "options": ["Hurt yourself with a hammer", "Do or say something exactly right", "Finish a job quickly", "Make a mistake"],
+      "correct_answer": "Do or say something exactly right",
+      "difficulty": "medium"
+    },
+    {
+      "id": 37,
+      "question": "Which word is the odd one out: Rose, Lotus, Orchid, Oak?",
+      "options": ["Rose", "Lotus", "Orchid", "Oak"],
+      "correct_answer": "Oak",
+      "difficulty": "medium"
+    },
+    {
+      "id": 38,
+      "question": "What is the meaning of 'Diligent'?",
+      "options": ["Lazy and careless", "Hard-working and careful", "Rude and loud", "Shy and quiet"],
+      "correct_answer": "Hard-working and careful",
+      "difficulty": "medium"
+    },
+    {
+      "id": 39,
+      "question": "Rearrange: TREAW to get a common drink",
+      "options": ["WATER", "SWEAT", "TREAT", "TOWER"],
+      "correct_answer": "WATER",
+      "difficulty": "medium"
+    },
+    {
+      "id": 40,
+      "question": "Eye is to See as Ear is to ?",
+      "options": ["Sound", "Hear", "Listen", "Nose"],
+      "correct_answer": "Hear",
+      "difficulty": "medium"
+    },
+    {
+      "id": 41,
+      "question": "What does 'Frugal' mean?",
+      "options": ["Wasteful with money", "Careful with money and resources", "Extremely wealthy", "Very generous"],
+      "correct_answer": "Careful with money and resources",
+      "difficulty": "medium"
+    },
+    {
+      "id": 42,
+      "question": "Which word means the same as 'Weary'?",
+      "options": ["Energetic", "Tired", "Excited", "Cheerful"],
+      "correct_answer": "Tired",
+      "difficulty": "medium"
+    },
+    {
+      "id": 43,
+      "question": "What does the idiom 'Let the cat out of the bag' mean?",
+      "options": ["Free a cat", "Reveal a secret accidentally", "Make a mistake", "Start an argument"],
+      "correct_answer": "Reveal a secret accidentally",
+      "difficulty": "medium"
+    },
+    {
+      "id": 44,
+      "question": "Which word is the odd one out: Silver, Gold, Copper, Wood?",
+      "options": ["Silver", "Gold", "Copper", "Wood"],
+      "correct_answer": "Wood",
+      "difficulty": "medium"
+    },
+    {
+      "id": 45,
+      "question": "What is the opposite of 'Humble'?",
+      "options": ["Polite", "Gentle", "Arrogant", "Simple"],
+      "correct_answer": "Arrogant",
+      "difficulty": "medium"
+    },
+    {
+      "id": 46,
+      "question": "What does 'Serene' mean?",
+      "options": ["Stormy and wild", "Calm and peaceful", "Loud and busy", "Dark and gloomy"],
+      "correct_answer": "Calm and peaceful",
+      "difficulty": "medium"
+    },
+    {
+      "id": 47,
+      "question": "Rearrange: SOHUE to form a common English word",
+      "options": ["HOUSE", "THOSE", "SHOES", "HOSES"],
+      "correct_answer": "HOUSE",
+      "difficulty": "medium"
+    },
+    {
+      "id": 48,
+      "question": "What proverb means 'It is better to do something late than never do it at all'?",
+      "options": ["Time is money", "Better late than never", "Strike while the iron is hot", "Look before you leap"],
+      "correct_answer": "Better late than never",
+      "difficulty": "medium"
+    },
+    {
+      "id": 49,
+      "question": "Which word means the same as 'Ancient'?",
+      "options": ["Modern", "New", "Antique", "Fresh"],
+      "correct_answer": "Antique",
+      "difficulty": "medium"
+    },
+    {
+      "id": 50,
+      "question": "Book is to Library as Painting is to ?",
+      "options": ["Artist", "Colour", "Gallery", "Wall"],
+      "correct_answer": "Gallery",
+      "difficulty": "medium"
+    },
+    {
+      "id": 51,
+      "question": "Which word means the same as 'Obstinate'?",
+      "options": ["Flexible", "Stubborn", "Gentle", "Timid"],
+      "correct_answer": "Stubborn",
+      "difficulty": "medium"
+    },
+    {
+      "id": 52,
+      "question": "What does the idiom 'Bite the bullet' mean?",
+      "options": ["Get into trouble", "Endure a painful or difficult situation bravely", "Eat something hard", "Fight someone"],
+      "correct_answer": "Endure a painful or difficult situation bravely",
+      "difficulty": "medium"
+    },
+    {
+      "id": 53,
+      "question": "Which is the odd one out: Violin, Tabla, Guitar, Flute?",
+      "options": ["Violin", "Tabla", "Guitar", "Flute"],
+      "correct_answer": "Flute",
+      "difficulty": "medium"
+    },
+    {
+      "id": 54,
+      "question": "What does 'Verbose' mean?",
+      "options": ["Very brief", "Using too many words", "Very loud", "Very fast"],
+      "correct_answer": "Using too many words",
+      "difficulty": "medium"
+    },
+    {
+      "id": 55,
+      "question": "What is the antonym of 'Transparent'?",
+      "options": ["Clear", "Opaque", "Bright", "Light"],
+      "correct_answer": "Opaque",
+      "difficulty": "medium"
+    },
+    {
+      "id": 56,
+      "question": "Which word correctly fills the blank: The child was _____ because she could not find her toy. (sad/happy/proud/calm)",
+      "options": ["Happy", "Proud", "Sad", "Calm"],
+      "correct_answer": "Sad",
+      "difficulty": "medium"
+    },
+    {
+      "id": 57,
+      "question": "What does the proverb 'Too many cooks spoil the broth' mean?",
+      "options": ["Cooking is a team effort", "Too many people involved in something can ruin it", "Chefs are not good at teamwork", "Soup is easy to make"],
+      "correct_answer": "Too many people involved in something can ruin it",
+      "difficulty": "medium"
+    },
+    {
+      "id": 58,
+      "question": "Clock is to Time as Thermometer is to ?",
+      "options": ["Doctor", "Heat", "Temperature", "Weather"],
+      "correct_answer": "Temperature",
+      "difficulty": "medium"
+    },
+    {
+      "id": 59,
+      "question": "Which word means the same as 'Radiant'?",
+      "options": ["Dull", "Glowing", "Dark", "Rough"],
+      "correct_answer": "Glowing",
+      "difficulty": "medium"
+    },
+    {
+      "id": 60,
+      "question": "What does 'Melancholy' mean?",
+      "options": ["Great excitement", "Deep sadness", "Strong anger", "Gentle happiness"],
+      "correct_answer": "Deep sadness",
+      "difficulty": "medium"
+    },
+    {
+      "id": 61,
+      "question": "What is the meaning of 'Ambiguous'?",
+      "options": ["Having a clear single meaning", "Open to more than one interpretation", "Being very certain", "Very straightforward"],
+      "correct_answer": "Open to more than one interpretation",
+      "difficulty": "hard"
+    },
+    {
+      "id": 62,
+      "question": "What does the idiom 'Burn the midnight oil' mean?",
+      "options": ["Waste fuel", "Work or study late into the night", "Set something on fire", "Waste time"],
+      "correct_answer": "Work or study late into the night",
+      "difficulty": "hard"
+    },
+    {
+      "id": 63,
+      "question": "Which word is a synonym for 'Ephemeral'?",
+      "options": ["Permanent", "Lasting", "Fleeting", "Stable"],
+      "correct_answer": "Fleeting",
+      "difficulty": "hard"
+    },
+    {
+      "id": 64,
+      "question": "What does 'Benevolent' mean?",
+      "options": ["Well-meaning and kind", "Cruel and harsh", "Extremely wealthy", "Very intelligent"],
+      "correct_answer": "Well-meaning and kind",
+      "difficulty": "hard"
+    },
+    {
+      "id": 65,
+      "question": "Choose the correct analogy: Petal is to Flower as Chapter is to ?",
+      "options": ["Writer", "Story", "Book", "Page"],
+      "correct_answer": "Book",
+      "difficulty": "hard"
+    },
+    {
+      "id": 66,
+      "question": "What does the proverb 'The pen is mightier than the sword' mean?",
+      "options": ["Pens are better tools than swords", "Writing and ideas have more power than physical force", "Writers are braver than soldiers", "Books are more valuable than weapons"],
+      "correct_answer": "Writing and ideas have more power than physical force",
+      "difficulty": "hard"
+    },
+    {
+      "id": 67,
+      "question": "Which word means the same as 'Loquacious'?",
+      "options": ["Silent", "Talkative", "Thoughtful", "Gentle"],
+      "correct_answer": "Talkative",
+      "difficulty": "hard"
+    },
+    {
+      "id": 68,
+      "question": "What is the opposite of 'Lethargic'?",
+      "options": ["Dull", "Energetic", "Slow", "Sleepy"],
+      "correct_answer": "Energetic",
+      "difficulty": "hard"
+    },
+    {
+      "id": 69,
+      "question": "Rearrange: RTEAEH to find a body organ",
+      "options": ["HEATER", "EATER", "HEART", "HATER"],
+      "correct_answer": "HEART",
+      "difficulty": "hard"
+    },
+    {
+      "id": 70,
+      "question": "What does 'Pragmatic' mean?",
+      "options": ["Dealing with things in a practical and sensible way", "Being overly emotional", "Very stubborn and inflexible", "Dreamy and idealistic"],
+      "correct_answer": "Dealing with things in a practical and sensible way",
+      "difficulty": "hard"
+    },
+    {
+      "id": 71,
+      "question": "Which word is the odd one out: Elated, Ecstatic, Jubilant, Despondent?",
+      "options": ["Elated", "Ecstatic", "Jubilant", "Despondent"],
+      "correct_answer": "Despondent",
+      "difficulty": "hard"
+    },
+    {
+      "id": 72,
+      "question": "What does the idiom 'Once in a blue moon' mean?",
+      "options": ["On a moonlit night", "Very rarely", "Every month", "During a festival"],
+      "correct_answer": "Very rarely",
+      "difficulty": "hard"
+    },
+    {
+      "id": 73,
+      "question": "What is a synonym for 'Tenacious'?",
+      "options": ["Weak", "Persistent", "Careless", "Indifferent"],
+      "correct_answer": "Persistent",
+      "difficulty": "hard"
+    },
+    {
+      "id": 74,
+      "question": "Which sentence uses the word 'Flaunt' correctly?",
+      "options": [
+        "She decided to flaunt the rules and do the right thing.",
+        "He flaunted his new watch at the party.",
+        "The officer flaunted the criminals.",
+        "She flaunted to work every morning."
+      ],
+      "correct_answer": "He flaunted his new watch at the party.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 75,
+      "question": "What does 'Astute' mean?",
+      "options": ["Clumsy and careless", "Having a sharp mind; clever at understanding situations", "Extremely honest", "Very slow to act"],
+      "correct_answer": "Having a sharp mind; clever at understanding situations",
+      "difficulty": "hard"
+    },
+    {
+      "id": 76,
+      "question": "Which word correctly completes the analogy: Symphony is to Composer as Sculpture is to ?",
+      "options": ["Museum", "Clay", "Sculptor", "Stone"],
+      "correct_answer": "Sculptor",
+      "difficulty": "hard"
+    },
+    {
+      "id": 77,
+      "question": "What does the proverb 'An idle mind is the devil's workshop' mean?",
+      "options": ["Lazy people are evil", "People who have nothing to do are more likely to get into mischief", "Working hard keeps you safe", "Rest is important for health"],
+      "correct_answer": "People who have nothing to do are more likely to get into mischief",
+      "difficulty": "hard"
+    },
+    {
+      "id": 78,
+      "question": "What is the meaning of 'Gregarious'?",
+      "options": ["Preferring to be alone", "Fond of company and socializing", "Extremely brave", "Very intelligent"],
+      "correct_answer": "Fond of company and socializing",
+      "difficulty": "hard"
+    },
+    {
+      "id": 79,
+      "question": "Which word is the antonym of 'Magnanimous'?",
+      "options": ["Generous", "Noble", "Petty", "Forgiving"],
+      "correct_answer": "Petty",
+      "difficulty": "hard"
+    },
+    {
+      "id": 80,
+      "question": "What does the idiom 'A blessing in disguise' mean?",
+      "options": ["Something that is hidden", "Something that seems bad at first but turns out to be good", "A gift from God", "A hidden danger"],
+      "correct_answer": "Something that seems bad at first but turns out to be good",
+      "difficulty": "hard"
+    },
+    {
+      "id": 81,
+      "question": "Rearrange: DELAYG to find a place where art is displayed",
+      "options": ["GLADE", "DELAY", "GALLEY", "GALLERY"],
+      "correct_answer": "GALLERY",
+      "difficulty": "hard"
+    },
+    {
+      "id": 82,
+      "question": "What does 'Nostalgia' mean?",
+      "options": ["Fear of new places", "A longing for the past", "Love of nature", "Dislike of crowds"],
+      "correct_answer": "A longing for the past",
+      "difficulty": "hard"
+    },
+    {
+      "id": 83,
+      "question": "Which word is a synonym for 'Candid'?",
+      "options": ["Deceptive", "Honest and straightforward", "Secretive", "Polite"],
+      "correct_answer": "Honest and straightforward",
+      "difficulty": "hard"
+    },
+    {
+      "id": 84,
+      "question": "What does the proverb 'Empty vessels make the most noise' mean?",
+      "options": ["Containers that are empty are louder", "People who know the least often talk the most", "Silence is golden", "Noise is a sign of activity"],
+      "correct_answer": "People who know the least often talk the most",
+      "difficulty": "hard"
+    },
+    {
+      "id": 85,
+      "question": "Which word means the same as 'Vindictive'?",
+      "options": ["Forgiving", "Revengeful", "Generous", "Joyful"],
+      "correct_answer": "Revengeful",
+      "difficulty": "hard"
+    },
+    {
+      "id": 86,
+      "question": "What does 'Conundrum' mean?",
+      "options": ["A type of musical instrument", "A confusing and difficult problem", "A kind of vegetable", "An ancient building"],
+      "correct_answer": "A confusing and difficult problem",
+      "difficulty": "hard"
+    },
+    {
+      "id": 87,
+      "question": "Which word correctly fills the blank: Her speech was so _____ that the entire audience was moved to tears. (eloquent/quiet/brief/angry)",
+      "options": ["Quiet", "Brief", "Angry", "Eloquent"],
+      "correct_answer": "Eloquent",
+      "difficulty": "hard"
+    },
+    {
+      "id": 88,
+      "question": "What does the idiom 'Spill the beans' mean?",
+      "options": ["Make a mess", "Reveal secret information", "Cook a meal", "Cause confusion"],
+      "correct_answer": "Reveal secret information",
+      "difficulty": "hard"
+    },
+    {
+      "id": 89,
+      "question": "Which is the odd one out based on meaning: Joyful, Content, Blissful, Forlorn?",
+      "options": ["Joyful", "Content", "Blissful", "Forlorn"],
+      "correct_answer": "Forlorn",
+      "difficulty": "hard"
+    },
+    {
+      "id": 90,
+      "question": "What does 'Impeccable' mean?",
+      "options": ["Full of mistakes", "In accordance with the highest standards; flawless", "Careless and untidy", "Very ordinary"],
+      "correct_answer": "In accordance with the highest standards; flawless",
+      "difficulty": "hard"
+    },
+    {
+      "id": 91,
+      "question": "What is the meaning of 'Aloof'?",
+      "options": ["Warm and friendly", "Not friendly or interested in others; distant", "Extremely loud", "Very generous"],
+      "correct_answer": "Not friendly or interested in others; distant",
+      "difficulty": "hard"
+    },
+    {
+      "id": 92,
+      "question": "What does the proverb 'Necessity is the mother of invention' mean?",
+      "options": ["Mothers are very inventive", "When people really need something, they find a way to create it", "Necessity is always uncomfortable", "Inventors are hardworking people"],
+      "correct_answer": "When people really need something, they find a way to create it",
+      "difficulty": "hard"
+    },
+    {
+      "id": 93,
+      "question": "Which word is a synonym for 'Zenith'?",
+      "options": ["Beginning", "Lowest point", "Highest point", "Middle stage"],
+      "correct_answer": "Highest point",
+      "difficulty": "hard"
+    },
+    {
+      "id": 94,
+      "question": "What does 'Prudent' mean?",
+      "options": ["Acting without thinking", "Showing care and thought for the future", "Being very proud", "Extremely angry"],
+      "correct_answer": "Showing care and thought for the future",
+      "difficulty": "hard"
+    },
+    {
+      "id": 95,
+      "question": "What does the idiom 'Cost an arm and a leg' mean?",
+      "options": ["To cause injury", "To be extremely expensive", "To need a lot of effort", "To take a very long time"],
+      "correct_answer": "To be extremely expensive",
+      "difficulty": "hard"
+    },
+    {
+      "id": 96,
+      "question": "Which word is the antonym of 'Frugal'?",
+      "options": ["Careful", "Thrifty", "Extravagant", "Simple"],
+      "correct_answer": "Extravagant",
+      "difficulty": "hard"
+    },
+    {
+      "id": 97,
+      "question": "What does 'Empathy' mean?",
+      "options": ["The ability to understand and share the feelings of another person", "A strong dislike of people", "The ability to predict the future", "A feeling of pride in one's achievements"],
+      "correct_answer": "The ability to understand and share the feelings of another person",
+      "difficulty": "hard"
+    },
+    {
+      "id": 98,
+      "question": "Choose the word that does NOT belong: Tranquil, Placid, Serene, Turbulent",
+      "options": ["Tranquil", "Placid", "Serene", "Turbulent"],
+      "correct_answer": "Turbulent",
+      "difficulty": "hard"
+    },
+    {
+      "id": 99,
+      "question": "What does the proverb 'You can't judge a book by its cover' mean?",
+      "options": ["Books should have good covers", "You should not judge something purely by its outward appearance", "Reading is very important", "First impressions are always correct"],
+      "correct_answer": "You should not judge something purely by its outward appearance",
+      "difficulty": "hard"
+    },
+    {
+      "id": 100,
+      "question": "What does 'Resilient' mean?",
+      "options": ["Easily broken or upset", "Able to recover quickly from difficulties", "Very slow to change", "Extremely flexible in shape"],
+      "correct_answer": "Able to recover quickly from difficulties",
+      "difficulty": "hard"
+    }
+  ]
+}
