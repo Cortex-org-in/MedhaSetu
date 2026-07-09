@@ -30,6 +30,7 @@ export default function Signup() {
       setError('');
       setLoading(true);
       await signup(emailRef.current.value, passwordRef.current.value, nameRef.current.value);
+      navigate('/verify-email');
     } catch (err) {
       setError(getFriendlyAuthErrorMessage(err));
       setLoading(false);

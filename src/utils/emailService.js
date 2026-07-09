@@ -26,7 +26,7 @@ export async function sendOtpEmail(toEmail, toName, otpCode) {
     template_id: EMAILJS_CONFIG.TEMPLATE_ID,
     user_id: EMAILJS_CONFIG.PUBLIC_KEY,
     template_params: {
-      to_email: toEmail,
+      email: toEmail,
       passcode: otpCode,
       time: timeString
     }

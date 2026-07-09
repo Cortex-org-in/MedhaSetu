@@ -12,7 +12,7 @@ import {
   updateProfile
 } from 'firebase/auth';
 import { googleProvider } from '../firebase';
-import { doc, setDoc, getDoc, onSnapshot } from 'firebase/firestore';
+import { doc, setDoc, getDoc, onSnapshot, query, collection, where, getDocs } from 'firebase/firestore';
 import { sendOtpEmail } from '../utils/emailService';
 
 const AuthContext = createContext();
@@ -26,35 +26,39 @@ export function AuthProvider({ children }) {
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  function signup(email, password, name) {
-    return createUserWithEmailAndPassword(auth, email, password).then(async (userCredential) => {
-      if (userCredential.user) {
-        await updateProfile(userCredential.user, { displayName: name });
-        
-        // Generate secure 6-digit OTP Code
-        const otpCode = Math.floor(100000 + Math.random() * 900000).toString();
-        const expiresAt = Date.now() + 15 * 60 * 1000; // Expires in 15 minutes
-        
-        // Save to temporary pending_users collection instead of users collection
-        const pendingRef = doc(db, 'pending_users', userCredential.user.uid);
-        await setDoc(pendingRef, {
-          email: email,
-          displayName: name,
-          otp: {
-            code: otpCode,
-            expiresAt: expiresAt
-          }
-        });
+  async function signup(email, password, name) {
+    // 1. Check if email already exists in registered users collection
+    const q = query(collection(db, 'users'), where('email', '==', email.toLowerCase()));
+    const querySnapshot = await getDocs(q);
+    if (!querySnapshot.empty) {
+      throw new Error("Email already in use.");
+    }
 
-        // Trigger custom HTML email using EmailJS service
-        try {
-          await sendOtpEmail(email, name, otpCode);
-        } catch (verifErr) {
-          console.error("Failed to send OTP verification email:", verifErr);
-        }
+    // 2. Generate secure 6-digit OTP Code
+    const otpCode = Math.floor(100000 + Math.random() * 900000).toString();
+    const expiresAt = Date.now() + 15 * 60 * 1000; // Expires in 15 minutes
+    
+    // 3. Save details to temporary pending_registrations collection
+    const pendingRef = doc(db, 'pending_registrations', email.toLowerCase());
+    await setDoc(pendingRef, {
+      email: email.toLowerCase(),
+      displayName: name,
+      password: password,
+      otp: {
+        code: otpCode,
+        expiresAt: expiresAt
       }
-      return userCredential;
     });
+
+    // 4. Save email in localStorage for verify-email screen reference
+    localStorage.setItem('pending_signup_email', email.toLowerCase());
+
+    // 5. Trigger custom HTML email using EmailJS service
+    try {
+      await sendOtpEmail(email, name, otpCode);
+    } catch (verifErr) {
+      console.error("Failed to send OTP verification email:", verifErr);
+    }
   }
 
   function login(email, password) {
@@ -62,22 +66,20 @@ export function AuthProvider({ children }) {
   }
 
   async function sendOtpVerification(email, name) {
-    if (auth.currentUser) {
-      // Re-generate OTP code
-      const otpCode = Math.floor(100000 + Math.random() * 900000).toString();
-      const expiresAt = Date.now() + 15 * 60 * 1000;
-      
-      const pendingRef = doc(db, 'pending_users', auth.currentUser.uid);
-      await setDoc(pendingRef, {
-        otp: {
-          code: otpCode,
-          expiresAt: expiresAt
-        }
-      }, { merge: true });
+    // Re-generate OTP code
+    const otpCode = Math.floor(100000 + Math.random() * 900000).toString();
+    const expiresAt = Date.now() + 15 * 60 * 1000;
+    
+    const pendingRef = doc(db, 'pending_registrations', email.toLowerCase());
+    await setDoc(pendingRef, {
+      otp: {
+        code: otpCode,
+        expiresAt: expiresAt
+      }
+    }, { merge: true });
 
-      // Trigger EmailJS dispatch
-      await sendOtpEmail(email, name, otpCode);
-    }
+    // Trigger EmailJS dispatch
+    await sendOtpEmail(email, name, otpCode);
   }
 
   async function loginWithGoogle() {
@@ -106,28 +108,21 @@ export function AuthProvider({ children }) {
     });
 
     let unsubscribeSnapshot = null;
-    let unsubscribePending = null;
 
     const unsubscribeAuth = onAuthStateChanged(auth, async (user) => {
       if (unsubscribeSnapshot) {
         unsubscribeSnapshot();
         unsubscribeSnapshot = null;
       }
-      if (unsubscribePending) {
-        unsubscribePending();
-        unsubscribePending = null;
-      }
 
       if (user) {
         const userRef = doc(db, 'users', user.uid);
-        const pendingRef = doc(db, 'pending_users', user.uid);
         
         try {
           const userSnap = await getDoc(userRef);
-          const pendingSnap = await getDoc(pendingRef);
           
           // Google provider logins are pre-verified, initialize directly to users collection
-          if (!userSnap.exists() && !pendingSnap.exists()) {
+          if (!userSnap.exists()) {
             const isGoogle = user.providerData.some(p => p.providerId === 'google.com');
             if (isGoogle) {
               await setDoc(userRef, {
@@ -148,22 +143,9 @@ export function AuthProvider({ children }) {
         // Setup real-time listener for user document changes
         unsubscribeSnapshot = onSnapshot(userRef, (docSnap) => {
           if (docSnap.exists()) {
-            if (unsubscribePending) {
-              unsubscribePending();
-              unsubscribePending = null;
-            }
             setUserData({ ...docSnap.data(), isVerified: true });
           } else {
-            // Listen to pending_users instead
-            if (!unsubscribePending) {
-              unsubscribePending = onSnapshot(pendingRef, (pendingSnap) => {
-                if (pendingSnap.exists()) {
-                  setUserData({ ...pendingSnap.data(), isVerified: false });
-                } else {
-                  setUserData(null);
-                }
-              });
-            }
+            setUserData(null);
           }
         }, (err) => {
           console.error("User document real-time sync failed:", err);
@@ -179,7 +161,6 @@ export function AuthProvider({ children }) {
     return () => {
       unsubscribeAuth();
       if (unsubscribeSnapshot) unsubscribeSnapshot();
-      if (unsubscribePending) unsubscribePending();
     };
   }, []);
 

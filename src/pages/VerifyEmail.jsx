@@ -2,17 +2,45 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { getFriendlyAuthErrorMessage } from '../utils/authErrorTranslator';
-import { db } from '../firebase';
+import { auth, db } from '../firebase';
 import { doc, getDoc, setDoc, deleteDoc } from 'firebase/firestore';
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 
 export default function VerifyEmail() {
-  const { currentUser, userData, sendOtpVerification, logout } = useAuth();
+  const { userData, sendOtpVerification } = useAuth();
   const [otp, setOtp] = useState(new Array(6).fill(''));
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
   const [cooldown, setCooldown] = useState(0);
+  const [pendingData, setPendingData] = useState(null);
   const navigate = useNavigate();
+
+  const pendingEmail = localStorage.getItem('pending_signup_email');
+
+  // Load pending registration details on mount
+  useEffect(() => {
+    if (!pendingEmail) {
+      navigate('/signup');
+      return;
+    }
+
+    const loadPendingData = async () => {
+      try {
+        const pendingRef = doc(db, 'pending_registrations', pendingEmail);
+        const pendingSnap = await getDoc(pendingRef);
+        if (pendingSnap.exists()) {
+          setPendingData(pendingSnap.data());
+        } else {
+          setError('No active verification session found. Please register again.');
+        }
+      } catch (err) {
+        setError('Failed to retrieve verification details.');
+      }
+    };
+
+    loadPendingData();
+  }, [pendingEmail, navigate]);
 
   // Redirect instantly if email is already verified in user data profile
   useEffect(() => {
@@ -39,11 +67,10 @@ export default function VerifyEmail() {
   }, [otp]);
 
   const handleChange = (value, index) => {
-    // Only accept numeric entries
     if (isNaN(value)) return;
     
     const newOtp = [...otp];
-    newOtp[index] = value.slice(-1); // Keep only the last character entered
+    newOtp[index] = value.slice(-1);
     setOtp(newOtp);
 
     // Focus next element if value entered
@@ -65,7 +92,6 @@ export default function VerifyEmail() {
           setOtp(newOtp);
         }
       } else {
-        // Clear current value
         const newOtp = [...otp];
         newOtp[index] = '';
         setOtp(newOtp);
@@ -74,11 +100,12 @@ export default function VerifyEmail() {
   };
 
   const verifyOtpCode = async (enteredCode) => {
+    if (!pendingEmail) return;
     setError('');
     setMessage('');
     setLoading(true);
     try {
-      const pendingRef = doc(db, 'pending_users', currentUser.uid);
+      const pendingRef = doc(db, 'pending_registrations', pendingEmail);
       const pendingSnap = await getDoc(pendingRef);
 
       if (pendingSnap.exists()) {
@@ -89,7 +116,6 @@ export default function VerifyEmail() {
           setError('No active verification session found. Please resend the verification code.');
         } else if (otpData.code !== enteredCode) {
           setError('Invalid verification code. Please check and try again.');
-          // Clear inputs on failure
           setOtp(new Array(6).fill(''));
           setTimeout(() => {
             const firstInput = document.getElementById('otp-0');
@@ -98,20 +124,29 @@ export default function VerifyEmail() {
         } else if (Date.now() > otpData.expiresAt) {
           setError('Verification code has expired. Please request a new code.');
         } else {
-          // 1. Create the official verified user profile in the users collection
-          const userRef = doc(db, 'users', currentUser.uid);
+          // 1. Create the user in Firebase Authentication
+          const userCredential = await createUserWithEmailAndPassword(auth, data.email, data.password);
+          const user = userCredential.user;
+          await updateProfile(user, { displayName: data.displayName });
+
+          // 2. Create the official verified user profile in the users collection
+          const userRef = doc(db, 'users', user.uid);
           await setDoc(userRef, {
             email: data.email,
             displayName: data.displayName,
             streak: 0,
             scores: [],
-            badges: []
+            badges: [],
+            isVerified: true
           });
 
-          // 2. Delete the temporary pending record
+          // 3. Delete the temporary pending record
           await deleteDoc(pendingRef);
+          
+          // 4. Remove temporary email reference
+          localStorage.removeItem('pending_signup_email');
 
-          setMessage('Email verified successfully! Redirecting...');
+          setMessage('Email verified successfully! Logging you in...');
           setTimeout(() => {
             navigate('/');
           }, 1200);
@@ -126,16 +161,15 @@ export default function VerifyEmail() {
   };
 
   const handleResendEmail = async () => {
-    if (cooldown > 0) return;
+    if (cooldown > 0 || !pendingEmail || !pendingData) return;
     setError('');
     setMessage('');
     setLoading(true);
     try {
-      await sendOtpVerification(currentUser.email, userData?.displayName || 'Agile Thinker');
+      await sendOtpVerification(pendingEmail, pendingData.displayName);
       setMessage('A new 6-digit verification code has been sent to your email.');
       setCooldown(60); // 60 seconds cooldown
       setOtp(new Array(6).fill('')); // Clear inputs
-      // Focus first input
       setTimeout(() => {
         const firstInput = document.getElementById('otp-0');
         if (firstInput) firstInput.focus();
@@ -146,18 +180,13 @@ export default function VerifyEmail() {
     setLoading(false);
   };
 
-  const handleLogout = async () => {
-    try {
-      await logout();
-      navigate('/login');
-    } catch (err) {
-      setError('Failed to sign out. Please refresh the page.');
-    }
+  const handleCancel = () => {
+    localStorage.removeItem('pending_signup_email');
+    navigate('/signup');
   };
 
   return (
     <div className="premium-card slide-up" style={{ maxWidth: '480px', margin: '40px auto', padding: 'var(--spacing-large)' }}>
-      {/* Verification Mail Icon SVG */}
       <div className="auth-logo-container" style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
         <svg className="auth-logo" viewBox="0 0 100 100" width="84" height="84" style={{ color: 'var(--primary-color)' }}>
           <rect x="15" y="25" width="70" height="50" rx="10" fill="none" stroke="currentColor" strokeWidth="5" strokeLinecap="round" />
@@ -172,7 +201,7 @@ export default function VerifyEmail() {
       <p style={{ textAlign: 'center', fontSize: 'var(--font-size-base)', color: '#555', marginBottom: '20px', lineHeight: '1.6' }}>
         Please enter the 6-digit verification code sent to:
         <br />
-        <strong style={{ color: 'var(--primary-color)', fontSize: '18px', display: 'inline-block', marginTop: '5px' }}>{currentUser?.email}</strong>
+        <strong style={{ color: 'var(--primary-color)', fontSize: '18px', display: 'inline-block', marginTop: '5px' }}>{pendingEmail}</strong>
       </p>
 
       <div style={{ display: 'flex', gap: '8px', justifyContent: 'center', margin: '25px 0' }}>
@@ -229,10 +258,10 @@ export default function VerifyEmail() {
 
       <div style={{ textAlign: 'center', marginTop: '30px', fontSize: '18px' }}>
         <button 
-          onClick={handleLogout} 
+          onClick={handleCancel} 
           style={{ background: 'none', border: 'none', color: '#d9534f', textDecoration: 'underline', fontWeight: 'bold', cursor: 'pointer', fontSize: '16px' }}
         >
-          Log Out / Back to Login
+          Cancel / Back to Sign Up
         </button>
       </div>
     </div>

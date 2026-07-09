@@ -14,8 +14,8 @@ export default function PrivateRoute({ children }) {
     return <div style={{ padding: '40px', textAlign: 'center', fontSize: 'var(--font-size-large)', color: 'var(--primary-color)' }}>Loading profile...</div>;
   }
 
-  // If email verification flag is explicitly set to false, redirect to VerifyEmail page
-  if (userData.isVerified === false) {
+  // If email verification flag is not true, redirect to VerifyEmail page
+  if (userData.isVerified !== true) {
     return <Navigate to="/verify-email" />;
   }
 
