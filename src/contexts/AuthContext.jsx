@@ -143,7 +143,7 @@ export function AuthProvider({ children }) {
         // Setup real-time listener for user document changes
         unsubscribeSnapshot = onSnapshot(userRef, (docSnap) => {
           if (docSnap.exists()) {
-            setUserData({ ...docSnap.data(), isVerified: true });
+            setUserData(docSnap.data());
           } else {
             setUserData(null);
           }
