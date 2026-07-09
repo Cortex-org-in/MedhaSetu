@@ -35,15 +35,11 @@ export function AuthProvider({ children }) {
         const otpCode = Math.floor(100000 + Math.random() * 900000).toString();
         const expiresAt = Date.now() + 15 * 60 * 1000; // Expires in 15 minutes
         
-        // Set up the complete user document with verification and OTP details
-        const userRef = doc(db, 'users', userCredential.user.uid);
-        await setDoc(userRef, {
+        // Save to temporary pending_users collection instead of users collection
+        const pendingRef = doc(db, 'pending_users', userCredential.user.uid);
+        await setDoc(pendingRef, {
           email: email,
           displayName: name,
-          streak: 0,
-          scores: [],
-          badges: [],
-          isVerified: false,
           otp: {
             code: otpCode,
             expiresAt: expiresAt
@@ -71,8 +67,8 @@ export function AuthProvider({ children }) {
       const otpCode = Math.floor(100000 + Math.random() * 900000).toString();
       const expiresAt = Date.now() + 15 * 60 * 1000;
       
-      const userRef = doc(db, 'users', auth.currentUser.uid);
-      await setDoc(userRef, {
+      const pendingRef = doc(db, 'pending_users', auth.currentUser.uid);
+      await setDoc(pendingRef, {
         otp: {
           code: otpCode,
           expiresAt: expiresAt
@@ -110,31 +106,40 @@ export function AuthProvider({ children }) {
     });
 
     let unsubscribeSnapshot = null;
+    let unsubscribePending = null;
 
     const unsubscribeAuth = onAuthStateChanged(auth, async (user) => {
       if (unsubscribeSnapshot) {
         unsubscribeSnapshot();
         unsubscribeSnapshot = null;
       }
+      if (unsubscribePending) {
+        unsubscribePending();
+        unsubscribePending = null;
+      }
 
       if (user) {
         const userRef = doc(db, 'users', user.uid);
+        const pendingRef = doc(db, 'pending_users', user.uid);
         
         try {
           const userSnap = await getDoc(userRef);
+          const pendingSnap = await getDoc(pendingRef);
           
-          if (!userSnap.exists()) {
+          // Google provider logins are pre-verified, initialize directly to users collection
+          if (!userSnap.exists() && !pendingSnap.exists()) {
             const isGoogle = user.providerData.some(p => p.providerId === 'google.com');
-            // First time signup initialization
-            await setDoc(userRef, {
-              email: user.email || '',
-              displayName: user.displayName || 'Agile Thinker',
-              streak: 0,
-              scores: [],
-              badges: [],
-              isVerified: isGoogle // Google accounts are pre-verified
-            });
-            console.log("Firestore user profile initialized successfully for UID:", user.uid);
+            if (isGoogle) {
+              await setDoc(userRef, {
+                email: user.email || '',
+                displayName: user.displayName || 'Agile Thinker',
+                streak: 0,
+                scores: [],
+                badges: [],
+                isVerified: true
+              });
+              console.log("Firestore verified user profile initialized successfully for UID:", user.uid);
+            }
           }
         } catch (err) {
           console.error("Firestore user verification check failed:", err);
@@ -143,7 +148,22 @@ export function AuthProvider({ children }) {
         // Setup real-time listener for user document changes
         unsubscribeSnapshot = onSnapshot(userRef, (docSnap) => {
           if (docSnap.exists()) {
-            setUserData(docSnap.data());
+            if (unsubscribePending) {
+              unsubscribePending();
+              unsubscribePending = null;
+            }
+            setUserData({ ...docSnap.data(), isVerified: true });
+          } else {
+            // Listen to pending_users instead
+            if (!unsubscribePending) {
+              unsubscribePending = onSnapshot(pendingRef, (pendingSnap) => {
+                if (pendingSnap.exists()) {
+                  setUserData({ ...pendingSnap.data(), isVerified: false });
+                } else {
+                  setUserData(null);
+                }
+              });
+            }
           }
         }, (err) => {
           console.error("User document real-time sync failed:", err);
@@ -159,6 +179,7 @@ export function AuthProvider({ children }) {
     return () => {
       unsubscribeAuth();
       if (unsubscribeSnapshot) unsubscribeSnapshot();
+      if (unsubscribePending) unsubscribePending();
     };
   }, []);
 

@@ -3,7 +3,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { getFriendlyAuthErrorMessage } from '../utils/authErrorTranslator';
 import { db } from '../firebase';
-import { doc, getDoc, setDoc } from 'firebase/firestore';
+import { doc, getDoc, setDoc, deleteDoc } from 'firebase/firestore';
 
 export default function VerifyEmail() {
   const { currentUser, userData, sendOtpVerification, logout } = useAuth();
@@ -78,11 +78,11 @@ export default function VerifyEmail() {
     setMessage('');
     setLoading(true);
     try {
-      const userRef = doc(db, 'users', currentUser.uid);
-      const userSnap = await getDoc(userRef);
+      const pendingRef = doc(db, 'pending_users', currentUser.uid);
+      const pendingSnap = await getDoc(pendingRef);
 
-      if (userSnap.exists()) {
-        const data = userSnap.data();
+      if (pendingSnap.exists()) {
+        const data = pendingSnap.data();
         const otpData = data.otp;
 
         if (!otpData) {
@@ -98,11 +98,18 @@ export default function VerifyEmail() {
         } else if (Date.now() > otpData.expiresAt) {
           setError('Verification code has expired. Please request a new code.');
         } else {
-          // Verification successful! Update isVerified to true and remove OTP data
+          // 1. Create the official verified user profile in the users collection
+          const userRef = doc(db, 'users', currentUser.uid);
           await setDoc(userRef, {
-            isVerified: true,
-            otp: null // Clear OTP data
-          }, { merge: true });
+            email: data.email,
+            displayName: data.displayName,
+            streak: 0,
+            scores: [],
+            badges: []
+          });
+
+          // 2. Delete the temporary pending record
+          await deleteDoc(pendingRef);
 
           setMessage('Email verified successfully! Redirecting...');
           setTimeout(() => {
@@ -110,7 +117,7 @@ export default function VerifyEmail() {
           }, 1200);
         }
       } else {
-        setError('User profile not found in database.');
+        setError('Verification session expired or already verified.');
       }
     } catch (err) {
       setError(getFriendlyAuthErrorMessage(err));

@@ -3,7 +3,7 @@
 
 export const EMAILJS_CONFIG = {
   SERVICE_ID: 'service_abqpuyr',
-  TEMPLATE_ID: 'template_8mgl12h',
+  TEMPLATE_ID: 'template_n1sambv',
   PUBLIC_KEY: 'ufaoRSsuAkisC-81g',
 };
 
