@@ -9,11 +9,11 @@ import {
   signInWithRedirect,
   getRedirectResult,
   sendPasswordResetEmail,
-  updateProfile,
-  sendEmailVerification
+  updateProfile
 } from 'firebase/auth';
 import { googleProvider } from '../firebase';
 import { doc, setDoc, getDoc, onSnapshot } from 'firebase/firestore';
+import { sendOtpEmail } from '../utils/emailService';
 
 const AuthContext = createContext();
 
@@ -30,10 +30,31 @@ export function AuthProvider({ children }) {
     return createUserWithEmailAndPassword(auth, email, password).then(async (userCredential) => {
       if (userCredential.user) {
         await updateProfile(userCredential.user, { displayName: name });
+        
+        // Generate secure 6-digit OTP Code
+        const otpCode = Math.floor(100000 + Math.random() * 900000).toString();
+        const expiresAt = Date.now() + 15 * 60 * 1000; // Expires in 15 minutes
+        
+        // Set up the complete user document with verification and OTP details
+        const userRef = doc(db, 'users', userCredential.user.uid);
+        await setDoc(userRef, {
+          email: email,
+          displayName: name,
+          streak: 0,
+          scores: [],
+          badges: [],
+          isVerified: false,
+          otp: {
+            code: otpCode,
+            expiresAt: expiresAt
+          }
+        });
+
+        // Trigger custom HTML email using EmailJS service
         try {
-          await sendEmailVerification(userCredential.user);
+          await sendOtpEmail(email, name, otpCode);
         } catch (verifErr) {
-          console.error("Failed to send initial email verification:", verifErr);
+          console.error("Failed to send OTP verification email:", verifErr);
         }
       }
       return userCredential;
@@ -44,9 +65,22 @@ export function AuthProvider({ children }) {
     return signInWithEmailAndPassword(auth, email, password);
   }
 
-  function sendVerification() {
+  async function sendOtpVerification(email, name) {
     if (auth.currentUser) {
-      return sendEmailVerification(auth.currentUser);
+      // Re-generate OTP code
+      const otpCode = Math.floor(100000 + Math.random() * 900000).toString();
+      const expiresAt = Date.now() + 15 * 60 * 1000;
+      
+      const userRef = doc(db, 'users', auth.currentUser.uid);
+      await setDoc(userRef, {
+        otp: {
+          code: otpCode,
+          expiresAt: expiresAt
+        }
+      }, { merge: true });
+
+      // Trigger EmailJS dispatch
+      await sendOtpEmail(email, name, otpCode);
     }
   }
 
@@ -78,7 +112,6 @@ export function AuthProvider({ children }) {
     let unsubscribeSnapshot = null;
 
     const unsubscribeAuth = onAuthStateChanged(auth, async (user) => {
-      // Unsubscribe from previous snapshot if user changes
       if (unsubscribeSnapshot) {
         unsubscribeSnapshot();
         unsubscribeSnapshot = null;
@@ -91,21 +124,23 @@ export function AuthProvider({ children }) {
           const userSnap = await getDoc(userRef);
           
           if (!userSnap.exists()) {
+            const isGoogle = user.providerData.some(p => p.providerId === 'google.com');
             // First time signup initialization
             await setDoc(userRef, {
               email: user.email || '',
               displayName: user.displayName || 'Agile Thinker',
               streak: 0,
               scores: [],
-              badges: []
+              badges: [],
+              isVerified: isGoogle // Google accounts are pre-verified
             });
             console.log("Firestore user profile initialized successfully for UID:", user.uid);
           }
         } catch (err) {
-          console.error("Firestore user verification/streak check failed:", err);
+          console.error("Firestore user verification check failed:", err);
         }
 
-        // Setup real-time listener for user document changes (streaks, scores, badges)
+        // Setup real-time listener for user document changes
         unsubscribeSnapshot = onSnapshot(userRef, (docSnap) => {
           if (docSnap.exists()) {
             setUserData(docSnap.data());
@@ -135,7 +170,7 @@ export function AuthProvider({ children }) {
     loginWithGoogle,
     logout,
     resetPassword,
-    sendVerification
+    sendOtpVerification
   };
 
   return (

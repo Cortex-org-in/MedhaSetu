@@ -2,22 +2,24 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { getFriendlyAuthErrorMessage } from '../utils/authErrorTranslator';
-import { auth } from '../firebase';
+import { db } from '../firebase';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
 
 export default function VerifyEmail() {
-  const { currentUser, sendVerification, logout } = useAuth();
+  const { currentUser, userData, sendOtpVerification, logout } = useAuth();
+  const [otp, setOtp] = useState(new Array(6).fill(''));
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
   const [cooldown, setCooldown] = useState(0);
   const navigate = useNavigate();
 
-  // Redirect instantly if email is already verified
+  // Redirect instantly if email is already verified in user data profile
   useEffect(() => {
-    if (currentUser?.emailVerified) {
+    if (userData?.isVerified) {
       navigate('/');
     }
-  }, [currentUser, navigate]);
+  }, [userData, navigate]);
 
   // Handle countdown cooldown for resend button
   useEffect(() => {
@@ -28,23 +30,87 @@ export default function VerifyEmail() {
     return () => clearInterval(intervalId);
   }, [cooldown]);
 
-  const handleCheckVerification = async () => {
+  // Auto-submit OTP when 6 digits are filled
+  useEffect(() => {
+    const enteredCode = otp.join('');
+    if (enteredCode.length === 6 && !loading) {
+      verifyOtpCode(enteredCode);
+    }
+  }, [otp]);
+
+  const handleChange = (value, index) => {
+    // Only accept numeric entries
+    if (isNaN(value)) return;
+    
+    const newOtp = [...otp];
+    newOtp[index] = value.slice(-1); // Keep only the last character entered
+    setOtp(newOtp);
+
+    // Focus next element if value entered
+    if (value && index < 5) {
+      const nextInput = document.getElementById(`otp-${index + 1}`);
+      if (nextInput) nextInput.focus();
+    }
+  };
+
+  const handleKeyDown = (e, index) => {
+    if (e.key === 'Backspace') {
+      if (!otp[index] && index > 0) {
+        // Focus previous input if current is empty and clear it
+        const prevInput = document.getElementById(`otp-${index - 1}`);
+        if (prevInput) {
+          prevInput.focus();
+          const newOtp = [...otp];
+          newOtp[index - 1] = '';
+          setOtp(newOtp);
+        }
+      } else {
+        // Clear current value
+        const newOtp = [...otp];
+        newOtp[index] = '';
+        setOtp(newOtp);
+      }
+    }
+  };
+
+  const verifyOtpCode = async (enteredCode) => {
     setError('');
     setMessage('');
     setLoading(true);
     try {
-      if (auth.currentUser) {
-        await auth.currentUser.reload();
-        if (auth.currentUser.emailVerified) {
+      const userRef = doc(db, 'users', currentUser.uid);
+      const userSnap = await getDoc(userRef);
+
+      if (userSnap.exists()) {
+        const data = userSnap.data();
+        const otpData = data.otp;
+
+        if (!otpData) {
+          setError('No active verification session found. Please resend the verification code.');
+        } else if (otpData.code !== enteredCode) {
+          setError('Invalid verification code. Please check and try again.');
+          // Clear inputs on failure
+          setOtp(new Array(6).fill(''));
+          setTimeout(() => {
+            const firstInput = document.getElementById('otp-0');
+            if (firstInput) firstInput.focus();
+          }, 100);
+        } else if (Date.now() > otpData.expiresAt) {
+          setError('Verification code has expired. Please request a new code.');
+        } else {
+          // Verification successful! Update isVerified to true and remove OTP data
+          await setDoc(userRef, {
+            isVerified: true,
+            otp: null // Clear OTP data
+          }, { merge: true });
+
           setMessage('Email verified successfully! Redirecting...');
           setTimeout(() => {
             navigate('/');
-          }, 1500);
-        } else {
-          setError('Email not verified yet. Please check your inbox or spam folders.');
+          }, 1200);
         }
       } else {
-        setError('No active user session found. Please sign in again.');
+        setError('User profile not found in database.');
       }
     } catch (err) {
       setError(getFriendlyAuthErrorMessage(err));
@@ -58,9 +124,15 @@ export default function VerifyEmail() {
     setMessage('');
     setLoading(true);
     try {
-      await sendVerification();
-      setMessage('Verification link sent! Check your inbox.');
+      await sendOtpVerification(currentUser.email, userData?.displayName || 'Agile Thinker');
+      setMessage('A new 6-digit verification code has been sent to your email.');
       setCooldown(60); // 60 seconds cooldown
+      setOtp(new Array(6).fill('')); // Clear inputs
+      // Focus first input
+      setTimeout(() => {
+        const firstInput = document.getElementById('otp-0');
+        if (firstInput) firstInput.focus();
+      }, 100);
     } catch (err) {
       setError(getFriendlyAuthErrorMessage(err));
     }
@@ -91,13 +163,47 @@ export default function VerifyEmail() {
       <h2 style={{ textAlign: 'center', fontSize: 'var(--font-size-xlarge)', marginBottom: '10px', color: 'var(--primary-color)' }}>Verify Your Email</h2>
       
       <p style={{ textAlign: 'center', fontSize: 'var(--font-size-base)', color: '#555', marginBottom: '20px', lineHeight: '1.6' }}>
-        We have sent a verification link to your email address:
+        Please enter the 6-digit verification code sent to:
         <br />
         <strong style={{ color: 'var(--primary-color)', fontSize: '18px', display: 'inline-block', marginTop: '5px' }}>{currentUser?.email}</strong>
       </p>
-      
+
+      <div style={{ display: 'flex', gap: '8px', justifyContent: 'center', margin: '25px 0' }}>
+        {otp.map((data, index) => (
+          <input
+            key={index}
+            id={`otp-${index}`}
+            type="text"
+            maxLength="1"
+            value={data}
+            onChange={e => handleChange(e.target.value, index)}
+            onKeyDown={e => handleKeyDown(e, index)}
+            onFocus={e => e.target.select()}
+            style={{
+              width: '45px',
+              height: '55px',
+              fontSize: '24px',
+              textAlign: 'center',
+              fontWeight: 'bold',
+              border: '2px solid rgba(43, 103, 119, 0.2)',
+              borderRadius: '10px',
+              outline: 'none',
+              backgroundColor: 'white',
+              boxShadow: 'inset 0 1px 3px rgba(0,0,0,0.05)',
+              transition: 'border-color 0.2s'
+            }}
+            onFocusCapture={(e) => {
+              e.target.style.borderColor = 'var(--primary-color)';
+            }}
+            onBlur={(e) => {
+              e.target.style.borderColor = 'rgba(43, 103, 119, 0.2)';
+            }}
+          />
+        ))}
+      </div>
+
       <p style={{ textAlign: 'center', fontSize: '14px', color: '#666', marginBottom: '25px' }}>
-        Please click the link inside that email to activate your MedhaSetu account. If you do not see it, please check your spam folder.
+        The verification code expires in 15 minutes. Check your inbox and spam folders.
       </p>
 
       {error && <div className="error-message" style={{ marginBottom: '20px', padding: '12px', fontSize: '16px' }}>{error}</div>}
@@ -105,21 +211,12 @@ export default function VerifyEmail() {
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
         <button 
-          disabled={loading} 
-          className="btn" 
-          onClick={handleCheckVerification}
-          style={{ minHeight: 'var(--btn-min-height)', fontSize: 'var(--font-size-base)' }}
-        >
-          {loading ? 'Checking...' : 'I Have Verified My Email'}
-        </button>
-
-        <button 
           disabled={loading || cooldown > 0} 
           className="btn btn-secondary" 
           onClick={handleResendEmail}
           style={{ minHeight: 'var(--btn-min-height)', fontSize: 'var(--font-size-base)' }}
         >
-          {cooldown > 0 ? `Resend Email in ${cooldown}s` : 'Resend Verification Email'}
+          {cooldown > 0 ? `Resend Code in ${cooldown}s` : 'Resend Verification Code'}
         </button>
       </div>
 

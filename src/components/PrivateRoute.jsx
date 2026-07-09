@@ -3,18 +3,19 @@ import { Navigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 
 export default function PrivateRoute({ children }) {
-  const { currentUser } = useAuth();
+  const { currentUser, userData } = useAuth();
 
   if (!currentUser) {
     return <Navigate to="/login" />;
   }
 
-  // Detect email/password login and enforce verification check
-  const isEmailPasswordUser = currentUser.providerData.some(
-    (profile) => profile.providerId === 'password'
-  );
+  // Wait for Firestore user profile metadata to load to prevent false redirects
+  if (!userData) {
+    return <div style={{ padding: '40px', textAlign: 'center', fontSize: 'var(--font-size-large)', color: 'var(--primary-color)' }}>Loading profile...</div>;
+  }
 
-  if (isEmailPasswordUser && !currentUser.emailVerified) {
+  // If email verification flag is explicitly set to false, redirect to VerifyEmail page
+  if (userData.isVerified === false) {
     return <Navigate to="/verify-email" />;
   }
 
