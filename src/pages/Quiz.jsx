@@ -7,6 +7,8 @@ import { ArrowLeft, CheckCircle, XCircle } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { BADGES, checkForNewBadges } from '../utils/badgeConfig';
 
+import Mascot from '../components/Mascot';
+
 const TOTAL_QUESTIONS = 10;
 
 export default function Quiz() {
@@ -80,7 +82,7 @@ export default function Quiz() {
   const handleNextQuestion = () => {
     setSelectedAnswer(null);
     setIsCorrectAnswer(false);
-
+ 
     if (currentQuestionIndex + 1 < TOTAL_QUESTIONS) {
       setCurrentQuestionIndex(prev => prev + 1);
     } else {
@@ -158,7 +160,11 @@ export default function Quiz() {
   };
 
   if (loading) {
-    return <div style={{ padding: '40px', fontSize: 'var(--font-size-large)', textAlign: 'center' }}>Loading your questions...</div>;
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '300px', width: '100%' }}>
+        <Mascot state="loading" width="240" height="240" />
+      </div>
+    );
   }
 
   if (error) {
@@ -172,7 +178,7 @@ export default function Quiz() {
 
   if (isFinished) {
     return (
-      <div style={{ padding: 'var(--spacing-medium)', textAlign: 'center' }}>
+      <div style={{ padding: 'var(--spacing-medium)', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         {showBadgeModal && (
           <div className="badge-modal-overlay">
             <div className="badge-modal-content" style={{ padding: 'var(--spacing-large)' }}>
@@ -200,12 +206,15 @@ export default function Quiz() {
           </div>
         )}
 
+        <div style={{ width: '160px', height: '130px', marginBottom: '10px' }}>
+          <Mascot state="wave" width="160" height="130" />
+        </div>
         <h2 style={{ fontSize: 'var(--font-size-xlarge)', color: '#2b6777', marginBottom: '20px' }}>Quiz Completed!</h2>
-        <div className="premium-card" style={{ padding: 'var(--spacing-large)' }}>
+        <div className="premium-card" style={{ padding: 'var(--spacing-large)', width: '100%', maxWidth: '480px', marginBottom: '20px' }}>
           <p style={{ fontSize: 'var(--font-size-large)', margin: '20px 0', fontWeight: 'bold' }}>Your Score: {score} out of {TOTAL_QUESTIONS}</p>
           <p style={{ fontSize: 'var(--font-size-base)' }}>Great job exercising your brain today!</p>
         </div>
-        <button className="btn" onClick={() => navigate('/')}>Back to Dashboard</button>
+        <button className="btn" style={{ maxWidth: '480px', width: '100%' }} onClick={() => navigate('/')}>Back to Dashboard</button>
       </div>
     );
   }

@@ -17,6 +17,8 @@ import {
 } from 'lucide-react';
 import { BADGES } from '../utils/badgeConfig';
 
+import Mascot from '../components/Mascot';
+
 export default function Profile() {
   const { currentUser, userData } = useAuth();
   const [showAllLogs, setShowAllLogs] = useState(false);
@@ -25,8 +27,8 @@ export default function Profile() {
 
   if (!userData) {
     return (
-      <div style={{ padding: '40px', fontSize: 'var(--font-size-large)', textAlign: 'center', color: 'var(--primary-color)' }}>
-        Loading your progress dashboard...
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '300px', width: '100%' }}>
+        <Mascot state="loading" width="240" height="240" />
       </div>
     );
   }
@@ -186,9 +188,14 @@ export default function Profile() {
 
       {/* Profile Info Header */}
       <div className="premium-card" style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', alignItems: 'center', justifyContent: 'space-between', padding: 'var(--spacing-medium)' }}>
-        <div>
-          <h3 style={{ fontSize: 'var(--font-size-large)', color: 'var(--text-color)' }}>{currentUser.displayName || 'Agile Thinker'}</h3>
-          <p style={{ fontSize: 'var(--font-size-base)', color: '#777' }}>{currentUser.email}</p>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+          <div style={{ width: '80px', height: '65px', flexShrink: 0 }}>
+            <Mascot state="idle" width="80" height="65" />
+          </div>
+          <div>
+            <h3 style={{ fontSize: 'var(--font-size-large)', color: 'var(--text-color)' }}>{currentUser.displayName || 'Agile Thinker'}</h3>
+            <p style={{ fontSize: 'var(--font-size-base)', color: '#777' }}>{currentUser.email}</p>
+          </div>
         </div>
         <div style={{ padding: '12px 24px', backgroundColor: '#f0fdf4', border: '2px solid #5cb85c', borderRadius: '12px' }}>
           <span className="streak-text" style={{ fontSize: 'var(--font-size-base)' }}>

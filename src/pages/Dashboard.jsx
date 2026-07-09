@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { PlayCircle, User, LogOut, Database, Users } from 'lucide-react';
 import { db } from '../firebase';
 import { doc, setDoc } from 'firebase/firestore';
+import Mascot from '../components/Mascot';
 
 export default function Dashboard() {
   const { currentUser, userData, logout } = useAuth();
@@ -75,14 +76,17 @@ export default function Dashboard() {
       {/* Polite Streak Reset Modal Popup */}
       {showStreakModal && (
         <div className="streak-alert-overlay">
-          <div className="streak-alert-content" style={{ padding: 'var(--spacing-large)' }}>
+          <div className="streak-alert-content" style={{ padding: 'var(--spacing-large)', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+            <div style={{ width: '120px', height: '100px', marginBottom: '10px' }}>
+              <Mascot state="idle" width="120" height="100" />
+            </div>
             <h2 style={{ fontSize: 'var(--font-size-xlarge)', color: 'var(--warning-color)', marginBottom: '15px' }}>
               🌟 Streak Reset
             </h2>
             <p style={{ fontSize: 'var(--font-size-base)', lineHeight: '1.6', color: 'var(--text-color)', marginBottom: '25px' }}>
               Your daily training streak has reset. Don't worry! Consistent practice is a journey, and every day is a fresh opportunity to sharpen your mind. Let's start a new streak today!
             </p>
-            <button className="btn" onClick={dismissStreakAlert} style={{ margin: 0 }}>
+            <button className="btn" onClick={dismissStreakAlert} style={{ margin: 0, width: '100%' }}>
               Let's Do It!
             </button>
           </div>
@@ -99,15 +103,24 @@ export default function Dashboard() {
           borderRadius: '24px', 
           marginBottom: 'var(--spacing-medium)',
           boxShadow: '0 8px 30px rgba(43, 103, 119, 0.25)',
-          border: 'none'
+          border: 'none',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          gap: '15px'
         }}
       >
-        <h2 style={{ fontSize: 'var(--font-size-xlarge)', marginBottom: '8px', color: '#fff', fontWeight: 'bold' }}>
-          Welcome, {currentUser.displayName || 'Friend'}!
-        </h2>
-        <p style={{ fontSize: 'var(--font-size-base)', color: '#eef2f3', lineHeight: '1.5', margin: 0 }}>
-          Keep your memory, logic, and cognitive health active with daily training exercises.
-        </p>
+        <div style={{ flex: 1 }}>
+          <h2 style={{ fontSize: 'var(--font-size-xlarge)', marginBottom: '8px', color: '#fff', fontWeight: 'bold' }}>
+            Welcome, {currentUser.displayName || 'Friend'}!
+          </h2>
+          <p style={{ fontSize: 'var(--font-size-base)', color: '#eef2f3', lineHeight: '1.5', margin: 0 }}>
+            Keep your memory, logic, and cognitive health active with daily training exercises.
+          </p>
+        </div>
+        <div style={{ width: '120px', height: '100px', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <Mascot state="wave" width="120" height="100" />
+        </div>
       </div>
 
       {/* Streak and Brain Health Banner */}

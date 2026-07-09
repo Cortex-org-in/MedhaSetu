@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
+import Mascot from '../components/Mascot';
 import { auth, db } from '../firebase';
 import { 
   onAuthStateChanged, 
@@ -177,7 +178,32 @@ export function AuthProvider({ children }) {
 
   return (
     <AuthContext.Provider value={value}>
-      {!loading && children}
+      {loading ? (
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          minHeight: '100vh',
+          backgroundColor: '#f3f5f7',
+          padding: '20px'
+        }}>
+          <div className="app-container" style={{
+            maxWidth: '520px',
+            padding: '40px',
+            textAlign: 'center',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            minHeight: '400px'
+          }}>
+            <Mascot state="loading" width="280" height="280" />
+          </div>
+        </div>
+      ) : (
+        children
+      )}
     </AuthContext.Provider>
   );
 }

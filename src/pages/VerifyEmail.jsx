@@ -6,6 +6,8 @@ import { auth, db } from '../firebase';
 import { doc, getDoc, setDoc, deleteDoc } from 'firebase/firestore';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 
+import Mascot from '../components/Mascot';
+
 export default function VerifyEmail() {
   const { userData, sendOtpVerification } = useAuth();
   const [otp, setOtp] = useState(new Array(6).fill(''));
@@ -187,17 +189,11 @@ export default function VerifyEmail() {
 
   return (
     <div className="premium-card slide-up" style={{ maxWidth: '480px', margin: '40px auto', padding: 'var(--spacing-large)' }}>
-      <div className="auth-logo-container" style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
-        <svg className="auth-logo" viewBox="0 0 100 100" width="84" height="84" style={{ color: 'var(--primary-color)' }}>
-          <rect x="15" y="25" width="70" height="50" rx="10" fill="none" stroke="currentColor" strokeWidth="5" strokeLinecap="round" />
-          <path d="M 18 30 L 50 52 L 82 30" fill="none" stroke="currentColor" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />
-          <circle cx="50" cy="72" r="10" fill="none" stroke="currentColor" strokeWidth="4" />
-          <path d="M 47 72 L 53 72 M 50 69 L 50 75" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        </svg>
+      <div className="auth-logo-container" style={{ display: 'flex', justifyContent: 'center', marginBottom: '10px' }}>
+        <Mascot state="wave" width="120" height="120" />
       </div>
 
       <h2 style={{ textAlign: 'center', fontSize: 'var(--font-size-xlarge)', marginBottom: '10px', color: 'var(--primary-color)' }}>Verify Your Email</h2>
-      
       <p style={{ textAlign: 'center', fontSize: 'var(--font-size-base)', color: '#555', marginBottom: '20px', lineHeight: '1.6' }}>
         Please enter the 6-digit verification code sent to:
         <br />
@@ -238,9 +234,19 @@ export default function VerifyEmail() {
         ))}
       </div>
 
-      <p style={{ textAlign: 'center', fontSize: '14px', color: '#666', marginBottom: '25px' }}>
-        The verification code expires in 15 minutes. Check your inbox and spam folders.
-      </p>
+      <div className="info-alert" style={{
+        backgroundColor: 'rgba(43, 103, 119, 0.05)',
+        borderLeft: '4px solid var(--primary-color)',
+        padding: '15px',
+        borderRadius: '8px',
+        marginBottom: '25px',
+        fontSize: '16px',
+        lineHeight: '1.5',
+        textAlign: 'left'
+      }}>
+        <strong style={{ color: 'var(--primary-color)', display: 'block', marginBottom: '5px' }}>💡 Can't find the email?</strong>
+        Please check your <strong>Spam</strong>, <strong>All Mail</strong>, or <strong>Promotions</strong> folders. Programmable verification codes can sometimes be filtered there by default.
+      </div>
 
       {error && <div className="error-message" style={{ marginBottom: '20px', padding: '12px', fontSize: '16px' }}>{error}</div>}
       {message && <div className="success-message" style={{ marginBottom: '20px', padding: '12px', fontSize: '16px' }}>{message}</div>}

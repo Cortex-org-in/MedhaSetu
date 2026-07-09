@@ -4,6 +4,7 @@ import { collection, getDocs } from 'firebase/firestore';
 import { useAuth } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Users, Trophy, Milestone } from 'lucide-react';
+import Mascot from '../components/Mascot';
 
 export default function SocialHub() {
   const { currentUser } = useAuth();
@@ -32,8 +33,8 @@ export default function SocialHub() {
 
   if (loading) {
     return (
-      <div style={{ padding: '40px', fontSize: 'var(--font-size-large)', textAlign: 'center', color: 'var(--primary-color)' }}>
-        Loading rankings & milestones...
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '300px', width: '100%' }}>
+        <Mascot state="loading" width="240" height="240" />
       </div>
     );
   }
@@ -92,9 +93,14 @@ export default function SocialHub() {
 
   return (
     <div style={{ padding: 'var(--spacing-medium)' }} className="slide-up">
-      <h2 style={{ textAlign: 'center', fontSize: 'var(--font-size-xlarge)', marginBottom: '10px', color: 'var(--primary-color)' }}>
-        Community Circle
-      </h2>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '20px' }}>
+        <div style={{ width: '120px', height: '100px', marginBottom: '10px' }}>
+          <Mascot state="wave" width="120" height="100" />
+        </div>
+        <h2 style={{ textAlign: 'center', fontSize: 'var(--font-size-xlarge)', margin: 0, color: 'var(--primary-color)' }}>
+          Community Circle
+        </h2>
+      </div>
       <p style={{ textAlign: 'center', color: '#666', fontSize: 'var(--font-size-base)', marginBottom: '30px' }}>
         Learn, share, and achieve milestones together with your peers.
       </p>
