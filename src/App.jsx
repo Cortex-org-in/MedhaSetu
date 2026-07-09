@@ -44,9 +44,7 @@ function LayoutWrapper({ children }) {
 
   const isAdmin = currentUser && currentUser.email === 'seniorsetu07@gmail.com';
 
-  const isVerified = currentUser && (
-    currentUser.emailVerified || !currentUser.providerData.some(p => p.providerId === 'password')
-  );
+  const isVerified = currentUser && userData && userData.isVerified !== false;
 
   return (
     <div className="app-container" style={{ position: 'relative' }}>
