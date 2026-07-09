@@ -1,11 +1,10 @@
 // EmailJS Configuration
-// You can sign up for a free account at https://www.emailjs.com/
-// to get your own service ID, template ID, and public key.
+// Custom settings configured by the user for MedhaSetu mail delivery.
 
 export const EMAILJS_CONFIG = {
-  SERVICE_ID: 'service_medhasetu',     // Replace with your EmailJS service ID
-  TEMPLATE_ID: 'template_medhasetu',   // Replace with your EmailJS template ID
-  PUBLIC_KEY: 'user_medhasetu_public',  // Replace with your EmailJS public key
+  SERVICE_ID: 'service_abqpuyr',
+  TEMPLATE_ID: 'template_8mgl12h',
+  PUBLIC_KEY: 'ufaoRSsuAkisC-81g',
 };
 
 /**
@@ -16,8 +15,11 @@ export const EMAILJS_CONFIG = {
  * @returns {Promise<Response>}
  */
 export async function sendOtpEmail(toEmail, toName, otpCode) {
-  // If the user has not configured EmailJS yet, print the OTP to console for easy testing
-  console.log(`[MedhaSetu Mail Simulator] Verification OTP for ${toName} (${toEmail}): ${otpCode}`);
+  // Format expiration time (15 minutes from now)
+  const expires = new Date(Date.now() + 15 * 60 * 1000);
+  const timeString = expires.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+  console.log(`[MedhaSetu Mail] Dispatching verification OTP for ${toEmail}: ${otpCode} (Expires: ${timeString})`);
 
   const payload = {
     service_id: EMAILJS_CONFIG.SERVICE_ID,
@@ -25,9 +27,8 @@ export async function sendOtpEmail(toEmail, toName, otpCode) {
     user_id: EMAILJS_CONFIG.PUBLIC_KEY,
     template_params: {
       to_email: toEmail,
-      to_name: toName,
-      otp_code: otpCode,
-      app_name: 'MedhaSetu'
+      passcode: otpCode,
+      time: timeString
     }
   };
 
@@ -42,7 +43,7 @@ export async function sendOtpEmail(toEmail, toName, otpCode) {
 
     if (!response.ok) {
       const errorText = await response.text();
-      console.warn("EmailJS API rejected request (this is normal if keys are placeholders):", errorText);
+      console.error("EmailJS API Error Response:", errorText);
     }
     
     return response;
