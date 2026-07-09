@@ -8,6 +8,10 @@
 export function getFriendlyAuthErrorMessage(error) {
   if (!error) return 'An unexpected error occurred. Please try again.';
   
+  if (error.message === 'Email already in use.') {
+    return 'This email address is already registered. If you already have an account, please try signing in or resetting your password.';
+  }
+
   const code = error.code;
   console.log("Firebase Auth Error caught:", code, error.message);
 
