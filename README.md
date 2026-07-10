@@ -1,35 +1,7 @@
 # MedhaSetu (🧠 मेधासेतु)
 
 <p align="center">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="220" height="132" style="max-width: 100%;">
-    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.15" />
-    </filter>
-    <path d="M 250 100 L 750 100 L 750 220 L 900 220 L 900 320 L 750 320 L 750 380 L 750 500 L 680 500 L 680 380 L 630 380 L 630 500 L 560 500 L 560 380 L 440 380 L 440 500 L 370 500 L 370 380 L 320 380 L 320 500 L 250 500 L 250 380 L 250 320 L 100 320 L 100 220 L 250 220 Z" fill="#799CBB" stroke="#485D6F" stroke-width="12" stroke-linejoin="round" stroke-linecap="round" filter="url(#shadow)" />
-    <g fill="none" stroke="#D2A782" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M 270 110 L 270 140 L 300 170" />
-      <path d="M 470 110 L 450 130 L 370 130" />
-      <path d="M 730 110 L 730 140 L 700 170" />
-      <path d="M 590 110 L 610 130 L 630 130" />
-      <path d="M 110 250 L 230 250 L 270 290 L 320 290" />
-      <path d="M 110 290 L 210 290 L 250 340 L 250 370" />
-      <path d="M 890 250 L 770 250 L 730 290 L 680 290" />
-      <path d="M 890 290 L 790 290 L 750 340 L 750 370" />
-      <path d="M 285 500 L 285 410 L 315 380 L 345 380" />
-      <path d="M 395 500 L 395 430 L 435 390 L 490 390" />
-      <path d="M 715 500 L 715 410 L 685 380 L 655 380" />
-      <path d="M 605 500 L 605 430 L 565 390 L 510 390" />
-    </g>
-    <rect x="310" y="150" width="80" height="80" rx="22" fill="#59748C" stroke="#485D6F" stroke-width="6"/>
-    <circle cx="350" cy="190" r="28" fill="#273849"/>
-    <path d="M 350 168 Q 350 182 336 182 Q 350 182 350 196 Q 350 182 364 182 Q 350 182 350 168 Z" fill="white"/>
-    <circle cx="366" cy="204" r="5" fill="white"/>
-    <rect x="610" y="150" width="80" height="80" rx="22" fill="#59748C" stroke="#485D6F" stroke-width="6"/>
-    <circle cx="650" cy="190" r="28" fill="#273849"/>
-    <path d="M 650 168 Q 650 182 636 182 Q 650 182 650 196 Q 650 182 664 182 Q 650 182 650 168 Z" fill="white"/>
-    <circle cx="666" cy="204" r="5" fill="white"/>
-    <path d="M 485 260 Q 500 275 515 260" fill="none" stroke="#485D6F" stroke-width="5" stroke-linecap="round"/>
-  </svg>
+  <img src="public/mascot.png" width="300" alt="MedhaSetu Mascot" />
 </p>
 
 MedhaSetu is a premium cognitive training and daily brain exercise web application designed specifically to promote mental agility, memory maintenance, and logical reasoning for senior citizens. Combining clean, accessible UX patterns with game-like consistency rewards, MedhaSetu empowers users to train their minds daily across 10 specialized categories.
@@ -42,21 +14,8 @@ The live application is hosted on Firebase Hosting at:
 
 ---
 
-## 🤖 The Animated Robot Mascot: MedhaMascot
-To make cognitive training friendly, encouraging, and highly interactive, MedhaSetu features an animated vector robot mascot custom-crafted for the application. The mascot supports four dynamic visual states:
-* 🤖 **Static Mascot (`state="static"`)**: Standard vector emblem of the character logo.
-* 🎈 **Floating Idle Mascot (`state="idle"`)**: A gentle, slow floating up-and-down animation that serves as a calming guide on progress screens and menus.
-* 👋 **Waving Welcome Mascot (`state="wave"`)**: An animated waving arm sequence that welcomes users on landing screens and celebrates successful quiz completions.
-* ⚡ **Glow Loading Mascot (`state="loading"`)**: An animated state featuring glowing circuit details, ground shadow expansions, and blinking loading text designed to represent "cognitive processing".
-
-### Mascot Integrations:
-1. **Login, Signup & Password Reset**: The waving mascot welcomes users on all landing gates.
-2. **App-wide Splash Screen**: Shows a full-screen card with the animated loading mascot during authentication state checks.
-3. **Protected Navigation Guards**: The loading mascot displays while user profiles resolve from the database.
-4. **Dashboard Greeting**: The waving mascot is placed in the Welcome Hero Card, and the floating idle mascot comforts users inside the Streak Reset alert.
-5. **Progress Dashboard**: Renders next to the profile stats card.
-6. **Community Circle**: Welcomes users above the leaderboard rankings.
-7. **Quiz Workouts**: Acts as a loading transition before questions mount, and cheers users with a waving success animation on the completion screen.
+## 🤖 About the Mascot: MedhaMascot
+Meet **MedhaMascot**, the friendly cognitive training robot guide of MedhaSetu! Designed to make brain exercise engaging and approachable, MedhaMascot appears across the app to cheer users on, guide them through quiz loading screens, and celebrate streak achievements.
 
 ---
 
