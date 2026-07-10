@@ -30,6 +30,7 @@ export default function Quiz() {
 
   // Fetch subject questions from Firestore
   useEffect(() => {
+    const startTime = Date.now();
     async function fetchQuestions() {
       try {
         const docRef = doc(db, 'categories', category);
@@ -52,7 +53,12 @@ export default function Quiz() {
         console.error("Error fetching questions:", err);
         setError('Failed to load questions.');
       }
-      setLoading(false);
+      
+      const elapsed = Date.now() - startTime;
+      const remainingTime = Math.max(0, 1500 - elapsed);
+      setTimeout(() => {
+        setLoading(false);
+      }, remainingTime);
     }
     fetchQuestions();
   }, [category]);

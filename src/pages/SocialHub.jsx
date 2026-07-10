@@ -15,6 +15,7 @@ export default function SocialHub() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    const startTime = Date.now();
     async function fetchUsers() {
       try {
         const querySnapshot = await getDocs(collection(db, 'users'));
@@ -26,7 +27,12 @@ export default function SocialHub() {
       } catch (err) {
         console.error("Error fetching leaderboard users:", err);
       }
-      setLoading(false);
+      
+      const elapsed = Date.now() - startTime;
+      const remainingTime = Math.max(0, 1500 - elapsed);
+      setTimeout(() => {
+        setLoading(false);
+      }, remainingTime);
     }
     fetchUsers();
   }, []);

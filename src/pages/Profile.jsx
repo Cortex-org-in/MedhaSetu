@@ -7,13 +7,15 @@ import {
   Award, 
   BookOpen, 
   Brain, 
-  Smile, 
-  Sparkles, 
-  Lightbulb, 
   FileText,
-  Bookmark,
-  Calendar,
-  Compass
+  Palette,
+  Calculator,
+  Globe,
+  MapPin,
+  Atom,
+  Coins,
+  Film,
+  SpellCheck
 } from 'lucide-react';
 import { BADGES } from '../utils/badgeConfig';
 
@@ -49,16 +51,18 @@ export default function Profile() {
     categoryTotal[cat] = (categoryTotal[cat] || 0) + s.total;
   });
 
-  // Subjects lists mapped to their icons and colors
+  // Subjects lists mapped to their icons and colors (matching exact Firestore category keys)
   const categoryDataList = [
-    { id: 'maths', name: 'Mathematics', icon: Brain, color: '#3b82f6' },
-    { id: 'arts', name: 'Fine Arts', icon: Smile, color: '#ec4899' },
-    { id: 'logic', name: 'Logical Reasoning', icon: Lightbulb, color: '#eab308' },
-    { id: 'gk', name: 'General Knowledge', icon: Sparkles, color: '#10b981' },
-    { id: 'nostalgia', name: 'Nostalgia', icon: Calendar, color: '#f97316' },
-    { id: 'literature', name: 'Literature', icon: BookOpen, color: '#8b5cf6' },
-    { id: 'wordpower', name: 'Word Power', icon: Bookmark, color: '#06b6d4' },
-    { id: 'economics', name: 'Economics', icon: Compass, color: '#14b8a6' }
+    { id: 'Arts', name: 'Arts', icon: Palette, color: '#ec4899' },
+    { id: 'Mathematics', name: 'Mathematics', icon: Calculator, color: '#3b82f6' },
+    { id: 'General Knowledge', name: 'General Knowledge', icon: Globe, color: '#10b981' },
+    { id: 'Indian History & Geography', name: 'Indian History & Geo', icon: MapPin, color: '#f59e0b' },
+    { id: 'Science', name: 'Science', icon: Atom, color: '#6366f1' },
+    { id: 'Logical Reasoning & Patterns', name: 'Logical Reasoning', icon: Brain, color: '#eab308' },
+    { id: 'Economics & Financial Literacy', name: 'Economics & Finance', icon: Coins, color: '#14b8a6' },
+    { id: 'Indian Literature & Classics', name: 'Literature & Classics', icon: BookOpen, color: '#8b5cf6' },
+    { id: 'Cinema, Music & Retro Nostalgia', name: 'Cinema & Nostalgia', icon: Film, color: '#f97316' },
+    { id: 'Word Power & Language Puzzles', name: 'Word Power Puzzles', icon: SpellCheck, color: '#06b6d4' }
   ];
 
   const categoryStats = categoryDataList.map(cat => {

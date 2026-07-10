@@ -104,6 +104,8 @@ export function AuthProvider({ children }) {
   }
 
   useEffect(() => {
+    const startTime = Date.now();
+
     getRedirectResult(auth).catch(err => {
       console.error("Firebase Auth redirect error:", err);
     });
@@ -148,15 +150,32 @@ export function AuthProvider({ children }) {
           } else {
             setUserData(null);
           }
+          
+          const elapsed = Date.now() - startTime;
+          const remainingTime = Math.max(0, 1500 - elapsed);
+          setTimeout(() => {
+            setLoading(false);
+          }, remainingTime);
         }, (err) => {
           console.error("User document real-time sync failed:", err);
+          
+          const elapsed = Date.now() - startTime;
+          const remainingTime = Math.max(0, 1500 - elapsed);
+          setTimeout(() => {
+            setLoading(false);
+          }, remainingTime);
         });
       } else {
         setUserData(null);
+        
+        const elapsed = Date.now() - startTime;
+        const remainingTime = Math.max(0, 1500 - elapsed);
+        setTimeout(() => {
+          setLoading(false);
+        }, remainingTime);
       }
       
       setCurrentUser(user);
-      setLoading(false);
     });
 
     return () => {
