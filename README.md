@@ -1,12 +1,30 @@
 # MedhaSetu (🧠 मेधासेतु)
 
-MedhaSetu is a premium cognitive training and daily brain exercise web application designed specifically to promote mental agility, memory maintenance, and logical reasoning. Combining clean, accessible UX patterns with game-like consistency rewards, MedhaSetu empowers users to train their minds daily across 10 specialized categories.
+MedhaSetu is a premium cognitive training and daily brain exercise web application designed specifically to promote mental agility, memory maintenance, and logical reasoning for senior citizens. Combining clean, accessible UX patterns with game-like consistency rewards, MedhaSetu empowers users to train their minds daily across 10 specialized categories.
 
 ---
 
 ## 🔗 Live Application
 The live application is hosted on Firebase Hosting at:  
 👉 **[https://medhasetu-agility.web.app](https://medhasetu-agility.web.app)**
+
+---
+
+## 🤖 The Animated Robot Mascot: MedhaMascot
+To make cognitive training friendly, encouraging, and highly interactive, MedhaSetu features an animated vector robot mascot custom-crafted for the application. The mascot supports four dynamic visual states:
+* 🤖 **Static Mascot (`state="static"`)**: Standard vector emblem of the character logo.
+* 🎈 **Floating Idle Mascot (`state="idle"`)**: A gentle, slow floating up-and-down animation that serves as a calming guide on progress screens and menus.
+* 👋 **Waving Welcome Mascot (`state="wave"`)**: An animated waving arm sequence that welcomes users on landing screens and celebrates successful quiz completions.
+* ⚡ **Glow Loading Mascot (`state="loading"`)**: An animated state featuring glowing circuit details, ground shadow expansions, and blinking loading text designed to represent "cognitive processing".
+
+### Mascot Integrations:
+1. **Login, Signup & Password Reset**: The waving mascot welcomes users on all landing gates.
+2. **App-wide Splash Screen**: Shows a full-screen card with the animated loading mascot during authentication state checks.
+3. **Protected Navigation Guards**: The loading mascot displays while user profiles resolve from the database.
+4. **Dashboard Greeting**: The waving mascot is placed in the Welcome Hero Card, and the floating idle mascot comforts users inside the Streak Reset alert.
+5. **Progress Dashboard**: Renders next to the profile stats card.
+6. **Community Circle**: Welcomes users above the leaderboard rankings.
+7. **Quiz Workouts**: Acts as a loading transition before questions mount, and cheers users with a waving success animation on the completion screen.
 
 ---
 
@@ -29,26 +47,23 @@ Engage in 10-question daily quizzes covering diverse cognitive domains:
 * 🎬 **Cinema & Nostalgia** — Music, classic films, and retro retro-trivia.
 * 🗣️ **Word Power Puzzles** — Spelling checks, grammar, and language riddles.
 
-### 3. Daily Brain Training Streak System
+### 3. Subject Accuracy Breakdown & Statistics
+* **Performance Tracking**: Calculates user accuracy individually across each of the 10 subjects using the mathematical formula:
+  $$\text{Subject Accuracy (\%)} = \left( \frac{\text{Total Correct Answers in Subject}}{\text{Total Questions Answered in Subject}} \right) \times 100$$
+* **Visual Progress Bars**: Displays accuracy color tracks and lists quizzes taken count.
+* **Historical Trend Line**: Renders an inline SVG line graph plotting overall accuracy percentage across the last 10 quiz sessions.
+
+### 4. Daily Brain Training Streak System
 * **Consistency Tracking**: Monitors daily quiz attempts, increasing user streaks for consecutive days of training.
-* **Polite Expiration Modal**: Runs strict daily checks on dashboard mount. If the user misses a day, their streak resets, and they are greeted with a polite warning modal encouraging them to start fresh.
-* **Streak History**: Visually tracks user consistency logs and record-high streaks directly in the profile statistics view.
+* **Polite Expiration Modal**: Runs checks on dashboard mount. If the user misses a training day, their streak resets and they are greeted with a polite warning modal encouraging them to start fresh.
 
-### 4. Top-Right Profile Dropdown Popover
-* **Quick Stats Overlay**: Clicking the profile avatar in the header opens an absolute-positioned dropdown card showing name, email, active streak, and action buttons.
-* **Overflow Isolation**: Placed outside the app header markup to bypass header overflow clipping, maintaining absolute positioning and alignments on mobile screens.
-
-### 5. Leaderboard with Scalable Pagination
-* **Community Ranking**: Lists users based on their scores, high streaks, and badges earned.
-* **"Load More" Scalability**: Leaderboards slice lists programmatically, rendering a sleek "Load More" button to keep pages light and scale nicely.
+### 5. Leaderboard & community Circle
+* **Community Ranking**: Lists users based on their active streaks and quizzes completed.
+* **Milestones Goal Tracker**: Monitors collective milestones (e.g., total questions answered correctly as a community).
 
 ### 6. Email Verification Protection
-* **Registration Validation**: Upon signing up with an email/password, a verification email is sent automatically.
-* **Navigation Interceptors**: If a user logs in but has not verified their email, they are redirected to a dedicated `/verify-email` page. The header actions and navigation sidebar are hidden to secure core views.
-
-### 7. Celebration & Badge Milestone Systems
-* **Badges Unlocked**: Features 20+ achievement badges based on category consistency, perfect quiz scores, and streak milestones.
-* **Canvas Confetti**: Triggers dynamic canvas particle confetti overlays upon badge unlock achievements.
+* **Registration Validation**: Automatically dispatches a verification link on signup.
+* **Navigation Interceptors**: Redirects unverified accounts to `/verify-email` with an info block prompting users to check their Spam/All Mail folders.
 
 ---
 
@@ -87,6 +102,7 @@ MedhaSetu/
 │   └── ...
 ├── src/
 │   ├── components/
+│   │   ├── Mascot.jsx          # Reusable robot mascot SVG renderer
 │   │   └── PrivateRoute.jsx    # Custom route interceptor & verification guard
 │   ├── contexts/
 │   │   └── AuthContext.jsx     # User authentication and Firebase context
