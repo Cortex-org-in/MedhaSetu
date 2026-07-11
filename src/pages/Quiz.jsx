@@ -29,12 +29,10 @@ export default function Quiz() {
   const [unlockedBadges, setUnlockedBadges] = useState([]);
 
   // Voice Assistant States
-  const [isVoiceMode, setIsVoiceMode] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [isListening, setIsListening] = useState(false);
   const [transcript, setTranscript] = useState('');
   const [speechFeedback, setSpeechFeedback] = useState('');
-  const [isIntroPlaying, setIsIntroPlaying] = useState(false);
   const [availableVoices, setAvailableVoices] = useState([]);
 
   const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -282,27 +280,13 @@ export default function Quiz() {
     if (!currentQ) return;
     
     // Toggle play/stop behavior
-    if (isSpeaking && !isIntroPlaying) {
+    if (isSpeaking) {
       cancelSpeech();
       return;
     }
 
     const textToSpeak = `Question. ${currentQ.question}. Option 1. ${currentQ.options[0]}. Option 2. ${currentQ.options[1]}. Option 3. ${currentQ.options[2]}. Option 4. ${currentQ.options[3]}.`;
-    speakText(textToSpeak, () => {
-      if (isVoiceMode && selectedAnswer === null) {
-        startListening();
-      }
-    });
-  };
-
-  // Trigger voice mode welcome intro
-  const triggerVoiceIntro = () => {
-    setIsIntroPlaying(true);
-    const intro = "Voice Assistant mode enabled. I will read each question and listen for your answer. You can say option 1, option 2, or say the answer itself.";
-    speakText(intro, () => {
-      setIsIntroPlaying(false);
-      readQuestionAloud();
-    });
+    speakText(textToSpeak);
   };
 
   // Match voice input against options
@@ -317,12 +301,7 @@ export default function Quiz() {
         setSpeechFeedback("Advancing to next question...");
         setTimeout(() => {
           handleNextQuestion();
-        }, 1000);
-      } else {
-        // If they said something else and we are in Auto Mode, keep listening for "Next"
-        if (isVoiceMode) {
-          startListening();
-        }
+        }, 800);
       }
       return;
     }
@@ -359,23 +338,14 @@ export default function Quiz() {
       // Auto speak result feedback
       const isCorrect = matchedOption === currentQ.correct_answer;
       const feedbackSpeech = isCorrect 
-        ? "Correct answer! Say next to continue." 
-        : `Incorrect. The correct answer is ${currentQ.correct_answer}. Say next to continue.`;
+        ? "Correct answer!" 
+        : `Incorrect. The correct answer is ${currentQ.correct_answer}.`;
         
       setTimeout(() => {
-        speakText(feedbackSpeech, () => {
-          if (isVoiceMode) {
-            startListening();
-          }
-        });
-      }, 500);
+        speakText(feedbackSpeech);
+      }, 300);
     } else {
-      setSpeechFeedback("Could not match command. Listening again...");
-      if (isVoiceMode) {
-        setTimeout(() => {
-          startListening();
-        }, 1500);
-      }
+      setSpeechFeedback("Could not match command. Please tap Speech Answer to try again.");
     }
   };
 
@@ -417,19 +387,7 @@ export default function Quiz() {
     return () => {
       if (window.speechSynthesis) window.speechSynthesis.cancel();
     };
-  }, [currentQuestionIndex, selectedQuestions, selectedAnswer, isVoiceMode]);
-
-  // Auto trigger speech on new question load under Auto Voice Mode
-  useEffect(() => {
-    if (isVoiceMode && selectedQuestions.length > 0 && !loading && !isFinished && !isIntroPlaying) {
-      setTranscript('');
-      setSpeechFeedback('');
-      const timer = setTimeout(() => {
-        readQuestionAloud();
-      }, 800);
-      return () => clearTimeout(timer);
-    }
-  }, [currentQuestionIndex, isVoiceMode, loading, isFinished, isIntroPlaying]);
+  }, [currentQuestionIndex, selectedQuestions, selectedAnswer]);
 
   if (loading) {
     return (
@@ -525,113 +483,6 @@ export default function Quiz() {
       <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '20px', fontSize: 'var(--font-size-base)', fontWeight: '500', color: '#666' }}>
         <span>Question {currentQuestionIndex + 1} of {TOTAL_QUESTIONS}</span>
       </div>
-
-      {/* Voice Assistant Panel */}
-      <div 
-        className="premium-card slide-up" 
-        style={{ 
-          display: 'flex', 
-          flexDirection: 'column', 
-          gap: '12px', 
-          padding: '20px', 
-          marginBottom: '25px', 
-          borderRadius: '20px',
-          border: isVoiceMode ? '2px solid var(--primary-color)' : '1px solid rgba(43, 103, 119, 0.1)',
-          boxShadow: isVoiceMode ? '0 10px 30px rgba(43, 103, 119, 0.15)' : 'var(--shadow-premium)',
-          background: isVoiceMode ? 'linear-gradient(to bottom, #ffffff, #f4fcfc)' : '#ffffff',
-          transition: 'all 0.3s ease'
-        }}
-      >
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <span style={{ fontSize: '18px', fontWeight: 'bold', color: 'var(--primary-color)', display: 'flex', alignItems: 'center', gap: '8px' }}>
-              🎙️ Voice Assistant
-            </span>
-            {isVoiceMode && (
-              <span style={{ padding: '4px 10px', fontSize: '12px', backgroundColor: 'var(--primary-color)', color: 'white', borderRadius: '20px', fontWeight: 'bold', letterSpacing: '0.5px' }}>
-                AUTO ACTIVE
-              </span>
-            )}
-          </div>
-          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-            <button 
-              className={`btn ${isVoiceMode ? '' : 'btn-secondary'}`}
-              style={{ padding: '8px 16px', fontSize: '14px', minHeight: 'auto', margin: 0, fontWeight: 'bold', borderRadius: '20px' }}
-              onClick={() => {
-                const nextMode = !isVoiceMode;
-                setIsVoiceMode(nextMode);
-                if (nextMode) {
-                  triggerVoiceIntro();
-                } else {
-                  setIsIntroPlaying(false);
-                  cancelSpeech();
-                  stopListening();
-                }
-              }}
-            >
-              {isVoiceMode ? 'Auto Mode: ON' : 'Turn Auto Mode ON'}
-            </button>
-            <button 
-              className={`btn ${isSpeaking && !isIntroPlaying ? 'btn-error' : 'btn-secondary'}`}
-              style={{ padding: '8px 16px', fontSize: '14px', minHeight: 'auto', display: 'flex', alignItems: 'center', gap: '8px', margin: 0, fontWeight: 'bold', borderRadius: '20px' }}
-              onClick={readQuestionAloud}
-            >
-              <Volume2 size={18} />
-              {isSpeaking && !isIntroPlaying ? 'Stop Reading' : 'Read Aloud'}
-            </button>
-            {SpeechRecognition && (
-              <button 
-                className={`btn ${isListening ? 'btn-error' : 'btn-secondary'}`}
-                style={{ padding: '8px 16px', fontSize: '14px', minHeight: 'auto', display: 'flex', alignItems: 'center', gap: '8px', margin: 0, fontWeight: 'bold', borderRadius: '20px' }}
-                onClick={toggleListening}
-              >
-                <Mic size={18} className={isListening ? 'pulse-animation' : ''} />
-                {isListening ? 'Listening...' : 'Speak Answer'}
-              </button>
-            )}
-          </div>
-        </div>
-
-        {/* Live Transcript / Feedback Indicator */}
-        {(isListening || speechFeedback || transcript) && (
-          <div 
-            style={{ 
-              fontSize: '15px', 
-              padding: '12px 18px', 
-              backgroundColor: '#ffffff', 
-              borderRadius: '12px', 
-              border: isListening ? '1px dashed #d9534f' : '1px dashed var(--primary-color)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              gap: '12px',
-              animation: 'slideUp 0.3s ease'
-            }}
-          >
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', flex: 1 }}>
-              {isListening && (
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#555' }}>
-                  <span className="live-pulse" style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: '#d9534f', display: 'inline-block' }} />
-                  <span>Hearing: <strong style={{ color: 'var(--text-color)' }}>{transcript || 'Say your answer...'}</strong></span>
-                </div>
-              )}
-              {speechFeedback && (
-                <div style={{ color: 'var(--primary-color)', fontWeight: 'bold' }}>
-                  ✨ {speechFeedback}
-                </div>
-              )}
-            </div>
-            {isListening && (
-              <div className="sound-wave">
-                <div className="bar"></div>
-                <div className="bar"></div>
-                <div className="bar"></div>
-                <div className="bar"></div>
-              </div>
-            )}
-          </div>
-        )}
-      </div>
       
       <div key={currentQuestionIndex} className="slide-up">
         <div className="premium-card" style={{ marginBottom: '30px', padding: 'var(--spacing-medium)' }}>
@@ -668,6 +519,117 @@ export default function Quiz() {
             )
           })}
         </div>
+      </div>
+
+      {/* Premium Voice Companion Panel (Placed directly under options) */}
+      <div 
+        className="premium-card slide-up" 
+        style={{ 
+          marginTop: '30px', 
+          padding: '24px', 
+          borderRadius: '24px',
+          border: '1px solid rgba(43, 103, 119, 0.08)',
+          boxShadow: '0 10px 40px rgba(43, 103, 119, 0.06)',
+          background: 'linear-gradient(135deg, #ffffff 0%, #fafcfc 100%)',
+          textAlign: 'center',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: '15px'
+        }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', justifyContent: 'center' }}>
+          <span style={{ fontSize: '15px', fontWeight: 'bold', color: 'var(--primary-color)', letterSpacing: '0.5px' }}>
+            🧠 MEDHA VOICE COMPANION
+          </span>
+        </div>
+
+        <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', margin: '10px 0' }}>
+          <button 
+            className={`btn ${isSpeaking ? 'btn-error' : 'btn-secondary'}`}
+            style={{ 
+              padding: '12px 24px', 
+              fontSize: '15px', 
+              borderRadius: '30px', 
+              minHeight: '48px', 
+              margin: 0, 
+              display: 'flex', 
+              alignItems: 'center', 
+              gap: '10px', 
+              fontWeight: '600',
+              boxShadow: isSpeaking ? '0 4px 15px rgba(217, 83, 79, 0.2)' : '0 4px 15px rgba(0, 0, 0, 0.05)',
+              transition: 'all 0.3s ease'
+            }}
+            onClick={readQuestionAloud}
+          >
+            <Volume2 size={20} />
+            {isSpeaking ? 'Stop Reading' : 'Read Aloud'}
+          </button>
+          
+          {SpeechRecognition && (
+            <button 
+              className={`btn ${isListening ? 'btn-error' : 'btn-secondary'}`}
+              style={{ 
+                padding: '12px 24px', 
+                fontSize: '15px', 
+                borderRadius: '30px', 
+                minHeight: '48px', 
+                margin: 0, 
+                display: 'flex', 
+                alignItems: 'center', 
+                gap: '10px', 
+                fontWeight: '600',
+                boxShadow: isListening ? '0 4px 15px rgba(217, 83, 79, 0.2)' : '0 4px 15px rgba(0, 0, 0, 0.05)',
+                transition: 'all 0.3s ease'
+              }}
+              onClick={toggleListening}
+            >
+              <Mic size={20} className={isListening ? 'pulse-animation' : ''} />
+              {isListening ? 'Listening...' : 'Speak Answer'}
+            </button>
+          )}
+        </div>
+
+        {/* Live Transcript / Feedback Indicator */}
+        {(isListening || speechFeedback || transcript) && (
+          <div 
+            style={{ 
+              width: '100%',
+              maxWidth: '480px',
+              backgroundColor: '#ffffff', 
+              borderRadius: '16px', 
+              border: isListening ? '1px dashed #d9534f' : '1px dashed rgba(43, 103, 119, 0.2)',
+              padding: '12px 20px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              gap: '12px',
+              animation: 'slideUp 0.3s ease'
+            }}
+          >
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', textAlign: 'left', flex: 1 }}>
+              {isListening && (
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#555', fontSize: '14px' }}>
+                  <span className="live-pulse" style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#d9534f', display: 'inline-block' }} />
+                  <span>Hearing: <strong style={{ color: 'var(--text-color)' }}>{transcript || 'Say your answer...'}</strong></span>
+                </div>
+              )}
+              {speechFeedback && (
+                <div style={{ color: 'var(--primary-color)', fontWeight: 'bold', fontSize: '14px' }}>
+                  ✨ {speechFeedback}
+                </div>
+              )}
+            </div>
+            {isListening && (
+              <div className="sound-wave">
+                <div className="bar"></div>
+                <div className="bar"></div>
+                <div className="bar"></div>
+                <div className="bar"></div>
+              </div>
+            )}
+          </div>
+        )}
       </div>
 
       {selectedAnswer !== null && (
