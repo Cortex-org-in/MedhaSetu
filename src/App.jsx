@@ -13,9 +13,10 @@ import Profile from './pages/Profile';
 import SocialHub from './pages/SocialHub';
 import VerifyEmail from './pages/VerifyEmail';
 import { Menu, Home, PlayCircle, Users, Award, ShieldAlert, LogOut } from 'lucide-react';
+import { TRANSLATIONS } from './utils/translationService';
 
 function LayoutWrapper({ children }) {
-  const { currentUser, userData, logout } = useAuth();
+  const { currentUser, userData, logout, language, updateLanguage } = useAuth();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
   const navigate = useNavigate();
@@ -46,10 +47,12 @@ function LayoutWrapper({ children }) {
 
   const isVerified = currentUser && userData && userData.isVerified === true;
 
+  const t = TRANSLATIONS[language] || TRANSLATIONS.en;
+
   return (
     <div className="app-container" style={{ position: 'relative' }}>
       <header className="app-header">
-        <div className="app-header-content">
+        <div className="app-header-content" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
           {currentUser && isVerified ? (
             <button className="menu-btn" onClick={() => setSidebarOpen(true)} title="Open Menu">
               <Menu size={28} />
@@ -59,24 +62,58 @@ function LayoutWrapper({ children }) {
           )}
 
           <h1 
-            style={{ cursor: currentUser && isVerified ? 'pointer' : 'default', userSelect: 'none' }} 
+            style={{ cursor: currentUser && isVerified ? 'pointer' : 'default', userSelect: 'none', margin: '0 auto 0 10px', fontSize: '20px' }} 
             onClick={() => currentUser && isVerified && navigateTo('/')}
           >
-            Mental Agility Test
+            MedhaSetu
           </h1>
 
           {currentUser && isVerified ? (
-            <button 
-              className="header-profile-btn" 
-              onClick={() => setProfileDropdownOpen(!profileDropdownOpen)} 
-              title="Profile Menu"
-              style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '6px 12px', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.3)', background: 'rgba(255,255,255,0.05)' }}
-            >
-              {streak > 0 && <span style={{ fontSize: '18px', fontWeight: 'bold', color: '#ffb74d' }}>🔥 {streak}</span>}
-              <div style={{ width: '32px', height: '32px', borderRadius: '50%', backgroundColor: 'var(--secondary-color)', color: 'var(--primary-color)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', fontSize: '14px' }}>
-                {userInitials}
-              </div>
-            </button>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+              {/* Language Selector Dropdown */}
+              <select
+                value={language}
+                onChange={(e) => updateLanguage(e.target.value)}
+                style={{
+                  padding: '6px 12px',
+                  borderRadius: '20px',
+                  border: '1px solid rgba(255,255,255,0.3)',
+                  background: 'rgba(255,255,255,0.1)',
+                  color: 'white',
+                  fontSize: '13px',
+                  fontWeight: 'bold',
+                  cursor: 'pointer',
+                  outline: 'none',
+                  WebkitAppearance: 'none',
+                  MozAppearance: 'none',
+                  appearance: 'none',
+                  paddingRight: '26px',
+                  backgroundImage: 'url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'white\' stroke-width=\'2.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'%3e%3cpolyline points=\'6 9 12 15 18 9\'%3e%3c/polyline%3e%3c/svg%3e")',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundPosition: 'right 8px center',
+                  backgroundSize: '12px'
+                }}
+              >
+                <option value="en" style={{ color: 'var(--text-color)' }}>English</option>
+                <option value="hi" style={{ color: 'var(--text-color)' }}>हिंदी (Hindi)</option>
+                <option value="bn" style={{ color: 'var(--text-color)' }}>বাংলা (Bengali)</option>
+                <option value="mr" style={{ color: 'var(--text-color)' }}>मराठी (Marathi)</option>
+                <option value="te" style={{ color: 'var(--text-color)' }}>తెలుగు (Telugu)</option>
+                <option value="ta" style={{ color: 'var(--text-color)' }}>தமிழ் (Tamil)</option>
+              </select>
+
+              <button 
+                className="header-profile-btn" 
+                onClick={() => setProfileDropdownOpen(!profileDropdownOpen)} 
+                title="Profile Menu"
+                style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '6px 12px', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.3)', background: 'rgba(255,255,255,0.05)' }}
+              >
+                {streak > 0 && <span style={{ fontSize: '18px', fontWeight: 'bold', color: '#ffb74d' }}>🔥 {streak}</span>}
+                <div style={{ width: '32px', height: '32px', borderRadius: '50%', backgroundColor: 'var(--secondary-color)', color: 'var(--primary-color)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', fontSize: '14px' }}>
+                  {userInitials}
+                </div>
+              </button>
+            </div>
           ) : (
             <div style={{ width: '44px' }} />
           )}
@@ -117,7 +154,7 @@ function LayoutWrapper({ children }) {
             
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
               <div style={{ fontSize: '16px', color: 'var(--text-color)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '4px 0' }}>
-                <span>🔥 Active Streak:</span>
+                <span>🔥 Streak:</span>
                 <span style={{ fontWeight: 'bold', color: 'var(--primary-color)' }}>{streak} Days</span>
               </div>
               
@@ -126,7 +163,7 @@ function LayoutWrapper({ children }) {
                 style={{ fontSize: '16px', minHeight: '44px', padding: '8px 12px', margin: 0, width: '100%' }} 
                 onClick={() => navigateTo('/profile')}
               >
-                View Detailed Progress
+                {t.profile}
               </button>
               
               <button 
@@ -144,7 +181,7 @@ function LayoutWrapper({ children }) {
                 }} 
                 onClick={handleLogout}
               >
-                Sign Out
+                {t.signOut}
               </button>
             </div>
           </div>
@@ -166,16 +203,16 @@ function LayoutWrapper({ children }) {
             </div>
             <div className="sidebar-menu">
               <button className="sidebar-item" onClick={() => navigateTo('/')}>
-                <Home size={22} /> Dashboard (Home)
+                <Home size={22} /> {t.dashboard}
               </button>
               <button className="sidebar-item" onClick={() => navigateTo('/select-category')}>
-                <PlayCircle size={22} /> Start New Quiz
+                <PlayCircle size={22} /> {t.startTraining}
               </button>
               <button className="sidebar-item" onClick={() => navigateTo('/profile')}>
-                <Award size={22} /> My Progress Stats
+                <Award size={22} /> {t.profile}
               </button>
               <button className="sidebar-item" onClick={() => navigateTo('/social')}>
-                <Users size={22} /> Leaderboard & Milestones
+                <Users size={22} /> {t.socialHub}
               </button>
               {isAdmin && (
                 <button className="sidebar-item" style={{ color: '#856404' }} onClick={() => navigateTo('/seed')}>
@@ -184,7 +221,7 @@ function LayoutWrapper({ children }) {
               )}
               <hr style={{ border: '0', borderTop: '1px solid #eaeaea', margin: '15px 0' }} />
               <button className="sidebar-item" style={{ color: '#d9534f' }} onClick={handleLogout}>
-                <LogOut size={22} /> Sign Out
+                <LogOut size={22} /> {t.signOut}
               </button>
             </div>
           </div>

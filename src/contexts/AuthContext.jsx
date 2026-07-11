@@ -26,6 +26,20 @@ export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(null);
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [language, setLanguageState] = useState(localStorage.getItem('medhasetu_lang') || 'en');
+
+  const updateLanguage = async (lang) => {
+    setLanguageState(lang);
+    localStorage.setItem('medhasetu_lang', lang);
+    if (currentUser) {
+      try {
+        const userRef = doc(db, 'users', currentUser.uid);
+        await setDoc(userRef, { language: lang }, { merge: true });
+      } catch (err) {
+        console.error("Failed to sync language to Firestore:", err);
+      }
+    }
+  };
 
   async function signup(email, password, name) {
     // 1. Check if email already exists in registered users collection
@@ -146,7 +160,12 @@ export function AuthProvider({ children }) {
         // Setup real-time listener for user document changes
         unsubscribeSnapshot = onSnapshot(userRef, (docSnap) => {
           if (docSnap.exists()) {
-            setUserData(docSnap.data());
+            const data = docSnap.data();
+            setUserData(data);
+            if (data.language && data.language !== localStorage.getItem('medhasetu_lang')) {
+              setLanguageState(data.language);
+              localStorage.setItem('medhasetu_lang', data.language);
+            }
           } else {
             setUserData(null);
           }
@@ -192,7 +211,9 @@ export function AuthProvider({ children }) {
     loginWithGoogle,
     logout,
     resetPassword,
-    sendOtpVerification
+    sendOtpVerification,
+    language,
+    updateLanguage
   };
 
   return (

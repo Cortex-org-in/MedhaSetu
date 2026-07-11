@@ -6,15 +6,54 @@ import { useAuth } from '../contexts/AuthContext';
 import { ArrowLeft, CheckCircle, XCircle, Volume2, Mic } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { BADGES, checkForNewBadges } from '../utils/badgeConfig';
-
 import Mascot from '../components/Mascot';
+import { translateText, translateQuestion, TRANSLATIONS } from '../utils/translationService';
 
 const TOTAL_QUESTIONS = 10;
+
+const LANGUAGE_NUMBER_MAP = {
+  hi: [
+    ['एक', 'पहला', 'one', '1', 'first'],
+    ['दो', 'दूसरा', 'two', '2', 'second'],
+    ['तीन', 'तीसरा', 'three', '3', 'third'],
+    ['चार', 'चौथा', 'four', '4', 'fourth']
+  ],
+  bn: [
+    ['এক', 'প্রথম', 'one', '1', 'first'],
+    ['দুই', 'দ্বিতীয়', 'two', '2', 'second'],
+    ['তিন', 'তৃতীয়', 'three', '3', 'third'],
+    ['চার', 'চতুর্থ', 'four', '4', 'fourth']
+  ],
+  mr: [
+    ['एक', 'पहिले', 'one', '1', 'first'],
+    ['दोन', 'दुसरे', 'two', '2', 'second'],
+    ['तीन', 'तिसरे', 'three', '3', 'third'],
+    ['चार', 'चौथे', 'four', '4', 'fourth']
+  ],
+  te: [
+    ['ఒకటి', 'మొదటి', 'one', '1', 'first'],
+    ['రెండు', 'రెండవ', 'two', '2', 'second'],
+    ['మూడు', 'మూడవ', 'three', '3', 'third'],
+    ['నాలుగు', 'నాలుగవ', 'four', '4', 'fourth']
+  ],
+  ta: [
+    ['ஒன்று', 'முதல்', 'one', '1', 'first'],
+    ['இரண்டு', 'இரண்டாவது', 'two', '2', 'second'],
+    ['மூன்று', 'மூன்றாவது', 'three', '3', 'third'],
+    ['நான்கு', 'நான்காவது', 'four', '4', 'fourth']
+  ],
+  en: [
+    ['one', '1', 'first'],
+    ['two', '2', 'second'],
+    ['three', '3', 'third'],
+    ['four', '4', 'fourth']
+  ]
+};
 
 export default function Quiz() {
   const { category } = useParams();
   const navigate = useNavigate();
-  const { currentUser, userData } = useAuth();
+  const { currentUser, userData, language } = useAuth();
   
   const [questions, setQuestions] = useState([]);
   const [selectedQuestions, setSelectedQuestions] = useState([]);
@@ -28,6 +67,10 @@ export default function Quiz() {
   const [showBadgeModal, setShowBadgeModal] = useState(false);
   const [unlockedBadges, setUnlockedBadges] = useState([]);
 
+  // Dynamic Question translation states
+  const [currentTranslatedQ, setCurrentTranslatedQ] = useState(null);
+  const [translatingQ, setTranslatingQ] = useState(false);
+
   // Voice Assistant States
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [isListening, setIsListening] = useState(false);
@@ -37,6 +80,8 @@ export default function Quiz() {
 
   const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
   const [recognitionInstance, setRecognitionInstance] = useState(null);
+
+  const t = TRANSLATIONS[language] || TRANSLATIONS.en;
 
   // Fetch subject questions from Firestore
   useEffect(() => {
@@ -73,10 +118,37 @@ export default function Quiz() {
     fetchQuestions();
   }, [category]);
 
+  // Load translations dynamically for current question
+  useEffect(() => {
+    if (selectedQuestions.length === 0) return;
+    const currentQ = selectedQuestions[currentQuestionIndex];
+    if (!currentQ) return;
+    
+    if (!language || language === 'en') {
+      setCurrentTranslatedQ(currentQ);
+      return;
+    }
+    
+    async function loadQuestionTranslation() {
+      setTranslatingQ(true);
+      try {
+        const trans = await translateQuestion(currentQ, language);
+        setCurrentTranslatedQ(trans);
+      } catch (err) {
+        console.error("Error translating current question:", err);
+        setCurrentTranslatedQ(currentQ);
+      } finally {
+        setTranslatingQ(false);
+      }
+    }
+    
+    loadQuestionTranslation();
+  }, [currentQuestionIndex, selectedQuestions, language]);
+
   const handleAnswerSubmit = (option) => {
     if (selectedAnswer !== null) return; // Prevent multiple clicks
 
-    const currentQ = selectedQuestions[currentQuestionIndex];
+    const currentQ = currentTranslatedQ || selectedQuestions[currentQuestionIndex];
     setSelectedAnswer(option);
     
     if (option === currentQ.correct_answer) {
@@ -193,31 +265,23 @@ export default function Quiz() {
     window.speechSynthesis.cancel(); // Stop current speech
     
     const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = 'en-US';
+    
+    // Set synthesis language
+    const langMap = {
+      en: 'en-US',
+      hi: 'hi-IN',
+      bn: 'bn-IN',
+      mr: 'mr-IN',
+      te: 'te-IN',
+      ta: 'ta-IN'
+    };
+    const targetLangCode = langMap[language] || 'en-US';
+    utterance.lang = targetLangCode;
     utterance.rate = 0.92; // Slightly slower for seniors
 
-    // Match premium natural human voices if available
+    // Match premium natural human voice in target language if available
     const voices = window.speechSynthesis.getVoices();
-    const preferredVoices = [
-      'google us english',
-      'google uk english female',
-      'google uk english male',
-      'microsoft aria',
-      'microsoft guy',
-      'microsoft zira',
-      'microsoft david',
-      'natural'
-    ];
-    
-    let selectedVoice = null;
-    for (const namePattern of preferredVoices) {
-      selectedVoice = voices.find(v => v.name.toLowerCase().includes(namePattern) && v.lang.startsWith('en'));
-      if (selectedVoice) break;
-    }
-    
-    if (!selectedVoice) {
-      selectedVoice = voices.find(v => v.lang.toLowerCase().startsWith('en'));
-    }
+    const selectedVoice = voices.find(v => v.lang.startsWith(language || 'en'));
     
     if (selectedVoice) {
       utterance.voice = selectedVoice;
@@ -275,8 +339,7 @@ export default function Quiz() {
 
   // Read current question and options
   const readQuestionAloud = () => {
-    if (selectedQuestions.length === 0) return;
-    const currentQ = selectedQuestions[currentQuestionIndex];
+    const currentQ = currentTranslatedQ || selectedQuestions[currentQuestionIndex];
     if (!currentQ) return;
     
     // Toggle play/stop behavior
@@ -285,20 +348,19 @@ export default function Quiz() {
       return;
     }
 
-    const textToSpeak = `Question. ${currentQ.question}. Option 1. ${currentQ.options[0]}. Option 2. ${currentQ.options[1]}. Option 3. ${currentQ.options[2]}. Option 4. ${currentQ.options[3]}.`;
+    const textToSpeak = `${t.questionWord || 'Question'}. ${currentQ.question}. ${t.optionWord || 'Option'} 1. ${currentQ.options[0]}. ${t.optionWord || 'Option'} 2. ${currentQ.options[1]}. ${t.optionWord || 'Option'} 3. ${currentQ.options[2]}. ${t.optionWord || 'Option'} 4. ${currentQ.options[3]}.`;
     speakText(textToSpeak);
   };
 
   // Match voice input against options
   const handleVoiceCommand = (command) => {
-    if (selectedQuestions.length === 0) return;
-    const currentQ = selectedQuestions[currentQuestionIndex];
+    const currentQ = currentTranslatedQ || selectedQuestions[currentQuestionIndex];
     if (!currentQ) return;
 
     // 1. If waiting for Next Question
     if (selectedAnswer !== null) {
-      if (command.includes('next') || command.includes('continue') || command.includes('go') || command.includes('proceed')) {
-        setSpeechFeedback("Advancing to next question...");
+      if (command.includes('next') || command.includes('continue') || command.includes('go') || command.includes('proceed') || command.includes('अगला') || command.includes('পরবর্তী') || command.includes('पुढे') || command.includes('తదుపరి') || command.includes('அடுத்து')) {
+        setSpeechFeedback("Advancing...");
         setTimeout(() => {
           handleNextQuestion();
         }, 800);
@@ -306,46 +368,33 @@ export default function Quiz() {
       return;
     }
 
-    // 2. Otherwise match command to options
+    // 2. Match command to options by Option Number patterns in selected language
     let matchedOption = null;
+    const lang = language || 'en';
+    const maps = LANGUAGE_NUMBER_MAP[lang] || LANGUAGE_NUMBER_MAP.en;
 
-    // Check numerical option tags
-    if (command.includes('one') || command.includes('1') || command.includes('first')) {
+    if (maps[0].some(p => command.includes(p))) {
       matchedOption = currentQ.options[0];
-    } else if (command.includes('two') || command.includes('2') || command.includes('second') || command.includes('to')) {
+    } else if (maps[1].some(p => command.includes(p))) {
       matchedOption = currentQ.options[1];
-    } else if (command.includes('three') || command.includes('3') || command.includes('third')) {
+    } else if (maps[2].some(p => command.includes(p))) {
       matchedOption = currentQ.options[2];
-    } else if (command.includes('four') || command.includes('4') || command.includes('fourth') || command.includes('for')) {
+    } else if (maps[3].some(p => command.includes(p))) {
       matchedOption = currentQ.options[3];
     }
 
-    // Direct fuzzy string match of the options text
-    if (!matchedOption) {
-      for (const option of currentQ.options) {
-        const cleanOpt = option.toLowerCase().trim();
-        if (command.includes(cleanOpt) || cleanOpt.includes(command)) {
-          matchedOption = option;
-          break;
-        }
-      }
-    }
-
     if (matchedOption) {
-      setSpeechFeedback(`Matched option: "${matchedOption}"`);
+      setSpeechFeedback(`${t.matchedOption || 'Matched option'}: "${matchedOption}"`);
       handleAnswerSubmit(matchedOption);
       
-      // Auto speak result feedback
       const isCorrect = matchedOption === currentQ.correct_answer;
-      const feedbackSpeech = isCorrect 
-        ? "Correct answer!" 
-        : `Incorrect. The correct answer is ${currentQ.correct_answer}.`;
-        
+      // Fetch translations dynamically for correctly/incorrectly spoken announcements
+      const feedbackText = isCorrect ? t.correct : `${t.incorrect} ${currentQ.correct_answer}`;
       setTimeout(() => {
-        speakText(feedbackSpeech);
+        speakText(feedbackText);
       }, 300);
     } else {
-      setSpeechFeedback("Could not match command. Please tap Speech Answer to try again.");
+      setSpeechFeedback("Could not match command. Please say the option number clearly.");
     }
   };
 
@@ -355,7 +404,17 @@ export default function Quiz() {
       const rec = new SpeechRecognition();
       rec.continuous = false;
       rec.interimResults = true;
-      rec.lang = 'en-US';
+      
+      // Map Speech recognition language
+      const langMap = {
+        en: 'en-US',
+        hi: 'hi-IN',
+        bn: 'bn-IN',
+        mr: 'mr-IN',
+        te: 'te-IN',
+        ta: 'ta-IN'
+      };
+      rec.lang = langMap[language] || 'en-US';
       
       rec.onstart = () => {
         setIsListening(true);
@@ -387,7 +446,7 @@ export default function Quiz() {
     return () => {
       if (window.speechSynthesis) window.speechSynthesis.cancel();
     };
-  }, [currentQuestionIndex, selectedQuestions, selectedAnswer]);
+  }, [currentQuestionIndex, selectedQuestions, selectedAnswer, language]);
 
   if (loading) {
     return (
@@ -439,17 +498,17 @@ export default function Quiz() {
         <div style={{ width: '160px', height: '130px', marginBottom: '10px' }}>
           <Mascot state="wave" width="160" height="130" />
         </div>
-        <h2 style={{ fontSize: 'var(--font-size-xlarge)', color: '#2b6777', marginBottom: '20px' }}>Quiz Completed!</h2>
+        <h2 style={{ fontSize: 'var(--font-size-xlarge)', color: '#2b6777', marginBottom: '20px' }}>{t.quizCompleted}</h2>
         <div className="premium-card" style={{ padding: 'var(--spacing-large)', width: '100%', maxWidth: '480px', marginBottom: '20px' }}>
-          <p style={{ fontSize: 'var(--font-size-large)', margin: '20px 0', fontWeight: 'bold' }}>Your Score: {score} out of {TOTAL_QUESTIONS}</p>
-          <p style={{ fontSize: 'var(--font-size-base)' }}>Great job exercising your brain today!</p>
+          <p style={{ fontSize: 'var(--font-size-large)', margin: '20px 0', fontWeight: 'bold' }}>{t.yourScore}: {score} out of {TOTAL_QUESTIONS}</p>
+          <p style={{ fontSize: 'var(--font-size-base)' }}>{t.greatJob}</p>
         </div>
-        <button className="btn" style={{ maxWidth: '480px', width: '100%' }} onClick={() => navigate('/')}>Back to Dashboard</button>
+        <button className="btn" style={{ maxWidth: '480px', width: '100%' }} onClick={() => navigate('/')}>{t.backToDashboard}</button>
       </div>
     );
   }
 
-  const currentQ = selectedQuestions[currentQuestionIndex];
+  const currentQ = currentTranslatedQ || selectedQuestions[currentQuestionIndex];
 
   return (
     <div style={{ padding: 'var(--spacing-medium)' }}>
@@ -481,94 +540,83 @@ export default function Quiz() {
       )}
 
       <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '20px', fontSize: 'var(--font-size-base)', fontWeight: '500', color: '#666' }}>
-        <span>Question {currentQuestionIndex + 1} of {TOTAL_QUESTIONS}</span>
+        <span>{t.questionWord || 'Question'} {currentQuestionIndex + 1} of {TOTAL_QUESTIONS}</span>
       </div>
       
-      <div key={currentQuestionIndex} className="slide-up">
-        <div className="premium-card" style={{ marginBottom: '30px', padding: 'var(--spacing-medium)' }}>
-          <h3 style={{ fontSize: 'var(--font-size-large)', lineHeight: '1.5', fontWeight: '500' }}>{currentQ.question}</h3>
-        </div>
+      {currentQ && (
+        <div key={currentQuestionIndex} className="slide-up">
+          <div className="premium-card" style={{ marginBottom: '30px', padding: 'var(--spacing-medium)' }}>
+            {translatingQ ? (
+              <p style={{ fontStyle: 'italic', color: '#777', margin: 0 }}>Translating question...</p>
+            ) : (
+              <h3 style={{ fontSize: 'var(--font-size-large)', lineHeight: '1.5', fontWeight: '500' }}>{currentQ.question}</h3>
+            )}
+          </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-          {currentQ.options && currentQ.options.map((option, index) => {
-            let btnClass = "btn btn-secondary";
-            let styleOverrides = { textAlign: 'left', minHeight: 'var(--btn-min-height)', padding: 'var(--spacing-medium)', fontSize: 'var(--font-size-large)', whiteSpace: 'normal', height: 'auto', marginBottom: 0 };
-            
-            if (selectedAnswer !== null) {
-              if (option === currentQ.correct_answer) {
-                btnClass = "btn btn-success";
-              } else if (option === selectedAnswer) {
-                btnClass = "btn btn-error";
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+            {currentQ.options && currentQ.options.map((option, index) => {
+              let btnClass = "btn btn-secondary";
+              let styleOverrides = { textAlign: 'left', minHeight: 'var(--btn-min-height)', padding: 'var(--spacing-medium)', fontSize: 'var(--font-size-large)', whiteSpace: 'normal', height: 'auto', marginBottom: 0 };
+              
+              if (selectedAnswer !== null) {
+                if (option === currentQ.correct_answer) {
+                  btnClass = "btn btn-success";
+                } else if (option === selectedAnswer) {
+                  btnClass = "btn btn-error";
+                }
               }
-            }
 
-            return (
-              <button 
-                key={index} 
-                className={`${btnClass} slide-up delay-${index + 1}`}
-                style={styleOverrides}
-                onClick={() => handleAnswerSubmit(option)}
-                disabled={selectedAnswer !== null}
-              >
-                <div style={{ display: 'flex', alignItems: 'center', width: '100%', justifyContent: 'space-between', gap: '10px' }}>
-                  <span>{option}</span>
-                  {selectedAnswer !== null && option === currentQ.correct_answer && <CheckCircle size={28} style={{ flexShrink: 0 }} />}
-                  {selectedAnswer !== null && option === selectedAnswer && option !== currentQ.correct_answer && <XCircle size={28} style={{ flexShrink: 0 }} />}
-                </div>
-              </button>
-            )
-          })}
+              return (
+                <button 
+                  key={index} 
+                  className={`${btnClass} slide-up delay-${index + 1}`}
+                  style={styleOverrides}
+                  onClick={() => handleAnswerSubmit(option)}
+                  disabled={selectedAnswer !== null}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', width: '100%', justifyContent: 'space-between', gap: '10px' }}>
+                    <span>{option}</span>
+                    {selectedAnswer !== null && option === currentQ.correct_answer && <CheckCircle size={28} style={{ flexShrink: 0 }} />}
+                    {selectedAnswer !== null && option === selectedAnswer && option !== currentQ.correct_answer && <XCircle size={28} style={{ flexShrink: 0 }} />}
+                  </div>
+                </button>
+              )
+            })}
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Premium Voice Companion Panel (Placed directly under options) */}
-      <div 
-        className="premium-card slide-up" 
-        style={{ 
-          marginTop: '30px', 
-          padding: '24px', 
-          borderRadius: '24px',
-          border: '1px solid rgba(43, 103, 119, 0.08)',
-          boxShadow: '0 10px 40px rgba(43, 103, 119, 0.06)',
-          background: 'linear-gradient(135deg, #ffffff 0%, #fafcfc 100%)',
-          textAlign: 'center',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: '15px'
-        }}
-      >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', justifyContent: 'center' }}>
-          <span style={{ fontSize: '15px', fontWeight: 'bold', color: 'var(--primary-color)', letterSpacing: '0.5px' }}>
-            🧠 MEDHA VOICE COMPANION
-          </span>
-        </div>
+      {currentQ && (
+        <div 
+          className="premium-card slide-up" 
+          style={{ 
+            marginTop: '30px', 
+            padding: '24px', 
+            borderRadius: '24px',
+            border: '1px solid rgba(43, 103, 119, 0.08)',
+            boxShadow: '0 10px 40px rgba(43, 103, 119, 0.06)',
+            background: 'linear-gradient(135deg, #ffffff 0%, #fafcfc 100%)',
+            textAlign: 'center',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '15px'
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', justifyContent: 'center' }}>
+            <span style={{ fontSize: '15px', fontWeight: 'bold', color: 'var(--primary-color)', letterSpacing: '0.5px' }}>
+              {t.voiceAssistant}
+            </span>
+          </div>
 
-        <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', margin: '10px 0' }}>
-          <button 
-            className={`btn ${isSpeaking ? 'btn-error' : 'btn-secondary'}`}
-            style={{ 
-              padding: '12px 24px', 
-              fontSize: '15px', 
-              borderRadius: '30px', 
-              minHeight: '48px', 
-              margin: 0, 
-              display: 'flex', 
-              alignItems: 'center', 
-              gap: '10px', 
-              fontWeight: '600',
-              boxShadow: isSpeaking ? '0 4px 15px rgba(217, 83, 79, 0.2)' : '0 4px 15px rgba(0, 0, 0, 0.05)',
-              transition: 'all 0.3s ease'
-            }}
-            onClick={readQuestionAloud}
-          >
-            <Volume2 size={20} />
-            {isSpeaking ? 'Stop Reading' : 'Read Aloud'}
-          </button>
-          
-          {SpeechRecognition && (
+          <p style={{ fontSize: '14px', color: '#ff5722', fontWeight: 'bold', margin: '0 auto', maxWidth: '420px', lineHeight: '1.4' }}>
+            {t.speakOptionNote}
+          </p>
+
+          <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', margin: '10px 0' }}>
             <button 
-              className={`btn ${isListening ? 'btn-error' : 'btn-secondary'}`}
+              className={`btn ${isSpeaking ? 'btn-error' : 'btn-secondary'}`}
               style={{ 
                 padding: '12px 24px', 
                 fontSize: '15px', 
@@ -579,73 +627,98 @@ export default function Quiz() {
                 alignItems: 'center', 
                 gap: '10px', 
                 fontWeight: '600',
-                boxShadow: isListening ? '0 4px 15px rgba(217, 83, 79, 0.2)' : '0 4px 15px rgba(0, 0, 0, 0.05)',
+                boxShadow: isSpeaking ? '0 4px 15px rgba(217, 83, 79, 0.2)' : '0 4px 15px rgba(0, 0, 0, 0.05)',
                 transition: 'all 0.3s ease'
               }}
-              onClick={toggleListening}
+              onClick={readQuestionAloud}
+              disabled={translatingQ}
             >
-              <Mic size={20} className={isListening ? 'pulse-animation' : ''} />
-              {isListening ? 'Listening...' : 'Speak Answer'}
+              <Volume2 size={20} />
+              {isSpeaking ? t.stopReading : t.readAloud}
             </button>
-          )}
-        </div>
+            
+            {SpeechRecognition && (
+              <button 
+                className={`btn ${isListening ? 'btn-error' : 'btn-secondary'}`}
+                style={{ 
+                  padding: '12px 24px', 
+                  fontSize: '15px', 
+                  borderRadius: '30px', 
+                  minHeight: '48px', 
+                  margin: 0, 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  gap: '10px', 
+                  fontWeight: '600',
+                  boxShadow: isListening ? '0 4px 15px rgba(217, 83, 79, 0.2)' : '0 4px 15px rgba(0, 0, 0, 0.05)',
+                  transition: 'all 0.3s ease'
+                }}
+                onClick={toggleListening}
+                disabled={translatingQ}
+              >
+                <Mic size={20} className={isListening ? 'pulse-animation' : ''} />
+                {isListening ? t.listening : t.speakAnswer}
+              </button>
+            )}
+          </div>
 
-        {/* Live Transcript / Feedback Indicator */}
-        {(isListening || speechFeedback || transcript) && (
-          <div 
-            style={{ 
-              width: '100%',
-              maxWidth: '480px',
-              backgroundColor: '#ffffff', 
-              borderRadius: '16px', 
-              border: isListening ? '1px dashed #d9534f' : '1px dashed rgba(43, 103, 119, 0.2)',
-              padding: '12px 20px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              gap: '12px',
-              animation: 'slideUp 0.3s ease'
-            }}
-          >
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', textAlign: 'left', flex: 1 }}>
+          {/* Live Transcript / Feedback Indicator */}
+          {(isListening || speechFeedback || transcript) && (
+            <div 
+              style={{ 
+                width: '100%',
+                maxWidth: '480px',
+                backgroundColor: '#ffffff', 
+                borderRadius: '16px', 
+                border: isListening ? '1px dashed #d9534f' : '1px dashed rgba(43, 103, 119, 0.2)',
+                padding: '12px 20px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                gap: '12px',
+                animation: 'slideUp 0.3s ease'
+              }}
+            >
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', textAlign: 'left', flex: 1 }}>
+                {isListening && (
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#555', fontSize: '14px' }}>
+                    <span className="live-pulse" style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#d9534f', display: 'inline-block' }} />
+                    <span>{t.hearing}: <strong style={{ color: 'var(--text-color)' }}>{transcript || '...'}</strong></span>
+                  </div>
+                )}
+                {speechFeedback && (
+                  <div style={{ color: 'var(--primary-color)', fontWeight: 'bold', fontSize: '14px' }}>
+                    ✨ {speechFeedback}
+                  </div>
+                )}
+              </div>
               {isListening && (
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#555', fontSize: '14px' }}>
-                  <span className="live-pulse" style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#d9534f', display: 'inline-block' }} />
-                  <span>Hearing: <strong style={{ color: 'var(--text-color)' }}>{transcript || 'Say your answer...'}</strong></span>
-                </div>
-              )}
-              {speechFeedback && (
-                <div style={{ color: 'var(--primary-color)', fontWeight: 'bold', fontSize: '14px' }}>
-                  ✨ {speechFeedback}
+                <div className="sound-wave">
+                  <div className="bar"></div>
+                  <div className="bar"></div>
+                  <div className="bar"></div>
+                  <div className="bar"></div>
                 </div>
               )}
             </div>
-            {isListening && (
-              <div className="sound-wave">
-                <div className="bar"></div>
-                <div className="bar"></div>
-                <div className="bar"></div>
-                <div className="bar"></div>
-              </div>
-            )}
-          </div>
-        )}
-      </div>
+          )}
+        </div>
+      )}
 
       {selectedAnswer !== null && (
         <div style={{ marginTop: '30px', textAlign: 'center' }} className="slide-up">
           {isCorrectAnswer ? (
             <div className="success-message" style={{ fontSize: 'var(--font-size-large)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
-              <CheckCircle size={28} /> Correct!
+              <CheckCircle size={28} /> {t.correct}
             </div>
           ) : (
             <div className="error-message" style={{ fontSize: 'var(--font-size-large)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
-              <XCircle size={28} /> Incorrect. The answer is {currentQ.correct_answer}.
+              <XCircle size={28} /> {t.incorrect} {currentQ.correct_answer}.
             </div>
           )}
           
           <button className="btn" style={{ marginTop: '20px' }} onClick={handleNextQuestion}>
-            Next Question
+            {t.nextQuestion}
           </button>
         </div>
       )}

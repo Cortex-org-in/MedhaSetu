@@ -5,14 +5,35 @@ import { PlayCircle, User, LogOut, Database, Users } from 'lucide-react';
 import { db } from '../firebase';
 import { doc, setDoc } from 'firebase/firestore';
 import Mascot from '../components/Mascot';
+import { translateText } from '../utils/translationService';
 
 export default function Dashboard() {
-  const { currentUser, userData, logout } = useAuth();
+  const { currentUser, userData, logout, language } = useAuth();
   const [showStreakModal, setShowStreakModal] = useState(false);
   const navigate = useNavigate();
 
   const isAdmin = currentUser && currentUser.email === 'seniorsetu07@gmail.com';
   const streak = userData?.streak || 0;
+
+  // Localized UI state
+  const [ui, setUi] = useState({
+    streakResetDesc: "Your daily training streak has reset. Don't worry! Consistent practice is a journey, and every day is a fresh opportunity to sharpen your mind. Let's start a new streak today!",
+    welcomeSubtitle: "Keep your memory, logic, and cognitive health active with daily training exercises.",
+    streakActiveDesc: "You are maintaining an excellent brain training habit. Keep it up!",
+    streakInactiveDesc: "Complete a quiz today to start building your mental agility streak!",
+    cognitiveDesc: "Choose from 10 different categories designed specifically to exercise different cognitive functions.",
+    letsDoIt: "Let's Do It!",
+    welcomeTitle: `Welcome, ${currentUser?.displayName || 'Friend'}!`,
+    dailyStreakTitle: "Daily Brain Training Streak",
+    activeDaysCount: `${streak} Days Active!`,
+    noActiveStreak: "No Active Streak",
+    cognitiveWorkouts: "Cognitive Workouts",
+    startQuizBtn: "Start a Quiz Section",
+    myStatsBtn: "My Progress Stats",
+    leaderboardBtn: "Leaderboard & Milestones",
+    streakResetTitle: "Streak Reset",
+    streakTitleWord: "Streak"
+  });
 
   useEffect(() => {
     async function checkStreakReset() {
@@ -52,6 +73,49 @@ export default function Dashboard() {
     }
   }, [userData, currentUser]);
 
+  // Load translations dynamically
+  useEffect(() => {
+    async function loadTranslations() {
+      const welcome = `Welcome, ${currentUser?.displayName || 'Friend'}!`;
+      const activeStreak = `${streak} Days Active!`;
+      
+      const defaultUI = {
+        streakResetDesc: "Your daily training streak has reset. Don't worry! Consistent practice is a journey, and every day is a fresh opportunity to sharpen your mind. Let's start a new streak today!",
+        welcomeSubtitle: "Keep your memory, logic, and cognitive health active with daily training exercises.",
+        streakActiveDesc: "You are maintaining an excellent brain training habit. Keep it up!",
+        streakInactiveDesc: "Complete a quiz today to start building your mental agility streak!",
+        cognitiveDesc: "Choose from 10 different categories designed specifically to exercise different cognitive functions.",
+        letsDoIt: "Let's Do It!",
+        welcomeTitle: welcome,
+        dailyStreakTitle: "Daily Brain Training Streak",
+        activeDaysCount: activeStreak,
+        noActiveStreak: "No Active Streak",
+        cognitiveWorkouts: "Cognitive Workouts",
+        startQuizBtn: "Start a Quiz Section",
+        myStatsBtn: "My Progress Stats",
+        leaderboardBtn: "Leaderboard & Milestones",
+        streakResetTitle: "Streak Reset",
+        streakTitleWord: "Streak"
+      };
+
+      if (!language || language === 'en') {
+        setUi(defaultUI);
+        return;
+      }
+
+      try {
+        const trans = {};
+        for (const [key, value] of Object.entries(defaultUI)) {
+          trans[key] = await translateText(value, language);
+        }
+        setUi(trans);
+      } catch (err) {
+        console.error("Failed to load dashboard translations:", err);
+      }
+    }
+    loadTranslations();
+  }, [language, currentUser, streak]);
+
   const dismissStreakAlert = async () => {
     setShowStreakModal(false);
     try {
@@ -61,15 +125,6 @@ export default function Dashboard() {
       console.error("Error resetting streak alert flag:", err);
     }
   };
-
-  async function handleLogout() {
-    try {
-      await logout();
-      navigate('/login');
-    } catch {
-      console.error("Failed to log out");
-    }
-  }
 
   return (
     <div style={{ padding: 'var(--spacing-medium)' }} className="slide-up">
@@ -81,13 +136,13 @@ export default function Dashboard() {
               <Mascot state="idle" width="120" height="100" />
             </div>
             <h2 style={{ fontSize: 'var(--font-size-xlarge)', color: 'var(--warning-color)', marginBottom: '15px' }}>
-              🌟 Streak Reset
+              🌟 {ui.streakResetTitle}
             </h2>
             <p style={{ fontSize: 'var(--font-size-base)', lineHeight: '1.6', color: 'var(--text-color)', marginBottom: '25px' }}>
-              Your daily training streak has reset. Don't worry! Consistent practice is a journey, and every day is a fresh opportunity to sharpen your mind. Let's start a new streak today!
+              {ui.streakResetDesc}
             </p>
             <button className="btn" onClick={dismissStreakAlert} style={{ margin: 0, width: '100%' }}>
-              Let's Do It!
+              {ui.letsDoIt}
             </button>
           </div>
         </div>
@@ -112,10 +167,10 @@ export default function Dashboard() {
       >
         <div style={{ flex: 1 }}>
           <h2 style={{ fontSize: 'var(--font-size-xlarge)', marginBottom: '8px', color: '#fff', fontWeight: 'bold' }}>
-            Welcome, {currentUser.displayName || 'Friend'}!
+            {ui.welcomeTitle}
           </h2>
           <p style={{ fontSize: 'var(--font-size-base)', color: '#eef2f3', lineHeight: '1.5', margin: 0 }}>
-            Keep your memory, logic, and cognitive health active with daily training exercises.
+            {ui.welcomeSubtitle}
           </p>
         </div>
         <div style={{ width: '120px', height: '100px', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -126,22 +181,22 @@ export default function Dashboard() {
       {/* Streak and Brain Health Banner */}
       <div className="premium-card slide-up delay-1" style={{ marginBottom: 'var(--spacing-medium)' }}>
         <h3 style={{ fontSize: 'var(--font-size-large)', color: 'var(--primary-color)', marginBottom: '15px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-          🏆 Daily Brain Training Streak
+          🏆 {ui.dailyStreakTitle}
         </h3>
         {streak > 0 ? (
           <div style={{ display: 'flex', alignItems: 'center', gap: '15px', padding: 'var(--spacing-medium)', backgroundColor: '#f0fdf4', border: '2px solid #5cb85c', borderRadius: '16px' }}>
             <span style={{ fontSize: '32px' }}>🔥</span>
             <div>
-              <div style={{ fontSize: 'var(--font-size-large)', fontWeight: 'bold', color: '#137333' }}>{streak} Days Active!</div>
-              <div style={{ fontSize: 'var(--font-size-base)', color: '#555', marginTop: '2px' }}>You are maintaining an excellent brain training habit. Keep it up!</div>
+              <div style={{ fontSize: 'var(--font-size-large)', fontWeight: 'bold', color: '#137333' }}>{ui.activeDaysCount}</div>
+              <div style={{ fontSize: 'var(--font-size-base)', color: '#555', marginTop: '2px' }}>{ui.streakActiveDesc}</div>
             </div>
           </div>
         ) : (
           <div style={{ display: 'flex', alignItems: 'center', gap: '15px', padding: 'var(--spacing-medium)', backgroundColor: '#fafafa', border: '2px dashed #ccc', borderRadius: '16px' }}>
             <span style={{ fontSize: '32px' }}>⚡</span>
             <div>
-              <div style={{ fontSize: 'var(--font-size-large)', fontWeight: 'bold', color: '#666' }}>No Active Streak</div>
-              <div style={{ fontSize: 'var(--font-size-base)', color: '#777', marginTop: '2px' }}>Complete a quiz today to start building your mental agility streak!</div>
+              <div style={{ fontSize: 'var(--font-size-large)', fontWeight: 'bold', color: '#666' }}>{ui.noActiveStreak}</div>
+              <div style={{ fontSize: 'var(--font-size-base)', color: '#777', marginTop: '2px' }}>{ui.streakInactiveDesc}</div>
             </div>
           </div>
         )}
@@ -150,14 +205,14 @@ export default function Dashboard() {
       {/* Welcoming Start Quiz Section */}
       <div className="premium-card slide-up delay-2" style={{ marginBottom: 'var(--spacing-medium)' }}>
         <h3 style={{ fontSize: 'var(--font-size-large)', color: 'var(--primary-color)', marginBottom: '10px' }}>
-          🧠 Cognitive Workouts
+          🧠 {ui.cognitiveWorkouts}
         </h3>
         <p style={{ fontSize: 'var(--font-size-base)', color: '#555', marginBottom: '20px', lineHeight: '1.4' }}>
-          Choose from 10 different categories designed specifically to exercise different cognitive functions.
+          {ui.cognitiveDesc}
         </p>
         <button className="btn" onClick={() => navigate('/select-category')} style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <PlayCircle size={32} style={{ marginRight: '12px' }} />
-          Start a Quiz Section
+          {ui.startQuizBtn}
         </button>
       </div>
 
@@ -165,12 +220,12 @@ export default function Dashboard() {
       <div style={{ marginTop: '10px', display: 'flex', flexDirection: 'column', gap: '12px' }} className="slide-up delay-3">
         <button className="btn btn-secondary" onClick={() => navigate('/profile')}>
           <User size={28} style={{ marginRight: '15px' }} />
-          My Progress Stats
+          {ui.myStatsBtn}
         </button>
 
         <button className="btn btn-secondary" onClick={() => navigate('/social')}>
           <Users size={28} style={{ marginRight: '15px' }} />
-          Leaderboard & Milestones
+          {ui.leaderboardBtn}
         </button>
 
         {isAdmin && (

@@ -3,16 +3,40 @@ import { db } from '../firebase';
 import { collection, getDocs } from 'firebase/firestore';
 import { useAuth } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, Users, Trophy, Milestone } from 'lucide-react';
+import { ArrowLeft, Trophy, Milestone } from 'lucide-react';
 import Mascot from '../components/Mascot';
+import { translateText } from '../utils/translationService';
 
 export default function SocialHub() {
-  const { currentUser } = useAuth();
+  const { currentUser, language } = useAuth();
   const [usersList, setUsersList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [rankBy, setRankBy] = useState('streak'); // 'streak' or 'quizzes'
   const [visibleCount, setVisibleCount] = useState(10);
   const navigate = useNavigate();
+
+  // Localized UI state
+  const [ui, setUi] = useState({
+    title: 'Community Circle',
+    subtitle: 'Learn, share, and achieve milestones together with your peers.',
+    rankStreak: 'Rank by Streak',
+    rankQuizzes: 'Rank by Quizzes',
+    topAgileTitle: 'Top Agile Thinkers',
+    youWord: 'You',
+    loadMore: 'Load More Thinkers',
+    goalsTitle: 'Community Goals',
+    goalsDesc: 'Every quiz you complete contributes directly to our community milestones! Work together to reach them.',
+    backDashboard: 'Back to Dashboard',
+    daysWord: 'Days',
+    quizzesWord: 'Quizzes',
+    achievedWord: 'Achieved',
+    msTitle1: 'Quizzes Completed Collectively',
+    msDesc1: 'Let’s complete 100 total brain training quizzes together!',
+    msTitle2: 'Total Questions Answered Correctly',
+    msDesc2: 'Aim for 1000 correct answers as a community!',
+    msTitle3: 'Collective Active Streak Days',
+    msDesc3: 'Combine our training days to hit 100 days of consistency!'
+  });
 
   useEffect(() => {
     const startTime = Date.now();
@@ -36,6 +60,49 @@ export default function SocialHub() {
     }
     fetchUsers();
   }, []);
+
+  // Fetch translations dynamically
+  useEffect(() => {
+    async function loadTranslations() {
+      const defaultUI = {
+        title: 'Community Circle',
+        subtitle: 'Learn, share, and achieve milestones together with your peers.',
+        rankStreak: 'Rank by Streak',
+        rankQuizzes: 'Rank by Quizzes',
+        topAgileTitle: 'Top Agile Thinkers',
+        youWord: 'You',
+        loadMore: 'Load More Thinkers',
+        goalsTitle: 'Community Goals',
+        goalsDesc: 'Every quiz you complete contributes directly to our community milestones! Work together to reach them.',
+        backDashboard: 'Back to Dashboard',
+        daysWord: 'Days',
+        quizzesWord: 'Quizzes',
+        achievedWord: 'Achieved',
+        msTitle1: 'Quizzes Completed Collectively',
+        msDesc1: 'Let’s complete 100 total brain training quizzes together!',
+        msTitle2: 'Total Questions Answered Correctly',
+        msDesc2: 'Aim for 1000 correct answers as a community!',
+        msTitle3: 'Collective Active Streak Days',
+        msDesc3: 'Combine our training days to hit 100 days of consistency!'
+      };
+
+      if (!language || language === 'en') {
+        setUi(defaultUI);
+        return;
+      }
+
+      try {
+        const trans = {};
+        for (const [key, value] of Object.entries(defaultUI)) {
+          trans[key] = await translateText(value, language);
+        }
+        setUi(trans);
+      } catch (err) {
+        console.error("Failed to load social translations:", err);
+      }
+    }
+    loadTranslations();
+  }, [language]);
 
   if (loading) {
     return (
@@ -75,25 +142,25 @@ export default function SocialHub() {
   // Milestone Goals
   const milestones = [
     {
-      title: 'Quizzes Completed Collectively',
+      title: ui.msTitle1,
       goal: 100,
       current: totalCommunityQuizzes,
-      unit: 'quizzes',
-      desc: 'Let’s complete 100 total brain training quizzes together!'
+      unit: ui.quizzesWord.toLowerCase(),
+      desc: ui.msDesc1
     },
     {
-      title: 'Total Questions Answered Correctly',
+      title: ui.msTitle2,
       goal: 1000,
       current: totalCommunityCorrect,
       unit: 'answers',
-      desc: 'Aim for 1000 correct answers as a community!'
+      desc: ui.msDesc2
     },
     {
-      title: 'Collective Active Streak Days',
+      title: ui.msTitle3,
       goal: 100,
       current: totalCommunityStreak,
-      unit: 'days',
-      desc: 'Combine our training days to hit 100 days of consistency!'
+      unit: ui.daysWord.toLowerCase(),
+      desc: ui.msDesc3
     }
   ];
 
@@ -104,11 +171,11 @@ export default function SocialHub() {
           <Mascot state="wave" width="120" height="100" />
         </div>
         <h2 style={{ textAlign: 'center', fontSize: 'var(--font-size-xlarge)', margin: 0, color: 'var(--primary-color)' }}>
-          Community Circle
+          {ui.title}
         </h2>
       </div>
       <p style={{ textAlign: 'center', color: '#666', fontSize: 'var(--font-size-base)', marginBottom: '30px' }}>
-        Learn, share, and achieve milestones together with your peers.
+        {ui.subtitle}
       </p>
 
       {/* TABS SELECT */}
@@ -118,27 +185,27 @@ export default function SocialHub() {
           style={{ flex: 1, minHeight: 'var(--btn-min-height)', fontSize: 'var(--font-size-large)', padding: '10px' }}
           onClick={() => setRankBy('streak')}
         >
-          Rank by Streak
+          {ui.rankStreak}
         </button>
         <button 
           className={`btn ${rankBy === 'quizzes' ? '' : 'btn-secondary'}`} 
           style={{ flex: 1, minHeight: 'var(--btn-min-height)', fontSize: 'var(--font-size-large)', padding: '10px' }}
           onClick={() => setRankBy('quizzes')}
         >
-          Rank by Quizzes
+          {ui.rankQuizzes}
         </button>
       </div>
 
       {/* LEADERBOARD SECTION */}
       <div className="premium-card">
         <h3 style={{ fontSize: 'var(--font-size-large)', marginBottom: '20px', color: 'var(--primary-color)', display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <Trophy size={28} /> Top Agile Thinkers
+          <Trophy size={28} /> {ui.topAgileTitle}
         </h3>
 
         <div className="leaderboard-container">
           {sortedUsers.slice(0, visibleCount).map((user, index) => {
             const rank = index + 1;
-            const isCurrentUser = user.id === currentUser.uid;
+            const isCurrentUser = user.id === currentUser?.uid;
             let rankClass = "rank-badge";
             if (rank === 1) rankClass += " rank-1";
             else if (rank === 2) rankClass += " rank-2";
@@ -150,10 +217,10 @@ export default function SocialHub() {
               <div key={user.id} className={`leaderboard-row ${isCurrentUser ? 'current-user' : ''}`}>
                 <div className={rankClass}>{rankEmoji || rank}</div>
                 <div className="leaderboard-name" style={{ fontSize: 'var(--font-size-base)' }}>
-                  {user.displayName || 'Anonymous Member'} {isCurrentUser && <span style={{ fontSize: '14px', color: 'var(--primary-color)', fontWeight: 'bold' }}>(You)</span>}
+                  {user.displayName || 'Anonymous Member'} {isCurrentUser && <span style={{ fontSize: '14px', color: 'var(--primary-color)', fontWeight: 'bold' }}>({ui.youWord})</span>}
                 </div>
                 <div className="leaderboard-stat">
-                  {rankBy === 'streak' ? `${user.streak || 0} Days` : `${user.scores?.length || 0} Quizzes`}
+                  {rankBy === 'streak' ? `${user.streak || 0} ${ui.daysWord}` : `${user.scores?.length || 0} ${ui.quizzesWord}`}
                 </div>
               </div>
             );
@@ -166,7 +233,7 @@ export default function SocialHub() {
             style={{ marginTop: '15px', width: '100%', minHeight: 'var(--btn-min-height)', fontSize: 'var(--font-size-large)' }} 
             onClick={() => setVisibleCount(prev => prev + 10)}
           >
-            Load More Thinkers
+            {ui.loadMore}
           </button>
         )}
       </div>
@@ -174,10 +241,10 @@ export default function SocialHub() {
       {/* COMMUNITY MILESTONES */}
       <div className="premium-card" style={{ marginTop: '20px' }}>
         <h3 style={{ fontSize: 'var(--font-size-large)', marginBottom: '20px', color: 'var(--primary-color)', display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <Milestone size={28} /> Community Goals
+          <Milestone size={28} /> {ui.goalsTitle}
         </h3>
         <p style={{ fontSize: 'var(--font-size-base)', color: '#555', marginBottom: '20px' }}>
-          Every quiz you complete contributes directly to our community milestones! Work together to reach them.
+          {ui.goalsDesc}
         </p>
 
         {milestones.map((ms, index) => {
@@ -190,7 +257,7 @@ export default function SocialHub() {
                 <div className="milestone-progress-fill" style={{ width: `${progressPercent}%` }} />
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '15px', fontWeight: 'bold', color: '#444' }}>
-                <span>{progressPercent}% Achieved</span>
+                <span>{progressPercent}% {ui.achievedWord}</span>
                 <span>{ms.current} / {ms.goal} {ms.unit}</span>
               </div>
             </div>
@@ -200,7 +267,7 @@ export default function SocialHub() {
 
       <div style={{ marginTop: '20px' }}>
         <button className="btn" style={{ display: 'flex', gap: '10px' }} onClick={() => navigate('/')}>
-          <ArrowLeft size={24} /> Back to Dashboard
+          <ArrowLeft size={24} /> {ui.backDashboard}
         </button>
       </div>
     </div>
