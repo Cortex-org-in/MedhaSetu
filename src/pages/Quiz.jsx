@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { db } from '../firebase';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { useAuth } from '../contexts/AuthContext';
-import { ArrowLeft, CheckCircle, XCircle } from 'lucide-react';
+import { ArrowLeft, CheckCircle, XCircle, Volume2, Mic } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { BADGES, checkForNewBadges } from '../utils/badgeConfig';
 
@@ -27,6 +27,16 @@ export default function Quiz() {
   const [isFinished, setIsFinished] = useState(false);
   const [showBadgeModal, setShowBadgeModal] = useState(false);
   const [unlockedBadges, setUnlockedBadges] = useState([]);
+
+  // Voice Assistant States
+  const [isVoiceMode, setIsVoiceMode] = useState(false);
+  const [isSpeaking, setIsSpeaking] = useState(false);
+  const [isListening, setIsListening] = useState(false);
+  const [transcript, setTranscript] = useState('');
+  const [speechFeedback, setSpeechFeedback] = useState('');
+
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  const [recognitionInstance, setRecognitionInstance] = useState(null);
 
   // Fetch subject questions from Firestore
   useEffect(() => {
@@ -88,6 +98,8 @@ export default function Quiz() {
   const handleNextQuestion = () => {
     setSelectedAnswer(null);
     setIsCorrectAnswer(false);
+    setTranscript('');
+    setSpeechFeedback('');
  
     if (currentQuestionIndex + 1 < TOTAL_QUESTIONS) {
       setCurrentQuestionIndex(prev => prev + 1);
@@ -164,6 +176,209 @@ export default function Quiz() {
       console.error("Error saving progress:", err);
     }
   };
+
+  // Helper to speak text
+  const speakText = (text, onEndCallback) => {
+    if (!window.speechSynthesis) return;
+    window.speechSynthesis.cancel(); // Stop current speech
+    
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'en-US';
+    utterance.rate = 0.92; // Slightly slower for seniors
+    
+    utterance.onstart = () => setIsSpeaking(true);
+    utterance.onend = () => {
+      setIsSpeaking(false);
+      if (onEndCallback) onEndCallback();
+    };
+    utterance.onerror = () => {
+      setIsSpeaking(false);
+      if (onEndCallback) onEndCallback();
+    };
+    
+    window.speechSynthesis.speak(utterance);
+  };
+
+  const cancelSpeech = () => {
+    if (window.speechSynthesis) {
+      window.speechSynthesis.cancel();
+    }
+    setIsSpeaking(false);
+  };
+
+  // Start microphone listening
+  const startListening = () => {
+    if (recognitionInstance) {
+      try {
+        recognitionInstance.start();
+      } catch (e) {
+        console.error("Start listening error:", e);
+      }
+    }
+  };
+
+  const stopListening = () => {
+    if (recognitionInstance) {
+      try {
+        recognitionInstance.stop();
+      } catch (e) {
+        console.error("Stop listening error:", e);
+      }
+    }
+  };
+
+  const toggleListening = () => {
+    if (isListening) {
+      stopListening();
+    } else {
+      cancelSpeech();
+      startListening();
+    }
+  };
+
+  // Read current question and options
+  const readQuestionAloud = () => {
+    if (selectedQuestions.length === 0) return;
+    const currentQ = selectedQuestions[currentQuestionIndex];
+    if (!currentQ) return;
+    
+    const textToSpeak = `Question. ${currentQ.question}. Option 1. ${currentQ.options[0]}. Option 2. ${currentQ.options[1]}. Option 3. ${currentQ.options[2]}. Option 4. ${currentQ.options[3]}.`;
+    speakText(textToSpeak, () => {
+      if (isVoiceMode && selectedAnswer === null) {
+        startListening();
+      }
+    });
+  };
+
+  // Trigger voice mode welcome intro
+  const triggerVoiceIntro = () => {
+    const intro = "Voice Assistant mode enabled. I will read each question and listen for your answer. You can say option 1, option 2, or say the answer itself.";
+    speakText(intro, () => {
+      readQuestionAloud();
+    });
+  };
+
+  // Match voice input against options
+  const handleVoiceCommand = (command) => {
+    if (selectedQuestions.length === 0) return;
+    const currentQ = selectedQuestions[currentQuestionIndex];
+    if (!currentQ) return;
+
+    // 1. If waiting for Next Question
+    if (selectedAnswer !== null) {
+      if (command.includes('next') || command.includes('continue') || command.includes('go') || command.includes('proceed')) {
+        setSpeechFeedback("Advancing to next question...");
+        setTimeout(() => {
+          handleNextQuestion();
+        }, 1000);
+      }
+      return;
+    }
+
+    // 2. Otherwise match command to options
+    let matchedOption = null;
+
+    // Check numerical option tags
+    if (command.includes('one') || command.includes('1') || command.includes('first')) {
+      matchedOption = currentQ.options[0];
+    } else if (command.includes('two') || command.includes('2') || command.includes('second') || command.includes('to')) {
+      matchedOption = currentQ.options[1];
+    } else if (command.includes('three') || command.includes('3') || command.includes('third')) {
+      matchedOption = currentQ.options[2];
+    } else if (command.includes('four') || command.includes('4') || command.includes('fourth') || command.includes('for')) {
+      matchedOption = currentQ.options[3];
+    }
+
+    // Direct fuzzy string match of the options text
+    if (!matchedOption) {
+      for (const option of currentQ.options) {
+        const cleanOpt = option.toLowerCase().trim();
+        if (command.includes(cleanOpt) || cleanOpt.includes(command)) {
+          matchedOption = option;
+          break;
+        }
+      }
+    }
+
+    if (matchedOption) {
+      setSpeechFeedback(`Matched option: "${matchedOption}"`);
+      handleAnswerSubmit(matchedOption);
+      
+      // Auto speak result feedback
+      const isCorrect = matchedOption === currentQ.correct_answer;
+      const feedbackSpeech = isCorrect 
+        ? "Correct answer! Say next to continue." 
+        : `Incorrect. The correct answer is ${currentQ.correct_answer}. Say next to continue.`;
+        
+      setTimeout(() => {
+        speakText(feedbackSpeech, () => {
+          if (isVoiceMode) {
+            startListening();
+          }
+        });
+      }, 500);
+    } else {
+      setSpeechFeedback("Could not match command. Please try again.");
+      if (isVoiceMode) {
+        setTimeout(() => {
+          startListening();
+        }, 1500);
+      }
+    }
+  };
+
+  // Setup Speech Recognition Instance
+  useEffect(() => {
+    if (SpeechRecognition) {
+      const rec = new SpeechRecognition();
+      rec.continuous = false;
+      rec.interimResults = true;
+      rec.lang = 'en-US';
+      
+      rec.onstart = () => {
+        setIsListening(true);
+        setSpeechFeedback('');
+      };
+      
+      rec.onend = () => {
+        setIsListening(false);
+      };
+      
+      rec.onresult = (event) => {
+        const resultIndex = event.resultIndex;
+        const transcriptText = event.results[resultIndex][0].transcript.toLowerCase().trim();
+        setTranscript(transcriptText);
+        
+        if (event.results[resultIndex].isFinal) {
+          handleVoiceCommand(transcriptText);
+        }
+      };
+      
+      rec.onerror = (event) => {
+        console.error("Speech recognition error:", event.error);
+        setIsListening(false);
+      };
+      
+      setRecognitionInstance(rec);
+    }
+
+    return () => {
+      if (window.speechSynthesis) window.speechSynthesis.cancel();
+    };
+  }, [currentQuestionIndex, selectedQuestions, selectedAnswer]);
+
+  // Auto trigger speech on new question load under Auto Voice Mode
+  useEffect(() => {
+    if (isVoiceMode && selectedQuestions.length > 0 && !loading && !isFinished) {
+      setTranscript('');
+      setSpeechFeedback('');
+      // Delay slightly for screen transition
+      const timer = setTimeout(() => {
+        readQuestionAloud();
+      }, 800);
+      return () => clearTimeout(timer);
+    }
+  }, [currentQuestionIndex, isVoiceMode, loading, isFinished]);
 
   if (loading) {
     return (
@@ -258,6 +473,103 @@ export default function Quiz() {
 
       <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '20px', fontSize: 'var(--font-size-base)', fontWeight: '500', color: '#666' }}>
         <span>Question {currentQuestionIndex + 1} of {TOTAL_QUESTIONS}</span>
+      </div>
+
+      {/* Voice Assistant Panel */}
+      <div 
+        className="premium-card slide-up" 
+        style={{ 
+          display: 'flex', 
+          flexDirection: 'column', 
+          gap: '12px', 
+          padding: '16px', 
+          marginBottom: '20px', 
+          borderRadius: '16px',
+          border: '1px solid var(--border-color)',
+          backgroundColor: '#fafbfc'
+        }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '10px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <span style={{ fontSize: '15px', fontWeight: 'bold', color: 'var(--primary-color)' }}>
+              🎙️ Voice Assistant
+            </span>
+          </div>
+          <div style={{ display: 'flex', gap: '10px' }}>
+            <button 
+              className={`btn ${isVoiceMode ? '' : 'btn-secondary'}`}
+              style={{ padding: '6px 12px', fontSize: '14px', minHeight: 'auto', margin: 0 }}
+              onClick={() => {
+                const nextMode = !isVoiceMode;
+                setIsVoiceMode(nextMode);
+                if (nextMode) {
+                  triggerVoiceIntro();
+                } else {
+                  cancelSpeech();
+                  stopListening();
+                }
+              }}
+            >
+              {isVoiceMode ? 'Auto Mode: ON' : 'Turn Auto Mode ON'}
+            </button>
+            <button 
+              className="btn btn-secondary"
+              style={{ padding: '6px 12px', fontSize: '14px', minHeight: 'auto', display: 'flex', alignItems: 'center', gap: '6px', margin: 0 }}
+              onClick={readQuestionAloud}
+              disabled={isSpeaking}
+            >
+              <Volume2 size={16} /> Read Aloud
+            </button>
+            {SpeechRecognition && (
+              <button 
+                className={`btn ${isListening ? 'btn-error' : 'btn-secondary'}`}
+                style={{ padding: '6px 12px', fontSize: '14px', minHeight: 'auto', display: 'flex', alignItems: 'center', gap: '6px', margin: 0 }}
+                onClick={toggleListening}
+              >
+                <Mic size={16} className={isListening ? 'pulse-animation' : ''} />
+                {isListening ? 'Listening...' : 'Speak Answer'}
+              </button>
+            )}
+          </div>
+        </div>
+
+        {/* Live Transcript / Feedback Indicator */}
+        {(isListening || speechFeedback || transcript) && (
+          <div 
+            style={{ 
+              fontSize: '14px', 
+              padding: '10px 14px', 
+              backgroundColor: '#fff', 
+              borderRadius: '8px', 
+              border: '1px dashed #ccc',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '4px'
+            }}
+          >
+            {isListening && (
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#666' }}>
+                <span className="live-pulse" style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#d9534f', display: 'inline-block' }} />
+                <span>Hearing: <strong style={{ color: 'var(--text-color)' }}>{transcript || 'Say your answer...'}</strong></span>
+              </div>
+            )}
+            {speechFeedback && (
+              <div style={{ color: 'var(--primary-color)', fontWeight: '500' }}>
+                ✨ {speechFeedback}
+              </div>
+            )}
+            {!isListening && !speechFeedback && selectedAnswer === null && (
+              <div style={{ fontSize: '13px', color: '#777' }}>
+                💡 Tip: Say the option text (e.g. <strong>"{currentQ.options[0]}"</strong>) or simply say <strong>"Option One"</strong>
+              </div>
+            )}
+            {!isListening && !speechFeedback && selectedAnswer !== null && (
+              <div style={{ fontSize: '13px', color: '#777' }}>
+                💡 Tip: Say <strong>"Next"</strong> to proceed.
+              </div>
+            )}
+          </div>
+        )}
       </div>
       
       <div key={currentQuestionIndex} className="slide-up">
