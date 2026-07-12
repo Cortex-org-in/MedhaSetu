@@ -56,6 +56,17 @@ Engage in 10-question daily quizzes covering diverse cognitive domains:
 * **Registration Validation**: Automatically dispatches a verification link on signup.
 * **Navigation Interceptors**: Redirects unverified accounts to `/verify-email` with an info block prompting users to check their Spam/All Mail folders.
 
+### 7. Multi-language Translation System
+* **6 Supported Languages**: Fully supports English, Hindi (हिंदी), Bengali (বাংলা), Marathi (मराठी), Telugu (తెలుగు), and Tamil (தமிழ்).
+* **On-the-Fly Dynamic Translation**: Translates UI labels, category titles, badges, and quiz questions/options dynamically using a cached keyless Google Translate API.
+* **Synchronized State**: Selected language is persisted in `localStorage` and synchronized with the user's Firestore profile so preferences carry over across sessions and devices.
+* **Promise-Driven Mascot Loading**: Switching languages triggers a page-level loading state showing the animated Mascot in its "cognitive processing" state, revealing the page only when translations are fully complete.
+
+### 8. Premium Voice Companion & Phonetic Fallback
+* **Interactive Controls**: Users can click "Read Aloud" to hear questions and options, and click "Speak Answer" to submit answers using their voice.
+* **Option Number Enforcement**: Voice commands are mapped to option numbers (e.g. saying "one", "two" or local equivalents like "एक", "दो") rather than full option texts, complete with warning tips.
+* **Phonetic Transliteration Fallback**: If a device lacks localized voice packs (e.g. Bengali, Tamil, Telugu), the app fetches Romanized transliterations (e.g. `"kono rakter group..."`) and reads them using the default English voice engine (`en-US`), making the voice speak the target language phonetically instead of reading English text.
+
 ---
 
 ## 📱 Mobile-Native Responsive Design
