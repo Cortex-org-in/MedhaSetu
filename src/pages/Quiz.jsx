@@ -260,7 +260,8 @@ export default function Quiz() {
   }, []);
 
   // Helper to speak text
-  const speakText = (text, onEndCallback) => {
+  // Helper to speak text
+  const speakText = (text, onEndCallback, forceEnglish = false) => {
     if (!window.speechSynthesis) return;
     window.speechSynthesis.cancel(); // Stop current speech
     
@@ -275,7 +276,8 @@ export default function Quiz() {
       te: 'te-IN',
       ta: 'ta-IN'
     };
-    const targetLangCode = langMap[language] || 'en-US';
+    const targetLangPrefix = forceEnglish ? 'en' : (language || 'en');
+    const targetLangCode = forceEnglish ? 'en-US' : (langMap[targetLangPrefix] || 'en-US');
     utterance.lang = targetLangCode;
     utterance.rate = 0.92; // Slightly slower for seniors
 
@@ -292,7 +294,6 @@ export default function Quiz() {
       ta: ['pallavi', 'valluvar', 'google தமிழ்', 'google tamil', 'tamil', 'ta-in']
     };
 
-    const targetLangPrefix = language || 'en';
     const langVoices = voices.filter(v => v.lang.toLowerCase().startsWith(targetLangPrefix));
     
     let selectedVoice = null;
@@ -364,7 +365,8 @@ export default function Quiz() {
   // Read current question and options
   const readQuestionAloud = () => {
     const currentQ = currentTranslatedQ || selectedQuestions[currentQuestionIndex];
-    if (!currentQ) return;
+    const englishQ = selectedQuestions[currentQuestionIndex];
+    if (!currentQ || !englishQ) return;
     
     // Toggle play/stop behavior
     if (isSpeaking) {
@@ -372,8 +374,17 @@ export default function Quiz() {
       return;
     }
 
-    const textToSpeak = `${t.questionWord || 'Question'}. ${currentQ.question}. ${t.optionWord || 'Option'} 1. ${currentQ.options[0]}. ${t.optionWord || 'Option'} 2. ${currentQ.options[1]}. ${t.optionWord || 'Option'} 3. ${currentQ.options[2]}. ${t.optionWord || 'Option'} 4. ${currentQ.options[3]}.`;
-    speakText(textToSpeak);
+    const voices = window.speechSynthesis.getVoices();
+    const targetLangPrefix = language || 'en';
+    const hasVoice = voices.some(v => v.lang.toLowerCase().startsWith(targetLangPrefix));
+
+    if (hasVoice || targetLangPrefix === 'en') {
+      const textToSpeak = `${t.questionWord || 'Question'}. ${currentQ.question}. ${t.optionWord || 'Option'} 1. ${currentQ.options[0]}. ${t.optionWord || 'Option'} 2. ${currentQ.options[1]}. ${t.optionWord || 'Option'} 3. ${currentQ.options[2]}. ${t.optionWord || 'Option'} 4. ${currentQ.options[3]}.`;
+      speakText(textToSpeak, null, false);
+    } else {
+      const textToSpeak = `Question. ${englishQ.question}. Option 1. ${englishQ.options[0]}. Option 2. ${englishQ.options[1]}. Option 3. ${englishQ.options[2]}. Option 4. ${englishQ.options[3]}.`;
+      speakText(textToSpeak, null, true);
+    }
   };
 
   // Match voice input against options
@@ -412,10 +423,23 @@ export default function Quiz() {
       handleAnswerSubmit(matchedOption);
       
       const isCorrect = matchedOption === currentQ.correct_answer;
-      // Fetch translations dynamically for correctly/incorrectly spoken announcements
-      const feedbackText = isCorrect ? t.correct : `${t.incorrect} ${currentQ.correct_answer}`;
+      
+      const voices = window.speechSynthesis.getVoices();
+      const targetLangPrefix = language || 'en';
+      const hasVoice = voices.some(v => v.lang.toLowerCase().startsWith(targetLangPrefix));
+
+      let feedbackText = "";
+      let forceEng = false;
+      if (hasVoice || targetLangPrefix === 'en') {
+        feedbackText = isCorrect ? t.correct : `${t.incorrect} ${currentQ.correct_answer}`;
+      } else {
+        const correctEngAns = selectedQuestions[currentQuestionIndex].correct_answer;
+        feedbackText = isCorrect ? "Correct answer!" : `Incorrect. The correct answer is ${correctEngAns}`;
+        forceEng = true;
+      }
+
       setTimeout(() => {
-        speakText(feedbackText);
+        speakText(feedbackText, null, forceEng);
       }, 300);
     } else {
       setSpeechFeedback("Could not match command. Please say the option number clearly.");
@@ -472,7 +496,7 @@ export default function Quiz() {
     };
   }, [currentQuestionIndex, selectedQuestions, selectedAnswer, language]);
 
-  if (loading) {
+  if (loading || translatingQ) {
     return (
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '300px', width: '100%' }}>
         <Mascot state="loading" width="240" height="240" />

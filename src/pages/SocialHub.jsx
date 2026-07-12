@@ -11,6 +11,7 @@ export default function SocialHub() {
   const { currentUser, language } = useAuth();
   const [usersList, setUsersList] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [translating, setTranslating] = useState(false);
   const [rankBy, setRankBy] = useState('streak'); // 'streak' or 'quizzes'
   const [visibleCount, setVisibleCount] = useState(10);
   const navigate = useNavigate();
@@ -64,6 +65,7 @@ export default function SocialHub() {
   // Fetch translations dynamically
   useEffect(() => {
     async function loadTranslations() {
+      setTranslating(true);
       const defaultUI = {
         title: 'Community Circle',
         subtitle: 'Learn, share, and achieve milestones together with your peers.',
@@ -88,6 +90,7 @@ export default function SocialHub() {
 
       if (!language || language === 'en') {
         setUi(defaultUI);
+        setTranslating(false);
         return;
       }
 
@@ -99,12 +102,16 @@ export default function SocialHub() {
         setUi(trans);
       } catch (err) {
         console.error("Failed to load social translations:", err);
+      } finally {
+        setTimeout(() => {
+          setTranslating(false);
+        }, 600);
       }
     }
     loadTranslations();
   }, [language]);
 
-  if (loading) {
+  if (loading || translating) {
     return (
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '300px', width: '100%' }}>
         <Mascot state="loading" width="240" height="240" />

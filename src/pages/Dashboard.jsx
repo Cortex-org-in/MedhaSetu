@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import { PlayCircle, User, LogOut, Database, Users } from 'lucide-react';
+import { PlayCircle, User, Database, Users } from 'lucide-react';
 import { db } from '../firebase';
 import { doc, setDoc } from 'firebase/firestore';
 import Mascot from '../components/Mascot';
@@ -10,6 +10,7 @@ import { translateText } from '../utils/translationService';
 export default function Dashboard() {
   const { currentUser, userData, logout, language } = useAuth();
   const [showStreakModal, setShowStreakModal] = useState(false);
+  const [translating, setTranslating] = useState(false);
   const navigate = useNavigate();
 
   const isAdmin = currentUser && currentUser.email === 'seniorsetu07@gmail.com';
@@ -76,6 +77,7 @@ export default function Dashboard() {
   // Load translations dynamically
   useEffect(() => {
     async function loadTranslations() {
+      setTranslating(true);
       const welcome = `Welcome, ${currentUser?.displayName || 'Friend'}!`;
       const activeStreak = `${streak} Days Active!`;
       
@@ -100,6 +102,7 @@ export default function Dashboard() {
 
       if (!language || language === 'en') {
         setUi(defaultUI);
+        setTranslating(false);
         return;
       }
 
@@ -111,6 +114,10 @@ export default function Dashboard() {
         setUi(trans);
       } catch (err) {
         console.error("Failed to load dashboard translations:", err);
+      } finally {
+        setTimeout(() => {
+          setTranslating(false);
+        }, 600);
       }
     }
     loadTranslations();
@@ -125,6 +132,14 @@ export default function Dashboard() {
       console.error("Error resetting streak alert flag:", err);
     }
   };
+
+  if (translating) {
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '300px', width: '100%' }}>
+        <Mascot state="loading" width="240" height="240" />
+      </div>
+    );
+  }
 
   return (
     <div style={{ padding: 'var(--spacing-medium)' }} className="slide-up">

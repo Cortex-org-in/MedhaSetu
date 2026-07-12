@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { 
@@ -7,7 +7,6 @@ import {
   Award, 
   BookOpen, 
   Brain, 
-  FileText,
   Palette,
   Calculator,
   Globe,
@@ -18,16 +17,146 @@ import {
   SpellCheck
 } from 'lucide-react';
 import { BADGES } from '../utils/badgeConfig';
-
 import Mascot from '../components/Mascot';
+import { translateText } from '../utils/translationService';
 
 export default function Profile() {
-  const { currentUser, userData } = useAuth();
+  const { currentUser, userData, language } = useAuth();
   const [showAllLogs, setShowAllLogs] = useState(false);
   const [activeBadgeTab, setActiveBadgeTab] = useState('earned');
+  const [translating, setTranslating] = useState(false);
   const navigate = useNavigate();
 
-  if (!userData) {
+  // Localized UI state
+  const [ui, setUi] = useState({
+    title: "Personal Brain Health Progress",
+    subtitle: "Visualize your mental agility training achievements.",
+    habitStreak: "Training Streak",
+    totalExercises: "Quizzes Completed",
+    overallAccuracy: "Overall Accuracy",
+    trendTitle: "Training Trend (Last 10 Sessions)",
+    trendDesc: "Track your mental agility progress over time. Keep training to see your scores rise!",
+    noQuizzesTrend: "No quizzes taken yet. Complete your first training to see your trend!",
+    accuracyBreakdown: "Subject Accuracy Breakdown",
+    notTaken: "Not Taken",
+    badgesTitle: "Brain Training Badges",
+    badgesSubtitle: "Earn badges by completing challenges and staying consistent!",
+    earnedTab: "Earned",
+    availableTab: "Available",
+    noBadgesEarned: "No badges earned yet. Complete quizzes to unlock your first badge!",
+    allBadgesUnlocked: "You've unlocked all available badges! Fantastic job!",
+    recentLogsTitle: "Recent Training Logs",
+    colCategory: "Category",
+    colScore: "Score",
+    colDate: "Date",
+    hideLogs: "Hide Extra Logs",
+    showLogs: "Show All Logs",
+    backDashboard: "Back to Dashboard",
+    takenWord: "taken",
+    daysWord: "Days",
+    noLogsText: "No quizzes taken yet. Start a quiz to see your progress logs!"
+  });
+
+  const [translatedBadges, setTranslatedBadges] = useState(BADGES);
+  const [translatedCategories, setTranslatedCategories] = useState({});
+
+  const categoryDataList = [
+    { id: 'Arts', name: 'Arts', icon: Palette, color: '#ec4899' },
+    { id: 'Mathematics', name: 'Mathematics', icon: Calculator, color: '#3b82f6' },
+    { id: 'General Knowledge', name: 'General Knowledge', icon: Globe, color: '#10b981' },
+    { id: 'Indian History & Geography', name: 'Indian History & Geo', icon: MapPin, color: '#f59e0b' },
+    { id: 'Science', name: 'Science', icon: Atom, color: '#6366f1' },
+    { id: 'Logical Reasoning & Patterns', name: 'Logical Reasoning', icon: Brain, color: '#eab308' },
+    { id: 'Economics & Financial Literacy', name: 'Economics & Finance', icon: Coins, color: '#14b8a6' },
+    { id: 'Indian Literature & Classics', name: 'Literature & Classics', icon: BookOpen, color: '#8b5cf6' },
+    { id: 'Cinema, Music & Retro Nostalgia', name: 'Cinema & Nostalgia', icon: Film, color: '#f97316' },
+    { id: 'Word Power & Language Puzzles', name: 'Word Power Puzzles', icon: SpellCheck, color: '#06b6d4' }
+  ];
+
+  useEffect(() => {
+    async function loadTranslations() {
+      setTranslating(true);
+      const defaultUI = {
+        title: "Personal Brain Health Progress",
+        subtitle: "Visualize your mental agility training achievements.",
+        habitStreak: "Training Streak",
+        totalExercises: "Quizzes Completed",
+        overallAccuracy: "Overall Accuracy",
+        trendTitle: "Training Trend (Last 10 Sessions)",
+        trendDesc: "Track your mental agility progress over time. Keep training to see your scores rise!",
+        noQuizzesTrend: "No quizzes taken yet. Complete your first training to see your trend!",
+        accuracyBreakdown: "Subject Accuracy Breakdown",
+        notTaken: "Not Taken",
+        badgesTitle: "Brain Training Badges",
+        badgesSubtitle: "Earn badges by completing challenges and staying consistent!",
+        earnedTab: "Earned",
+        availableTab: "Available",
+        noBadgesEarned: "No badges earned yet. Complete quizzes to unlock your first badge!",
+        allBadgesUnlocked: "You've unlocked all available badges! Fantastic job!",
+        recentLogsTitle: "Recent Training Logs",
+        colCategory: "Category",
+        colScore: "Score",
+        colDate: "Date",
+        hideLogs: "Hide Extra Logs",
+        showLogs: "Show All Logs",
+        backDashboard: "Back to Dashboard",
+        takenWord: "taken",
+        daysWord: "Days",
+        noLogsText: "No quizzes taken yet. Start a quiz to see your progress logs!"
+      };
+
+      if (!language || language === 'en') {
+        setUi(defaultUI);
+        setTranslatedBadges(BADGES);
+        const cats = {};
+        categoryDataList.forEach(c => { cats[c.id] = c.name; });
+        setTranslatedCategories(cats);
+        setTranslating(false);
+        return;
+      }
+
+      try {
+        // Translate UI labels in parallel
+        const uiPromises = Object.entries(defaultUI).map(async ([key, value]) => {
+          const transVal = await translateText(value, language);
+          return [key, transVal];
+        });
+        const uiEntries = await Promise.all(uiPromises);
+        const trans = Object.fromEntries(uiEntries);
+        setUi(trans);
+
+        // Translate categories in parallel
+        const catPromises = categoryDataList.map(async (c) => {
+          const transName = await translateText(c.name, language);
+          return { id: c.id, name: transName };
+        });
+        const transCatsArray = await Promise.all(catPromises);
+        const cats = {};
+        transCatsArray.forEach(item => {
+          cats[item.id] = item.name;
+        });
+        setTranslatedCategories(cats);
+
+        // Translate badges in parallel
+        const badgePromises = BADGES.map(async (b) => {
+          const transName = await translateText(b.name, language);
+          const transDesc = await translateText(b.desc, language);
+          return { ...b, name: transName, desc: transDesc };
+        });
+        const transBadges = await Promise.all(badgePromises);
+        setTranslatedBadges(transBadges);
+      } catch (err) {
+        console.error("Failed to load profile translations:", err);
+      } finally {
+        setTimeout(() => {
+          setTranslating(false);
+        }, 600);
+      }
+    }
+    loadTranslations();
+  }, [language]);
+
+  if (!userData || translating) {
     return (
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '300px', width: '100%' }}>
         <Mascot state="loading" width="240" height="240" />
@@ -51,20 +180,6 @@ export default function Profile() {
     categoryTotal[cat] = (categoryTotal[cat] || 0) + s.total;
   });
 
-  // Subjects lists mapped to their icons and colors (matching exact Firestore category keys)
-  const categoryDataList = [
-    { id: 'Arts', name: 'Arts', icon: Palette, color: '#ec4899' },
-    { id: 'Mathematics', name: 'Mathematics', icon: Calculator, color: '#3b82f6' },
-    { id: 'General Knowledge', name: 'General Knowledge', icon: Globe, color: '#10b981' },
-    { id: 'Indian History & Geography', name: 'Indian History & Geo', icon: MapPin, color: '#f59e0b' },
-    { id: 'Science', name: 'Science', icon: Atom, color: '#6366f1' },
-    { id: 'Logical Reasoning & Patterns', name: 'Logical Reasoning', icon: Brain, color: '#eab308' },
-    { id: 'Economics & Financial Literacy', name: 'Economics & Finance', icon: Coins, color: '#14b8a6' },
-    { id: 'Indian Literature & Classics', name: 'Literature & Classics', icon: BookOpen, color: '#8b5cf6' },
-    { id: 'Cinema, Music & Retro Nostalgia', name: 'Cinema & Nostalgia', icon: Film, color: '#f97316' },
-    { id: 'Word Power & Language Puzzles', name: 'Word Power Puzzles', icon: SpellCheck, color: '#06b6d4' }
-  ];
-
   const categoryStats = categoryDataList.map(cat => {
     const count = categoryCount[cat.id] || 0;
     const correct = categoryCorrect[cat.id] || 0;
@@ -84,8 +199,8 @@ export default function Profile() {
 
   // Filter earned and locked badges
   const earnedBadgeIds = new Set(badges);
-  const earnedBadges = BADGES.filter(b => earnedBadgeIds.has(b.id));
-  const lockedBadges = BADGES.filter(b => !earnedBadgeIds.has(b.id));
+  const earnedBadges = translatedBadges.filter(b => earnedBadgeIds.has(b.id));
+  const lockedBadges = translatedBadges.filter(b => !earnedBadgeIds.has(b.id));
 
   // Circular Chart stats calculation
   const strokeDashArray = `${overallAccuracy} 100`;
@@ -105,7 +220,6 @@ export default function Profile() {
 
     if (last10.length === 0) return null;
 
-    // Map percentage values
     const points = last10.map((entry, idx) => {
       const x = paddingLeft + (idx / Math.max(1, last10.length - 1)) * chartWidth;
       const pct = entry.total > 0 ? entry.score / entry.total : 0;
@@ -154,7 +268,7 @@ export default function Profile() {
                 stroke="#fff"
                 strokeWidth="2"
               />
-              <title>{`${p.category}: ${p.score}/${p.total}`}</title>
+              <title>{`${translatedCategories[p.category] || p.category}: ${p.score}/${p.total}`}</title>
               <text 
                 x={p.x} 
                 y={p.y - 12} 
@@ -184,10 +298,10 @@ export default function Profile() {
   return (
     <div style={{ padding: 'var(--spacing-medium)' }} className="slide-up">
       <h2 style={{ textAlign: 'center', fontSize: 'var(--font-size-xlarge)', marginBottom: '10px', color: 'var(--primary-color)' }}>
-        My Progress Dashboard
+        {ui.title}
       </h2>
       <p style={{ textAlign: 'center', color: '#666', fontSize: 'var(--font-size-base)', marginBottom: '30px' }}>
-        Visualize your mental agility training achievements.
+        {ui.subtitle}
       </p>
 
       {/* Profile Info Header */}
@@ -197,13 +311,13 @@ export default function Profile() {
             <Mascot state="idle" width="80" height="65" />
           </div>
           <div>
-            <h3 style={{ fontSize: 'var(--font-size-large)', color: 'var(--text-color)' }}>{currentUser.displayName || 'Agile Thinker'}</h3>
-            <p style={{ fontSize: 'var(--font-size-base)', color: '#777' }}>{currentUser.email}</p>
+            <h3 style={{ fontSize: 'var(--font-size-large)', color: 'var(--text-color)' }}>{currentUser?.displayName || 'Agile Thinker'}</h3>
+            <p style={{ fontSize: 'var(--font-size-base)', color: '#777' }}>{currentUser?.email}</p>
           </div>
         </div>
         <div style={{ padding: '12px 24px', backgroundColor: '#f0fdf4', border: '2px solid #5cb85c', borderRadius: '12px' }}>
           <span className="streak-text" style={{ fontSize: 'var(--font-size-base)' }}>
-            🏆 Training Streak: <strong>{streak} Days</strong>
+            🏆 {ui.habitStreak}: <strong>{streak} {ui.daysWord}</strong>
           </span>
         </div>
       </div>
@@ -213,11 +327,10 @@ export default function Profile() {
         <div className="dashboard-stat-card slide-up delay-1">
           <ClipboardList size={36} style={{ color: 'var(--primary-color)', marginBottom: '10px' }} />
           <div className="stat-value">{totalQuizzes}</div>
-          <div className="stat-label">Quizzes Completed</div>
+          <div className="stat-label">{ui.totalExercises}</div>
         </div>
 
         <div className="dashboard-stat-card slide-up delay-2">
-          {/* Circular SVG Chart */}
           <svg viewBox="0 0 36 36" className="circular-chart" style={{ width: '70px', height: '70px', margin: '0 auto 10px' }}>
             <path className="circle-bg"
               d="M18 2.0845
@@ -234,23 +347,23 @@ export default function Profile() {
               {overallAccuracy}%
             </text>
           </svg>
-          <div className="stat-label">Overall Accuracy</div>
+          <div className="stat-label">{ui.overallAccuracy}</div>
         </div>
       </div>
 
       {/* Score History Trend Chart */}
       <div className="premium-card slide-up delay-2">
         <h3 style={{ fontSize: 'var(--font-size-large)', marginBottom: '15px', color: 'var(--primary-color)' }}>
-          📈 Training Trend (Last 10 Sessions)
+          {ui.trendTitle}
         </h3>
         <p style={{ fontSize: 'var(--font-size-base)', color: '#666', marginBottom: '20px' }}>
-          Track your mental agility progress over time. Keep training to see your scores rise!
+          {ui.trendDesc}
         </p>
         {scores.length > 0 ? (
           renderSVGChart(scores)
         ) : (
           <p style={{ fontSize: 'var(--font-size-base)', color: '#666', textAlign: 'center', padding: '20px 0' }}>
-            No quizzes taken yet. Complete your first training to see your trend!
+            {ui.noQuizzesTrend}
           </p>
         )}
       </div>
@@ -258,7 +371,7 @@ export default function Profile() {
       {/* Category Performance Section */}
       <div className="premium-card slide-up delay-3">
         <h3 style={{ fontSize: 'var(--font-size-large)', marginBottom: '20px', color: 'var(--primary-color)', display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <Award size={28} /> Subject Accuracy Breakdown
+          <Award size={28} /> {ui.accuracyBreakdown}
         </h3>
 
         <div className="category-progress-container">
@@ -269,10 +382,10 @@ export default function Profile() {
                 <div className="category-progress-info">
                   <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                     <IconComponent size={20} style={{ color: cat.color }} />
-                    {cat.name}
+                    {translatedCategories[cat.id] || cat.name}
                   </span>
                   <span style={{ fontWeight: 'bold' }}>
-                    {cat.accuracy !== null ? `${cat.accuracy}% (${cat.quizzesTaken} taken)` : 'Not Taken'}
+                    {cat.accuracy !== null ? `${cat.accuracy}% (${cat.quizzesTaken} ${ui.takenWord})` : ui.notTaken}
                   </span>
                 </div>
                 <div className="progress-track" style={{ backgroundColor: '#eaeaea' }}>
@@ -293,10 +406,10 @@ export default function Profile() {
       {/* Badges Section */}
       <div className="premium-card slide-up delay-4">
         <h3 style={{ fontSize: 'var(--font-size-large)', marginBottom: '15px', color: 'var(--primary-color)' }}>
-          🎖️ Brain Training Badges
+          🎖️ {ui.badgesTitle}
         </h3>
         <p style={{ fontSize: 'var(--font-size-base)', color: '#666', marginBottom: '20px' }}>
-          Earn badges by completing challenges and staying consistent!
+          {ui.badgesSubtitle}
         </p>
 
         {/* Tab Selection */}
@@ -306,14 +419,14 @@ export default function Profile() {
             onClick={() => setActiveBadgeTab('earned')}
             style={{ fontSize: 'var(--font-size-base)', padding: '12px' }}
           >
-            Earned ({earnedBadges.length})
+            {ui.earnedTab} ({earnedBadges.length})
           </button>
           <button 
             className={`badge-tab-btn ${activeBadgeTab === 'available' ? 'active' : ''}`}
             onClick={() => setActiveBadgeTab('available')}
             style={{ fontSize: 'var(--font-size-base)', padding: '12px' }}
           >
-            Available ({lockedBadges.length})
+            {ui.availableTab} ({lockedBadges.length})
           </button>
         </div>
 
@@ -330,7 +443,7 @@ export default function Profile() {
             </div>
           ) : (
             <p style={{ fontSize: 'var(--font-size-base)', color: '#666', textAlign: 'center', padding: '25px 0' }}>
-              No badges earned yet. Complete quizzes to unlock your first badge!
+              {ui.noBadgesEarned}
             </p>
           )
         ) : (
@@ -346,7 +459,7 @@ export default function Profile() {
             </div>
           ) : (
             <p style={{ fontSize: 'var(--font-size-base)', color: '#666', textAlign: 'center', padding: '25px 0' }}>
-              🎉 You've unlocked all available badges! Fantastic job!
+              {ui.allBadgesUnlocked}
             </p>
           )
         )}
@@ -354,7 +467,7 @@ export default function Profile() {
 
       {/* Recent Scores Table */}
       <div className="premium-card slide-up delay-4" style={{ marginBottom: '40px' }}>
-        <h3 style={{ fontSize: 'var(--font-size-large)', marginBottom: '20px', color: 'var(--primary-color)' }}>Recent Training Logs</h3>
+        <h3 style={{ fontSize: 'var(--font-size-large)', marginBottom: '20px', color: 'var(--primary-color)' }}>{ui.recentLogsTitle}</h3>
         
         {scores.length > 0 ? (
           <>
@@ -362,9 +475,9 @@ export default function Profile() {
               <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 'var(--font-size-base)', textAlign: 'left' }}>
                 <thead>
                   <tr style={{ borderBottom: '2px solid var(--secondary-color)', color: '#555' }}>
-                    <th style={{ padding: '12px 10px' }}>Category</th>
-                    <th style={{ padding: '12px 10px' }}>Score</th>
-                    <th style={{ padding: '12px 10px', textAlign: 'right' }}>Date</th>
+                    <th style={{ padding: '12px 10px' }}>{ui.colCategory}</th>
+                    <th style={{ padding: '12px 10px' }}>{ui.colScore}</th>
+                    <th style={{ padding: '12px 10px', textAlign: 'right' }}>{ui.colDate}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -373,7 +486,7 @@ export default function Profile() {
                     .slice(0, showAllLogs ? scores.length : 5)
                     .map((scoreEntry, index) => (
                       <tr key={index} style={{ borderBottom: '1px solid #eaeaea', animation: 'fadeIn 0.5s ease forwards', animationDelay: `${index * 0.05}s`, opacity: 0 }}>
-                        <td style={{ padding: '16px 10px', fontWeight: '500' }}>{scoreEntry.category}</td>
+                        <td style={{ padding: '16px 10px', fontWeight: '500' }}>{translatedCategories[scoreEntry.category] || scoreEntry.category}</td>
                         <td style={{ padding: '16px 10px' }}>
                           <span style={{
                             padding: '4px 10px',
@@ -396,20 +509,20 @@ export default function Profile() {
                 className="logs-toggle-btn"
                 onClick={() => setShowAllLogs(!showAllLogs)}
               >
-                {showAllLogs ? 'Hide Extra Logs' : `Show All Logs (${scores.length})`}
+                {showAllLogs ? ui.hideLogs : `${ui.showLogs} (${scores.length})`}
               </button>
             )}
           </>
         ) : (
           <p style={{ fontSize: 'var(--font-size-base)', color: '#666', textAlign: 'center', padding: '20px 0' }}>
-            No quizzes taken yet. Start a quiz to see your progress logs!
+            {ui.noLogsText}
           </p>
         )}
       </div>
 
       <div style={{ marginTop: '20px' }}>
         <button className="btn" style={{ display: 'flex', gap: '10px' }} onClick={() => navigate('/')}>
-          <ArrowLeft size={24} /> Back to Dashboard
+          <ArrowLeft size={24} /> {ui.backDashboard}
         </button>
       </div>
     </div>

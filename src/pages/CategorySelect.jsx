@@ -3,10 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import { MapPin, Calculator, Palette, Globe, Atom, Brain, Coins, BookOpen, Film, SpellCheck } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import { translateText } from '../utils/translationService';
+import Mascot from '../components/Mascot';
 
 export default function CategorySelect() {
   const navigate = useNavigate();
   const { language } = useAuth();
+  const [translating, setTranslating] = useState(false);
 
   const [ui, setUi] = useState({
     title: "Choose a Category",
@@ -26,6 +28,7 @@ export default function CategorySelect() {
 
   useEffect(() => {
     async function loadTranslations() {
+      setTranslating(true);
       const defaultUI = {
         title: "Choose a Category",
         subtitle: "Select the area you'd like to practice today.",
@@ -44,6 +47,7 @@ export default function CategorySelect() {
 
       if (!language || language === 'en') {
         setUi(defaultUI);
+        setTranslating(false);
         return;
       }
 
@@ -55,10 +59,22 @@ export default function CategorySelect() {
         setUi(trans);
       } catch (err) {
         console.error("Failed to load category translations:", err);
+      } finally {
+        setTimeout(() => {
+          setTranslating(false);
+        }, 600);
       }
     }
     loadTranslations();
   }, [language]);
+
+  if (translating) {
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '300px', width: '100%' }}>
+        <Mascot state="loading" width="240" height="240" />
+      </div>
+    );
+  }
 
   return (
     <div style={{ padding: 'var(--spacing-medium)' }} className="slide-up">
