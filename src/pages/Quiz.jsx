@@ -260,86 +260,41 @@ export default function Quiz() {
   }, []);
 
   // Helper to speak text
+  // Helper to speak text
   const speakText = (text, onEndCallback, forceEnglish = false) => {
-    // Stop any currently playing audio or speech
-    cancelSpeech();
-
-    const targetLangPrefix = forceEnglish ? 'en' : (language || 'en');
-    
-    // If not English, use Google Translate TTS for natural human voice rendering
-    if (targetLangPrefix !== 'en') {
-      const chunks = [];
-      let currentChunk = "";
-      
-      // Split by sentence terminators or punctuation
-      const sentences = text.split(/([.?।|!#\n])/);
-      
-      for (let part of sentences) {
-        if ((currentChunk + part).length > 150) {
-          if (currentChunk.trim()) {
-            chunks.push(currentChunk.trim());
-          }
-          currentChunk = part;
-        } else {
-          currentChunk += part;
-        }
-      }
-      if (currentChunk.trim()) {
-        chunks.push(currentChunk.trim());
-      }
-      
-      let chunkIndex = 0;
-      
-      const playNextChunk = () => {
-        if (chunkIndex >= chunks.length) {
-          setIsSpeaking(false);
-          if (onEndCallback) onEndCallback();
-          return;
-        }
-        
-        const chunkText = chunks[chunkIndex];
-        const url = `https://translate.google.com/translate_tts?ie=UTF-8&tl=${targetLangPrefix}&client=tw-ob&q=${encodeURIComponent(chunkText)}`;
-        
-        const audio = new Audio(url);
-        window.currentAudioElement = audio;
-        setIsSpeaking(true);
-        
-        audio.onended = () => {
-          chunkIndex++;
-          playNextChunk();
-        };
-        
-        audio.onerror = () => {
-          chunkIndex++;
-          playNextChunk();
-        };
-        
-        audio.play().catch(err => {
-          console.error("Audio playback error:", err);
-          setIsSpeaking(false);
-          if (onEndCallback) onEndCallback();
-        });
-      };
-      
-      playNextChunk();
-      return;
-    }
-
-    // Otherwise, use window.speechSynthesis for English
     if (!window.speechSynthesis) return;
+    window.speechSynthesis.cancel(); // Stop current speech
     
     const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = 'en-US';
+    
+    // Set synthesis language
+    const langMap = {
+      en: 'en-US',
+      hi: 'hi-IN',
+      bn: 'bn-IN',
+      mr: 'mr-IN',
+      te: 'te-IN',
+      ta: 'ta-IN'
+    };
+    const targetLangPrefix = forceEnglish ? 'en' : (language || 'en');
+    const targetLangCode = forceEnglish ? 'en-US' : (langMap[targetLangPrefix] || 'en-US');
+    utterance.lang = targetLangCode;
     utterance.rate = 0.92; // Slightly slower for seniors
 
+    // Match premium natural human voice in target language if available
     const voices = window.speechSynthesis.getVoices();
     const HIGH_QUALITY_VOICES = {
-      en: ['microsoft aria', 'google us english', 'google uk english', 'samantha', 'english']
+      en: ['microsoft aria', 'google us english', 'google uk english', 'samantha', 'english'],
+      hi: ['swara', 'madhur', 'google हिन्दी', 'google hindi', 'lekha', 'hindi', 'hi-in'],
+      bn: ['nabanita', 'pradeep', 'google বাংলা', 'google bengali', 'bengali', 'bn-in'],
+      mr: ['aarohi', 'manohar', 'google मराठी', 'google marathi', 'marathi', 'mr-in'],
+      te: ['shruti', 'mohan', 'google తెలుగు', 'google telugu', 'telugu', 'te-in'],
+      ta: ['pallavi', 'valluvar', 'google தமிழ்', 'google tamil', 'tamil', 'ta-in']
     };
 
-    const langVoices = voices.filter(v => v.lang.toLowerCase().startsWith('en'));
+    const langVoices = voices.filter(v => v.lang.toLowerCase().startsWith(targetLangPrefix));
     let selectedVoice = null;
-    const preferredPatterns = HIGH_QUALITY_VOICES.en;
+    const preferredPatterns = HIGH_QUALITY_VOICES[targetLangPrefix] || [];
     
     for (const pattern of preferredPatterns) {
       selectedVoice = langVoices.find(v => v.name.toLowerCase().includes(pattern.toLowerCase()));
@@ -347,7 +302,7 @@ export default function Quiz() {
     }
     
     if (!selectedVoice) {
-      selectedVoice = langVoices[0];
+      selectedVoice = langVoices[0] || voices.find(v => v.lang.startsWith('en'));
     }
     
     if (selectedVoice) {
@@ -370,10 +325,6 @@ export default function Quiz() {
   const cancelSpeech = () => {
     if (window.speechSynthesis) {
       window.speechSynthesis.cancel();
-    }
-    if (window.currentAudioElement) {
-      window.currentAudioElement.pause();
-      window.currentAudioElement = null;
     }
     setIsSpeaking(false);
   };
