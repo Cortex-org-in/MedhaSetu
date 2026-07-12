@@ -27,8 +27,10 @@ export function AuthProvider({ children }) {
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [language, setLanguageState] = useState(localStorage.getItem('medhasetu_lang') || 'en');
+  const [languageLoading, setLanguageLoading] = useState(false);
 
   const updateLanguage = async (lang) => {
+    setLanguageLoading(true);
     setLanguageState(lang);
     localStorage.setItem('medhasetu_lang', lang);
     if (currentUser) {
@@ -39,6 +41,9 @@ export function AuthProvider({ children }) {
         console.error("Failed to sync language to Firestore:", err);
       }
     }
+    setTimeout(() => {
+      setLanguageLoading(false);
+    }, 1500);
   };
 
   async function signup(email, password, name) {
@@ -218,7 +223,7 @@ export function AuthProvider({ children }) {
 
   return (
     <AuthContext.Provider value={value}>
-      {loading ? (
+      {loading || languageLoading ? (
         <div style={{
           display: 'flex',
           flexDirection: 'column',

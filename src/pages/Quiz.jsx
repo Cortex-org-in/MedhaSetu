@@ -281,7 +281,31 @@ export default function Quiz() {
 
     // Match premium natural human voice in target language if available
     const voices = window.speechSynthesis.getVoices();
-    const selectedVoice = voices.find(v => v.lang.startsWith(language || 'en'));
+    
+    // Prioritized list of high-quality human/natural voices per language
+    const HIGH_QUALITY_VOICES = {
+      en: ['microsoft aria', 'google us english', 'google uk english', 'samantha', 'english'],
+      hi: ['swara', 'madhur', 'google हिन्दी', 'google hindi', 'lekha', 'hindi', 'hi-in'],
+      bn: ['nabanita', 'pradeep', 'google বাংলা', 'google bengali', 'bengali', 'bn-in'],
+      mr: ['aarohi', 'manohar', 'google मराठी', 'google marathi', 'marathi', 'mr-in'],
+      te: ['shruti', 'mohan', 'google తెలుగు', 'google telugu', 'telugu', 'te-in'],
+      ta: ['pallavi', 'valluvar', 'google தமிழ்', 'google tamil', 'tamil', 'ta-in']
+    };
+
+    const targetLangPrefix = language || 'en';
+    const langVoices = voices.filter(v => v.lang.toLowerCase().startsWith(targetLangPrefix));
+    
+    let selectedVoice = null;
+    const preferredPatterns = HIGH_QUALITY_VOICES[targetLangPrefix] || [];
+    
+    for (const pattern of preferredPatterns) {
+      selectedVoice = langVoices.find(v => v.name.toLowerCase().includes(pattern.toLowerCase()));
+      if (selectedVoice) break;
+    }
+    
+    if (!selectedVoice) {
+      selectedVoice = langVoices[0] || voices.find(v => v.lang.startsWith('en'));
+    }
     
     if (selectedVoice) {
       utterance.voice = selectedVoice;
