@@ -260,44 +260,86 @@ export default function Quiz() {
   }, []);
 
   // Helper to speak text
-  // Helper to speak text
   const speakText = (text, onEndCallback, forceEnglish = false) => {
+    // Stop any currently playing audio or speech
+    cancelSpeech();
+
+    const targetLangPrefix = forceEnglish ? 'en' : (language || 'en');
+    
+    // If not English, use Google Translate TTS for natural human voice rendering
+    if (targetLangPrefix !== 'en') {
+      const chunks = [];
+      let currentChunk = "";
+      
+      // Split by sentence terminators or punctuation
+      const sentences = text.split(/([.?।|!#\n])/);
+      
+      for (let part of sentences) {
+        if ((currentChunk + part).length > 150) {
+          if (currentChunk.trim()) {
+            chunks.push(currentChunk.trim());
+          }
+          currentChunk = part;
+        } else {
+          currentChunk += part;
+        }
+      }
+      if (currentChunk.trim()) {
+        chunks.push(currentChunk.trim());
+      }
+      
+      let chunkIndex = 0;
+      
+      const playNextChunk = () => {
+        if (chunkIndex >= chunks.length) {
+          setIsSpeaking(false);
+          if (onEndCallback) onEndCallback();
+          return;
+        }
+        
+        const chunkText = chunks[chunkIndex];
+        const url = `https://translate.google.com/translate_tts?ie=UTF-8&tl=${targetLangPrefix}&client=tw-ob&q=${encodeURIComponent(chunkText)}`;
+        
+        const audio = new Audio(url);
+        window.currentAudioElement = audio;
+        setIsSpeaking(true);
+        
+        audio.onended = () => {
+          chunkIndex++;
+          playNextChunk();
+        };
+        
+        audio.onerror = () => {
+          chunkIndex++;
+          playNextChunk();
+        };
+        
+        audio.play().catch(err => {
+          console.error("Audio playback error:", err);
+          setIsSpeaking(false);
+          if (onEndCallback) onEndCallback();
+        });
+      };
+      
+      playNextChunk();
+      return;
+    }
+
+    // Otherwise, use window.speechSynthesis for English
     if (!window.speechSynthesis) return;
-    window.speechSynthesis.cancel(); // Stop current speech
     
     const utterance = new SpeechSynthesisUtterance(text);
-    
-    // Set synthesis language
-    const langMap = {
-      en: 'en-US',
-      hi: 'hi-IN',
-      bn: 'bn-IN',
-      mr: 'mr-IN',
-      te: 'te-IN',
-      ta: 'ta-IN'
-    };
-    const targetLangPrefix = forceEnglish ? 'en' : (language || 'en');
-    const targetLangCode = forceEnglish ? 'en-US' : (langMap[targetLangPrefix] || 'en-US');
-    utterance.lang = targetLangCode;
+    utterance.lang = 'en-US';
     utterance.rate = 0.92; // Slightly slower for seniors
 
-    // Match premium natural human voice in target language if available
     const voices = window.speechSynthesis.getVoices();
-    
-    // Prioritized list of high-quality human/natural voices per language
     const HIGH_QUALITY_VOICES = {
-      en: ['microsoft aria', 'google us english', 'google uk english', 'samantha', 'english'],
-      hi: ['swara', 'madhur', 'google हिन्दी', 'google hindi', 'lekha', 'hindi', 'hi-in'],
-      bn: ['nabanita', 'pradeep', 'google বাংলা', 'google bengali', 'bengali', 'bn-in'],
-      mr: ['aarohi', 'manohar', 'google मराठी', 'google marathi', 'marathi', 'mr-in'],
-      te: ['shruti', 'mohan', 'google తెలుగు', 'google telugu', 'telugu', 'te-in'],
-      ta: ['pallavi', 'valluvar', 'google தமிழ்', 'google tamil', 'tamil', 'ta-in']
+      en: ['microsoft aria', 'google us english', 'google uk english', 'samantha', 'english']
     };
 
-    const langVoices = voices.filter(v => v.lang.toLowerCase().startsWith(targetLangPrefix));
-    
+    const langVoices = voices.filter(v => v.lang.toLowerCase().startsWith('en'));
     let selectedVoice = null;
-    const preferredPatterns = HIGH_QUALITY_VOICES[targetLangPrefix] || [];
+    const preferredPatterns = HIGH_QUALITY_VOICES.en;
     
     for (const pattern of preferredPatterns) {
       selectedVoice = langVoices.find(v => v.name.toLowerCase().includes(pattern.toLowerCase()));
@@ -305,7 +347,7 @@ export default function Quiz() {
     }
     
     if (!selectedVoice) {
-      selectedVoice = langVoices[0] || voices.find(v => v.lang.startsWith('en'));
+      selectedVoice = langVoices[0];
     }
     
     if (selectedVoice) {
@@ -328,6 +370,10 @@ export default function Quiz() {
   const cancelSpeech = () => {
     if (window.speechSynthesis) {
       window.speechSynthesis.cancel();
+    }
+    if (window.currentAudioElement) {
+      window.currentAudioElement.pause();
+      window.currentAudioElement = null;
     }
     setIsSpeaking(false);
   };
@@ -365,8 +411,7 @@ export default function Quiz() {
   // Read current question and options
   const readQuestionAloud = () => {
     const currentQ = currentTranslatedQ || selectedQuestions[currentQuestionIndex];
-    const englishQ = selectedQuestions[currentQuestionIndex];
-    if (!currentQ || !englishQ) return;
+    if (!currentQ) return;
     
     // Toggle play/stop behavior
     if (isSpeaking) {
@@ -382,7 +427,16 @@ export default function Quiz() {
       const textToSpeak = `${t.questionWord || 'Question'}. ${currentQ.question}. ${t.optionWord || 'Option'} 1. ${currentQ.options[0]}. ${t.optionWord || 'Option'} 2. ${currentQ.options[1]}. ${t.optionWord || 'Option'} 3. ${currentQ.options[2]}. ${t.optionWord || 'Option'} 4. ${currentQ.options[3]}.`;
       speakText(textToSpeak, null, false);
     } else {
-      const textToSpeak = `Question. ${englishQ.question}. Option 1. ${englishQ.options[0]}. Option 2. ${englishQ.options[1]}. Option 3. ${englishQ.options[2]}. Option 4. ${englishQ.options[3]}.`;
+      // Speak Romanized text using English speaker voice (the original girl voice)
+      const qWord = t.romanizedQuestionWord || 'Question';
+      const oWord = t.romanizedOptionWord || 'Option';
+      const questionText = currentQ.romanizedQuestion || currentQ.question;
+      const opt1 = currentQ.romanizedOptions ? currentQ.romanizedOptions[0] : currentQ.options[0];
+      const opt2 = currentQ.romanizedOptions ? currentQ.romanizedOptions[1] : currentQ.options[1];
+      const opt3 = currentQ.romanizedOptions ? currentQ.romanizedOptions[2] : currentQ.options[2];
+      const opt4 = currentQ.romanizedOptions ? currentQ.romanizedOptions[3] : currentQ.options[3];
+
+      const textToSpeak = `${qWord}. ${questionText}. ${oWord} 1. ${opt1}. ${oWord} 2. ${opt2}. ${oWord} 3. ${opt3}. ${oWord} 4. ${opt4}.`;
       speakText(textToSpeak, null, true);
     }
   };
@@ -394,7 +448,7 @@ export default function Quiz() {
 
     // 1. If waiting for Next Question
     if (selectedAnswer !== null) {
-      if (command.includes('next') || command.includes('continue') || command.includes('go') || command.includes('proceed') || command.includes('अगला') || command.includes('পরবর্তী') || command.includes('पुढे') || command.includes('తదుపరి') || command.includes('அடுத்து')) {
+      if (command.includes('next') || command.includes('continue') || command.includes('go') || command.includes('proceed') || command.includes('अगला') || command.includes('परবর্তী') || command.includes('पुढे') || command.includes('తదుపరి') || command.includes('அடுத்து')) {
         setSpeechFeedback("Advancing...");
         setTimeout(() => {
           handleNextQuestion();
@@ -433,8 +487,15 @@ export default function Quiz() {
       if (hasVoice || targetLangPrefix === 'en') {
         feedbackText = isCorrect ? t.correct : `${t.incorrect} ${currentQ.correct_answer}`;
       } else {
-        const correctEngAns = selectedQuestions[currentQuestionIndex].correct_answer;
-        feedbackText = isCorrect ? "Correct answer!" : `Incorrect. The correct answer is ${correctEngAns}`;
+        const correctIdx = currentQ.options.indexOf(currentQ.correct_answer);
+        const correctRomanized = (currentQ.romanizedOptions && correctIdx !== -1) 
+          ? currentQ.romanizedOptions[correctIdx] 
+          : currentQ.correct_answer;
+
+        const correctWord = t.romanizedCorrect || "Correct!";
+        const incorrectWord = t.romanizedIncorrect || "Incorrect. The correct answer is";
+
+        feedbackText = isCorrect ? correctWord : `${incorrectWord} ${correctRomanized}`;
         forceEng = true;
       }
 

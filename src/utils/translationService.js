@@ -61,17 +61,21 @@ export const TRANSLATIONS = {
     matchedOption: "मैच किया गया विकल्प",
     speakOptionNote: "⚠️ नोट: कृपया विकल्प संख्या बोलें (जैसे \"एक\", \"दो\") विकल्प के नाम के बजाय।",
     optionWord: "विकल्प",
-    questionWord: "प्रश्न"
+    questionWord: "प्रश्न",
+    romanizedOptionWord: "vikalp",
+    romanizedQuestionWord: "prashn",
+    romanizedCorrect: "sahi!",
+    romanizedIncorrect: "galat. sahi uttar hai"
   },
   bn: {
     dashboard: "ড্যাশবোর্ড",
     profile: "প্রোফাইল",
     socialHub: "সোশ্যাল হাব",
-    signOut: "সাইন আউট",
+    signOut: "সাইনアウト",
     welcome: "স্বাগতম",
     streakTitle: "দৈনিক প্রশিক্ষণ স্ট্রিক",
-    activeDays: "প্রশিক্ষণের সক্রিয় দিন",
-    startTraining: "প্রशिक्षण শুরু করুন",
+    activeDays: "प्रशिक्षণের সক্রিয় দিন",
+    startTraining: "প্রশিক্ষণ শুরু করুন",
     categorySubtitle: "আপনার মস্তিষ্ককে প্রশিক্ষণ দিতে নিচে একটি বিভাগ চয়ন করুন",
     leaderboard: "লিডারবোর্ড",
     communityRankings: "কমিউনিটি র‍্যাঙ্কিং",
@@ -93,7 +97,11 @@ export const TRANSLATIONS = {
     matchedOption: "মিলে যাওয়া বিকল্প",
     speakOptionNote: "⚠️ নোট: দয়া করে বিকল্পের পাঠ্যের পরিবর্তে বিকল্পের নম্বর বলুন (যেমন \"এক\", \"দুই\")।",
     optionWord: "বিকল্প",
-    questionWord: "প্রশ্ন"
+    questionWord: "প্রশ্ন",
+    romanizedOptionWord: "bikalpa",
+    romanizedQuestionWord: "proshno",
+    romanizedCorrect: "sothik!",
+    romanizedIncorrect: "bhul. sothik uttor holo"
   },
   mr: {
     dashboard: "डॅशबोर्ड",
@@ -125,7 +133,11 @@ export const TRANSLATIONS = {
     matchedOption: "जुळणारा पर्याय",
     speakOptionNote: "⚠️ टीप: कृपया पर्यायाच्या नावाऐवजी पर्याय क्रमांक बोला (उदा. \"एक\", \"दोन\").",
     optionWord: "पर्याय",
-    questionWord: "प्रश्न"
+    questionWord: "प्रश्न",
+    romanizedOptionWord: "paryay",
+    romanizedQuestionWord: "prashna",
+    romanizedCorrect: "barobar!",
+    romanizedIncorrect: "chukiche. yogya uttar aahe"
   },
   te: {
     dashboard: "డ్యాష్‌బోర్డ్",
@@ -151,13 +163,17 @@ export const TRANSLATIONS = {
     voiceAssistant: "🧠 మేధా వాయిస్ కంపానియన్",
     readAloud: "గట్టిగా చదవండి",
     stopReading: "చదవడం ఆపివేయండి",
-    speakAnswer: "సмаధానం చెప్పండి",
+    speakAnswer: "సమాధానం చెప్పండి",
     listening: "వింటున్నాను...",
     hearing: "వింటున్నాను",
     matchedOption: "సరిపోలిన ఎంపిక",
     speakOptionNote: "⚠️ గమనిక: దయచేసి ఎంపిక పేరుకు బదులుగా ఎంపిక సంఖ్యను చెప్పండి (ఉదా. \"ఒకటి\", \"రెండు\").",
     optionWord: "ఎంపిక",
-    questionWord: "ప్రశ్న"
+    questionWord: "ప్రశ్న",
+    romanizedOptionWord: "empika",
+    romanizedQuestionWord: "prashna",
+    romanizedCorrect: "sarainadhi!",
+    romanizedIncorrect: "thappu. saraina samaadhaanam"
   },
   ta: {
     dashboard: "டாஷ்போர்டு",
@@ -189,7 +205,11 @@ export const TRANSLATIONS = {
     matchedOption: "பொருந்திய விருப்பம்",
     speakOptionNote: "⚠️ குறிப்பு: விருப்பத்தின் பெயரைப் பேசுவதற்குப் பதிலாக விருப்ப எண்ணைப் பேசவும் (எ.கா. \"ஒன்று\", \"இரண்டு\").",
     optionWord: "விருப்பம்",
-    questionWord: "கேள்வி"
+    questionWord: "கேள்வி",
+    romanizedOptionWord: "viruppam",
+    romanizedQuestionWord: "kelvi",
+    romanizedCorrect: "sari!",
+    romanizedIncorrect: "thavaru. sariyaana bathil"
   }
 };
 
@@ -222,27 +242,78 @@ export async function translateText(text, targetLang) {
   return text;
 }
 
-export async function translateQuestion(qObj, targetLang) {
-  if (!targetLang || targetLang === 'en') return qObj;
+export async function translateTextWithRomanization(text, targetLang) {
+  if (!targetLang || targetLang === 'en') return { translated: text, romanized: text };
+  
+  const cacheKey = `tr_rm_${targetLang}_${encodeURIComponent(text).slice(0, 100)}`;
+  const cached = localStorage.getItem(cacheKey);
+  if (cached) {
+    try {
+      return JSON.parse(cached);
+    } catch(e) {}
+  }
   
   try {
-    const translatedQuestion = await translateText(qObj.question, targetLang);
+    const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${targetLang}&dt=t&dt=rm&q=${encodeURIComponent(text)}`;
+    const res = await fetch(url);
+    if (!res.ok) throw new Error("Translation failed");
+    const data = await res.json();
     
-    const translatedOptions = [];
-    for (const opt of qObj.options) {
-      const transOpt = await translateText(opt, targetLang);
-      translatedOptions.push(transOpt);
+    let translated = "";
+    let romanized = "";
+    
+    if (data && data[0]) {
+      translated = data[0].filter(item => item[0]).map(item => item[0]).join("");
+      
+      const rmItem = data[0].find(item => item && item[0] === null && item[1] === null && typeof item[2] === 'string');
+      if (rmItem) {
+        romanized = rmItem[2];
+      }
     }
     
-    // Find index of correct answer to translate
+    if (!romanized) {
+      romanized = translated;
+    }
+    
+    const result = { translated, romanized };
+    localStorage.setItem(cacheKey, JSON.stringify(result));
+    return result;
+  } catch (err) {
+    console.error("Translation API error with romanization:", err);
+    return { translated: text, romanized: text };
+  }
+}
+
+export async function translateQuestion(qObj, targetLang) {
+  if (!targetLang || targetLang === 'en') {
+    return {
+      ...qObj,
+      romanizedQuestion: qObj.question,
+      romanizedOptions: qObj.options
+    };
+  }
+  
+  try {
+    const qTrans = await translateTextWithRomanization(qObj.question, targetLang);
+    
+    const translatedOptions = [];
+    const romanizedOptions = [];
+    for (const opt of qObj.options) {
+      const optTrans = await translateTextWithRomanization(opt, targetLang);
+      translatedOptions.push(optTrans.translated);
+      romanizedOptions.push(optTrans.romanized);
+    }
+    
     const correctIdx = qObj.options.indexOf(qObj.correct_answer);
     const translatedCorrect = correctIdx !== -1 ? translatedOptions[correctIdx] : qObj.correct_answer;
     
     return {
       ...qObj,
-      question: translatedQuestion,
+      question: qTrans.translated,
       options: translatedOptions,
-      correct_answer: translatedCorrect
+      correct_answer: translatedCorrect,
+      romanizedQuestion: qTrans.romanized,
+      romanizedOptions: romanizedOptions
     };
   } catch (err) {
     console.error("Error translating question object:", err);
