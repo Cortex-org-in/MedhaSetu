@@ -27,6 +27,27 @@ export function AuthProvider({ children }) {
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [language, setLanguageState] = useState(localStorage.getItem('medhasetu_lang') || 'en');
+  const [isGuest, setIsGuest] = useState(() => {
+    try {
+      return localStorage.getItem('medhasetu_guest') === '1';
+    } catch {
+      return false;
+    }
+  });
+
+  function continueAsGuest() {
+    try {
+      localStorage.setItem('medhasetu_guest', '1');
+    } catch {}
+    setIsGuest(true);
+  }
+
+  function exitGuest() {
+    try {
+      localStorage.removeItem('medhasetu_guest');
+    } catch {}
+    setIsGuest(false);
+  }
 
   const updateLanguage = async (lang) => {
     setLanguageState(lang);
@@ -42,11 +63,16 @@ export function AuthProvider({ children }) {
   };
 
   async function signup(email, password, name) {
-    // 1. Check if email already exists in registered users collection
-    const q = query(collection(db, 'users'), where('email', '==', email.toLowerCase()));
-    const querySnapshot = await getDocs(q);
-    if (!querySnapshot.empty) {
-      throw new Error("Email already in use.");
+    // Pre-auth reads on users/ are denied; duplicate check is best-effort.
+    try {
+      const q = query(collection(db, 'users'), where('email', '==', email.toLowerCase()));
+      const querySnapshot = await getDocs(q);
+      if (!querySnapshot.empty) {
+        throw new Error("Email already in use.");
+      }
+    } catch (dupErr) {
+      if (dupErr?.message === "Email already in use.") throw dupErr;
+      console.warn("Skipping duplicate-email precheck (rules deny pre-auth users read):", dupErr?.code || dupErr?.message);
     }
 
     // 2. Generate secure 6-digit OTP Code
@@ -72,7 +98,7 @@ export function AuthProvider({ children }) {
     try {
       await sendOtpEmail(email, name, otpCode);
     } catch (verifErr) {
-      console.error("Failed to send OTP verification email:", verifErr);
+      console.warn("Failed to send OTP verification email (continuing signup, OTP in console for dev):", verifErr);
     }
   }
 
@@ -101,16 +127,29 @@ export function AuthProvider({ children }) {
     try {
       return await signInWithPopup(auth, googleProvider);
     } catch (error) {
-      if (error.code === 'auth/popup-blocked') {
-        console.warn("Google login popup blocked. Falling back to redirect...");
+      if (error.code === 'auth/unauthorized-domain' || error.code === 'auth/operation-not-allowed') {
+        throw error;
+      }
+      if (error.code === 'auth/popup-blocked' || error.code === 'auth/popup-closed-by-user' || error.code === 'auth/cancelled-popup-request') {
+        console.warn("Google login popup issue (" + error.code + "). Falling back to redirect...");
         return await signInWithRedirect(auth, googleProvider);
       }
       throw error;
     }
   }
 
-  function logout() {
-    return signOut(auth);
+  async function logout() {
+    try {
+      localStorage.removeItem('medhasetu_guest');
+    } catch {}
+    setIsGuest(false);
+    try {
+      return await signOut(auth);
+    } catch (err) {
+      // No Firebase session (e.g. guest mode) — signOut may fail; swallow it.
+      if (!auth.currentUser) return;
+      throw err;
+    }
   }
 
   function resetPassword(email) {
@@ -203,9 +242,24 @@ export function AuthProvider({ children }) {
     };
   }, []);
 
+  const effectiveCurrentUser = currentUser || (isGuest ? { uid: 'guest-local', displayName: 'Guest', email: 'guest@local' } : null);
+  const effectiveUserData = userData || (isGuest ? {
+    displayName: 'Guest',
+    email: 'guest@local',
+    streak: parseInt(localStorage.getItem('medhasetu_guest_streak') || '0'),
+    scores: JSON.parse(localStorage.getItem('medhasetu_guest_scores') || '[]'),
+    badges: [],
+    isVerified: true,
+    isGuest: true,
+    language: localStorage.getItem('medhasetu_lang') || 'en'
+  } : null);
+
   const value = {
-    currentUser,
-    userData,
+    currentUser: effectiveCurrentUser,
+    userData: effectiveUserData,
+    isGuest,
+    continueAsGuest,
+    exitGuest,
     signup,
     login,
     loginWithGoogle,

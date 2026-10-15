@@ -53,7 +53,8 @@ const LANGUAGE_NUMBER_MAP = {
 export default function Quiz() {
   const { category } = useParams();
   const navigate = useNavigate();
-  const { currentUser, userData, language } = useAuth();
+  const { currentUser, userData, language, isGuest: isGuestCtx } = useAuth();
+  const isGuest = isGuestCtx ?? !currentUser;
   
   const [questions, setQuestions] = useState([]);
   const [selectedQuestions, setSelectedQuestions] = useState([]);
@@ -106,7 +107,11 @@ export default function Quiz() {
         }
       } catch (err) {
         console.error("Error fetching questions:", err);
-        setError('Failed to load questions.');
+        if (err?.code === 'permission-denied' || err?.code === 'unauthenticated') {
+          setError('Questions are not available right now. Please check your connection or try again later.');
+        } else {
+          setError('Failed to load questions.');
+        }
       }
       
       const elapsed = Date.now() - startTime;
@@ -183,7 +188,30 @@ export default function Quiz() {
   };
 
   const saveQuizResults = async () => {
-    if (!currentUser) return;
+    const scoreEntry = {
+      category,
+      score,
+      total: TOTAL_QUESTIONS,
+      date: new Date().toISOString().split('T')[0]
+    };
+
+    // Guest mode (no Firebase session): persist progress locally only.
+    if (isGuest || !currentUser) {
+      try {
+        const rawScores = localStorage.getItem('medhasetu_guest_scores');
+        const guestScores = rawScores ? JSON.parse(rawScores) : [];
+        guestScores.push(scoreEntry);
+        localStorage.setItem('medhasetu_guest_scores', JSON.stringify(guestScores));
+        const rawStreak = localStorage.getItem('medhasetu_guest_streak');
+        const guestStreak = (parseInt(rawStreak, 10) || 0) + 1;
+        localStorage.setItem('medhasetu_guest_streak', String(guestStreak));
+      } catch (err) {
+        console.error("Error saving guest progress locally:", err);
+      }
+      return;
+    }
+
+    if (!isGuest) {
     try {
       const userRef = doc(db, 'users', currentUser.uid);
       const userSnap = await getDoc(userRef);
@@ -210,13 +238,6 @@ export default function Quiz() {
           newStreak = currentStreak || 1;
         }
       }
-      
-      const scoreEntry = {
-        category,
-        score,
-        total: TOTAL_QUESTIONS,
-        date: today
-      };
       
       const updatedScores = [...(userDocData.scores || []), scoreEntry];
       const currentBadgeIds = userDocData.badges || [];
@@ -246,6 +267,7 @@ export default function Quiz() {
 
     } catch (err) {
       console.error("Error saving progress:", err);
+    }
     }
   };
 

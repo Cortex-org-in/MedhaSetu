@@ -7,16 +7,16 @@ import Mascot from '../components/Mascot';
 export default function Login() {
   const emailRef = useRef();
   const passwordRef = useRef();
-  const { currentUser, login, loginWithGoogle } = useAuth();
+  const { currentUser, isGuest, login, loginWithGoogle, continueAsGuest } = useAuth();
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (currentUser) {
+    if (currentUser || isGuest) {
       navigate('/');
     }
-  }, [currentUser, navigate]);
+  }, [currentUser, isGuest, navigate]);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -27,6 +27,7 @@ export default function Login() {
       await login(emailRef.current.value, passwordRef.current.value);
     } catch (err) {
       setError(getFriendlyAuthErrorMessage(err));
+    } finally {
       setLoading(false);
     }
   }
@@ -38,8 +39,14 @@ export default function Login() {
       await loginWithGoogle();
     } catch (err) {
       setError(getFriendlyAuthErrorMessage(err));
+    } finally {
       setLoading(false);
     }
+  }
+
+  function handleGuestLogin() {
+    continueAsGuest();
+    navigate('/');
   }
 
   return (
@@ -74,6 +81,10 @@ export default function Login() {
       
       <button disabled={loading} className="btn btn-secondary" onClick={handleGoogleLogin}>
         Sign In with Google
+      </button>
+
+      <button disabled={loading} className="btn btn-secondary" onClick={handleGuestLogin} style={{ marginTop: '12px' }}>
+        Continue as Guest
       </button>
 
       <div style={{ textAlign: 'center', marginTop: '30px', fontSize: '20px' }}>

@@ -9,16 +9,16 @@ export default function Signup() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
-  const { currentUser, signup, loginWithGoogle } = useAuth();
+  const { currentUser, isGuest, signup, loginWithGoogle, continueAsGuest } = useAuth();
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (currentUser) {
+    if (currentUser || isGuest) {
       navigate('/');
     }
-  }, [currentUser, navigate]);
+  }, [currentUser, isGuest, navigate]);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -34,6 +34,7 @@ export default function Signup() {
       navigate('/verify-email');
     } catch (err) {
       setError(getFriendlyAuthErrorMessage(err));
+    } finally {
       setLoading(false);
     }
   }
@@ -45,8 +46,14 @@ export default function Signup() {
       await loginWithGoogle();
     } catch (err) {
       setError(getFriendlyAuthErrorMessage(err));
+    } finally {
       setLoading(false);
     }
+  }
+
+  function handleGuestLogin() {
+    continueAsGuest();
+    navigate('/');
   }
 
   return (
@@ -89,6 +96,10 @@ export default function Signup() {
       
       <button disabled={loading} className="btn btn-secondary" onClick={handleGoogleLogin}>
         Sign Up with Google
+      </button>
+
+      <button disabled={loading} className="btn btn-secondary" onClick={handleGuestLogin} style={{ marginTop: '12px' }}>
+        Continue as Guest
       </button>
 
       <div style={{ textAlign: 'center', marginTop: '30px', fontSize: '20px' }}>

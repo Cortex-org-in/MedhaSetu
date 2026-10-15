@@ -39,7 +39,15 @@ export function getFriendlyAuthErrorMessage(error) {
     case 'auth/network-request-failed':
       return 'We are having trouble connecting to the internet. Please check your Wi-Fi or cellular connection and try again.';
     case 'auth/unauthorized-domain':
-      return 'This website domain is not authorized for Google login. Admin action: Add this domain (seniorsetu-agility.web.app) in your Firebase Console under Auth settings.';
+      return 'This website domain is not authorized for Google login. Admin action: Add both domains (seniorcitizen-b7909.firebaseapp.com and medhasetu-agility.web.app) in your Firebase Console under Auth settings.';
+    case 'auth/configuration-not-found':
+      return 'The login service is not configured correctly. Admin action: Check your Firebase project configuration and authorized domains in the Firebase Console.';
+    case 'auth/invalid-api-key':
+      return 'The app configuration key is invalid. Admin action: Verify the Firebase API key in your project settings.';
+    case 'auth/operation-not-allowed':
+      return 'This sign-in method is not enabled. Admin action: Enable this provider in Firebase Console under Authentication > Sign-in method.';
+    case 'auth/account-exists-with-different-credential':
+      return 'An account already exists with this email using a different sign-in method. Please sign in with the original method first, then link your Google account.';
     case 'auth/too-many-requests':
       return 'Too many failed login attempts have occurred. Your account is temporarily locked to keep it safe. Please wait a few minutes and try again.';
     case 'auth/requires-recent-login':
@@ -47,6 +55,9 @@ export function getFriendlyAuthErrorMessage(error) {
     case 'auth/internal-error':
       return 'A technical error occurred in the system. Please wait a moment and try again.';
     default:
+      if (code === 'permission-denied' || (error.message && error.message.toLowerCase().includes('insufficient permissions'))) {
+        return 'You do not have permission to complete this action. This may be due to security rules. Please contact support if you believe this is a mistake.';
+      }
       if (error.message && error.message.toLowerCase().includes('network')) {
         return 'Network issue detected. Please check your internet connection.';
       }

@@ -8,7 +8,8 @@ import Mascot from '../components/Mascot';
 import { translateText } from '../utils/translationService';
 
 export default function Dashboard() {
-  const { currentUser, userData, logout, language } = useAuth();
+  const { currentUser, userData, logout, language, isGuest: isGuestCtx } = useAuth();
+  const isGuest = isGuestCtx ?? !currentUser;
   const [showStreakModal, setShowStreakModal] = useState(false);
   const [translating, setTranslating] = useState(false);
   const navigate = useNavigate();
@@ -38,7 +39,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     async function checkStreakReset() {
-      if (!userData || !currentUser) return;
+      if (isGuest || !userData || !currentUser) return;
       
       const lastPlayed = userData.lastPlayedDate;
       const currentStreak = userData.streak || 0;
@@ -125,6 +126,7 @@ export default function Dashboard() {
 
   const dismissStreakAlert = async () => {
     setShowStreakModal(false);
+    if (isGuest || !currentUser) return;
     try {
       const userRef = doc(db, 'users', currentUser.uid);
       await setDoc(userRef, { streakBrokenAlert: false }, { merge: true });

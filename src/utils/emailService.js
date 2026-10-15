@@ -44,6 +44,7 @@ export async function sendOtpEmail(toEmail, toName, otpCode) {
     if (!response.ok) {
       const errorText = await response.text();
       console.error("EmailJS API Error Response:", errorText);
+      throw new Error("Failed to send OTP email: " + errorText);
     }
     
     return response;

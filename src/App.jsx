@@ -16,7 +16,7 @@ import { Menu, Home, PlayCircle, Users, Award, ShieldAlert, LogOut } from 'lucid
 import { TRANSLATIONS } from './utils/translationService';
 
 function LayoutWrapper({ children }) {
-  const { currentUser, userData, logout, language, updateLanguage } = useAuth();
+  const { currentUser, userData, isGuest, exitGuest, logout, language, updateLanguage } = useAuth();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
   const navigate = useNavigate();
@@ -25,7 +25,11 @@ function LayoutWrapper({ children }) {
     setSidebarOpen(false);
     setProfileDropdownOpen(false);
     try {
-      await logout();
+      if (isGuest) {
+        exitGuest();
+      } else {
+        await logout();
+      }
       navigate('/login');
     } catch (err) {
       console.error("Failed to log out:", err);

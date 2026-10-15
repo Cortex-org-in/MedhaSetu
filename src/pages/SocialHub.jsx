@@ -11,6 +11,7 @@ export default function SocialHub() {
   const { currentUser, language } = useAuth();
   const [usersList, setUsersList] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState('');
   const [translating, setTranslating] = useState(false);
   const [rankBy, setRankBy] = useState('streak'); // 'streak' or 'quizzes'
   const [visibleCount, setVisibleCount] = useState(10);
@@ -49,8 +50,15 @@ export default function SocialHub() {
           users.push({ id: doc.id, ...doc.data() });
         });
         setUsersList(users);
+        setLoadError('');
       } catch (err) {
         console.error("Error fetching leaderboard users:", err);
+        setUsersList([]);
+        if (err?.code === 'permission-denied' || err?.code === 'unauthenticated') {
+          setLoadError('Leaderboard is unavailable in guest mode. Sign in to see community rankings.');
+        } else {
+          setLoadError('Could not load the leaderboard right now. Please try again later.');
+        }
       }
       
       const elapsed = Date.now() - startTime;
@@ -208,6 +216,12 @@ export default function SocialHub() {
         <h3 style={{ fontSize: 'var(--font-size-large)', marginBottom: '20px', color: 'var(--primary-color)', display: 'flex', alignItems: 'center', gap: '10px' }}>
           <Trophy size={28} /> {ui.topAgileTitle}
         </h3>
+
+        {loadError && usersList.length === 0 && (
+          <div style={{ padding: '16px', backgroundColor: '#fafafa', border: '2px dashed #ccc', borderRadius: '16px', color: '#666', fontSize: 'var(--font-size-base)', textAlign: 'center', marginBottom: '10px' }}>
+            {loadError}
+          </div>
+        )}
 
         <div className="leaderboard-container">
           {sortedUsers.slice(0, visibleCount).map((user, index) => {
